@@ -9,18 +9,38 @@
   <title>Cupertino.Avalonia Gallery</title>
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./app.css">
+  <link href="_framework/dotnet.blvt1thv70.js" rel="preload" as="script" fetchpriority="high" crossorigin="anonymous" integrity="sha256-L0rUWXVpSSI0G7pbI77ezoN827/SxyxSW4TlHZ/3LbA=" />
+  <script type="importmap">{
+  "imports": {
+    "./_framework/dotnet.js": "./_framework/dotnet.blvt1thv70.js",
+    "./_framework/dotnet.native.js": "./_framework/dotnet.native.ajnd6fshcb.js",
+    "./_framework/dotnet.runtime.js": "./_framework/dotnet.runtime.o0qy896u8v.js",
+    "./main.js": "./main.vep551w9kr.js"
+  },
+  "scopes": {},
+  "integrity": {
+    "./_framework/dotnet.blvt1thv70.js": "sha256-L0rUWXVpSSI0G7pbI77ezoN827/SxyxSW4TlHZ/3LbA=",
+    "./_framework/dotnet.js": "sha256-L0rUWXVpSSI0G7pbI77ezoN827/SxyxSW4TlHZ/3LbA=",
+    "./_framework/dotnet.native.ajnd6fshcb.js": "sha256-ZhpTYxx+rwpCx+lTTT8YifoDxMkL+J8Vz4ER5THq/rk=",
+    "./_framework/dotnet.native.js": "sha256-ZhpTYxx+rwpCx+lTTT8YifoDxMkL+J8Vz4ER5THq/rk=",
+    "./_framework/dotnet.runtime.js": "sha256-yJvgPPUUvavYVmu9VD/fYtMcoEnLVaB0Cr7JAE29btw=",
+    "./_framework/dotnet.runtime.o0qy896u8v.js": "sha256-yJvgPPUUvavYVmu9VD/fYtMcoEnLVaB0Cr7JAE29btw=",
+    "./main.js": "sha256-5xiBMQvA83Qm21M6c4iwL1TjImfxNmCH9GB6sG9dMsQ=",
+    "./main.vep551w9kr.js": "sha256-5xiBMQvA83Qm21M6c4iwL1TjImfxNmCH9GB6sG9dMsQ="
+  }
+}</script>
 </head>
 <body>
-  <main id="out">
-    <div class="splash" role="status" aria-live="polite">
-      <div class="app-icon" aria-hidden="true">C</div>
-      <div>
-        <strong>Cupertino.Avalonia</strong>
-        <span>Loading the gallery…</span>
-      </div>
+  <main id="out" aria-label="Cupertino gallery" aria-busy="true"></main>
+  <div id="loading" class="splash" role="status" aria-live="polite">
+    <div class="app-icon" aria-hidden="true">C</div>
+    <div class="splash-copy">
+      <strong id="loading-title">Cupertino.Avalonia</strong>
+      <span id="loading-message">Loading the gallery…</span>
+      <button id="reload-gallery" type="button" hidden>Reload gallery</button>
     </div>
-  </main>
+  </div>
   <noscript>This gallery needs JavaScript and WebAssembly enabled.</noscript>
-  <script type="module" src="./main.js"></script>
+  <script type="module" src="main.vep551w9kr.js"></script>
 </body>
 </html>
