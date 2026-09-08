@@ -9,6 +9,8 @@
   <title>Cupertino.Avalonia Gallery</title>
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./app.css">
+  <!-- Keep the startup overlay visible even if the shared stylesheet is cached. -->
+  <style>#loading { position: fixed; inset: 0; z-index: 1; }</style>
   <link href="_framework/dotnet.blvt1thv70.js" rel="preload" as="script" fetchpriority="high" crossorigin="anonymous" integrity="sha256-L0rUWXVpSSI0G7pbI77ezoN827/SxyxSW4TlHZ/3LbA=" />
   <script type="importmap">{
   "imports": {
