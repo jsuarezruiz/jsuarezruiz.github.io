@@ -1,0 +1,3738 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class PromptBar | Nova.Avalonia.AIKit </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class PromptBar | Nova.Avalonia.AIKit ">
+      
+      <meta name="description" content="A message composer with slash commands, attachable sources, a model picker and a dictation toggle. Typing &amp;quot;/&amp;quot; filters  and &amp;quot;@&amp;quot; or the attach button lists  in a popup above the bar.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/new/main/apiSpec/new?filename=Nova_Avalonia_AIKit_Controls_PromptBar.md&amp;value=---%0Auid%3A%20Nova.Avalonia.AIKit.Controls.PromptBar%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo-transparent.png" alt="Nova.Avalonia.AIKit">
+            Nova.Avalonia.AIKit
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Nova.Avalonia.AIKit.Controls.PromptBar">
+
+
+
+  <h1 id="Nova_Avalonia_AIKit_Controls_PromptBar" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar" class="text-break">
+Class PromptBar  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Nova.html">Nova</a>.<a class="xref" href="Nova.Avalonia.html">Avalonia</a>.<a class="xref" href="Nova.Avalonia.AIKit.html">AIKit</a>.<a class="xref" href="Nova.Avalonia.AIKit.Controls.html">Controls</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Nova.Avalonia.AIKit.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A message composer with slash commands, attachable sources, a model picker and a
+dictation toggle. Typing &quot;/&quot; filters <a class="xref" href="Nova.Avalonia.AIKit.Controls.PromptBar.html#Nova_Avalonia_AIKit_Controls_PromptBar_CommandsSource">CommandsSource</a> and &quot;@&quot; or the
+attach button lists <a class="xref" href="Nova.Avalonia.AIKit.Controls.PromptBar.html#Nova_Avalonia_AIKit_Controls_PromptBar_SourcesSource">SourcesSource</a> in a popup above the bar.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TemplatePart(&quot;PART_InputBox&quot;, typeof(TextBox))]
+[TemplatePart(&quot;PART_Popup&quot;, typeof(Popup))]
+[TemplatePart(&quot;PART_EffortButton&quot;, typeof(Button))]
+[PseudoClasses(new string[] { &quot;:dictating&quot; })]
+public class PromptBar : TemplatedControl, INotifyPropertyChanged, IDataContextProvider, ILogical, IThemeVariantHost, IResourceHost, IResourceNode, IStyleHost, ISetLogicalParent, ISetInheritanceParent, ISupportInitialize, INamed, IInputElement, IDataTemplateHost, ISetterValue</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">AvaloniaObject</span></div>
+      <div><span class="xref">Animatable</span></div>
+      <div><span class="xref">StyledElement</span></div>
+      <div><span class="xref">Visual</span></div>
+      <div><span class="xref">Layoutable</span></div>
+      <div><span class="xref">Interactive</span></div>
+      <div><span class="xref">InputElement</span></div>
+      <div><span class="xref">Control</span></div>
+      <div><span class="xref">TemplatedControl</span></div>
+      <div><span class="xref">PromptBar</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged">INotifyPropertyChanged</a></div>
+      <div><span class="xref">IDataContextProvider</span></div>
+      <div><span class="xref">ILogical</span></div>
+      <div><span class="xref">IThemeVariantHost</span></div>
+      <div><span class="xref">IResourceHost</span></div>
+      <div><span class="xref">IResourceNode</span></div>
+      <div><span class="xref">IStyleHost</span></div>
+      <div><span class="xref">ISetLogicalParent</span></div>
+      <div><span class="xref">ISetInheritanceParent</span></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.isupportinitialize">ISupportInitialize</a></div>
+      <div><span class="xref">INamed</span></div>
+      <div><span class="xref">IInputElement</span></div>
+      <div><span class="xref">IDataTemplateHost</span></div>
+      <div><span class="xref">ISetterValue</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <span class="xref">TemplatedControl.BackgroundProperty</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.BackgroundSizingProperty</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.BorderBrushProperty</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.BorderThicknessProperty</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.CornerRadiusProperty</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.FontFamilyProperty</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.FontFeaturesProperty</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.FontSizeProperty</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.FontStyleProperty</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.FontWeightProperty</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.FontStretchProperty</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.ForegroundProperty</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.LetterSpacingProperty</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.PaddingProperty</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.TemplateProperty</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.IsTemplateFocusTargetProperty</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.TemplateAppliedEvent</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.GetIsTemplateFocusTarget(Control)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">TemplatedControl.SetIsTemplateFocusTarget(Control, bool)</a>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.ApplyTemplate()</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.GetTemplateFocusTarget()</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.OnAttachedToLogicalTree(LogicalTreeAttachmentEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.OnDetachedFromLogicalTree(LogicalTreeAttachmentEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.OnTemplateChanged(AvaloniaPropertyChangedEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.Background</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.BackgroundSizing</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.BorderBrush</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.BorderThickness</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.CornerRadius</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.FontFamily</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.FontFeatures</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.FontSize</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.FontStyle</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.FontWeight</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.FontStretch</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.Foreground</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.LetterSpacing</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.Padding</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.Template</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.TemplateApplied</span>
+    </div>
+    <div>
+      <span class="xref">Control.FocusAdornerProperty</span>
+    </div>
+    <div>
+      <span class="xref">Control.TagProperty</span>
+    </div>
+    <div>
+      <span class="xref">Control.ContextMenuProperty</span>
+    </div>
+    <div>
+      <span class="xref">Control.ContextFlyoutProperty</span>
+    </div>
+    <div>
+      <span class="xref">Control.RequestBringIntoViewEvent</span>
+    </div>
+    <div>
+      <span class="xref">Control.LoadedEvent</span>
+    </div>
+    <div>
+      <span class="xref">Control.UnloadedEvent</span>
+    </div>
+    <div>
+      <span class="xref">Control.SizeChangedEvent</span>
+    </div>
+    <div>
+      <span class="xref">Control.OnLoaded(RoutedEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">Control.OnUnloaded(RoutedEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">Control.OnSizeChanged(SizeChangedEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">Control.OnAttachedToVisualTreeCore(VisualTreeAttachmentEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">Control.OnDetachedFromVisualTreeCore(VisualTreeAttachmentEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">Control.OnGotFocus(FocusChangedEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">Control.OnLostFocus(FocusChangedEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">Control.OnCreateAutomationPeer()</span>
+    </div>
+    <div>
+      <span class="xref">Control.OnPointerReleased(PointerReleasedEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">Control.OnKeyUp(KeyEventArgs)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception">Control.UpdateDataValidation(AvaloniaProperty, BindingValueType, Exception)</a>
+    </div>
+    <div>
+      <span class="xref">Control.FocusAdorner</span>
+    </div>
+    <div>
+      <span class="xref">Control.DataTemplates</span>
+    </div>
+    <div>
+      <span class="xref">Control.ContextMenu</span>
+    </div>
+    <div>
+      <span class="xref">Control.ContextFlyout</span>
+    </div>
+    <div>
+      <span class="xref">Control.IsLoaded</span>
+    </div>
+    <div>
+      <span class="xref">Control.Tag</span>
+    </div>
+    <div>
+      <span class="xref">Control.Loaded</span>
+    </div>
+    <div>
+      <span class="xref">Control.Unloaded</span>
+    </div>
+    <div>
+      <span class="xref">Control.SizeChanged</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.FocusableProperty</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.IsEnabledProperty</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.IsEffectivelyEnabledProperty</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.CursorProperty</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.IsKeyboardFocusWithinProperty</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.IsFocusedProperty</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.IsHitTestVisibleProperty</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.IsPointerOverProperty</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.IsTabStopProperty</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.GotFocusEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.GettingFocusEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.LostFocusEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.LosingFocusEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.KeyDownEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.KeyUpEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.TabIndexProperty</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.TextInputEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.TextInputMethodClientRequestedEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PointerEnteredEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PointerExitedEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PointerMovedEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PointerPressedEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PointerReleasedEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PointerCaptureLostEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PointerWheelChangedEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.ContextRequestedEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.ContextCanceledEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.IsHoldingEnabledProperty</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.IsHoldWithMouseEnabledProperty</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PinchEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PinchEndedEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PullGestureEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PullGestureEndedEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.SwipeGestureEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.SwipeGestureEndedEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.ScrollGestureEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.ScrollGestureInertiaStartingEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.ScrollGestureEndedEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PointerTouchPadGestureMagnifyEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PointerTouchPadGestureRotateEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PointerTouchPadGestureSwipeEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.TappedEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.RightTappedEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.HoldingEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.DoubleTappedEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.Focus(NavigationMethod, KeyModifiers)</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.OnAccessKey(RoutedEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.OnGettingFocus(FocusChangingEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.OnLosingFocus(FocusChangingEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.OnKeyDown(KeyEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.OnTextInput(TextInputEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.OnPointerEntered(PointerEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.OnPointerExited(PointerEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.OnPointerMoved(PointerEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.OnPointerPressed(PointerPressedEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.GetNextTabStopOverride()</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.GetPreviousTabStopOverride()</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.GetFirstFocusableElementOverride()</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.GetLastFocusableElementOverride()</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.OnPointerCaptureLost(PointerCaptureLostEventArgs)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">InputElement.ProcessTabStopOverride(IInputElement, IInputElement, bool, bool, ref IInputElement)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">InputElement.ProcessCandidateTabStopOverride(IInputElement, IInputElement, IInputElement, bool, ref IInputElement)</a>
+    </div>
+    <div>
+      <span class="xref">InputElement.OnPointerWheelChanged(PointerWheelEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.OnTapped(TappedEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.OnRightTapped(TappedEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.OnDoubleTapped(TappedEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.OnHolding(HoldingRoutedEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.UpdateIsEffectivelyEnabled()</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.GetIsHoldingEnabled(StyledElement)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">InputElement.SetIsHoldingEnabled(StyledElement, bool)</a>
+    </div>
+    <div>
+      <span class="xref">InputElement.GetIsHoldWithMouseEnabled(StyledElement)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">InputElement.SetIsHoldWithMouseEnabled(StyledElement, bool)</a>
+    </div>
+    <div>
+      <span class="xref">InputElement.Focusable</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.IsEnabled</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.Cursor</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.IsKeyboardFocusWithin</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.IsFocused</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.IsHitTestVisible</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.IsPointerOver</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.IsTabStop</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.IsEffectivelyEnabled</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.TabIndex</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.KeyBindings</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.IsEnabledCore</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.GestureRecognizers</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.GotFocus</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.GettingFocus</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.LostFocus</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.LosingFocus</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.KeyDown</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.KeyUp</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.TextInput</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.TextInputMethodClientRequested</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PointerEntered</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PointerExited</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PointerMoved</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PointerPressed</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PointerReleased</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PointerCaptureLost</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PointerWheelChanged</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.ContextRequested</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.ContextCanceled</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.Pinch</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PinchEnded</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PullGesture</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PullGestureEnded</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.ScrollGesture</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.ScrollGestureInertiaStarting</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.ScrollGestureEnded</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PointerTouchPadGestureMagnify</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PointerTouchPadGestureRotate</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.SwipeGesture</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.SwipeGestureEnded</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PointerTouchPadGestureSwipe</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.Tapped</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.RightTapped</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.Holding</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.DoubleTapped</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.delegate">Interactive.AddHandler(RoutedEvent, Delegate, RoutingStrategies, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">Interactive.AddHandler&lt;TEventArgs&gt;(RoutedEvent&lt;TEventArgs&gt;, EventHandler&lt;TEventArgs&gt;, RoutingStrategies, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.delegate">Interactive.RemoveHandler(RoutedEvent, Delegate)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">Interactive.RemoveHandler&lt;TEventArgs&gt;(RoutedEvent&lt;TEventArgs&gt;, EventHandler&lt;TEventArgs&gt;)</a>
+    </div>
+    <div>
+      <span class="xref">Interactive.RaiseEvent(RoutedEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">Interactive.BuildEventRoute(RoutedEvent)</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.DesiredSizeProperty</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.WidthProperty</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.HeightProperty</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.MinWidthProperty</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.MaxWidthProperty</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.MinHeightProperty</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.MaxHeightProperty</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.MarginProperty</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.HorizontalAlignmentProperty</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.VerticalAlignmentProperty</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.UseLayoutRoundingProperty</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.UpdateLayout()</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.Measure(Size)</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.Arrange(Rect)</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.InvalidateMeasure()</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.InvalidateArrange()</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.AffectsMeasure&lt;T&gt;(params AvaloniaProperty[])</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.AffectsArrange&lt;T&gt;(params AvaloniaProperty[])</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.MeasureCore(Size)</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.MeasureOverride(Size)</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.ArrangeCore(Rect)</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.ArrangeOverride(Size)</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.OnMeasureInvalidated()</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.OnVisualParentChanged(Visual, Visual)</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.Width</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.Height</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.MinWidth</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.MaxWidth</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.MinHeight</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.MaxHeight</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.Margin</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.HorizontalAlignment</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.VerticalAlignment</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.DesiredSize</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.IsMeasureValid</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.IsArrangeValid</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.UseLayoutRounding</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.EffectiveViewportChanged</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.LayoutUpdated</span>
+    </div>
+    <div>
+      <span class="xref">Visual.BoundsProperty</span>
+    </div>
+    <div>
+      <span class="xref">Visual.ClipToBoundsProperty</span>
+    </div>
+    <div>
+      <span class="xref">Visual.ClipProperty</span>
+    </div>
+    <div>
+      <span class="xref">Visual.IsVisibleProperty</span>
+    </div>
+    <div>
+      <span class="xref">Visual.OpacityProperty</span>
+    </div>
+    <div>
+      <span class="xref">Visual.OpacityMaskProperty</span>
+    </div>
+    <div>
+      <span class="xref">Visual.CacheModeProperty</span>
+    </div>
+    <div>
+      <span class="xref">Visual.EffectProperty</span>
+    </div>
+    <div>
+      <span class="xref">Visual.HasMirrorTransformProperty</span>
+    </div>
+    <div>
+      <span class="xref">Visual.RenderTransformProperty</span>
+    </div>
+    <div>
+      <span class="xref">Visual.RenderTransformOriginProperty</span>
+    </div>
+    <div>
+      <span class="xref">Visual.FlowDirectionProperty</span>
+    </div>
+    <div>
+      <span class="xref">Visual.VisualParentProperty</span>
+    </div>
+    <div>
+      <span class="xref">Visual.ZIndexProperty</span>
+    </div>
+    <div>
+      <span class="xref">Visual.GetFlowDirection(Visual)</span>
+    </div>
+    <div>
+      <span class="xref">Visual.SetFlowDirection(Visual, FlowDirection)</span>
+    </div>
+    <div>
+      <span class="xref">Visual.InvalidateVisual()</span>
+    </div>
+    <div>
+      <span class="xref">Visual.Render(DrawingContext)</span>
+    </div>
+    <div>
+      <span class="xref">Visual.AffectsRender&lt;T&gt;(params AvaloniaProperty[])</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Visual.LogicalChildrenCollectionChanged(object, NotifyCollectionChangedEventArgs)</a>
+    </div>
+    <div>
+      <span class="xref">Visual.InvalidateMirrorTransform()</span>
+    </div>
+    <div>
+      <span class="xref">Visual.Bounds</span>
+    </div>
+    <div>
+      <span class="xref">Visual.ClipToBounds</span>
+    </div>
+    <div>
+      <span class="xref">Visual.Clip</span>
+    </div>
+    <div>
+      <span class="xref">Visual.IsEffectivelyVisible</span>
+    </div>
+    <div>
+      <span class="xref">Visual.IsVisible</span>
+    </div>
+    <div>
+      <span class="xref">Visual.Opacity</span>
+    </div>
+    <div>
+      <span class="xref">Visual.OpacityMask</span>
+    </div>
+    <div>
+      <span class="xref">Visual.CacheMode</span>
+    </div>
+    <div>
+      <span class="xref">Visual.Effect</span>
+    </div>
+    <div>
+      <span class="xref">Visual.HasMirrorTransform</span>
+    </div>
+    <div>
+      <span class="xref">Visual.RenderTransform</span>
+    </div>
+    <div>
+      <span class="xref">Visual.RenderTransformOrigin</span>
+    </div>
+    <div>
+      <span class="xref">Visual.FlowDirection</span>
+    </div>
+    <div>
+      <span class="xref">Visual.ZIndex</span>
+    </div>
+    <div>
+      <span class="xref">Visual.VisualChildren</span>
+    </div>
+    <div>
+      <span class="xref">Visual.VisualRoot</span>
+    </div>
+    <div>
+      <span class="xref">Visual.BypassFlowDirectionPolicies</span>
+    </div>
+    <div>
+      <span class="xref">Visual.AttachedToVisualTree</span>
+    </div>
+    <div>
+      <span class="xref">Visual.DetachedFromVisualTree</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.DataContextProperty</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.NameProperty</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.ParentProperty</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.TemplatedParentProperty</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.ThemeProperty</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.BeginInit()</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.EndInit()</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.ApplyStyling()</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.InitializeIfNeeded()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">StyledElement.TryGetResource(object, ThemeVariant, out object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventargs">StyledElement.OnDataContextChanged(EventArgs)</a>
+    </div>
+    <div>
+      <span class="xref">StyledElement.OnDataContextBeginUpdate()</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.OnDataContextEndUpdate()</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.OnInitialized()</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.Name</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.Classes</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.DataContext</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.IsInitialized</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.Styles</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.StyleKey</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.Resources</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.TemplatedParent</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.Theme</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.LogicalChildren</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.PseudoClasses</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.StyleKeyOverride</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.Parent</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.ActualThemeVariant</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.AttachedToLogicalTree</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.DetachedFromLogicalTree</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.DataContextChanged</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.Initialized</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.ResourcesChanged</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.ActualThemeVariantChanged</span>
+    </div>
+    <div>
+      <span class="xref">Animatable.TransitionsProperty</span>
+    </div>
+    <div>
+      <span class="xref">Animatable.OnPropertyChangedCore(AvaloniaPropertyChangedEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">Animatable.Transitions</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.CheckAccess()</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.VerifyAccess()</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.ClearValue(AvaloniaProperty)</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.ClearValue&lt;T&gt;(AvaloniaProperty&lt;T&gt;)</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.ClearValue&lt;T&gt;(StyledProperty&lt;T&gt;)</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.ClearValue&lt;T&gt;(DirectPropertyBase&lt;T&gt;)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">AvaloniaObject.Equals(object)</a>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.GetValue(AvaloniaProperty)</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.GetValue&lt;T&gt;(StyledProperty&lt;T&gt;)</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.GetValue&lt;T&gt;(DirectPropertyBase&lt;T&gt;)</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.GetBaseValue&lt;T&gt;(StyledProperty&lt;T&gt;)</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.IsAnimating(AvaloniaProperty)</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.IsSet(AvaloniaProperty)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">AvaloniaObject.SetValue(AvaloniaProperty, object, BindingPriority)</a>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.SetValue&lt;T&gt;(StyledProperty&lt;T&gt;, T, BindingPriority)</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.SetValue&lt;T&gt;(DirectPropertyBase&lt;T&gt;, T)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">AvaloniaObject.SetCurrentValue(AvaloniaProperty, object)</a>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.SetCurrentValue&lt;T&gt;(StyledProperty&lt;T&gt;, T)</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.Bind(AvaloniaProperty, BindingBase)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">AvaloniaObject.Bind(AvaloniaProperty, IObservable&lt;object&gt;, BindingPriority)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">AvaloniaObject.Bind&lt;T&gt;(StyledProperty&lt;T&gt;, IObservable&lt;object&gt;, BindingPriority)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">AvaloniaObject.Bind&lt;T&gt;(StyledProperty&lt;T&gt;, IObservable&lt;T&gt;, BindingPriority)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">AvaloniaObject.Bind&lt;T&gt;(StyledProperty&lt;T&gt;, IObservable&lt;BindingValue&lt;T&gt;&gt;, BindingPriority)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">AvaloniaObject.Bind&lt;T&gt;(DirectPropertyBase&lt;T&gt;, IObservable&lt;object&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">AvaloniaObject.Bind&lt;T&gt;(DirectPropertyBase&lt;T&gt;, IObservable&lt;T&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">AvaloniaObject.Bind&lt;T&gt;(DirectPropertyBase&lt;T&gt;, IObservable&lt;BindingValue&lt;T&gt;&gt;)</a>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.CoerceValue(AvaloniaProperty)</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.RaisePropertyChanged&lt;T&gt;(DirectPropertyBase&lt;T&gt;, T, T)</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.SetAndRaise&lt;T&gt;(DirectPropertyBase&lt;T&gt;, ref T, T)</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.InheritanceParent</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.this[AvaloniaProperty]</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.this[IndexerDescriptor]</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.Dispatcher</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.PropertyChanged</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_PromptBar__ctor_" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.#ctor*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar__ctor" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.#ctor">
+  PromptBar()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L174"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PromptBar()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_AttachCommandProperty" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.AttachCommandProperty">
+  AttachCommandProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;ICommand?&gt; AttachCommandProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.input.icommand">ICommand</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_AttachRequestedEvent" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.AttachRequestedEvent">
+  AttachRequestedEvent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L133"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly RoutedEvent&lt;RoutedEventArgs&gt; AttachRequestedEvent</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">RoutedEvent</span>&lt;<span class="xref">RoutedEventArgs</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_CanSendProperty" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.CanSendProperty">
+  CanSendProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L106"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DirectProperty&lt;PromptBar, bool&gt; CanSendProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">DirectProperty</span>&lt;<a class="xref" href="Nova.Avalonia.AIKit.Controls.PromptBar.html">PromptBar</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_ClearOnSubmitProperty" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.ClearOnSubmitProperty">
+  ClearOnSubmitProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;bool&gt; ClearOnSubmitProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_CommandProperty" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.CommandProperty">
+  CommandProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;ICommand?&gt; CommandProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.input.icommand">ICommand</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_CommandSearchHintProperty" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.CommandSearchHintProperty">
+  CommandSearchHintProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;string&gt; CommandSearchHintProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_CommandsSourceProperty" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.CommandsSourceProperty">
+  CommandsSourceProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;IEnumerable?&gt; CommandsSourceProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_EffortSelectedCommandProperty" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.EffortSelectedCommandProperty">
+  EffortSelectedCommandProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;ICommand?&gt; EffortSelectedCommandProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.input.icommand">ICommand</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_EffortSelectedEvent" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.EffortSelectedEvent">
+  EffortSelectedEvent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L139"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly RoutedEvent&lt;EffortSelectedEventArgs&gt; EffortSelectedEvent</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">RoutedEvent</span>&lt;<a class="xref" href="Nova.Avalonia.AIKit.Controls.EffortSelectedEventArgs.html">EffortSelectedEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_FilteredCommandsProperty" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.FilteredCommandsProperty">
+  FilteredCommandsProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L112"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DirectProperty&lt;PromptBar, IReadOnlyList&lt;PromptCommand&gt;&gt; FilteredCommandsProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">DirectProperty</span>&lt;<a class="xref" href="Nova.Avalonia.AIKit.Controls.PromptBar.html">PromptBar</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="Nova.Avalonia.AIKit.Controls.PromptCommand.html">PromptCommand</a>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_FilteredSourcesProperty" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.FilteredSourcesProperty">
+  FilteredSourcesProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L115"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DirectProperty&lt;PromptBar, IReadOnlyList&lt;PromptSource&gt;&gt; FilteredSourcesProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">DirectProperty</span>&lt;<a class="xref" href="Nova.Avalonia.AIKit.Controls.PromptBar.html">PromptBar</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="Nova.Avalonia.AIKit.Controls.PromptSource.html">PromptSource</a>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_HasEffortOptionsProperty" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.HasEffortOptionsProperty">
+  HasEffortOptionsProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L109"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DirectProperty&lt;PromptBar, bool&gt; HasEffortOptionsProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">DirectProperty</span>&lt;<a class="xref" href="Nova.Avalonia.AIKit.Controls.PromptBar.html">PromptBar</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_IsCommandPopupOpenProperty" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.IsCommandPopupOpenProperty">
+  IsCommandPopupOpenProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L118"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DirectProperty&lt;PromptBar, bool&gt; IsCommandPopupOpenProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">DirectProperty</span>&lt;<a class="xref" href="Nova.Avalonia.AIKit.Controls.PromptBar.html">PromptBar</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_IsDictatingProperty" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.IsDictatingProperty">
+  IsDictatingProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;bool&gt; IsDictatingProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_IsSourcePopupOpenProperty" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.IsSourcePopupOpenProperty">
+  IsSourcePopupOpenProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DirectProperty&lt;PromptBar, bool&gt; IsSourcePopupOpenProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">DirectProperty</span>&lt;<a class="xref" href="Nova.Avalonia.AIKit.Controls.PromptBar.html">PromptBar</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_MaxSuggestionCountProperty" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.MaxSuggestionCountProperty">
+  MaxSuggestionCountProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L96"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;int&gt; MaxSuggestionCountProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_ModelNameProperty" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.ModelNameProperty">
+  ModelNameProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;string?&gt; ModelNameProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_ModelSelectedCommandProperty" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.ModelSelectedCommandProperty">
+  ModelSelectedCommandProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;ICommand?&gt; ModelSelectedCommandProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.input.icommand">ICommand</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_ModelSelectedEvent" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.ModelSelectedEvent">
+  ModelSelectedEvent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L136"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly RoutedEvent&lt;ModelSelectedEventArgs&gt; ModelSelectedEvent</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">RoutedEvent</span>&lt;<a class="xref" href="Nova.Avalonia.AIKit.Controls.ModelSelectedEventArgs.html">ModelSelectedEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_ModelsSourceProperty" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.ModelsSourceProperty">
+  ModelsSourceProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;IEnumerable?&gt; ModelsSourceProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_PartEffortButton" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.PartEffortButton">
+  PartEffortButton
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string PartEffortButton = &quot;PART_EffortButton&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_PartInputBox" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.PartInputBox">
+  PartInputBox
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string PartInputBox = &quot;PART_InputBox&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_PartPopup" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.PartPopup">
+  PartPopup
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string PartPopup = &quot;PART_Popup&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_PlaceholderTextProperty" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.PlaceholderTextProperty">
+  PlaceholderTextProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;string?&gt; PlaceholderTextProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_PopupHintProperty" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.PopupHintProperty">
+  PopupHintProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L124"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DirectProperty&lt;PromptBar, string&gt; PopupHintProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">DirectProperty</span>&lt;<a class="xref" href="Nova.Avalonia.AIKit.Controls.PromptBar.html">PromptBar</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_SelectedEffortProperty" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.SelectedEffortProperty">
+  SelectedEffortProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;ModelEffortOption?&gt; SelectedEffortProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="Nova.Avalonia.AIKit.Controls.ModelEffortOption.html">ModelEffortOption</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_SelectedModelProperty" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.SelectedModelProperty">
+  SelectedModelProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;ModelOption?&gt; SelectedModelProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="Nova.Avalonia.AIKit.Controls.ModelOption.html">ModelOption</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_SourceSearchHintProperty" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.SourceSearchHintProperty">
+  SourceSearchHintProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;string&gt; SourceSearchHintProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_SourceSelectedCommandProperty" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.SourceSelectedCommandProperty">
+  SourceSelectedCommandProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L72"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;ICommand?&gt; SourceSelectedCommandProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.input.icommand">ICommand</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_SourceSelectedEvent" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.SourceSelectedEvent">
+  SourceSelectedEvent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L130"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly RoutedEvent&lt;PromptSourceEventArgs&gt; SourceSelectedEvent</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">RoutedEvent</span>&lt;<a class="xref" href="Nova.Avalonia.AIKit.Controls.PromptSourceEventArgs.html">PromptSourceEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_SourcesSourceProperty" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.SourcesSourceProperty">
+  SourcesSourceProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;IEnumerable?&gt; SourcesSourceProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_StartDictationTextProperty" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.StartDictationTextProperty">
+  StartDictationTextProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;string&gt; StartDictationTextProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_StopDictationTextProperty" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.StopDictationTextProperty">
+  StopDictationTextProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;string&gt; StopDictationTextProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_SubmitCommandProperty" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.SubmitCommandProperty">
+  SubmitCommandProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;ICommand?&gt; SubmitCommandProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.input.icommand">ICommand</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_SubmittedEvent" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.SubmittedEvent">
+  SubmittedEvent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L127"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly RoutedEvent&lt;PromptSubmittedEventArgs&gt; SubmittedEvent</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">RoutedEvent</span>&lt;<a class="xref" href="Nova.Avalonia.AIKit.Controls.PromptSubmittedEventArgs.html">PromptSubmittedEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_SuggestionsMaxHeightProperty" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.SuggestionsMaxHeightProperty">
+  SuggestionsMaxHeightProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L100"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;double&gt; SuggestionsMaxHeightProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_TextProperty" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.TextProperty">
+  TextProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;string?&gt; TextProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_TurnIdProperty" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.TurnIdProperty">
+  TurnIdProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;string?&gt; TurnIdProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_PromptBar_AttachCommand_" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.AttachCommand*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_AttachCommand" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.AttachCommand">
+  AttachCommand
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L346"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the attach command. It receives the same routed-event arguments instance
+raised through <a class="xref" href="Nova.Avalonia.AIKit.Controls.PromptBar.html#Nova_Avalonia_AIKit_Controls_PromptBar_AttachRequested">AttachRequested</a> and replaces the built-in source popup.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICommand? AttachCommand { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.input.icommand">ICommand</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_PromptBar_CanSend_" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.CanSend*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_CanSend" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.CanSend">
+  CanSend
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L449"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets whether there is text ready to send.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool CanSend { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_PromptBar_ClearOnSubmit_" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.ClearOnSubmit*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_ClearOnSubmit" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.ClearOnSubmit">
+  ClearOnSubmit
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L386"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets whether the draft is cleared before submission observers run. Clearing
+first lets a rejecting event handler or command restore a draft without it being erased.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ClearOnSubmit { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_PromptBar_Command_" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.Command*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_Command" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.Command">
+  Command
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L326"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a command executed with the trimmed prompt after
+<a class="xref" href="Nova.Avalonia.AIKit.Controls.PromptBar.html#Nova_Avalonia_AIKit_Controls_PromptBar_Submitted">Submitted</a> is raised. If it cannot execute, submission is rejected.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICommand? Command { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.input.icommand">ICommand</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_PromptBar_CommandSearchHint_" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.CommandSearchHint*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_CommandSearchHint" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.CommandSearchHint">
+  CommandSearchHint
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L395"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the hint shown while filtering slash commands.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string CommandSearchHint { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_PromptBar_CommandsSource_" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.CommandsSource*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_CommandsSource" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.CommandsSource">
+  CommandsSource
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L249"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the available slash commands, typically <a class="xref" href="Nova.Avalonia.AIKit.Controls.PromptCommand.html">PromptCommand</a> items.
+Observable collection changes update an open filter while attached.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable? CommandsSource { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_PromptBar_EffortSelectedCommand_" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.EffortSelectedCommand*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_EffortSelectedCommand" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.EffortSelectedCommand">
+  EffortSelectedCommand
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L376"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the effort-selection command. It receives the same
+<a class="xref" href="Nova.Avalonia.AIKit.Controls.EffortSelectedEventArgs.html">EffortSelectedEventArgs</a> instance raised through <a class="xref" href="Nova.Avalonia.AIKit.Controls.PromptBar.html#Nova_Avalonia_AIKit_Controls_PromptBar_EffortSelected">EffortSelected</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICommand? EffortSelectedCommand { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.input.icommand">ICommand</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_PromptBar_FilteredCommands_" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.FilteredCommands*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_FilteredCommands" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.FilteredCommands">
+  FilteredCommands
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L478"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the commands matching the current &quot;/&quot; filter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;PromptCommand&gt; FilteredCommands { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="Nova.Avalonia.AIKit.Controls.PromptCommand.html">PromptCommand</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_PromptBar_FilteredSources_" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.FilteredSources*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_FilteredSources" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.FilteredSources">
+  FilteredSources
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L487"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the sources matching the current &quot;@&quot; filter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;PromptSource&gt; FilteredSources { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="Nova.Avalonia.AIKit.Controls.PromptSource.html">PromptSource</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_PromptBar_HasEffortOptions_" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.HasEffortOptions*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_HasEffortOptions" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.HasEffortOptions">
+  HasEffortOptions
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L469"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets whether the active model offers more than one verified effort option. The built-in
+template hides the selector when choosing an effort would not change the request.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasEffortOptions { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_PromptBar_IsCommandPopupOpen_" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.IsCommandPopupOpen*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_IsCommandPopupOpen" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.IsCommandPopupOpen">
+  IsCommandPopupOpen
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L496"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets whether the command list is shown in the popup.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsCommandPopupOpen { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_PromptBar_IsDictating_" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.IsDictating*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_IsDictating" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.IsDictating">
+  IsDictating
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L316"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets whether dictation is active.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsDictating { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_PromptBar_IsSourcePopupOpen_" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.IsSourcePopupOpen*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_IsSourcePopupOpen" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.IsSourcePopupOpen">
+  IsSourcePopupOpen
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L505"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets whether the source list is shown in the popup.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsSourcePopupOpen { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_PromptBar_MaxSuggestionCount_" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.MaxSuggestionCount*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_MaxSuggestionCount" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.MaxSuggestionCount">
+  MaxSuggestionCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L431"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the maximum number of matching commands or sources shown at once.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int MaxSuggestionCount { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_PromptBar_ModelName_" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.ModelName*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_ModelName" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.ModelName">
+  ModelName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L278"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the model shown in the picker, e.g. &quot;Vanilla 1&quot;.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? ModelName { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_PromptBar_ModelSelectedCommand_" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.ModelSelectedCommand*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_ModelSelectedCommand" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.ModelSelectedCommand">
+  ModelSelectedCommand
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L366"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the model-selection command. It receives the same
+<a class="xref" href="Nova.Avalonia.AIKit.Controls.ModelSelectedEventArgs.html">ModelSelectedEventArgs</a> instance raised through <a class="xref" href="Nova.Avalonia.AIKit.Controls.PromptBar.html#Nova_Avalonia_AIKit_Controls_PromptBar_ModelSelected">ModelSelected</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICommand? ModelSelectedCommand { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.input.icommand">ICommand</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_PromptBar_ModelsSource_" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.ModelsSource*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_ModelsSource" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.ModelsSource">
+  ModelsSource
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L269"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets models offered by the picker. Strings remain supported; use
+<a class="xref" href="Nova.Avalonia.AIKit.Controls.ModelOption.html">ModelOption</a> items when orchestration needs a stable provider-facing ID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable? ModelsSource { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_PromptBar_PlaceholderText_" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.PlaceholderText*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_PlaceholderText" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.PlaceholderText">
+  PlaceholderText
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L239"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the placeholder shown when empty.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? PlaceholderText { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_PromptBar_PopupHint_" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.PopupHint*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_PopupHint" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.PopupHint">
+  PopupHint
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L514"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the hint shown at the bottom of the popup.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string PopupHint { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_PromptBar_SelectedEffort_" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.SelectedEffort*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_SelectedEffort" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.SelectedEffort">
+  SelectedEffort
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L297"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the reasoning effort selected from the active model's verified options.
+Unsupported values are replaced by the model default.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ModelEffortOption? SelectedEffort { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.ModelEffortOption.html">ModelEffortOption</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_PromptBar_SelectedModel_" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.SelectedModel*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_SelectedModel" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.SelectedModel">
+  SelectedModel
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L287"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the selected structured model option.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ModelOption? SelectedModel { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.ModelOption.html">ModelOption</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_PromptBar_SourceSearchHint_" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.SourceSearchHint*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_SourceSearchHint" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.SourceSearchHint">
+  SourceSearchHint
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L404"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the hint shown while filtering sources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string SourceSearchHint { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_PromptBar_SourceSelectedCommand_" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.SourceSelectedCommand*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_SourceSelectedCommand" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.SourceSelectedCommand">
+  SourceSelectedCommand
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L356"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the source-selection command. It receives the same
+<a class="xref" href="Nova.Avalonia.AIKit.Controls.PromptSourceEventArgs.html">PromptSourceEventArgs</a> instance raised through <a class="xref" href="Nova.Avalonia.AIKit.Controls.PromptBar.html#Nova_Avalonia_AIKit_Controls_PromptBar_SourceSelected">SourceSelected</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICommand? SourceSelectedCommand { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.input.icommand">ICommand</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_PromptBar_SourcesSource_" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.SourcesSource*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_SourcesSource" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.SourcesSource">
+  SourcesSource
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L259"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the attachable sources, typically <a class="xref" href="Nova.Avalonia.AIKit.Controls.PromptSource.html">PromptSource</a> items.
+Observable collection changes update an open filter while attached.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable? SourcesSource { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_PromptBar_StartDictationText_" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.StartDictationText*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_StartDictationText" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.StartDictationText">
+  StartDictationText
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L413"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the accessible label for starting dictation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string StartDictationText { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_PromptBar_StopDictationText_" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.StopDictationText*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_StopDictationText" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.StopDictationText">
+  StopDictationText
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L422"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the accessible label for stopping dictation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string StopDictationText { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_PromptBar_SubmitCommand_" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.SubmitCommand*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_SubmitCommand" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.SubmitCommand">
+  SubmitCommand
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L336"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the structured submission command. It receives the same
+<a class="xref" href="Nova.Avalonia.AIKit.Controls.PromptSubmittedEventArgs.html">PromptSubmittedEventArgs</a> instance raised through <a class="xref" href="Nova.Avalonia.AIKit.Controls.PromptBar.html#Nova_Avalonia_AIKit_Controls_PromptBar_Submitted">Submitted</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICommand? SubmitCommand { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.input.icommand">ICommand</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_PromptBar_SuggestionsMaxHeight_" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.SuggestionsMaxHeight*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_SuggestionsMaxHeight" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.SuggestionsMaxHeight">
+  SuggestionsMaxHeight
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L440"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the maximum height of the virtualized suggestions viewport.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double SuggestionsMaxHeight { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_PromptBar_Text_" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.Text*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_Text" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.Text">
+  Text
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L230"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the draft text.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? Text { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_PromptBar_TurnId_" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.TurnId*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_TurnId" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.TurnId">
+  TurnId
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L307"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the optional conversation-turn or agent-run identifier captured with
+each submission.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? TurnId { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_PromptBar_FocusInput_" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.FocusInput*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_FocusInput" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.FocusInput">
+  FocusInput()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L519"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Moves keyboard focus into the input box.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void FocusInput()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_PromptBar_OnApplyTemplate_" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.OnApplyTemplate*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_OnApplyTemplate_Avalonia_Controls_Primitives_TemplateAppliedEventArgs_" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.OnApplyTemplate(Avalonia.Controls.Primitives.TemplateAppliedEventArgs)">
+  OnApplyTemplate(TemplateAppliedEventArgs)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L536"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called when the control's template is applied.
+In simple terms, this means the method is called just before the control is displayed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnApplyTemplate(TemplateAppliedEventArgs e)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>e</code> <span class="xref">TemplateAppliedEventArgs</span></dt>
+    <dd><p>The event args.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_PromptBar_OnAttachedToVisualTree_" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.OnAttachedToVisualTree*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_OnAttachedToVisualTree_Avalonia_VisualTreeAttachmentEventArgs_" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.OnAttachedToVisualTree(Avalonia.VisualTreeAttachmentEventArgs)">
+  OnAttachedToVisualTree(VisualTreeAttachmentEventArgs)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L589"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called when the control is added to a rooted visual tree.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>e</code> <span class="xref">VisualTreeAttachmentEventArgs</span></dt>
+    <dd><p>The event args.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_PromptBar_OnDetachedFromVisualTree_" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.OnDetachedFromVisualTree*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_OnDetachedFromVisualTree_Avalonia_VisualTreeAttachmentEventArgs_" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.OnDetachedFromVisualTree(Avalonia.VisualTreeAttachmentEventArgs)">
+  OnDetachedFromVisualTree(VisualTreeAttachmentEventArgs)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L603"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called when the control is removed from a rooted visual tree.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnDetachedFromVisualTree(VisualTreeAttachmentEventArgs e)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>e</code> <span class="xref">VisualTreeAttachmentEventArgs</span></dt>
+    <dd><p>The event args.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_PromptBar_OnPropertyChanged_" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.OnPropertyChanged*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_OnPropertyChanged_Avalonia_AvaloniaPropertyChangedEventArgs_" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.OnPropertyChanged(Avalonia.AvaloniaPropertyChangedEventArgs)">
+  OnPropertyChanged(AvaloniaPropertyChangedEventArgs)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L614"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called when a avalonia property changes on the object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>change</code> <span class="xref">AvaloniaPropertyChangedEventArgs</span></dt>
+    <dd><p>The property change details.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_PromptBar_Submit_" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.Submit*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_Submit" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.Submit">
+  Submit()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L525"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Trims and submits the current draft. Whitespace-only drafts are ignored; accepted
+drafts are optionally cleared before observers receive <a class="xref" href="Nova.Avalonia.AIKit.Controls.PromptBar.html#Nova_Avalonia_AIKit_Controls_PromptBar_Submitted">Submitted</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Submit()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_AttachRequested" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.AttachRequested">
+  AttachRequested
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L203"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Raised when the attach button is clicked. Mark the event handled to take over the
+action, e.g. to open a file picker; otherwise the sources popup toggles.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;RoutedEventArgs&gt; AttachRequested</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<span class="xref">RoutedEventArgs</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_EffortSelected" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.EffortSelected">
+  EffortSelected
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L221"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Raised when a verified reasoning-effort option is chosen from the effort menu.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;EffortSelectedEventArgs&gt; EffortSelected</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Nova.Avalonia.AIKit.Controls.EffortSelectedEventArgs.html">EffortSelectedEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_ModelSelected" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.ModelSelected">
+  ModelSelected
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L212"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Raised when a structured model option is chosen from the model menu.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;ModelSelectedEventArgs&gt; ModelSelected</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Nova.Avalonia.AIKit.Controls.ModelSelectedEventArgs.html">ModelSelectedEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_SourceSelected" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.SourceSelected">
+  SourceSelected
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L193"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Raised when a source row is selected.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;PromptSourceEventArgs&gt; SourceSelected</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Nova.Avalonia.AIKit.Controls.PromptSourceEventArgs.html">PromptSourceEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_PromptBar_Submitted" data-uid="Nova.Avalonia.AIKit.Controls.PromptBar.Submitted">
+  Submitted
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L184"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Raised with the trimmed, non-empty prompt after <a class="xref" href="Nova.Avalonia.AIKit.Controls.PromptBar.html#Nova_Avalonia_AIKit_Controls_PromptBar_ClearOnSubmit">ClearOnSubmit</a> optionally
+clears the draft and before <a class="xref" href="Nova.Avalonia.AIKit.Controls.PromptBar.html#Nova_Avalonia_AIKit_Controls_PromptBar_Command">Command</a> executes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;PromptSubmittedEventArgs&gt; Submitted</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Nova.Avalonia.AIKit.Controls.PromptSubmittedEventArgs.html">PromptSubmittedEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/PromptBar.cs/#L19" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

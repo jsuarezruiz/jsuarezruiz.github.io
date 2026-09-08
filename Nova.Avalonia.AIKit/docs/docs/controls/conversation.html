@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Conversation Controls | Nova.Avalonia.AIKit </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Conversation Controls | Nova.Avalonia.AIKit ">
+      
+      <meta name="description" content="Build chat transcripts, composers, streamed answers, and follow-up prompts.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/docs/docs/controls/conversation.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo-transparent.png" alt="Nova.Avalonia.AIKit">
+            Nova.Avalonia.AIKit
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="conversation-controls">Conversation Controls</h1>
+
+<p>Use <code>ChatMessageList</code> and <code>ChatComposer</code> for a compact chat surface, then add <code>StreamingTextBlock</code> and <code>FollowUpList</code> when the response arrives incrementally or suggests a next turn.</p>
+<img src="../../images/demos/aikit-chat-light.gif" alt="Chat controls" width="520">
+<h2 id="display-and-submit-messages">Display and submit messages</h2>
+<pre><code class="lang-xml">&lt;Grid RowDefinitions=&quot;*,Auto&quot; RowSpacing=&quot;8&quot;&gt;
+  &lt;nova:ChatMessageList ItemsSource=&quot;{Binding Messages}&quot;
+                        AutoScrollToEnd=&quot;True&quot; /&gt;
+  &lt;nova:ChatComposer Grid.Row=&quot;1&quot;
+                     Text=&quot;{Binding Draft}&quot;
+                     PlaceholderText=&quot;Ask anything…&quot;
+                     Command=&quot;{Binding SendMessageCommand}&quot; /&gt;
+&lt;/Grid&gt;
+</code></pre>
+<p><code>ChatMessageList.ItemsSource</code> commonly contains <code>ChatMessage</code> records. <code>AutoScrollToEnd</code> follows new content only while the reader remains near the end; scrolling upward suspends automatic movement. Supply <code>ItemTemplate</code> when the transcript requires a custom message presentation.</p>
+<p><code>ChatComposer.Command</code> receives the submitted text. <code>SubmitCommand</code> and the <code>Submitted</code> event receive a richer event snapshot. Set <code>ClearOnSubmit=&quot;False&quot;</code> when the host should retain the draft.</p>
+<p>Submission clears the input before notifying handlers so a handler can supply a replacement draft. If an event handler or command throws synchronously and the input is still empty, the original draft is restored and the exception is propagated. Asynchronous send failures remain the host's responsibility.</p>
+<h2 id="stream-an-answer">Stream an answer</h2>
+<pre><code class="lang-xml">&lt;nova:StreamingTextBlock StreamedText=&quot;{Binding CurrentAnswer}&quot;
+                         RevealDuration=&quot;0:0:0.42&quot;
+                         TextWrapping=&quot;Wrap&quot; /&gt;
+</code></pre>
+<p>Use the bound property when the provider exposes growing snapshots. Replacing or shortening the string resets its inline state. Growing a string for every token copies the accumulated response, so prefer batched <code>AppendText</code> calls for long streams:</p>
+<pre><code class="lang-csharp">// Run control updates on the Avalonia UI thread.
+answer.ResetStream();
+answer.AppendText(&quot;First chunk &quot;);
+answer.AppendText(&quot;and the next chunk.&quot;);
+answer.FlushStreamedText();
+</code></pre>
+<p><code>AppendText</code> reveals new content immediately and debounces the public text snapshot. Call <code>FlushStreamedText</code> when the stream finishes, including cancellation when the partial response should be retained. Call <code>ResetStream</code> before displaying a new response: it clears text, citations, animations, and the pending snapshot timer even when the previous public snapshot is still empty, and preserves the binding. Cancel the previous producer and reject late chunks from an obsolete turn before resetting. Set <code>IsAnimationEnabled=&quot;False&quot;</code> for immediate updates without fades.</p>
+<p><code>AppendText</code>, <code>AppendInline</code>, <code>FlushStreamedText</code>, and <code>ResetStream</code> must run on the UI thread. Calls from another thread throw before changing stream state; dispatch background producer updates through <code>Dispatcher.UIThread</code>.</p>
+<img src="../../images/demos/aikit-streaming-text-light.gif" alt="Streaming response" width="520">
+<h2 id="offer-follow-ups">Offer follow-ups</h2>
+<pre><code class="lang-xml">&lt;nova:FollowUpList Header=&quot;Try asking&quot;
+                   ItemsSource=&quot;{Binding FollowUps}&quot;
+                   Command=&quot;{Binding ChooseFollowUpCommand}&quot; /&gt;
+</code></pre>
+<p><code>FollowUpList</code> raises <code>FollowUpSelected</code> and supports <code>Command</code> or <code>FollowUpCommand</code>. Use <code>ItemsMaxHeight</code> to constrain a long generated list.</p>
+<h2 id="relevant-api">Relevant API</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.AIKit.Controls.ChatMessageList.html">ChatMessageList</a></li>
+<li><a class="xref" href="../../api/Nova.Avalonia.AIKit.Controls.ChatComposer.html">ChatComposer</a></li>
+<li><a class="xref" href="../../api/Nova.Avalonia.AIKit.Controls.StreamingTextBlock.html">StreamingTextBlock</a></li>
+<li><a class="xref" href="../../api/Nova.Avalonia.AIKit.Controls.FollowUpList.html">FollowUpList</a></li>
+<li><a class="xref" href="../../api/Nova.Avalonia.AIKit.Controls.ChatMessage.html">ChatMessage</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/docs/docs/controls/conversation.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

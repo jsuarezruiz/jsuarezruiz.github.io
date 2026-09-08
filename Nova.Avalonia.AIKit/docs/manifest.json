@@ -1,0 +1,2188 @@
+{
+  "source_base_path": "/Users/jsuarezruiz/Documents/GitHub/Nova.Avalonia.AIKit/docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "PACKAGE.md",
+      "output": {
+        ".html": {
+          "relative_path": "PACKAGE.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.ActivityHeatmap.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.ActivityHeatmap.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.ActivityHeatmap",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.ActivityHeatmap.yml\" sourcestartlinenumber=\"1\">A calendar heatmap: one column per week, one row per weekday, each cell tinted by\nactivity intensity. Values run oldest first, top to bottom within each column. Cells\ngrow to fill the given width, and hovering a cell shows its date and activity.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.AgentAvatar.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.AgentAvatar.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.AgentAvatar",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.AgentAvatar.yml\" sourcestartlinenumber=\"1\">A living avatar for agent presence. The face is a lightweight 3D head: eyes sit on a\nsphere and follow a yaw/pitch/roll pose that wanders on layered noise, blinks on an\norganic schedule (sometimes twice), and masks expression changes behind a blink.\nMoods blend into each other; nothing snaps. Drawn on the render loop with no assets.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.AgentAvatarShape.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.AgentAvatarShape.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.AgentAvatarShape",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.AgentAvatarShape.yml\" sourcestartlinenumber=\"1\">The body silhouette of an <xref href=\"Nova.Avalonia.AIKit.Controls.AgentAvatar\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.AgentExpression.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.AgentExpression.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.AgentExpression",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.AgentExpression.yml\" sourcestartlinenumber=\"1\">A facial expression preset for an <xref href=\"Nova.Avalonia.AIKit.Controls.AgentAvatar\" data-throw-if-not-resolved=\"false\"></xref>. <xref href=\"Nova.Avalonia.AIKit.Controls.AgentExpression.Auto\" data-throw-if-not-resolved=\"false\"></xref> derives\nthe face from the current <xref href=\"Nova.Avalonia.AIKit.Controls.AgentAvatar.Mood\" data-throw-if-not-resolved=\"false\"></xref>; every other value pins the\nface while the mood keeps driving body motion and props.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.AgentLink.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.AgentLink.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.AgentLink",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.AgentLink.yml\" sourcestartlinenumber=\"1\">A delegation edge between two stable <xref href=\"Nova.Avalonia.AIKit.Controls.AgentNode.Id\" data-throw-if-not-resolved=\"false\"></xref> values.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.AgentMood.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.AgentMood.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.AgentMood",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.AgentMood.yml\" sourcestartlinenumber=\"1\">The mood of an <xref href=\"Nova.Avalonia.AIKit.Controls.AgentAvatar\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.AgentNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.AgentNode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.AgentNode",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.AgentNode.yml\" sourcestartlinenumber=\"1\">One agent in a <xref href=\"Nova.Avalonia.AIKit.Controls.MultiAgentGraph\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.AgentNodeStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.AgentNodeStatus.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.AgentNodeStatus",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.AgentNodeStatus.yml\" sourcestartlinenumber=\"1\">The state of a <xref href=\"Nova.Avalonia.AIKit.Controls.MultiAgentGraph\" data-throw-if-not-resolved=\"false\"></xref> node.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.AgentTaskDetail.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.AgentTaskDetail.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.AgentTaskDetail",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.AgentTaskDetail.yml\" sourcestartlinenumber=\"1\">A label and value pair shown in the expanded part of an <xref href=\"Nova.Avalonia.AIKit.Controls.AgentTaskRow\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.AgentTaskRow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.AgentTaskRow.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.AgentTaskRow",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.AgentTaskRow.yml\" sourcestartlinenumber=\"1\">A pill-shaped card that tracks one live agent task: a lifecycle-specific status icon,\ntitle, meta text, a status badge and an expandable list of\n<xref href=\"Nova.Avalonia.AIKit.Controls.AgentTaskDetail\" data-throw-if-not-resolved=\"false\"></xref> rows.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.AgentTaskStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.AgentTaskStatus.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.AgentTaskStatus",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.AgentTaskStatus.yml\" sourcestartlinenumber=\"1\">The state of an <xref href=\"Nova.Avalonia.AIKit.Controls.AgentTaskRow\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.AgentTimeline.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.AgentTimeline.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.AgentTimeline",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.AgentTimeline.yml\" sourcestartlinenumber=\"1\">A vertical session history: timestamped entries with kind-colored dots on a connector\nline, for messages, tool calls, checkpoints, and errors. Observable sources keep the\nconnector correct as entries stream in.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.ApprovalAnswerEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.ApprovalAnswerEventArgs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.ApprovalAnswerEventArgs",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.ApprovalAnswerEventArgs.yml\" sourcestartlinenumber=\"1\">Event arguments for <xref href=\"Nova.Avalonia.AIKit.Controls.ApprovalCard.AnswerSubmitted\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.ApprovalCard.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.ApprovalCard.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.ApprovalCard",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.ApprovalCard.yml\" sourcestartlinenumber=\"1\">A human-in-the-loop card that walks through one or more <xref href=\"Nova.Avalonia.AIKit.Controls.ApprovalQuestion\" data-throw-if-not-resolved=\"false\"></xref>s\nbefore an agent acts: pick an option or type a custom answer, submit, and step through\nthe questions with the progress footer. Raises <xref href=\"Nova.Avalonia.AIKit.Controls.ApprovalCard.Completed\" data-throw-if-not-resolved=\"false\"></xref> once every question is\nanswered and <xref href=\"Nova.Avalonia.AIKit.Controls.ApprovalCard.Dismissed\" data-throw-if-not-resolved=\"false\"></xref> when closed.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.ApprovalOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.ApprovalOption.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.ApprovalOption",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.ApprovalOption.yml\" sourcestartlinenumber=\"1\">A stable value and user-facing label offered by an <xref href=\"Nova.Avalonia.AIKit.Controls.ApprovalQuestion\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.ApprovalQuestion.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.ApprovalQuestion.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.ApprovalQuestion",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.ApprovalQuestion.yml\" sourcestartlinenumber=\"1\">A question presented by an <xref href=\"Nova.Avalonia.AIKit.Controls.ApprovalCard\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.AttachmentStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.AttachmentStatus.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.AttachmentStatus",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.AttachmentStatus.yml\" sourcestartlinenumber=\"1\">The lifecycle state of an <xref href=\"Nova.Avalonia.AIKit.Controls.AttachmentTile\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.AttachmentTile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.AttachmentTile.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.AttachmentTile",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.AttachmentTile.yml\" sourcestartlinenumber=\"1\">A file attached to a prompt: a colored type badge, the file name, a detail line and a\nremove button, with a progress strip along the bottom while uploading.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.ChatComposer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.ChatComposer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.ChatComposer",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.ChatComposer.yml\" sourcestartlinenumber=\"1\">A chat input field with a send button. Enter or the button raises\n<xref href=\"Nova.Avalonia.AIKit.Controls.ChatComposer.Submitted\" data-throw-if-not-resolved=\"false\"></xref>, executes <xref href=\"Nova.Avalonia.AIKit.Controls.ChatComposer.Command\" data-throw-if-not-resolved=\"false\"></xref> with the message text, and can\nexecute <xref href=\"Nova.Avalonia.AIKit.Controls.ChatComposer.SubmitCommand\" data-throw-if-not-resolved=\"false\"></xref> with the structured submission payload.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.ChatMessage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.ChatMessage.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.ChatMessage",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.ChatMessage.yml\" sourcestartlinenumber=\"1\">A message shown in a <xref href=\"Nova.Avalonia.AIKit.Controls.ChatMessageList\" data-throw-if-not-resolved=\"false\"></xref>. Messages are display\nsnapshots: replace the item (or reassign the collection) to update one.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.ChatMessageList.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.ChatMessageList.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.ChatMessageList",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.ChatMessageList.yml\" sourcestartlinenumber=\"1\">A scrolling chat transcript of <xref href=\"Nova.Avalonia.AIKit.Controls.ChatMessage\" data-throw-if-not-resolved=\"false\"></xref> items: user messages as\nright-aligned bubbles, assistant replies full width with a meta line. Scrolls to the\nnewest message automatically while the viewport remains pinned to the end.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.ChatMessageStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.ChatMessageStatus.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.ChatMessageStatus",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.ChatMessageStatus.yml\" sourcestartlinenumber=\"1\">The delivery state represented by a <xref href=\"Nova.Avalonia.AIKit.Controls.ChatMessage\" data-throw-if-not-resolved=\"false\"></xref> snapshot.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.ChatMessageSubmittedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.ChatMessageSubmittedEventArgs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.ChatMessageSubmittedEventArgs",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.ChatMessageSubmittedEventArgs.yml\" sourcestartlinenumber=\"1\">Event arguments for <xref href=\"Nova.Avalonia.AIKit.Controls.ChatComposer.Submitted\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.ChatRole.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.ChatRole.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.ChatRole",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.ChatRole.yml\" sourcestartlinenumber=\"1\">The author of a <xref href=\"Nova.Avalonia.AIKit.Controls.ChatMessage\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.CitationChip.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.CitationChip.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.CitationChip",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.CitationChip.yml\" sourcestartlinenumber=\"1\">A numbered inline citation. Clicking opens a flyout with the source title, domain,\nand snippet plus a link that opens the source in the browser.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.CodeBlock.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.CodeBlock.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.CodeBlock",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.CodeBlock.yml\" sourcestartlinenumber=\"1\">An agent written code card: a bar with the file name, language and a copy action over\nnumbered, token colored lines. Stream lines by appending <xref href=\"Nova.Avalonia.AIKit.Controls.CodeLine\" data-throw-if-not-resolved=\"false\"></xref>s;\ninclude a <xref href=\"Nova.Avalonia.AIKit.Controls.CodeTokenKind.Caret\" data-throw-if-not-resolved=\"false\"></xref> token to show the writing position.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.CodeDiffView.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.CodeDiffView.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.CodeDiffView",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.CodeDiffView.yml\" sourcestartlinenumber=\"1\">A unified code diff card: a file bar with change stats over gutter numbered lines,\nwhere additions tint green and removals tint red with +/− markers.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.CodeFileEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.CodeFileEventArgs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.CodeFileEventArgs",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.CodeFileEventArgs.yml\" sourcestartlinenumber=\"1\">Event arguments for <xref href=\"Nova.Avalonia.AIKit.Controls.CodeFileTree.FileSelected\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.CodeFileItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.CodeFileItem.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.CodeFileItem",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.CodeFileItem.yml\" sourcestartlinenumber=\"1\">A file or folder display snapshot in a <xref href=\"Nova.Avalonia.AIKit.Controls.CodeFileTree\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.CodeFileStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.CodeFileStatus.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.CodeFileStatus",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.CodeFileStatus.yml\" sourcestartlinenumber=\"1\">Change status of a <xref href=\"Nova.Avalonia.AIKit.Controls.CodeFileItem\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.CodeFileTree.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.CodeFileTree.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.CodeFileTree",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.CodeFileTree.yml\" sourcestartlinenumber=\"1\">A compact list of files the agent touched: indented rows with folder and file icons,\nchange counts, and a status dot. Selecting a file raises <xref href=\"Nova.Avalonia.AIKit.Controls.CodeFileTree.FileSelected\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.CodeLine.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.CodeLine.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.CodeLine",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.CodeLine.yml\" sourcestartlinenumber=\"1\">A numbered line in a <xref href=\"Nova.Avalonia.AIKit.Controls.CodeBlock\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.CodeToken.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.CodeToken.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.CodeToken",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.CodeToken.yml\" sourcestartlinenumber=\"1\">A colored fragment of a <xref href=\"Nova.Avalonia.AIKit.Controls.CodeLine\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.CodeTokenKind.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.CodeTokenKind.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.CodeTokenKind",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.CodeTokenKind.yml\" sourcestartlinenumber=\"1\">The color role of a <xref href=\"Nova.Avalonia.AIKit.Controls.CodeToken\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.CompanyRecord.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.CompanyRecord.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.CompanyRecord",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.CompanyRecord.yml\" sourcestartlinenumber=\"1\">A row shown in a <xref href=\"Nova.Avalonia.AIKit.Controls.RecordsTable\" data-throw-if-not-resolved=\"false\"></xref>. Selection is observable; the other\nproperties are display snapshots set at creation.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.ConfidenceLevel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.ConfidenceLevel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.ConfidenceLevel",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.ConfidenceLevel.yml\" sourcestartlinenumber=\"1\">Confidence shown by a <xref href=\"Nova.Avalonia.AIKit.Controls.ConfidenceMeter\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.ConfidenceMeter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.ConfidenceMeter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.ConfidenceMeter",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.ConfidenceMeter.yml\" sourcestartlinenumber=\"1\">A compact three bar meter that visualizes a <xref href=\"Nova.Avalonia.AIKit.Controls.ConfidenceLevel\" data-throw-if-not-resolved=\"false\"></xref>:\ngreen for high, orange for medium and low, muted when there is no signal.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.ContextCard.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.ContextCard.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.ContextCard",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.ContextCard.yml\" sourcestartlinenumber=\"1\">A retrieved knowledge chunk: a titled card with an excerpt, a meta label such as the\ncharacter count, and a source pill with a colored file type badge. Set\n<xref href=\"Nova.Avalonia.AIKit.Controls.ContextCard.SourceUri\" data-throw-if-not-resolved=\"false\"></xref> to open the source in the browser when clicked.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.ContextUsageMeter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.ContextUsageMeter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.ContextUsageMeter",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.ContextUsageMeter.yml\" sourcestartlinenumber=\"1\">A ring gauge for context window consumption. Shows the used share as a sweep with the\npercentage in the center and a token summary underneath, shifting to warning and\ncritical colors as the window fills.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.DiffKind.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.DiffKind.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.DiffKind",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.DiffKind.yml\" sourcestartlinenumber=\"1\">How a <xref href=\"Nova.Avalonia.AIKit.Controls.DiffTableRow\" data-throw-if-not-resolved=\"false\"></xref> is affected by the proposed edit.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.DiffLine.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.DiffLine.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.DiffLine",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.DiffLine.yml\" sourcestartlinenumber=\"1\">A line in a <xref href=\"Nova.Avalonia.AIKit.Controls.CodeDiffView\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.DiffLineKind.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.DiffLineKind.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.DiffLineKind",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.DiffLineKind.yml\" sourcestartlinenumber=\"1\">How a <xref href=\"Nova.Avalonia.AIKit.Controls.DiffLine\" data-throw-if-not-resolved=\"false\"></xref> changed.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.DiffTable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.DiffTable.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.DiffTable",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.DiffTable.yml\" sourcestartlinenumber=\"1\">A titled three column table that visualizes AI proposed edits: removed rows are\ntinted red with struck through values, added rows are tinted green.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.DiffTableRow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.DiffTableRow.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.DiffTableRow",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.DiffTableRow.yml\" sourcestartlinenumber=\"1\">A row shown in a <xref href=\"Nova.Avalonia.AIKit.Controls.DiffTable\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.EffortSelectedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.EffortSelectedEventArgs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.EffortSelectedEventArgs",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.EffortSelectedEventArgs.yml\" sourcestartlinenumber=\"1\">Event arguments for <xref href=\"Nova.Avalonia.AIKit.Controls.PromptBar.EffortSelected\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.FeedbackBar.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.FeedbackBar.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.FeedbackBar",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.FeedbackBar.yml\" sourcestartlinenumber=\"1\">A response action bar: copy, regenerate, and thumbs. A thumb down opens a comment\nflyout before submitting; after any submission the bar thanks the user.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.FeedbackEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.FeedbackEventArgs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.FeedbackEventArgs",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.FeedbackEventArgs.yml\" sourcestartlinenumber=\"1\">Carries the submitted <xref href=\"Nova.Avalonia.AIKit.Controls.FeedbackKind\" data-throw-if-not-resolved=\"false\"></xref> and optional comment.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.FeedbackKind.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.FeedbackKind.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.FeedbackKind",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.FeedbackKind.yml\" sourcestartlinenumber=\"1\">The direction of submitted feedback.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.FilterTable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.FilterTable.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.FilterTable",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.FilterTable.yml\" sourcestartlinenumber=\"1\">A task table with status filter chips: selecting a chip shows only matching rows.\nChips are generated from the distinct <xref href=\"Nova.Avalonia.AIKit.Controls.FilterTableItem.Status\" data-throw-if-not-resolved=\"false\"></xref>\nvalues with live counts, plus a leading &quot;All&quot; chip.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.FilterTableItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.FilterTableItem.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.FilterTableItem",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.FilterTableItem.yml\" sourcestartlinenumber=\"1\">A row shown in a <xref href=\"Nova.Avalonia.AIKit.Controls.FilterTable\" data-throw-if-not-resolved=\"false\"></xref>. Visibility is animated when filtering.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.FilterTableStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.FilterTableStatus.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.FilterTableStatus",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.FilterTableStatus.yml\" sourcestartlinenumber=\"1\">An immutable status shared by <xref href=\"Nova.Avalonia.AIKit.Controls.FilterTableItem\" data-throw-if-not-resolved=\"false\"></xref>s and shown as a filter chip.\nStatuses with the same name and color are equal, so separately created instances filter\ntogether. To change a row's status, assign a new instance to <xref href=\"Nova.Avalonia.AIKit.Controls.FilterTableItem.Status\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.FineTuneCard.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.FineTuneCard.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.FineTuneCard",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.FineTuneCard.yml\" sourcestartlinenumber=\"1\">A design inspector card the agent can drive: a layout switcher, scrubbing numeric\nfields for size, radius and opacity, and a type dropdown row. While\n<xref href=\"Nova.Avalonia.AIKit.Controls.FineTuneCard.IsAdjusting\" data-throw-if-not-resolved=\"false\"></xref> is true the header shows a shimmering &quot;Adjust&quot; indicator.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.FineTuneLayout.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.FineTuneLayout.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.FineTuneLayout",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.FineTuneLayout.yml\" sourcestartlinenumber=\"1\">Layout options offered by a <xref href=\"Nova.Avalonia.AIKit.Controls.FineTuneCard\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.FollowUpList.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.FollowUpList.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.FollowUpList",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.FollowUpList.yml\" sourcestartlinenumber=\"1\">A list of suggested follow-up questions shown under a streamed answer.\nSelecting an item raises <xref href=\"Nova.Avalonia.AIKit.Controls.FollowUpList.FollowUpSelected\" data-throw-if-not-resolved=\"false\"></xref> and executes <xref href=\"Nova.Avalonia.AIKit.Controls.FollowUpList.Command\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.FollowUpSelectedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.FollowUpSelectedEventArgs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.FollowUpSelectedEventArgs",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.FollowUpSelectedEventArgs.yml\" sourcestartlinenumber=\"1\">Event arguments for <xref href=\"Nova.Avalonia.AIKit.Controls.FollowUpList.FollowUpSelected\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.InlineSuggestionBox.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.InlineSuggestionBox.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.InlineSuggestionBox",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.InlineSuggestionBox.yml\" sourcestartlinenumber=\"1\">A text input with ghost text completion: the pending suggestion renders dimmed after\nthe caret, Tab accepts it, Escape dismisses it.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.Insight.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.Insight.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.Insight",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.Insight.yml\" sourcestartlinenumber=\"1\">One page of an <xref href=\"Nova.Avalonia.AIKit.Controls.InsightCards\" data-throw-if-not-resolved=\"false\"></xref> carousel.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.InsightCards.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.InsightCards.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.InsightCards",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.InsightCards.yml\" sourcestartlinenumber=\"1\">A paged carousel of <xref href=\"Nova.Avalonia.AIKit.Controls.Insight\" data-throw-if-not-resolved=\"false\"></xref>s: a header with count and pager arrows over\nthe current insight's narrative, headline stats and trend chart.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.InsightSeries.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.InsightSeries.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.InsightSeries",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.InsightSeries.yml\" sourcestartlinenumber=\"1\">A line drawn by the insight chart.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.InsightStat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.InsightStat.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.InsightStat",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.InsightStat.yml\" sourcestartlinenumber=\"1\">A headline stat inside an <xref href=\"Nova.Avalonia.AIKit.Controls.Insight\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.LoadingIndicator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.LoadingIndicator.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.LoadingIndicator",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.LoadingIndicator.yml\" sourcestartlinenumber=\"1\">A compact loading state composed of an animated pixel grid, a shimmering label and\nthe elapsed time.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.LoadingIndicatorVariant.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.LoadingIndicatorVariant.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.LoadingIndicatorVariant",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.LoadingIndicatorVariant.yml\" sourcestartlinenumber=\"1\">Defines the animation style of a <xref href=\"Nova.Avalonia.AIKit.Controls.LoadingIndicator\" data-throw-if-not-resolved=\"false\"></xref> pixel grid.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.ModelEffortOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.ModelEffortOption.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.ModelEffortOption",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.ModelEffortOption.yml\" sourcestartlinenumber=\"1\">A provider-facing reasoning-effort value and its user-facing label.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.ModelOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.ModelOption.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.ModelOption",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.ModelOption.yml\" sourcestartlinenumber=\"1\">A model choice shown by a <xref href=\"Nova.Avalonia.AIKit.Controls.ModelPicker\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.ModelPicker.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.ModelPicker.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.ModelPicker",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.ModelPicker.yml\" sourcestartlinenumber=\"1\">A standalone model dropdown: the trigger shows the current model, the popup lists\noptions with descriptions, metadata, and highlight badges.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.ModelSelectedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.ModelSelectedEventArgs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.ModelSelectedEventArgs",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.ModelSelectedEventArgs.yml\" sourcestartlinenumber=\"1\">Carries the chosen <xref href=\"Nova.Avalonia.AIKit.Controls.ModelOption\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.MultiAgentGraph.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.MultiAgentGraph.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.MultiAgentGraph",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.MultiAgentGraph.yml\" sourcestartlinenumber=\"1\">A small network of agents: nodes laid out at relative positions, delegation edges\nbetween them, pulses traveling along active edges, and a breathing ring on running\nnodes. Drawn on the render loop; the loop only runs while something is active.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.NovaMotion.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.NovaMotion.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.NovaMotion",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.NovaMotion.yml\" sourcestartlinenumber=\"1\">Provides the inherited motion policy used by Nova control templates. Applications normally\nset <xref href=\"Nova.Avalonia.AIKit.Controls.NovaMotion.IsEnabledProperty\" data-throw-if-not-resolved=\"false\"></xref> through the <code>NovaAnimationsEnabled</code> resource.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.OperationFailedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.OperationFailedEventArgs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.OperationFailedEventArgs",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.OperationFailedEventArgs.yml\" sourcestartlinenumber=\"1\">Reports a recoverable platform operation failure from a control.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.Primitives.ComparisonConverters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.Primitives.ComparisonConverters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.Primitives.ComparisonConverters",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.Primitives.ComparisonConverters.yml\" sourcestartlinenumber=\"1\">Small multi-value comparisons used by the built-in control themes.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.Primitives.FormatConverters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.Primitives.FormatConverters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.Primitives.FormatConverters",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.Primitives.FormatConverters.yml\" sourcestartlinenumber=\"1\">Culture-aware formatting helpers used by the built-in control themes.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.Primitives.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.Primitives.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.Primitives",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.PromptBar.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.PromptBar.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.PromptBar",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.PromptBar.yml\" sourcestartlinenumber=\"1\">A message composer with slash commands, attachable sources, a model picker and a\ndictation toggle. Typing &quot;/&quot; filters <xref href=\"Nova.Avalonia.AIKit.Controls.PromptBar.CommandsSource\" data-throw-if-not-resolved=\"false\"></xref> and &quot;@&quot; or the\nattach button lists <xref href=\"Nova.Avalonia.AIKit.Controls.PromptBar.SourcesSource\" data-throw-if-not-resolved=\"false\"></xref> in a popup above the bar.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.PromptCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.PromptCommand.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.PromptCommand",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.PromptCommand.yml\" sourcestartlinenumber=\"1\">A slash command offered by a <xref href=\"Nova.Avalonia.AIKit.Controls.PromptBar\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.PromptSource.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.PromptSource.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.PromptSource",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.PromptSource.yml\" sourcestartlinenumber=\"1\">An attachable source offered by a <xref href=\"Nova.Avalonia.AIKit.Controls.PromptBar\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.PromptSourceEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.PromptSourceEventArgs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.PromptSourceEventArgs",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.PromptSourceEventArgs.yml\" sourcestartlinenumber=\"1\">Event arguments for <xref href=\"Nova.Avalonia.AIKit.Controls.PromptBar.SourceSelected\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.PromptSubmittedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.PromptSubmittedEventArgs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.PromptSubmittedEventArgs",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.PromptSubmittedEventArgs.yml\" sourcestartlinenumber=\"1\">Event arguments for <xref href=\"Nova.Avalonia.AIKit.Controls.PromptBar.Submitted\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.PropertyFieldChip.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.PropertyFieldChip.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.PropertyFieldChip",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.PropertyFieldChip.yml\" sourcestartlinenumber=\"1\">An inspector field: a drag label that scrubs the value horizontally, a numeric\ntext box, and an optional suffix. Used by <xref href=\"Nova.Avalonia.AIKit.Controls.FineTuneCard\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.RecommendationAcceptedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.RecommendationAcceptedEventArgs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.RecommendationAcceptedEventArgs",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.RecommendationAcceptedEventArgs.yml\" sourcestartlinenumber=\"1\">Immutable accepted-recommendation data for orchestration correlation.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.RecommendationCard.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.RecommendationCard.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.RecommendationCard",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.RecommendationCard.yml\" sourcestartlinenumber=\"1\">An agent suggestion card: title, description with inline <code sourcefile=\"api/Nova.Avalonia.AIKit.Controls.RecommendationCard.yml\" sourcestartlinenumber=\"1\">code</code> chips, a confidence\nmeter, an expandable list of alternatives and Accept action. Wrap identifiers in the\ndescription in backticks to render them as accent chips.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.RecommendationOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.RecommendationOption.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.RecommendationOption",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.RecommendationOption.yml\" sourcestartlinenumber=\"1\">An alternative suggestion listed by a <xref href=\"Nova.Avalonia.AIKit.Controls.RecommendationCard\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.RecommendationOptionEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.RecommendationOptionEventArgs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.RecommendationOptionEventArgs",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.RecommendationOptionEventArgs.yml\" sourcestartlinenumber=\"1\">Event arguments for <xref href=\"Nova.Avalonia.AIKit.Controls.RecommendationCard.AlternativeSelected\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.RecordStrength.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.RecordStrength.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.RecordStrength",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.RecordStrength.yml\" sourcestartlinenumber=\"1\">Relationship strength of a <xref href=\"Nova.Avalonia.AIKit.Controls.CompanyRecord\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.RecordTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.RecordTag.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.RecordTag",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.RecordTag.yml\" sourcestartlinenumber=\"1\">A colored category tag shown in a <xref href=\"Nova.Avalonia.AIKit.Controls.RecordsTable\" data-throw-if-not-resolved=\"false\"></xref> cell.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.RecordsTable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.RecordsTable.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.RecordsTable",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.RecordsTable.yml\" sourcestartlinenumber=\"1\">A CRM style grid of <xref href=\"Nova.Avalonia.AIKit.Controls.CompanyRecord\" data-throw-if-not-resolved=\"false\"></xref> rows: checkbox selection, letter\navatars, colored category tags, relationship strength dots, links and an optional\ncalculation footer.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.ResponseActionEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.ResponseActionEventArgs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.ResponseActionEventArgs",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.ResponseActionEventArgs.yml\" sourcestartlinenumber=\"1\">Immutable response identity for copy and regenerate actions.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.ResponseActionKind.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.ResponseActionKind.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.ResponseActionKind",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.ResponseActionKind.yml\" sourcestartlinenumber=\"1\">A non-feedback action requested for a response.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.SearchItemEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.SearchItemEventArgs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.SearchItemEventArgs",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.SearchItemEventArgs.yml\" sourcestartlinenumber=\"1\">Event arguments for <xref href=\"Nova.Avalonia.AIKit.Controls.SearchPanel.ItemSelected\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.SearchPanel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.SearchPanel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.SearchPanel",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.SearchPanel.yml\" sourcestartlinenumber=\"1\">A command search card: a search field over a result list that filters live while\ntyping, with an empty state when nothing matches. Selecting a result raises\n<xref href=\"Nova.Avalonia.AIKit.Controls.SearchPanel.ItemSelected\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.SelectionAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.SelectionAction.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.SelectionAction",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.SelectionAction.yml\" sourcestartlinenumber=\"1\">An action offered by a <xref href=\"Nova.Avalonia.AIKit.Controls.SelectionToolbar\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.SelectionActionEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.SelectionActionEventArgs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.SelectionActionEventArgs",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.SelectionActionEventArgs.yml\" sourcestartlinenumber=\"1\">Event arguments for <xref href=\"Nova.Avalonia.AIKit.Controls.SelectionToolbar.ActionInvoked\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.SelectionToolbar.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.SelectionToolbar.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.SelectionToolbar",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.SelectionToolbar.yml\" sourcestartlinenumber=\"1\">A floating pill toolbar for a highlighted passage: a free form edit prompt plus\nquick actions. Raises <xref href=\"Nova.Avalonia.AIKit.Controls.SelectionToolbar.Submitted\" data-throw-if-not-resolved=\"false\"></xref> for typed edits and\n<xref href=\"Nova.Avalonia.AIKit.Controls.SelectionToolbar.ActionInvoked\" data-throw-if-not-resolved=\"false\"></xref> for action buttons.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.SidebarNav.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.SidebarNav.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.SidebarNav",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.SidebarNav.yml\" sourcestartlinenumber=\"1\">A workspace sidebar: switcher header, quick search, an accent action row and labeled\nnavigation sections. Clicking an item makes it current and raises <xref href=\"Nova.Avalonia.AIKit.Controls.SidebarNav.ItemSelected\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.SidebarNavItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.SidebarNavItem.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.SidebarNavItem",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.SidebarNavItem.yml\" sourcestartlinenumber=\"1\">A navigation entry in a <xref href=\"Nova.Avalonia.AIKit.Controls.SidebarNav\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.SidebarNavItemEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.SidebarNavItemEventArgs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.SidebarNavItemEventArgs",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.SidebarNavItemEventArgs.yml\" sourcestartlinenumber=\"1\">Event arguments for <xref href=\"Nova.Avalonia.AIKit.Controls.SidebarNav.ItemSelected\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.SidebarNavSection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.SidebarNavSection.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.SidebarNavSection",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.SidebarNavSection.yml\" sourcestartlinenumber=\"1\">A labeled group of <xref href=\"Nova.Avalonia.AIKit.Controls.SidebarNavItem\" data-throw-if-not-resolved=\"false\"></xref>s in a <xref href=\"Nova.Avalonia.AIKit.Controls.SidebarNav\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.SourceChip.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.SourceChip.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.SourceChip",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.SourceChip.yml\" sourcestartlinenumber=\"1\">A compact inline citation pill with an optional icon and monospaced label.\nClicking it opens an absolute HTTP or HTTPS <xref href=\"Avalonia.Controls.HyperlinkButton.NavigateUri\" data-throw-if-not-resolved=\"false\"></xref>\nin the default browser; relative and non-web addresses are ignored.\nDesigned to sit inside a <xref href=\"Nova.Avalonia.AIKit.Controls.StreamingTextBlock\" data-throw-if-not-resolved=\"false\"></xref> but usable anywhere.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.StatTile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.StatTile.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.StatTile",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.StatTile.yml\" sourcestartlinenumber=\"1\">A compact labeled statistic: a quiet caption above a prominent value, on a field\nsurface. Compose several in a grid for an overview dashboard.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.StreamingTextBlock.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.StreamingTextBlock.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.StreamingTextBlock",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.StreamingTextBlock.yml\" sourcestartlinenumber=\"1\">A text block that reveals appended words with a soft fade, the way chat assistants\nstream responses. Call <xref href=\"Nova.Avalonia.AIKit.Controls.StreamingTextBlock.AppendText(System.String)\" data-throw-if-not-resolved=\"false\"></xref> with each new chunk and\n<xref href=\"Nova.Avalonia.AIKit.Controls.StreamingTextBlock.FlushStreamedText\" data-throw-if-not-resolved=\"false\"></xref> when the stream ends. Bind <xref href=\"Nova.Avalonia.AIKit.Controls.StreamingTextBlock.StreamedText\" data-throw-if-not-resolved=\"false\"></xref>\nwhen the upstream API only exposes growing snapshots. Inline content such as a\n<xref href=\"Nova.Avalonia.AIKit.Controls.SourceChip\" data-throw-if-not-resolved=\"false\"></xref> can be added with <xref href=\"Nova.Avalonia.AIKit.Controls.StreamingTextBlock.AppendInline(Avalonia.Controls.Control)\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.ThinkingNote.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.ThinkingNote.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.ThinkingNote",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.ThinkingNote.yml\" sourcestartlinenumber=\"1\">A free-form activity note shown as muted prose in a <xref href=\"Nova.Avalonia.AIKit.Controls.ThinkingTrace\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.ThinkingQuery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.ThinkingQuery.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.ThinkingQuery",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.ThinkingQuery.yml\" sourcestartlinenumber=\"1\">A search query shown with a magnifier icon in a <xref href=\"Nova.Avalonia.AIKit.Controls.ThinkingTrace\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.ThinkingSource.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.ThinkingSource.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.ThinkingSource",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.ThinkingSource.yml\" sourcestartlinenumber=\"1\">A retrieved source shown with a colored globe badge in a <xref href=\"Nova.Avalonia.AIKit.Controls.ThinkingTrace\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.ThinkingStep.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.ThinkingStep.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.ThinkingStep",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.ThinkingStep.yml\" sourcestartlinenumber=\"1\">A completed work step shown with a check mark in a <xref href=\"Nova.Avalonia.AIKit.Controls.ThinkingTrace\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.ThinkingToolCall.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.ThinkingToolCall.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.ThinkingToolCall",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.ThinkingToolCall.yml\" sourcestartlinenumber=\"1\">A tool invocation shown as verb + target in a <xref href=\"Nova.Avalonia.AIKit.Controls.ThinkingTrace\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.ThinkingTrace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.ThinkingTrace.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.ThinkingTrace",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.ThinkingTrace.yml\" sourcestartlinenumber=\"1\">An expandable activity trace for agent work: a sparkle header that shimmers while thinking and\ncollapses to a summary when done, above a timeline of steps, notes, sources or tool\ncalls.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.TimelineEntry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.TimelineEntry.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.TimelineEntry",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.TimelineEntry.yml\" sourcestartlinenumber=\"1\">One event in an <xref href=\"Nova.Avalonia.AIKit.Controls.AgentTimeline\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.TimelineEntryKind.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.TimelineEntryKind.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.TimelineEntryKind",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.TimelineEntryKind.yml\" sourcestartlinenumber=\"1\">The category of an <xref href=\"Nova.Avalonia.AIKit.Controls.AgentTimeline\" data-throw-if-not-resolved=\"false\"></xref> entry.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.ToolCall.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.ToolCall.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.ToolCall",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.ToolCall.yml\" sourcestartlinenumber=\"1\">A tool invocation shown as a row in a <xref href=\"Nova.Avalonia.AIKit.Controls.ToolCallList\" data-throw-if-not-resolved=\"false\"></xref>. Rows are display\nsnapshots: replace the item (or reassign the collection) to update one.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.ToolCallIcons.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.ToolCallIcons.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.ToolCallIcons",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.ToolCallIcons.yml\" sourcestartlinenumber=\"1\">Maps a <xref href=\"Nova.Avalonia.AIKit.Controls.ToolCallKind\" data-throw-if-not-resolved=\"false\"></xref> to its icon geometry.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.ToolCallKind.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.ToolCallKind.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.ToolCallKind",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.ToolCallKind.yml\" sourcestartlinenumber=\"1\">The icon shown next to a <xref href=\"Nova.Avalonia.AIKit.Controls.ToolCall\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.ToolCallList.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.ToolCallList.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.ToolCallList",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.ToolCallList.yml\" sourcestartlinenumber=\"1\">A collapsible list of <xref href=\"Nova.Avalonia.AIKit.Controls.ToolCall\" data-throw-if-not-resolved=\"false\"></xref> rows: each row shows an icon, a label and\na compact <xref href=\"Nova.Avalonia.AIKit.Controls.ToolChip\" data-throw-if-not-resolved=\"false\"></xref>, and expands to reveal its output lines.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.ToolCallOutput.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.ToolCallOutput.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.ToolCallOutput",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.ToolCallOutput.yml\" sourcestartlinenumber=\"1\">A single output line of a <xref href=\"Nova.Avalonia.AIKit.Controls.ToolCall\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.ToolCallStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.ToolCallStatus.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.ToolCallStatus",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.ToolCallStatus.yml\" sourcestartlinenumber=\"1\">The execution state represented by a <xref href=\"Nova.Avalonia.AIKit.Controls.ToolCall\" data-throw-if-not-resolved=\"false\"></xref> snapshot.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.ToolChip.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.ToolChip.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.ToolChip",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.ToolChip.yml\" sourcestartlinenumber=\"1\">A compact chip that shows a tool call detail such as a file name, command or note.\nUsed inside <xref href=\"Nova.Avalonia.AIKit.Controls.ToolCallList\" data-throw-if-not-resolved=\"false\"></xref> rows and reusable on its own.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.ToolOutputKind.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.ToolOutputKind.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.ToolOutputKind",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.ToolOutputKind.yml\" sourcestartlinenumber=\"1\">The visual style of a <xref href=\"Nova.Avalonia.AIKit.Controls.ToolCallOutput\" data-throw-if-not-resolved=\"false\"></xref> line.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.TrendDirection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.TrendDirection.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.TrendDirection",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.TrendDirection.yml\" sourcestartlinenumber=\"1\">Direction of an <xref href=\"Nova.Avalonia.AIKit.Controls.InsightStat\" data-throw-if-not-resolved=\"false\"></xref> value.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.VoiceWaveform.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.VoiceWaveform.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls.VoiceWaveform",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.Controls.VoiceWaveform.yml\" sourcestartlinenumber=\"1\">Animated dictation level bars. While active the bars dance with a center-weighted\nenvelope scaled by <xref href=\"Nova.Avalonia.AIKit.Controls.VoiceWaveform.Level\" data-throw-if-not-resolved=\"false\"></xref>; idle they settle into a flat dotted line.\nDrawn on the render loop.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.Controls.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.Controls.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.Controls",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.NovaTheme.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.NovaTheme.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit.NovaTheme",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.AIKit.NovaTheme.yml\" sourcestartlinenumber=\"1\">Includes the Nova AIKit control themes and design tokens in an application.\nAdd an instance to <code>Application.Styles</code>:</p>\n<pre><code class=\"lang-csharp\">&lt;Application.Styles&gt;\n  &lt;FluentTheme /&gt;\n  &lt;nova:NovaTheme /&gt;\n&lt;/Application.Styles&gt;</code></pre>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.AIKit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.AIKit.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.AIKit",
+      "Summary": null
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/controls/agents.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/controls/agents.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/controls/approval-and-feedback.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/controls/approval-and-feedback.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/controls/code-review.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/controls/code-review.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/controls/context-and-citations.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/controls/context-and-citations.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/controls/conversation.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/controls/conversation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/controls/data-and-insights.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/controls/data-and-insights.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/controls/fine-tuning.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/controls/fine-tuning.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/controls/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/controls/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/controls/models-and-input.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/controls/models-and-input.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/controls/prompt-bar.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/controls/prompt-bar.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/controls/recommendations.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/controls/recommendations.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/controls/thinking-and-loading.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/controls/thinking-and-loading.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/controls/tool-calls.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/controls/tool-calls.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/getting-started.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/getting-started.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/introduction.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/introduction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/theming.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/theming.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "docs/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "docs/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/banner.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/banner.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/demos/aikit-agent-avatar-light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/demos/aikit-agent-avatar-light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/demos/aikit-agent-graph-light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/demos/aikit-agent-graph-light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/demos/aikit-agent-timeline-light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/demos/aikit-agent-timeline-light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/demos/aikit-approval-card-light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/demos/aikit-approval-card-light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/demos/aikit-attachments-light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/demos/aikit-attachments-light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/demos/aikit-chat-light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/demos/aikit-chat-light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/demos/aikit-citations-light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/demos/aikit-citations-light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/demos/aikit-code-block-light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/demos/aikit-code-block-light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/demos/aikit-code-diff-light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/demos/aikit-code-diff-light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/demos/aikit-code-files-light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/demos/aikit-code-files-light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/demos/aikit-context-cards-light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/demos/aikit-context-cards-light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/demos/aikit-context-meter-light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/demos/aikit-context-meter-light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/demos/aikit-diff-table-light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/demos/aikit-diff-table-light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/demos/aikit-feedback-bar-light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/demos/aikit-feedback-bar-light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/demos/aikit-fine-tune-card-light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/demos/aikit-fine-tune-card-light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/demos/aikit-inline-suggestion-light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/demos/aikit-inline-suggestion-light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/demos/aikit-loading-state-light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/demos/aikit-loading-state-light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/demos/aikit-model-picker-light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/demos/aikit-model-picker-light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/demos/aikit-prompt-bar-light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/demos/aikit-prompt-bar-light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/demos/aikit-recommendation-card-light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/demos/aikit-recommendation-card-light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/demos/aikit-selection-actions-light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/demos/aikit-selection-actions-light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/demos/aikit-streaming-text-light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/demos/aikit-streaming-text-light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/demos/aikit-thinking-light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/demos/aikit-thinking-light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/demos/aikit-tool-chips-light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/demos/aikit-tool-chips-light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/demos/aikit-usage-stats-light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/demos/aikit-usage-stats-light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/logo-transparent.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/logo-transparent.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

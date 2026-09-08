@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Namespace Nova.Avalonia.AIKit.Controls | Nova.Avalonia.AIKit </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Namespace Nova.Avalonia.AIKit.Controls | Nova.Avalonia.AIKit ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo-transparent.png" alt="Nova.Avalonia.AIKit">
+            Nova.Avalonia.AIKit
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Nova.Avalonia.AIKit.Controls">
+
+  <h1 id="Nova_Avalonia_AIKit_Controls" data-uid="Nova.Avalonia.AIKit.Controls" class="text-break">Namespace Nova.Avalonia.AIKit.Controls</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+
+    <h3 id="classes">
+Classes
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.ActivityHeatmap.html">ActivityHeatmap</a></dt>
+      <dd><p>A calendar heatmap: one column per week, one row per weekday, each cell tinted by
+activity intensity. Values run oldest first, top to bottom within each column. Cells
+grow to fill the given width, and hovering a cell shows its date and activity.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.AgentAvatar.html">AgentAvatar</a></dt>
+      <dd><p>A living avatar for agent presence. The face is a lightweight 3D head: eyes sit on a
+sphere and follow a yaw/pitch/roll pose that wanders on layered noise, blinks on an
+organic schedule (sometimes twice), and masks expression changes behind a blink.
+Moods blend into each other; nothing snaps. Drawn on the render loop with no assets.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.AgentLink.html">AgentLink</a></dt>
+      <dd><p>A delegation edge between two stable <a class="xref" href="Nova.Avalonia.AIKit.Controls.AgentNode.html#Nova_Avalonia_AIKit_Controls_AgentNode_Id">Id</a> values.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.AgentNode.html">AgentNode</a></dt>
+      <dd><p>One agent in a <a class="xref" href="Nova.Avalonia.AIKit.Controls.MultiAgentGraph.html">MultiAgentGraph</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.AgentTaskDetail.html">AgentTaskDetail</a></dt>
+      <dd><p>A label and value pair shown in the expanded part of an <a class="xref" href="Nova.Avalonia.AIKit.Controls.AgentTaskRow.html">AgentTaskRow</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.AgentTaskRow.html">AgentTaskRow</a></dt>
+      <dd><p>A pill-shaped card that tracks one live agent task: a lifecycle-specific status icon,
+title, meta text, a status badge and an expandable list of
+<a class="xref" href="Nova.Avalonia.AIKit.Controls.AgentTaskDetail.html">AgentTaskDetail</a> rows.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.AgentTimeline.html">AgentTimeline</a></dt>
+      <dd><p>A vertical session history: timestamped entries with kind-colored dots on a connector
+line, for messages, tool calls, checkpoints, and errors. Observable sources keep the
+connector correct as entries stream in.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.ApprovalAnswerEventArgs.html">ApprovalAnswerEventArgs</a></dt>
+      <dd><p>Event arguments for <a class="xref" href="Nova.Avalonia.AIKit.Controls.ApprovalCard.html#Nova_Avalonia_AIKit_Controls_ApprovalCard_AnswerSubmitted">AnswerSubmitted</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.ApprovalCard.html">ApprovalCard</a></dt>
+      <dd><p>A human-in-the-loop card that walks through one or more <a class="xref" href="Nova.Avalonia.AIKit.Controls.ApprovalQuestion.html">ApprovalQuestion</a>s
+before an agent acts: pick an option or type a custom answer, submit, and step through
+the questions with the progress footer. Raises <a class="xref" href="Nova.Avalonia.AIKit.Controls.ApprovalCard.html#Nova_Avalonia_AIKit_Controls_ApprovalCard_Completed">Completed</a> once every question is
+answered and <a class="xref" href="Nova.Avalonia.AIKit.Controls.ApprovalCard.html#Nova_Avalonia_AIKit_Controls_ApprovalCard_Dismissed">Dismissed</a> when closed.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.ApprovalOption.html">ApprovalOption</a></dt>
+      <dd><p>A stable value and user-facing label offered by an <a class="xref" href="Nova.Avalonia.AIKit.Controls.ApprovalQuestion.html">ApprovalQuestion</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.ApprovalQuestion.html">ApprovalQuestion</a></dt>
+      <dd><p>A question presented by an <a class="xref" href="Nova.Avalonia.AIKit.Controls.ApprovalCard.html">ApprovalCard</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.AttachmentTile.html">AttachmentTile</a></dt>
+      <dd><p>A file attached to a prompt: a colored type badge, the file name, a detail line and a
+remove button, with a progress strip along the bottom while uploading.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.ChatComposer.html">ChatComposer</a></dt>
+      <dd><p>A chat input field with a send button. Enter or the button raises
+<a class="xref" href="Nova.Avalonia.AIKit.Controls.ChatComposer.html#Nova_Avalonia_AIKit_Controls_ChatComposer_Submitted">Submitted</a>, executes <a class="xref" href="Nova.Avalonia.AIKit.Controls.ChatComposer.html#Nova_Avalonia_AIKit_Controls_ChatComposer_Command">Command</a> with the message text, and can
+execute <a class="xref" href="Nova.Avalonia.AIKit.Controls.ChatComposer.html#Nova_Avalonia_AIKit_Controls_ChatComposer_SubmitCommand">SubmitCommand</a> with the structured submission payload.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.ChatMessage.html">ChatMessage</a></dt>
+      <dd><p>A message shown in a <a class="xref" href="Nova.Avalonia.AIKit.Controls.ChatMessageList.html">ChatMessageList</a>. Messages are display
+snapshots: replace the item (or reassign the collection) to update one.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.ChatMessageList.html">ChatMessageList</a></dt>
+      <dd><p>A scrolling chat transcript of <a class="xref" href="Nova.Avalonia.AIKit.Controls.ChatMessage.html">ChatMessage</a> items: user messages as
+right-aligned bubbles, assistant replies full width with a meta line. Scrolls to the
+newest message automatically while the viewport remains pinned to the end.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.ChatMessageSubmittedEventArgs.html">ChatMessageSubmittedEventArgs</a></dt>
+      <dd><p>Event arguments for <a class="xref" href="Nova.Avalonia.AIKit.Controls.ChatComposer.html#Nova_Avalonia_AIKit_Controls_ChatComposer_Submitted">Submitted</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.CitationChip.html">CitationChip</a></dt>
+      <dd><p>A numbered inline citation. Clicking opens a flyout with the source title, domain,
+and snippet plus a link that opens the source in the browser.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.CodeBlock.html">CodeBlock</a></dt>
+      <dd><p>An agent written code card: a bar with the file name, language and a copy action over
+numbered, token colored lines. Stream lines by appending <a class="xref" href="Nova.Avalonia.AIKit.Controls.CodeLine.html">CodeLine</a>s;
+include a <a class="xref" href="Nova.Avalonia.AIKit.Controls.CodeTokenKind.html#Nova_Avalonia_AIKit_Controls_CodeTokenKind_Caret">Caret</a> token to show the writing position.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.CodeDiffView.html">CodeDiffView</a></dt>
+      <dd><p>A unified code diff card: a file bar with change stats over gutter numbered lines,
+where additions tint green and removals tint red with +/− markers.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.CodeFileEventArgs.html">CodeFileEventArgs</a></dt>
+      <dd><p>Event arguments for <a class="xref" href="Nova.Avalonia.AIKit.Controls.CodeFileTree.html#Nova_Avalonia_AIKit_Controls_CodeFileTree_FileSelected">FileSelected</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.CodeFileItem.html">CodeFileItem</a></dt>
+      <dd><p>A file or folder display snapshot in a <a class="xref" href="Nova.Avalonia.AIKit.Controls.CodeFileTree.html">CodeFileTree</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.CodeFileTree.html">CodeFileTree</a></dt>
+      <dd><p>A compact list of files the agent touched: indented rows with folder and file icons,
+change counts, and a status dot. Selecting a file raises <a class="xref" href="Nova.Avalonia.AIKit.Controls.CodeFileTree.html#Nova_Avalonia_AIKit_Controls_CodeFileTree_FileSelected">FileSelected</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.CodeLine.html">CodeLine</a></dt>
+      <dd><p>A numbered line in a <a class="xref" href="Nova.Avalonia.AIKit.Controls.CodeBlock.html">CodeBlock</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.CodeToken.html">CodeToken</a></dt>
+      <dd><p>A colored fragment of a <a class="xref" href="Nova.Avalonia.AIKit.Controls.CodeLine.html">CodeLine</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.CompanyRecord.html">CompanyRecord</a></dt>
+      <dd><p>A row shown in a <a class="xref" href="Nova.Avalonia.AIKit.Controls.RecordsTable.html">RecordsTable</a>. Selection is observable; the other
+properties are display snapshots set at creation.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.ConfidenceMeter.html">ConfidenceMeter</a></dt>
+      <dd><p>A compact three bar meter that visualizes a <a class="xref" href="Nova.Avalonia.AIKit.Controls.ConfidenceLevel.html">ConfidenceLevel</a>:
+green for high, orange for medium and low, muted when there is no signal.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.ContextCard.html">ContextCard</a></dt>
+      <dd><p>A retrieved knowledge chunk: a titled card with an excerpt, a meta label such as the
+character count, and a source pill with a colored file type badge. Set
+<a class="xref" href="Nova.Avalonia.AIKit.Controls.ContextCard.html#Nova_Avalonia_AIKit_Controls_ContextCard_SourceUri">SourceUri</a> to open the source in the browser when clicked.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.ContextUsageMeter.html">ContextUsageMeter</a></dt>
+      <dd><p>A ring gauge for context window consumption. Shows the used share as a sweep with the
+percentage in the center and a token summary underneath, shifting to warning and
+critical colors as the window fills.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.DiffLine.html">DiffLine</a></dt>
+      <dd><p>A line in a <a class="xref" href="Nova.Avalonia.AIKit.Controls.CodeDiffView.html">CodeDiffView</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.DiffTable.html">DiffTable</a></dt>
+      <dd><p>A titled three column table that visualizes AI proposed edits: removed rows are
+tinted red with struck through values, added rows are tinted green.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.DiffTableRow.html">DiffTableRow</a></dt>
+      <dd><p>A row shown in a <a class="xref" href="Nova.Avalonia.AIKit.Controls.DiffTable.html">DiffTable</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.EffortSelectedEventArgs.html">EffortSelectedEventArgs</a></dt>
+      <dd><p>Event arguments for <a class="xref" href="Nova.Avalonia.AIKit.Controls.PromptBar.html#Nova_Avalonia_AIKit_Controls_PromptBar_EffortSelected">EffortSelected</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.FeedbackBar.html">FeedbackBar</a></dt>
+      <dd><p>A response action bar: copy, regenerate, and thumbs. A thumb down opens a comment
+flyout before submitting; after any submission the bar thanks the user.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.FeedbackEventArgs.html">FeedbackEventArgs</a></dt>
+      <dd><p>Carries the submitted <a class="xref" href="Nova.Avalonia.AIKit.Controls.FeedbackKind.html">FeedbackKind</a> and optional comment.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.FilterTable.html">FilterTable</a></dt>
+      <dd><p>A task table with status filter chips: selecting a chip shows only matching rows.
+Chips are generated from the distinct <a class="xref" href="Nova.Avalonia.AIKit.Controls.FilterTableItem.html#Nova_Avalonia_AIKit_Controls_FilterTableItem_Status">Status</a>
+values with live counts, plus a leading &quot;All&quot; chip.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.FilterTableItem.html">FilterTableItem</a></dt>
+      <dd><p>A row shown in a <a class="xref" href="Nova.Avalonia.AIKit.Controls.FilterTable.html">FilterTable</a>. Visibility is animated when filtering.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.FilterTableStatus.html">FilterTableStatus</a></dt>
+      <dd><p>An immutable status shared by <a class="xref" href="Nova.Avalonia.AIKit.Controls.FilterTableItem.html">FilterTableItem</a>s and shown as a filter chip.
+Statuses with the same name and color are equal, so separately created instances filter
+together. To change a row's status, assign a new instance to <a class="xref" href="Nova.Avalonia.AIKit.Controls.FilterTableItem.html#Nova_Avalonia_AIKit_Controls_FilterTableItem_Status">Status</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.FineTuneCard.html">FineTuneCard</a></dt>
+      <dd><p>A design inspector card the agent can drive: a layout switcher, scrubbing numeric
+fields for size, radius and opacity, and a type dropdown row. While
+<a class="xref" href="Nova.Avalonia.AIKit.Controls.FineTuneCard.html#Nova_Avalonia_AIKit_Controls_FineTuneCard_IsAdjusting">IsAdjusting</a> is true the header shows a shimmering &quot;Adjust&quot; indicator.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.FollowUpList.html">FollowUpList</a></dt>
+      <dd><p>A list of suggested follow-up questions shown under a streamed answer.
+Selecting an item raises <a class="xref" href="Nova.Avalonia.AIKit.Controls.FollowUpList.html#Nova_Avalonia_AIKit_Controls_FollowUpList_FollowUpSelected">FollowUpSelected</a> and executes <a class="xref" href="Nova.Avalonia.AIKit.Controls.FollowUpList.html#Nova_Avalonia_AIKit_Controls_FollowUpList_Command">Command</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.FollowUpSelectedEventArgs.html">FollowUpSelectedEventArgs</a></dt>
+      <dd><p>Event arguments for <a class="xref" href="Nova.Avalonia.AIKit.Controls.FollowUpList.html#Nova_Avalonia_AIKit_Controls_FollowUpList_FollowUpSelected">FollowUpSelected</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.InlineSuggestionBox.html">InlineSuggestionBox</a></dt>
+      <dd><p>A text input with ghost text completion: the pending suggestion renders dimmed after
+the caret, Tab accepts it, Escape dismisses it.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.Insight.html">Insight</a></dt>
+      <dd><p>One page of an <a class="xref" href="Nova.Avalonia.AIKit.Controls.InsightCards.html">InsightCards</a> carousel.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.InsightCards.html">InsightCards</a></dt>
+      <dd><p>A paged carousel of <a class="xref" href="Nova.Avalonia.AIKit.Controls.Insight.html">Insight</a>s: a header with count and pager arrows over
+the current insight's narrative, headline stats and trend chart.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.InsightSeries.html">InsightSeries</a></dt>
+      <dd><p>A line drawn by the insight chart.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.InsightStat.html">InsightStat</a></dt>
+      <dd><p>A headline stat inside an <a class="xref" href="Nova.Avalonia.AIKit.Controls.Insight.html">Insight</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.LoadingIndicator.html">LoadingIndicator</a></dt>
+      <dd><p>A compact loading state composed of an animated pixel grid, a shimmering label and
+the elapsed time.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.ModelEffortOption.html">ModelEffortOption</a></dt>
+      <dd><p>A provider-facing reasoning-effort value and its user-facing label.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.ModelOption.html">ModelOption</a></dt>
+      <dd><p>A model choice shown by a <a class="xref" href="Nova.Avalonia.AIKit.Controls.ModelPicker.html">ModelPicker</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.ModelPicker.html">ModelPicker</a></dt>
+      <dd><p>A standalone model dropdown: the trigger shows the current model, the popup lists
+options with descriptions, metadata, and highlight badges.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.ModelSelectedEventArgs.html">ModelSelectedEventArgs</a></dt>
+      <dd><p>Carries the chosen <a class="xref" href="Nova.Avalonia.AIKit.Controls.ModelOption.html">ModelOption</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.MultiAgentGraph.html">MultiAgentGraph</a></dt>
+      <dd><p>A small network of agents: nodes laid out at relative positions, delegation edges
+between them, pulses traveling along active edges, and a breathing ring on running
+nodes. Drawn on the render loop; the loop only runs while something is active.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.NovaMotion.html">NovaMotion</a></dt>
+      <dd><p>Provides the inherited motion policy used by Nova control templates. Applications normally
+set <a class="xref" href="Nova.Avalonia.AIKit.Controls.NovaMotion.html#Nova_Avalonia_AIKit_Controls_NovaMotion_IsEnabledProperty">IsEnabledProperty</a> through the <code>NovaAnimationsEnabled</code> resource.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.OperationFailedEventArgs.html">OperationFailedEventArgs</a></dt>
+      <dd><p>Reports a recoverable platform operation failure from a control.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.PromptBar.html">PromptBar</a></dt>
+      <dd><p>A message composer with slash commands, attachable sources, a model picker and a
+dictation toggle. Typing &quot;/&quot; filters <a class="xref" href="Nova.Avalonia.AIKit.Controls.PromptBar.html#Nova_Avalonia_AIKit_Controls_PromptBar_CommandsSource">CommandsSource</a> and &quot;@&quot; or the
+attach button lists <a class="xref" href="Nova.Avalonia.AIKit.Controls.PromptBar.html#Nova_Avalonia_AIKit_Controls_PromptBar_SourcesSource">SourcesSource</a> in a popup above the bar.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.PromptCommand.html">PromptCommand</a></dt>
+      <dd><p>A slash command offered by a <a class="xref" href="Nova.Avalonia.AIKit.Controls.PromptBar.html">PromptBar</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.PromptSource.html">PromptSource</a></dt>
+      <dd><p>An attachable source offered by a <a class="xref" href="Nova.Avalonia.AIKit.Controls.PromptBar.html">PromptBar</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.PromptSourceEventArgs.html">PromptSourceEventArgs</a></dt>
+      <dd><p>Event arguments for <a class="xref" href="Nova.Avalonia.AIKit.Controls.PromptBar.html#Nova_Avalonia_AIKit_Controls_PromptBar_SourceSelected">SourceSelected</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.PromptSubmittedEventArgs.html">PromptSubmittedEventArgs</a></dt>
+      <dd><p>Event arguments for <a class="xref" href="Nova.Avalonia.AIKit.Controls.PromptBar.html#Nova_Avalonia_AIKit_Controls_PromptBar_Submitted">Submitted</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.PropertyFieldChip.html">PropertyFieldChip</a></dt>
+      <dd><p>An inspector field: a drag label that scrubs the value horizontally, a numeric
+text box, and an optional suffix. Used by <a class="xref" href="Nova.Avalonia.AIKit.Controls.FineTuneCard.html">FineTuneCard</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.RecommendationAcceptedEventArgs.html">RecommendationAcceptedEventArgs</a></dt>
+      <dd><p>Immutable accepted-recommendation data for orchestration correlation.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.RecommendationCard.html">RecommendationCard</a></dt>
+      <dd><p>An agent suggestion card: title, description with inline <code>code</code> chips, a confidence
+meter, an expandable list of alternatives and Accept action. Wrap identifiers in the
+description in backticks to render them as accent chips.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.RecommendationOption.html">RecommendationOption</a></dt>
+      <dd><p>An alternative suggestion listed by a <a class="xref" href="Nova.Avalonia.AIKit.Controls.RecommendationCard.html">RecommendationCard</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.RecommendationOptionEventArgs.html">RecommendationOptionEventArgs</a></dt>
+      <dd><p>Event arguments for <a class="xref" href="Nova.Avalonia.AIKit.Controls.RecommendationCard.html#Nova_Avalonia_AIKit_Controls_RecommendationCard_AlternativeSelected">AlternativeSelected</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.RecordTag.html">RecordTag</a></dt>
+      <dd><p>A colored category tag shown in a <a class="xref" href="Nova.Avalonia.AIKit.Controls.RecordsTable.html">RecordsTable</a> cell.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.RecordsTable.html">RecordsTable</a></dt>
+      <dd><p>A CRM style grid of <a class="xref" href="Nova.Avalonia.AIKit.Controls.CompanyRecord.html">CompanyRecord</a> rows: checkbox selection, letter
+avatars, colored category tags, relationship strength dots, links and an optional
+calculation footer.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.ResponseActionEventArgs.html">ResponseActionEventArgs</a></dt>
+      <dd><p>Immutable response identity for copy and regenerate actions.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.SearchItemEventArgs.html">SearchItemEventArgs</a></dt>
+      <dd><p>Event arguments for <a class="xref" href="Nova.Avalonia.AIKit.Controls.SearchPanel.html#Nova_Avalonia_AIKit_Controls_SearchPanel_ItemSelected">ItemSelected</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.SearchPanel.html">SearchPanel</a></dt>
+      <dd><p>A command search card: a search field over a result list that filters live while
+typing, with an empty state when nothing matches. Selecting a result raises
+<a class="xref" href="Nova.Avalonia.AIKit.Controls.SearchPanel.html#Nova_Avalonia_AIKit_Controls_SearchPanel_ItemSelected">ItemSelected</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.SelectionAction.html">SelectionAction</a></dt>
+      <dd><p>An action offered by a <a class="xref" href="Nova.Avalonia.AIKit.Controls.SelectionToolbar.html">SelectionToolbar</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.SelectionActionEventArgs.html">SelectionActionEventArgs</a></dt>
+      <dd><p>Event arguments for <a class="xref" href="Nova.Avalonia.AIKit.Controls.SelectionToolbar.html#Nova_Avalonia_AIKit_Controls_SelectionToolbar_ActionInvoked">ActionInvoked</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.SelectionToolbar.html">SelectionToolbar</a></dt>
+      <dd><p>A floating pill toolbar for a highlighted passage: a free form edit prompt plus
+quick actions. Raises <a class="xref" href="Nova.Avalonia.AIKit.Controls.SelectionToolbar.html#Nova_Avalonia_AIKit_Controls_SelectionToolbar_Submitted">Submitted</a> for typed edits and
+<a class="xref" href="Nova.Avalonia.AIKit.Controls.SelectionToolbar.html#Nova_Avalonia_AIKit_Controls_SelectionToolbar_ActionInvoked">ActionInvoked</a> for action buttons.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.SidebarNav.html">SidebarNav</a></dt>
+      <dd><p>A workspace sidebar: switcher header, quick search, an accent action row and labeled
+navigation sections. Clicking an item makes it current and raises <a class="xref" href="Nova.Avalonia.AIKit.Controls.SidebarNav.html#Nova_Avalonia_AIKit_Controls_SidebarNav_ItemSelected">ItemSelected</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.SidebarNavItem.html">SidebarNavItem</a></dt>
+      <dd><p>A navigation entry in a <a class="xref" href="Nova.Avalonia.AIKit.Controls.SidebarNav.html">SidebarNav</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.SidebarNavItemEventArgs.html">SidebarNavItemEventArgs</a></dt>
+      <dd><p>Event arguments for <a class="xref" href="Nova.Avalonia.AIKit.Controls.SidebarNav.html#Nova_Avalonia_AIKit_Controls_SidebarNav_ItemSelected">ItemSelected</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.SidebarNavSection.html">SidebarNavSection</a></dt>
+      <dd><p>A labeled group of <a class="xref" href="Nova.Avalonia.AIKit.Controls.SidebarNavItem.html">SidebarNavItem</a>s in a <a class="xref" href="Nova.Avalonia.AIKit.Controls.SidebarNav.html">SidebarNav</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.SourceChip.html">SourceChip</a></dt>
+      <dd><p>A compact inline citation pill with an optional icon and monospaced label.
+Clicking it opens an absolute HTTP or HTTPS <span class="xref">Avalonia.Controls.HyperlinkButton.NavigateUri</span>
+in the default browser; relative and non-web addresses are ignored.
+Designed to sit inside a <a class="xref" href="Nova.Avalonia.AIKit.Controls.StreamingTextBlock.html">StreamingTextBlock</a> but usable anywhere.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.StatTile.html">StatTile</a></dt>
+      <dd><p>A compact labeled statistic: a quiet caption above a prominent value, on a field
+surface. Compose several in a grid for an overview dashboard.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.StreamingTextBlock.html">StreamingTextBlock</a></dt>
+      <dd><p>A text block that reveals appended words with a soft fade, the way chat assistants
+stream responses. Call <a class="xref" href="Nova.Avalonia.AIKit.Controls.StreamingTextBlock.html#Nova_Avalonia_AIKit_Controls_StreamingTextBlock_AppendText_System_String_">AppendText(string)</a> with each new chunk and
+<a class="xref" href="Nova.Avalonia.AIKit.Controls.StreamingTextBlock.html#Nova_Avalonia_AIKit_Controls_StreamingTextBlock_FlushStreamedText">FlushStreamedText()</a> when the stream ends. Bind <a class="xref" href="Nova.Avalonia.AIKit.Controls.StreamingTextBlock.html#Nova_Avalonia_AIKit_Controls_StreamingTextBlock_StreamedText">StreamedText</a>
+when the upstream API only exposes growing snapshots. Inline content such as a
+<a class="xref" href="Nova.Avalonia.AIKit.Controls.SourceChip.html">SourceChip</a> can be added with <a class="xref" href="Nova.Avalonia.AIKit.Controls.StreamingTextBlock.html#Nova_Avalonia_AIKit_Controls_StreamingTextBlock_AppendInline_Avalonia_Controls_Control_">AppendInline(Control)</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.ThinkingNote.html">ThinkingNote</a></dt>
+      <dd><p>A free-form activity note shown as muted prose in a <a class="xref" href="Nova.Avalonia.AIKit.Controls.ThinkingTrace.html">ThinkingTrace</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.ThinkingQuery.html">ThinkingQuery</a></dt>
+      <dd><p>A search query shown with a magnifier icon in a <a class="xref" href="Nova.Avalonia.AIKit.Controls.ThinkingTrace.html">ThinkingTrace</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.ThinkingSource.html">ThinkingSource</a></dt>
+      <dd><p>A retrieved source shown with a colored globe badge in a <a class="xref" href="Nova.Avalonia.AIKit.Controls.ThinkingTrace.html">ThinkingTrace</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.ThinkingStep.html">ThinkingStep</a></dt>
+      <dd><p>A completed work step shown with a check mark in a <a class="xref" href="Nova.Avalonia.AIKit.Controls.ThinkingTrace.html">ThinkingTrace</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.ThinkingToolCall.html">ThinkingToolCall</a></dt>
+      <dd><p>A tool invocation shown as verb + target in a <a class="xref" href="Nova.Avalonia.AIKit.Controls.ThinkingTrace.html">ThinkingTrace</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.ThinkingTrace.html">ThinkingTrace</a></dt>
+      <dd><p>An expandable activity trace for agent work: a sparkle header that shimmers while thinking and
+collapses to a summary when done, above a timeline of steps, notes, sources or tool
+calls.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.TimelineEntry.html">TimelineEntry</a></dt>
+      <dd><p>One event in an <a class="xref" href="Nova.Avalonia.AIKit.Controls.AgentTimeline.html">AgentTimeline</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.ToolCall.html">ToolCall</a></dt>
+      <dd><p>A tool invocation shown as a row in a <a class="xref" href="Nova.Avalonia.AIKit.Controls.ToolCallList.html">ToolCallList</a>. Rows are display
+snapshots: replace the item (or reassign the collection) to update one.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.ToolCallIcons.html">ToolCallIcons</a></dt>
+      <dd><p>Maps a <a class="xref" href="Nova.Avalonia.AIKit.Controls.ToolCallKind.html">ToolCallKind</a> to its icon geometry.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.ToolCallList.html">ToolCallList</a></dt>
+      <dd><p>A collapsible list of <a class="xref" href="Nova.Avalonia.AIKit.Controls.ToolCall.html">ToolCall</a> rows: each row shows an icon, a label and
+a compact <a class="xref" href="Nova.Avalonia.AIKit.Controls.ToolChip.html">ToolChip</a>, and expands to reveal its output lines.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.ToolCallOutput.html">ToolCallOutput</a></dt>
+      <dd><p>A single output line of a <a class="xref" href="Nova.Avalonia.AIKit.Controls.ToolCall.html">ToolCall</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.ToolChip.html">ToolChip</a></dt>
+      <dd><p>A compact chip that shows a tool call detail such as a file name, command or note.
+Used inside <a class="xref" href="Nova.Avalonia.AIKit.Controls.ToolCallList.html">ToolCallList</a> rows and reusable on its own.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.VoiceWaveform.html">VoiceWaveform</a></dt>
+      <dd><p>Animated dictation level bars. While active the bars dance with a center-weighted
+envelope scaled by <a class="xref" href="Nova.Avalonia.AIKit.Controls.VoiceWaveform.html#Nova_Avalonia_AIKit_Controls_VoiceWaveform_Level">Level</a>; idle they settle into a flat dotted line.
+Drawn on the render loop.</p>
+</dd>
+    </dl>
+    <h3 id="enums">
+Enums
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.AgentAvatarShape.html">AgentAvatarShape</a></dt>
+      <dd><p>The body silhouette of an <a class="xref" href="Nova.Avalonia.AIKit.Controls.AgentAvatar.html">AgentAvatar</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.AgentExpression.html">AgentExpression</a></dt>
+      <dd><p>A facial expression preset for an <a class="xref" href="Nova.Avalonia.AIKit.Controls.AgentAvatar.html">AgentAvatar</a>. <a class="xref" href="Nova.Avalonia.AIKit.Controls.AgentExpression.html#Nova_Avalonia_AIKit_Controls_AgentExpression_Auto">Auto</a> derives
+the face from the current <a class="xref" href="Nova.Avalonia.AIKit.Controls.AgentAvatar.html#Nova_Avalonia_AIKit_Controls_AgentAvatar_Mood">Mood</a>; every other value pins the
+face while the mood keeps driving body motion and props.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.AgentMood.html">AgentMood</a></dt>
+      <dd><p>The mood of an <a class="xref" href="Nova.Avalonia.AIKit.Controls.AgentAvatar.html">AgentAvatar</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.AgentNodeStatus.html">AgentNodeStatus</a></dt>
+      <dd><p>The state of a <a class="xref" href="Nova.Avalonia.AIKit.Controls.MultiAgentGraph.html">MultiAgentGraph</a> node.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.AgentTaskStatus.html">AgentTaskStatus</a></dt>
+      <dd><p>The state of an <a class="xref" href="Nova.Avalonia.AIKit.Controls.AgentTaskRow.html">AgentTaskRow</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.AttachmentStatus.html">AttachmentStatus</a></dt>
+      <dd><p>The lifecycle state of an <a class="xref" href="Nova.Avalonia.AIKit.Controls.AttachmentTile.html">AttachmentTile</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.ChatMessageStatus.html">ChatMessageStatus</a></dt>
+      <dd><p>The delivery state represented by a <a class="xref" href="Nova.Avalonia.AIKit.Controls.ChatMessage.html">ChatMessage</a> snapshot.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.ChatRole.html">ChatRole</a></dt>
+      <dd><p>The author of a <a class="xref" href="Nova.Avalonia.AIKit.Controls.ChatMessage.html">ChatMessage</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.CodeFileStatus.html">CodeFileStatus</a></dt>
+      <dd><p>Change status of a <a class="xref" href="Nova.Avalonia.AIKit.Controls.CodeFileItem.html">CodeFileItem</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.CodeTokenKind.html">CodeTokenKind</a></dt>
+      <dd><p>The color role of a <a class="xref" href="Nova.Avalonia.AIKit.Controls.CodeToken.html">CodeToken</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.ConfidenceLevel.html">ConfidenceLevel</a></dt>
+      <dd><p>Confidence shown by a <a class="xref" href="Nova.Avalonia.AIKit.Controls.ConfidenceMeter.html">ConfidenceMeter</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.DiffKind.html">DiffKind</a></dt>
+      <dd><p>How a <a class="xref" href="Nova.Avalonia.AIKit.Controls.DiffTableRow.html">DiffTableRow</a> is affected by the proposed edit.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.DiffLineKind.html">DiffLineKind</a></dt>
+      <dd><p>How a <a class="xref" href="Nova.Avalonia.AIKit.Controls.DiffLine.html">DiffLine</a> changed.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.FeedbackKind.html">FeedbackKind</a></dt>
+      <dd><p>The direction of submitted feedback.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.FineTuneLayout.html">FineTuneLayout</a></dt>
+      <dd><p>Layout options offered by a <a class="xref" href="Nova.Avalonia.AIKit.Controls.FineTuneCard.html">FineTuneCard</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.LoadingIndicatorVariant.html">LoadingIndicatorVariant</a></dt>
+      <dd><p>Defines the animation style of a <a class="xref" href="Nova.Avalonia.AIKit.Controls.LoadingIndicator.html">LoadingIndicator</a> pixel grid.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.RecordStrength.html">RecordStrength</a></dt>
+      <dd><p>Relationship strength of a <a class="xref" href="Nova.Avalonia.AIKit.Controls.CompanyRecord.html">CompanyRecord</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.ResponseActionKind.html">ResponseActionKind</a></dt>
+      <dd><p>A non-feedback action requested for a response.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.TimelineEntryKind.html">TimelineEntryKind</a></dt>
+      <dd><p>The category of an <a class="xref" href="Nova.Avalonia.AIKit.Controls.AgentTimeline.html">AgentTimeline</a> entry.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.ToolCallKind.html">ToolCallKind</a></dt>
+      <dd><p>The icon shown next to a <a class="xref" href="Nova.Avalonia.AIKit.Controls.ToolCall.html">ToolCall</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.ToolCallStatus.html">ToolCallStatus</a></dt>
+      <dd><p>The execution state represented by a <a class="xref" href="Nova.Avalonia.AIKit.Controls.ToolCall.html">ToolCall</a> snapshot.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.ToolOutputKind.html">ToolOutputKind</a></dt>
+      <dd><p>The visual style of a <a class="xref" href="Nova.Avalonia.AIKit.Controls.ToolCallOutput.html">ToolCallOutput</a> line.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.AIKit.Controls.TrendDirection.html">TrendDirection</a></dt>
+      <dd><p>Direction of an <a class="xref" href="Nova.Avalonia.AIKit.Controls.InsightStat.html">InsightStat</a> value.</p>
+</dd>
+    </dl>
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
