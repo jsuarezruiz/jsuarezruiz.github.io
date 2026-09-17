@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Toolbars, tabs, and badges | Cupertino.Avalonia documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Toolbars, tabs, and badges | Cupertino.Avalonia documentation ">
+      
+      <meta name="description" content="Compose bottom actions, destinations, and notification indicators.">
+      <link rel="icon" href="../../assets/AppIcon.png">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Cupertino.Avalonia/blob/main/docs/docs/controls/toolbars-tabs-and-badges.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="Cupertino.Avalonia">
+            Cupertino.Avalonia
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="toolbars-tabs-and-badges">Toolbars, tabs, and badges</h1>
+
+<table>
+  <tr>
+    <td><img src="../../images/toolbar.png" alt="Cupertino bottom toolbar" width="300"></td>
+    <td><img src="../../images/tab-strip.png" alt="Cupertino tab strip" width="300"></td>
+    <td><img src="../../images/badge.png" alt="Cupertino badges on controls and tabs" width="300"></td>
+  </tr>
+</table>
+<h2 id="toolbars">Toolbars</h2>
+<p>Use toolbars for actions. Consecutive items share one glass capsule; <code>ToolbarSpacer</code> separates groups and fills the space between them.</p>
+<pre><code class="lang-xml">&lt;cupertino:CupertinoToolbar&gt;
+  &lt;Button ToolTip.Tip=&quot;Back&quot;&gt;
+    &lt;cupertino:CupertinoIcon Glyph=&quot;chevron.left&quot; Size=&quot;20&quot; /&gt;
+  &lt;/Button&gt;
+  &lt;Button ToolTip.Tip=&quot;Forward&quot;&gt;
+    &lt;cupertino:CupertinoIcon Glyph=&quot;chevron.right&quot; Size=&quot;20&quot; /&gt;
+  &lt;/Button&gt;
+  &lt;cupertino:ToolbarSpacer /&gt;
+  &lt;Button ToolTip.Tip=&quot;Search&quot;&gt;
+    &lt;cupertino:CupertinoIcon Glyph=&quot;magnifyingglass&quot; Size=&quot;20&quot; /&gt;
+  &lt;/Button&gt;
+&lt;/cupertino:CupertinoToolbar&gt;
+</code></pre>
+<h2 id="tabs">Tabs</h2>
+<p>Use the themed <code>TabControl</code> or <code>TabStrip</code> for navigation between sections. Use the <code>Tabs</code> attached properties to add a badge (<code>Tabs.BadgeValue</code>), a trailing accessory (<code>Tabs.Accessory</code>), or to detach an item into that accessory (<code>Tabs.IsDetached</code>).</p>
+<p>Compact tab bars size themselves to their content. Let the theme size the tabs and selection indicator.</p>
+<h2 id="badges">Badges</h2>
+<p>Set <code>CupertinoBadge.Value</code> to a count. Values above 99 display <code>99+</code>; negative values display a dot. Use <code>Tabs.BadgeValue</code> to add a badge to a tab icon.</p>
+<p>Give the associated control an accessible label that explains its destination or action, even when it has a badge.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Cupertino.Avalonia/blob/main/docs/docs/controls/toolbars-tabs-and-badges.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

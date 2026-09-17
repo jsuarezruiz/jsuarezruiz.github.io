@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Controls overview | Cupertino.Avalonia documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Controls overview | Cupertino.Avalonia documentation ">
+      
+      <meta name="description" content="Choose between themed Avalonia controls and Cupertino-specific controls.">
+      <link rel="icon" href="../../assets/AppIcon.png">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Cupertino.Avalonia/blob/main/docs/docs/controls/overview.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="Cupertino.Avalonia">
+            Cupertino.Avalonia
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="controls-overview">Controls overview</h1>
+
+<p>The gallery groups controls by the job they do. Each control page shows the common case first, then customization and states that are easy to miss.</p>
+<p><img src="../../images/list-and-search.png" alt="Cupertino list and search controls" width="420"></p>
+<h2 id="themed-avalonia-controls">Themed Avalonia controls</h2>
+<p>Use a standard Avalonia control when it provides the behavior you need. <code>CupertinoTheme</code> supplies the iOS styling.</p>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Actions</td>
+<td><code>Button</code>, <code>RepeatButton</code>, <code>HyperlinkButton</code>, <code>ToggleButton</code>, <code>SplitButton</code>, <code>DropDownButton</code></td>
+</tr>
+<tr>
+<td>Input</td>
+<td><code>TextBox</code>, <code>MaskedTextBox</code>, <code>NumericUpDown</code>, <code>ComboBox</code>, <code>AutoCompleteBox</code>, <code>CheckBox</code>, <code>RadioButton</code>, <code>ToggleSwitch</code>, <code>Slider</code></td>
+</tr>
+<tr>
+<td>Collections</td>
+<td><code>ListBox</code>, <code>TreeView</code>, <code>TabControl</code>, <code>TabStrip</code>, <code>Carousel</code></td>
+</tr>
+<tr>
+<td>Date and time</td>
+<td><code>Calendar</code>, <code>CalendarDatePicker</code>, <code>DatePicker</code>, <code>TimePicker</code></td>
+</tr>
+<tr>
+<td>Feedback</td>
+<td><code>ProgressBar</code>, <code>RefreshContainer</code>, <code>ToolTip</code>, <code>Expander</code></td>
+</tr>
+<tr>
+<td>Menus</td>
+<td><code>Menu</code>, <code>MenuFlyout</code>, <code>ContextMenu</code>, <code>Flyout</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="cupertino-specific-controls">Cupertino-specific controls</h2>
+<p>These controls add features such as draggable sheets, swipe actions and grouped form rows.</p>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Use it for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GlassSurface</code></td>
+<td>Live refractive material</td>
+</tr>
+<tr>
+<td><code>CupertinoNavigationPage</code></td>
+<td>Stack navigation and interactive back gestures</td>
+</tr>
+<tr>
+<td><code>CupertinoSheet</code></td>
+<td>Modal sheets with large or medium/large detents</td>
+</tr>
+<tr>
+<td><code>Dialog</code></td>
+<td>Alerts and action sheets with semantic action roles</td>
+</tr>
+<tr>
+<td><code>CupertinoSwipeView</code></td>
+<td>Leading and trailing row actions</td>
+</tr>
+<tr>
+<td><code>CupertinoDatePicker</code>, <code>CupertinoTimePicker</code>, <code>CupertinoDateTimePicker</code></td>
+<td>Compact and inline iOS pickers</td>
+</tr>
+<tr>
+<td><code>CupertinoCalendarView</code></td>
+<td>Inline month calendar</td>
+</tr>
+<tr>
+<td><code>CupertinoToolbar</code></td>
+<td>Bottom action groups separated by flexible spacers</td>
+</tr>
+<tr>
+<td><code>CupertinoBadge</code></td>
+<td>Counts and dot indicators</td>
+</tr>
+<tr>
+<td><code>CupertinoListCell</code>, <code>CupertinoFormRow</code>, <code>Section</code></td>
+<td>iOS list and form composition</td>
+</tr>
+<tr>
+<td><code>CupertinoSearchView</code></td>
+<td>Search field with filtered results</td>
+</tr>
+<tr>
+<td><code>CupertinoPageControl</code></td>
+<td>Page-position dots</td>
+</tr>
+<tr>
+<td><code>CupertinoIcon</code></td>
+<td>Original vector icons authored to iOS metrics</td>
+</tr>
+</tbody>
+</table>
+<p>See the <a class="xref" href="../../api/Cupertino.Controls.html">API reference</a> for properties, methods and events.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Cupertino.Avalonia/blob/main/docs/docs/controls/overview.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

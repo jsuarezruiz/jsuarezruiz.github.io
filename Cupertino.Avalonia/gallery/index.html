@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f2f2f7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+  <meta name="description" content="Explore Cupertino.Avalonia controls and samples in your browser.">
+  <title>Cupertino.Avalonia Gallery</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./app.css">
+  <!-- Keep the startup overlay visible even if the shared stylesheet is cached. -->
+  <style>#loading { position: fixed; inset: 0; z-index: 1; }</style>
+  <link href="_framework/dotnet.r7fre8csef.js" rel="preload" as="script" fetchpriority="high" crossorigin="anonymous" integrity="sha256-OcxyF/Ngl+zjKz6HEmNsEXAKPgLAbONQgPv9BFhAsiI=" />
+  <script type="importmap">{
+  "imports": {
+    "./_framework/dotnet.native.js": "./_framework/dotnet.native.ajnd6fshcb.js",
+    "./_framework/dotnet.js": "./_framework/dotnet.r7fre8csef.js",
+    "./_framework/dotnet.runtime.js": "./_framework/dotnet.runtime.o0qy896u8v.js",
+    "./main.js": "./main.vep551w9kr.js"
+  },
+  "scopes": {},
+  "integrity": {
+    "./_framework/dotnet.js": "sha256-OcxyF/Ngl+zjKz6HEmNsEXAKPgLAbONQgPv9BFhAsiI=",
+    "./_framework/dotnet.native.ajnd6fshcb.js": "sha256-ZhpTYxx+rwpCx+lTTT8YifoDxMkL+J8Vz4ER5THq/rk=",
+    "./_framework/dotnet.native.js": "sha256-ZhpTYxx+rwpCx+lTTT8YifoDxMkL+J8Vz4ER5THq/rk=",
+    "./_framework/dotnet.r7fre8csef.js": "sha256-OcxyF/Ngl+zjKz6HEmNsEXAKPgLAbONQgPv9BFhAsiI=",
+    "./_framework/dotnet.runtime.js": "sha256-yJvgPPUUvavYVmu9VD/fYtMcoEnLVaB0Cr7JAE29btw=",
+    "./_framework/dotnet.runtime.o0qy896u8v.js": "sha256-yJvgPPUUvavYVmu9VD/fYtMcoEnLVaB0Cr7JAE29btw=",
+    "./main.js": "sha256-5xiBMQvA83Qm21M6c4iwL1TjImfxNmCH9GB6sG9dMsQ=",
+    "./main.vep551w9kr.js": "sha256-5xiBMQvA83Qm21M6c4iwL1TjImfxNmCH9GB6sG9dMsQ="
+  }
+}</script>
+</head>
+<body>
+  <main id="out" aria-label="Cupertino gallery" aria-busy="true"></main>
+  <div id="loading" class="splash" role="status" aria-live="polite">
+    <div class="app-icon" aria-hidden="true">C</div>
+    <div class="splash-copy">
+      <strong id="loading-title">Cupertino.Avalonia</strong>
+      <span id="loading-message">Loading the gallery…</span>
+      <button id="reload-gallery" type="button" hidden>Reload gallery</button>
+    </div>
+  </div>
+  <noscript>This gallery needs JavaScript and WebAssembly enabled.</noscript>
+  <script type="module" src="main.vep551w9kr.js"></script>
+</body>
+</html>
