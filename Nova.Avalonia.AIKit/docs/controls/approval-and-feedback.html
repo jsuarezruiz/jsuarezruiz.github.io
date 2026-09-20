@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Approval and Feedback | Nova.Avalonia.AIKit </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Approval and Feedback | Nova.Avalonia.AIKit ">
+      
+      <meta name="description" content="Collect human approval and response feedback with stable turn metadata.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/docs/docs/controls/approval-and-feedback.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo-transparent.png" alt="Nova.Avalonia.AIKit">
+            Nova.Avalonia.AIKit
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="approval-and-feedback">Approval and Feedback</h1>
+
+<p><code>ApprovalCard</code> pauses an agent workflow for one or more explicit decisions. <code>FeedbackBar</code> captures response actions and evaluation after an answer is shown.</p>
+<h2 id="ask-for-approval">Ask for approval</h2>
+<pre><code class="lang-xml">&lt;nova:ApprovalCard ItemsSource=&quot;{Binding Questions}&quot;
+                   DraftAnswer=&quot;{Binding DraftAnswer}&quot;
+                   SelectedOptionId=&quot;{Binding SelectedOptionId}&quot;
+                   AnswerCommand=&quot;{Binding SubmitApprovalCommand}&quot;
+                   DismissCommand=&quot;{Binding DismissApprovalCommand}&quot; /&gt;
+</code></pre>
+<p>Each <code>ApprovalQuestion</code> can provide predefined <code>ApprovalOption</code> values, a risk label, and optional custom-answer support. The card handles question navigation and exposes <code>CurrentIndex</code>, <code>ProgressText</code>, <code>CanGoNext</code>, <code>CanGoPrevious</code>, and <code>CanSubmit</code> for state-aware templates.</p>
+<p>Selecting an option by <code>SelectedOptionId</code> also updates <code>DraftAnswer</code> to its label. Clearing the ID clears the selected answer and disables submission until a new answer is supplied. A changed draft updates the selected option to match, or becomes a custom answer when allowed. Submissions reject unknown option IDs and reject custom answers when <code>AllowCustomAnswer=&quot;False&quot;</code>; structured submissions always use the selected option's ID and label together.</p>
+<p>For a closed approval such as publishing a change, set <code>AllowCustomAnswer=&quot;False&quot;</code> and authorize only explicit structured option IDs in the host. Keep custom answers, unknown IDs, and dismissal on the hold path. The Hermes sample keeps the structured answer through its approval gate and applies this policy.</p>
+<p>Use <code>AnswerSubmitted</code>, <code>Completed</code>, <code>Dismissed</code>, and <code>ResetRequested</code> routed events when code-behind integration is more convenient. Set <code>CanDismiss=&quot;False&quot;</code> for a required decision.</p>
+<img src="../../images/demos/aikit-approval-card-light.gif" alt="Approval card" width="520">
+<h2 id="capture-response-feedback">Capture response feedback</h2>
+<pre><code class="lang-xml">&lt;nova:FeedbackBar ResponseId=&quot;{Binding ResponseId}&quot;
+                  TurnId=&quot;{Binding TurnId}&quot;
+                  Revision=&quot;{Binding Revision}&quot;
+                  FeedbackCommand=&quot;{Binding SubmitFeedbackCommand}&quot;
+                  ResponseActionCommand=&quot;{Binding ResponseActionCommand}&quot; /&gt;
+</code></pre>
+<p>The feedback snapshot carries the stable response ID, optional turn ID, and revision so a delayed user action cannot be confused with a newer response. Thumb-down feedback can include a comment. Copy and regenerate have both specific events and a unified <code>ResponseActionRequested</code> event.</p>
+<p>Changing the response ID, turn ID, or revision closes and discards a pending comment and resets the submitted state. A comment must be started again for the new response. <code>Reset()</code> also cancels any pending comment.</p>
+<img src="../../images/demos/aikit-feedback-bar-light.gif" alt="Feedback bar" width="520">
+<h2 id="relevant-api">Relevant API</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.AIKit.Controls.ApprovalCard.html">ApprovalCard</a></li>
+<li><a class="xref" href="../../api/Nova.Avalonia.AIKit.Controls.ApprovalQuestion.html">ApprovalQuestion</a></li>
+<li><a class="xref" href="../../api/Nova.Avalonia.AIKit.Controls.ApprovalOption.html">ApprovalOption</a></li>
+<li><a class="xref" href="../../api/Nova.Avalonia.AIKit.Controls.FeedbackBar.html">FeedbackBar</a></li>
+<li><a class="xref" href="../../api/Nova.Avalonia.AIKit.Controls.FeedbackEventArgs.html">FeedbackEventArgs</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/docs/docs/controls/approval-and-feedback.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

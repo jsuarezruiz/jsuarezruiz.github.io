@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Agent Controls | Nova.Avalonia.AIKit </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Agent Controls | Nova.Avalonia.AIKit ">
+      
+      <meta name="description" content="Visualize agent identity, tasks, timelines, and multi-agent delegation.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/docs/docs/controls/agents.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo-transparent.png" alt="Nova.Avalonia.AIKit">
+            Nova.Avalonia.AIKit
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="agent-controls">Agent Controls</h1>
+
+<p>AIKit includes four levels of agent visualization: identity, a single task, chronological session history, and a graph of collaborating agents.</p>
+<h2 id="identity-and-task-state">Identity and task state</h2>
+<pre><code class="lang-xml">&lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;12&quot;&gt;
+  &lt;nova:AgentAvatar Width=&quot;72&quot;
+                    Height=&quot;72&quot;
+                    Mood=&quot;Working&quot;
+                    Expression=&quot;Neutral&quot;
+                    BodyShape=&quot;Squircle&quot; /&gt;
+  &lt;nova:AgentTaskRow Title=&quot;Verify vendor records&quot;
+                     Meta=&quot;12 suppliers&quot;
+                     ProgressText=&quot;8&quot;
+                     Status=&quot;Running&quot;
+                     ItemsSource=&quot;{Binding TaskDetails}&quot; /&gt;
+&lt;/StackPanel&gt;
+</code></pre>
+<p><code>AgentAvatar</code> can track the pointer and animate mood and expression changes. <code>AgentTaskRow</code> covers pending, running, completed, failed, and cancelled states, with an expandable detail source.</p>
+<img src="../../images/demos/aikit-agent-avatar-light.gif" alt="Agent avatar" width="520">
+<h2 id="session-timeline">Session timeline</h2>
+<pre><code class="lang-xml">&lt;nova:AgentTimeline Header=&quot;Refactor session&quot;
+                    ItemsSource=&quot;{Binding Timeline}&quot; /&gt;
+</code></pre>
+<p>Supply <code>TimelineEntry</code> items categorized by <code>TimelineEntryKind</code>. The timeline highlights the last entry and constrains long sessions with <code>ItemsMaxHeight</code>.</p>
+<img src="../../images/demos/aikit-agent-timeline-light.gif" alt="Agent timeline" width="520">
+<h2 id="multi-agent-graph">Multi-agent graph</h2>
+<pre><code class="lang-xml">&lt;nova:MultiAgentGraph NodesSource=&quot;{Binding Agents}&quot;
+                      LinksSource=&quot;{Binding Delegations}&quot;
+                      IsAnimationEnabled=&quot;True&quot; /&gt;
+</code></pre>
+<p>Use <code>AgentNode</code> and <code>AgentLink</code> objects with stable identities. Running nodes and active links can pulse, while completed, failed, and cancelled states use semantic status colors. Set <code>AccessibleName</code> to describe the graph's purpose.</p>
+<img src="../../images/demos/aikit-agent-graph-light.gif" alt="Multi-agent graph" width="520">
+<h2 id="relevant-api">Relevant API</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.AIKit.Controls.AgentAvatar.html">AgentAvatar</a></li>
+<li><a class="xref" href="../../api/Nova.Avalonia.AIKit.Controls.AgentTaskRow.html">AgentTaskRow</a></li>
+<li><a class="xref" href="../../api/Nova.Avalonia.AIKit.Controls.AgentTimeline.html">AgentTimeline</a></li>
+<li><a class="xref" href="../../api/Nova.Avalonia.AIKit.Controls.MultiAgentGraph.html">MultiAgentGraph</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/docs/docs/controls/agents.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

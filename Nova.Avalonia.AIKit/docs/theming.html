@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Theming and Motion | Nova.Avalonia.AIKit </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Theming and Motion | Nova.Avalonia.AIKit ">
+      
+      <meta name="description" content="Layer NovaTheme over Avalonia themes and customize AIKit resources and animation behavior.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/docs/docs/theming.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo-transparent.png" alt="Nova.Avalonia.AIKit">
+            Nova.Avalonia.AIKit
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="theming-and-motion">Theming and Motion</h1>
+
+<p>AIKit centralizes control styles, semantic colors, typography, icons, localized strings, and animation policy in <code>NovaTheme</code>.</p>
+<h2 id="choose-a-base-theme">Choose a base theme</h2>
+<p>Register either Avalonia Fluent or Simple before <code>NovaTheme</code>:</p>
+<pre><code class="lang-xml">&lt;Application.Styles&gt;
+  &lt;FluentTheme /&gt;
+  &lt;nova:NovaTheme /&gt;
+&lt;/Application.Styles&gt;
+</code></pre>
+<pre><code class="lang-xml">&lt;Application.Styles&gt;
+  &lt;SimpleTheme /&gt;
+  &lt;nova:NovaTheme /&gt;
+&lt;/Application.Styles&gt;
+</code></pre>
+<p>The resources use dynamic color lookups, so switching the application theme variant updates AIKit controls without rebuilding their visual trees.</p>
+<h2 id="override-design-tokens">Override design tokens</h2>
+<p>Place overrides after <code>NovaTheme</code> so they win resource resolution. Prefer semantic Nova keys over editing control templates.</p>
+<pre><code class="lang-xml">&lt;Application.Styles&gt;
+  &lt;FluentTheme /&gt;
+  &lt;nova:NovaTheme /&gt;
+  &lt;Style&gt;
+    &lt;Style.Resources&gt;
+      &lt;SolidColorBrush x:Key=&quot;NovaAccentBrush&quot; Color=&quot;#7C3AED&quot; /&gt;
+      &lt;SolidColorBrush x:Key=&quot;NovaGreenBrush&quot; Color=&quot;#059669&quot; /&gt;
+    &lt;/Style.Resources&gt;
+  &lt;/Style&gt;
+&lt;/Application.Styles&gt;
+</code></pre>
+<p>The theme exposes semantic resources such as <code>NovaCanvasBrush</code>, <code>NovaSurfaceBrush</code>, <code>NovaFieldBrush</code>, <code>NovaLineBrush</code>, <code>NovaInkBrush</code>, and status brushes. Use them for adjacent application UI to keep custom content visually consistent.</p>
+<h2 id="control-motion">Control motion</h2>
+<p>Animation-aware controls expose <code>IsAnimationEnabled</code>. Disable it on a single control when animation would distract or interfere with deterministic testing:</p>
+<pre><code class="lang-xml">&lt;nova:StreamingTextBlock StreamedText=&quot;{Binding Answer}&quot;
+                         IsAnimationEnabled=&quot;False&quot; /&gt;
+</code></pre>
+<p><code>NovaMotion</code> provides the shared motion policy used by AIKit. Controls also account for visibility and detached visual trees so background animations do not keep doing unnecessary work.</p>
+<h2 id="localization-and-accessibility">Localization and accessibility</h2>
+<p>Visible labels and automation text are resource-backed or exposed as properties. Override strings after <code>NovaTheme</code> or bind the corresponding text properties for application-specific language. Keep meaningful labels on source, approval, and action controls, and use the API's <code>AccessibleName</code> properties where a visual alone would be ambiguous.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/docs/docs/theming.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

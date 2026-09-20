@@ -1,0 +1,3765 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ApprovalCard | Nova.Avalonia.AIKit </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ApprovalCard | Nova.Avalonia.AIKit ">
+      
+      <meta name="description" content="A human-in-the-loop card that walks through one or more s before an agent acts: pick an option or type a custom answer, submit, and step through the questions with the progress footer. Raises  once every question is answered and  when closed.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/new/main/apiSpec/new?filename=Nova_Avalonia_AIKit_Controls_ApprovalCard.md&amp;value=---%0Auid%3A%20Nova.Avalonia.AIKit.Controls.ApprovalCard%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo-transparent.png" alt="Nova.Avalonia.AIKit">
+            Nova.Avalonia.AIKit
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard">
+
+
+
+  <h1 id="Nova_Avalonia_AIKit_Controls_ApprovalCard" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard" class="text-break">
+Class ApprovalCard  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Nova.html">Nova</a>.<a class="xref" href="Nova.Avalonia.html">Avalonia</a>.<a class="xref" href="Nova.Avalonia.AIKit.html">AIKit</a>.<a class="xref" href="Nova.Avalonia.AIKit.Controls.html">Controls</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Nova.Avalonia.AIKit.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A human-in-the-loop card that walks through one or more <a class="xref" href="Nova.Avalonia.AIKit.Controls.ApprovalQuestion.html">ApprovalQuestion</a>s
+before an agent acts: pick an option or type a custom answer, submit, and step through
+the questions with the progress footer. Raises <a class="xref" href="Nova.Avalonia.AIKit.Controls.ApprovalCard.html#Nova_Avalonia_AIKit_Controls_ApprovalCard_Completed">Completed</a> once every question is
+answered and <a class="xref" href="Nova.Avalonia.AIKit.Controls.ApprovalCard.html#Nova_Avalonia_AIKit_Controls_ApprovalCard_Dismissed">Dismissed</a> when closed.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TemplatePart(&quot;PART_OptionsList&quot;, typeof(ListBox))]
+[TemplatePart(&quot;PART_CustomAnswerBox&quot;, typeof(TextBox))]
+[TemplatePart(&quot;PART_DotsPanel&quot;, typeof(Panel))]
+[PseudoClasses(new string[] { &quot;:completed&quot;, &quot;:animations-enabled&quot; })]
+public class ApprovalCard : TemplatedControl, INotifyPropertyChanged, IDataContextProvider, ILogical, IThemeVariantHost, IResourceHost, IResourceNode, IStyleHost, ISetLogicalParent, ISetInheritanceParent, ISupportInitialize, INamed, IInputElement, IDataTemplateHost, ISetterValue</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">AvaloniaObject</span></div>
+      <div><span class="xref">Animatable</span></div>
+      <div><span class="xref">StyledElement</span></div>
+      <div><span class="xref">Visual</span></div>
+      <div><span class="xref">Layoutable</span></div>
+      <div><span class="xref">Interactive</span></div>
+      <div><span class="xref">InputElement</span></div>
+      <div><span class="xref">Control</span></div>
+      <div><span class="xref">TemplatedControl</span></div>
+      <div><span class="xref">ApprovalCard</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged">INotifyPropertyChanged</a></div>
+      <div><span class="xref">IDataContextProvider</span></div>
+      <div><span class="xref">ILogical</span></div>
+      <div><span class="xref">IThemeVariantHost</span></div>
+      <div><span class="xref">IResourceHost</span></div>
+      <div><span class="xref">IResourceNode</span></div>
+      <div><span class="xref">IStyleHost</span></div>
+      <div><span class="xref">ISetLogicalParent</span></div>
+      <div><span class="xref">ISetInheritanceParent</span></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.isupportinitialize">ISupportInitialize</a></div>
+      <div><span class="xref">INamed</span></div>
+      <div><span class="xref">IInputElement</span></div>
+      <div><span class="xref">IDataTemplateHost</span></div>
+      <div><span class="xref">ISetterValue</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <span class="xref">TemplatedControl.BackgroundProperty</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.BackgroundSizingProperty</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.BorderBrushProperty</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.BorderThicknessProperty</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.CornerRadiusProperty</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.FontFamilyProperty</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.FontFeaturesProperty</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.FontSizeProperty</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.FontStyleProperty</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.FontWeightProperty</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.FontStretchProperty</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.ForegroundProperty</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.LetterSpacingProperty</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.PaddingProperty</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.TemplateProperty</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.IsTemplateFocusTargetProperty</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.TemplateAppliedEvent</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.GetIsTemplateFocusTarget(Control)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">TemplatedControl.SetIsTemplateFocusTarget(Control, bool)</a>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.ApplyTemplate()</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.GetTemplateFocusTarget()</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.OnAttachedToLogicalTree(LogicalTreeAttachmentEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.OnDetachedFromLogicalTree(LogicalTreeAttachmentEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.OnTemplateChanged(AvaloniaPropertyChangedEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.Background</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.BackgroundSizing</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.BorderBrush</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.BorderThickness</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.CornerRadius</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.FontFamily</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.FontFeatures</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.FontSize</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.FontStyle</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.FontWeight</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.FontStretch</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.Foreground</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.LetterSpacing</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.Padding</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.Template</span>
+    </div>
+    <div>
+      <span class="xref">TemplatedControl.TemplateApplied</span>
+    </div>
+    <div>
+      <span class="xref">Control.FocusAdornerProperty</span>
+    </div>
+    <div>
+      <span class="xref">Control.TagProperty</span>
+    </div>
+    <div>
+      <span class="xref">Control.ContextMenuProperty</span>
+    </div>
+    <div>
+      <span class="xref">Control.ContextFlyoutProperty</span>
+    </div>
+    <div>
+      <span class="xref">Control.RequestBringIntoViewEvent</span>
+    </div>
+    <div>
+      <span class="xref">Control.LoadedEvent</span>
+    </div>
+    <div>
+      <span class="xref">Control.UnloadedEvent</span>
+    </div>
+    <div>
+      <span class="xref">Control.SizeChangedEvent</span>
+    </div>
+    <div>
+      <span class="xref">Control.OnLoaded(RoutedEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">Control.OnUnloaded(RoutedEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">Control.OnSizeChanged(SizeChangedEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">Control.OnAttachedToVisualTreeCore(VisualTreeAttachmentEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">Control.OnDetachedFromVisualTreeCore(VisualTreeAttachmentEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">Control.OnGotFocus(FocusChangedEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">Control.OnLostFocus(FocusChangedEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">Control.OnCreateAutomationPeer()</span>
+    </div>
+    <div>
+      <span class="xref">Control.OnPointerReleased(PointerReleasedEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">Control.OnKeyUp(KeyEventArgs)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception">Control.UpdateDataValidation(AvaloniaProperty, BindingValueType, Exception)</a>
+    </div>
+    <div>
+      <span class="xref">Control.FocusAdorner</span>
+    </div>
+    <div>
+      <span class="xref">Control.DataTemplates</span>
+    </div>
+    <div>
+      <span class="xref">Control.ContextMenu</span>
+    </div>
+    <div>
+      <span class="xref">Control.ContextFlyout</span>
+    </div>
+    <div>
+      <span class="xref">Control.IsLoaded</span>
+    </div>
+    <div>
+      <span class="xref">Control.Tag</span>
+    </div>
+    <div>
+      <span class="xref">Control.Loaded</span>
+    </div>
+    <div>
+      <span class="xref">Control.Unloaded</span>
+    </div>
+    <div>
+      <span class="xref">Control.SizeChanged</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.FocusableProperty</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.IsEnabledProperty</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.IsEffectivelyEnabledProperty</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.CursorProperty</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.IsKeyboardFocusWithinProperty</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.IsFocusedProperty</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.IsHitTestVisibleProperty</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.IsPointerOverProperty</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.IsTabStopProperty</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.GotFocusEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.GettingFocusEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.LostFocusEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.LosingFocusEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.KeyDownEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.KeyUpEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.TabIndexProperty</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.TextInputEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.TextInputMethodClientRequestedEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PointerEnteredEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PointerExitedEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PointerMovedEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PointerPressedEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PointerReleasedEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PointerCaptureLostEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PointerWheelChangedEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.ContextRequestedEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.ContextCanceledEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.IsHoldingEnabledProperty</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.IsHoldWithMouseEnabledProperty</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PinchEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PinchEndedEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PullGestureEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PullGestureEndedEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.SwipeGestureEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.SwipeGestureEndedEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.ScrollGestureEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.ScrollGestureInertiaStartingEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.ScrollGestureEndedEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PointerTouchPadGestureMagnifyEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PointerTouchPadGestureRotateEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PointerTouchPadGestureSwipeEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.TappedEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.RightTappedEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.HoldingEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.DoubleTappedEvent</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.Focus(NavigationMethod, KeyModifiers)</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.OnAccessKey(RoutedEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.OnGettingFocus(FocusChangingEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.OnLosingFocus(FocusChangingEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.OnKeyDown(KeyEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.OnTextInput(TextInputEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.OnPointerEntered(PointerEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.OnPointerExited(PointerEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.OnPointerMoved(PointerEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.OnPointerPressed(PointerPressedEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.GetNextTabStopOverride()</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.GetPreviousTabStopOverride()</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.GetFirstFocusableElementOverride()</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.GetLastFocusableElementOverride()</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.OnPointerCaptureLost(PointerCaptureLostEventArgs)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">InputElement.ProcessTabStopOverride(IInputElement, IInputElement, bool, bool, ref IInputElement)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">InputElement.ProcessCandidateTabStopOverride(IInputElement, IInputElement, IInputElement, bool, ref IInputElement)</a>
+    </div>
+    <div>
+      <span class="xref">InputElement.OnPointerWheelChanged(PointerWheelEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.OnTapped(TappedEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.OnRightTapped(TappedEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.OnDoubleTapped(TappedEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.OnHolding(HoldingRoutedEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.UpdateIsEffectivelyEnabled()</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.GetIsHoldingEnabled(StyledElement)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">InputElement.SetIsHoldingEnabled(StyledElement, bool)</a>
+    </div>
+    <div>
+      <span class="xref">InputElement.GetIsHoldWithMouseEnabled(StyledElement)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">InputElement.SetIsHoldWithMouseEnabled(StyledElement, bool)</a>
+    </div>
+    <div>
+      <span class="xref">InputElement.Focusable</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.IsEnabled</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.Cursor</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.IsKeyboardFocusWithin</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.IsFocused</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.IsHitTestVisible</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.IsPointerOver</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.IsTabStop</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.IsEffectivelyEnabled</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.TabIndex</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.KeyBindings</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.IsEnabledCore</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.GestureRecognizers</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.GotFocus</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.GettingFocus</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.LostFocus</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.LosingFocus</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.KeyDown</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.KeyUp</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.TextInput</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.TextInputMethodClientRequested</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PointerEntered</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PointerExited</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PointerMoved</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PointerPressed</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PointerReleased</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PointerCaptureLost</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PointerWheelChanged</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.ContextRequested</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.ContextCanceled</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.Pinch</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PinchEnded</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PullGesture</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PullGestureEnded</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.ScrollGesture</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.ScrollGestureInertiaStarting</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.ScrollGestureEnded</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PointerTouchPadGestureMagnify</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PointerTouchPadGestureRotate</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.SwipeGesture</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.SwipeGestureEnded</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.PointerTouchPadGestureSwipe</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.Tapped</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.RightTapped</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.Holding</span>
+    </div>
+    <div>
+      <span class="xref">InputElement.DoubleTapped</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.delegate">Interactive.AddHandler(RoutedEvent, Delegate, RoutingStrategies, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">Interactive.AddHandler&lt;TEventArgs&gt;(RoutedEvent&lt;TEventArgs&gt;, EventHandler&lt;TEventArgs&gt;, RoutingStrategies, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.delegate">Interactive.RemoveHandler(RoutedEvent, Delegate)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">Interactive.RemoveHandler&lt;TEventArgs&gt;(RoutedEvent&lt;TEventArgs&gt;, EventHandler&lt;TEventArgs&gt;)</a>
+    </div>
+    <div>
+      <span class="xref">Interactive.RaiseEvent(RoutedEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">Interactive.BuildEventRoute(RoutedEvent)</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.DesiredSizeProperty</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.WidthProperty</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.HeightProperty</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.MinWidthProperty</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.MaxWidthProperty</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.MinHeightProperty</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.MaxHeightProperty</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.MarginProperty</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.HorizontalAlignmentProperty</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.VerticalAlignmentProperty</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.UseLayoutRoundingProperty</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.UpdateLayout()</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.Measure(Size)</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.Arrange(Rect)</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.InvalidateMeasure()</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.InvalidateArrange()</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.AffectsMeasure&lt;T&gt;(params AvaloniaProperty[])</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.AffectsArrange&lt;T&gt;(params AvaloniaProperty[])</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.MeasureCore(Size)</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.MeasureOverride(Size)</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.ArrangeCore(Rect)</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.ArrangeOverride(Size)</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.OnMeasureInvalidated()</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.OnVisualParentChanged(Visual, Visual)</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.Width</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.Height</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.MinWidth</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.MaxWidth</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.MinHeight</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.MaxHeight</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.Margin</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.HorizontalAlignment</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.VerticalAlignment</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.DesiredSize</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.IsMeasureValid</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.IsArrangeValid</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.UseLayoutRounding</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.EffectiveViewportChanged</span>
+    </div>
+    <div>
+      <span class="xref">Layoutable.LayoutUpdated</span>
+    </div>
+    <div>
+      <span class="xref">Visual.BoundsProperty</span>
+    </div>
+    <div>
+      <span class="xref">Visual.ClipToBoundsProperty</span>
+    </div>
+    <div>
+      <span class="xref">Visual.ClipProperty</span>
+    </div>
+    <div>
+      <span class="xref">Visual.IsVisibleProperty</span>
+    </div>
+    <div>
+      <span class="xref">Visual.OpacityProperty</span>
+    </div>
+    <div>
+      <span class="xref">Visual.OpacityMaskProperty</span>
+    </div>
+    <div>
+      <span class="xref">Visual.CacheModeProperty</span>
+    </div>
+    <div>
+      <span class="xref">Visual.EffectProperty</span>
+    </div>
+    <div>
+      <span class="xref">Visual.HasMirrorTransformProperty</span>
+    </div>
+    <div>
+      <span class="xref">Visual.RenderTransformProperty</span>
+    </div>
+    <div>
+      <span class="xref">Visual.RenderTransformOriginProperty</span>
+    </div>
+    <div>
+      <span class="xref">Visual.FlowDirectionProperty</span>
+    </div>
+    <div>
+      <span class="xref">Visual.VisualParentProperty</span>
+    </div>
+    <div>
+      <span class="xref">Visual.ZIndexProperty</span>
+    </div>
+    <div>
+      <span class="xref">Visual.GetFlowDirection(Visual)</span>
+    </div>
+    <div>
+      <span class="xref">Visual.SetFlowDirection(Visual, FlowDirection)</span>
+    </div>
+    <div>
+      <span class="xref">Visual.InvalidateVisual()</span>
+    </div>
+    <div>
+      <span class="xref">Visual.Render(DrawingContext)</span>
+    </div>
+    <div>
+      <span class="xref">Visual.AffectsRender&lt;T&gt;(params AvaloniaProperty[])</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Visual.LogicalChildrenCollectionChanged(object, NotifyCollectionChangedEventArgs)</a>
+    </div>
+    <div>
+      <span class="xref">Visual.InvalidateMirrorTransform()</span>
+    </div>
+    <div>
+      <span class="xref">Visual.Bounds</span>
+    </div>
+    <div>
+      <span class="xref">Visual.ClipToBounds</span>
+    </div>
+    <div>
+      <span class="xref">Visual.Clip</span>
+    </div>
+    <div>
+      <span class="xref">Visual.IsEffectivelyVisible</span>
+    </div>
+    <div>
+      <span class="xref">Visual.IsVisible</span>
+    </div>
+    <div>
+      <span class="xref">Visual.Opacity</span>
+    </div>
+    <div>
+      <span class="xref">Visual.OpacityMask</span>
+    </div>
+    <div>
+      <span class="xref">Visual.CacheMode</span>
+    </div>
+    <div>
+      <span class="xref">Visual.Effect</span>
+    </div>
+    <div>
+      <span class="xref">Visual.HasMirrorTransform</span>
+    </div>
+    <div>
+      <span class="xref">Visual.RenderTransform</span>
+    </div>
+    <div>
+      <span class="xref">Visual.RenderTransformOrigin</span>
+    </div>
+    <div>
+      <span class="xref">Visual.FlowDirection</span>
+    </div>
+    <div>
+      <span class="xref">Visual.ZIndex</span>
+    </div>
+    <div>
+      <span class="xref">Visual.VisualChildren</span>
+    </div>
+    <div>
+      <span class="xref">Visual.VisualRoot</span>
+    </div>
+    <div>
+      <span class="xref">Visual.BypassFlowDirectionPolicies</span>
+    </div>
+    <div>
+      <span class="xref">Visual.AttachedToVisualTree</span>
+    </div>
+    <div>
+      <span class="xref">Visual.DetachedFromVisualTree</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.DataContextProperty</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.NameProperty</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.ParentProperty</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.TemplatedParentProperty</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.ThemeProperty</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.BeginInit()</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.EndInit()</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.ApplyStyling()</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.InitializeIfNeeded()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">StyledElement.TryGetResource(object, ThemeVariant, out object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventargs">StyledElement.OnDataContextChanged(EventArgs)</a>
+    </div>
+    <div>
+      <span class="xref">StyledElement.OnDataContextBeginUpdate()</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.OnDataContextEndUpdate()</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.OnInitialized()</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.Name</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.Classes</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.DataContext</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.IsInitialized</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.Styles</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.StyleKey</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.Resources</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.TemplatedParent</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.Theme</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.LogicalChildren</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.PseudoClasses</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.StyleKeyOverride</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.Parent</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.ActualThemeVariant</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.AttachedToLogicalTree</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.DetachedFromLogicalTree</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.DataContextChanged</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.Initialized</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.ResourcesChanged</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.ActualThemeVariantChanged</span>
+    </div>
+    <div>
+      <span class="xref">Animatable.TransitionsProperty</span>
+    </div>
+    <div>
+      <span class="xref">Animatable.OnPropertyChangedCore(AvaloniaPropertyChangedEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">Animatable.Transitions</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.CheckAccess()</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.VerifyAccess()</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.ClearValue(AvaloniaProperty)</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.ClearValue&lt;T&gt;(AvaloniaProperty&lt;T&gt;)</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.ClearValue&lt;T&gt;(StyledProperty&lt;T&gt;)</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.ClearValue&lt;T&gt;(DirectPropertyBase&lt;T&gt;)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">AvaloniaObject.Equals(object)</a>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.GetValue(AvaloniaProperty)</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.GetValue&lt;T&gt;(StyledProperty&lt;T&gt;)</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.GetValue&lt;T&gt;(DirectPropertyBase&lt;T&gt;)</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.GetBaseValue&lt;T&gt;(StyledProperty&lt;T&gt;)</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.IsAnimating(AvaloniaProperty)</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.IsSet(AvaloniaProperty)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">AvaloniaObject.SetValue(AvaloniaProperty, object, BindingPriority)</a>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.SetValue&lt;T&gt;(StyledProperty&lt;T&gt;, T, BindingPriority)</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.SetValue&lt;T&gt;(DirectPropertyBase&lt;T&gt;, T)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">AvaloniaObject.SetCurrentValue(AvaloniaProperty, object)</a>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.SetCurrentValue&lt;T&gt;(StyledProperty&lt;T&gt;, T)</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.Bind(AvaloniaProperty, BindingBase)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">AvaloniaObject.Bind(AvaloniaProperty, IObservable&lt;object&gt;, BindingPriority)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">AvaloniaObject.Bind&lt;T&gt;(StyledProperty&lt;T&gt;, IObservable&lt;object&gt;, BindingPriority)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">AvaloniaObject.Bind&lt;T&gt;(StyledProperty&lt;T&gt;, IObservable&lt;T&gt;, BindingPriority)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">AvaloniaObject.Bind&lt;T&gt;(StyledProperty&lt;T&gt;, IObservable&lt;BindingValue&lt;T&gt;&gt;, BindingPriority)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">AvaloniaObject.Bind&lt;T&gt;(DirectPropertyBase&lt;T&gt;, IObservable&lt;object&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">AvaloniaObject.Bind&lt;T&gt;(DirectPropertyBase&lt;T&gt;, IObservable&lt;T&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">AvaloniaObject.Bind&lt;T&gt;(DirectPropertyBase&lt;T&gt;, IObservable&lt;BindingValue&lt;T&gt;&gt;)</a>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.CoerceValue(AvaloniaProperty)</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.RaisePropertyChanged&lt;T&gt;(DirectPropertyBase&lt;T&gt;, T, T)</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.SetAndRaise&lt;T&gt;(DirectPropertyBase&lt;T&gt;, ref T, T)</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.InheritanceParent</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.this[AvaloniaProperty]</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.this[IndexerDescriptor]</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.Dispatcher</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.PropertyChanged</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_ApprovalCard__ctor_" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.#ctor*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard__ctor" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.#ctor">
+  ApprovalCard()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L178"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ApprovalCard()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_AllowsCustomAnswerProperty" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.AllowsCustomAnswerProperty">
+  AllowsCustomAnswerProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L108"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DirectProperty&lt;ApprovalCard, bool&gt; AllowsCustomAnswerProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">DirectProperty</span>&lt;<a class="xref" href="Nova.Avalonia.AIKit.Controls.ApprovalCard.html">ApprovalCard</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_AnswerCommandProperty" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.AnswerCommandProperty">
+  AnswerCommandProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L83"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;ICommand?&gt; AnswerCommandProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.input.icommand">ICommand</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_AnswerSubmittedEvent" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.AnswerSubmittedEvent">
+  AnswerSubmittedEvent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L135"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly RoutedEvent&lt;ApprovalAnswerEventArgs&gt; AnswerSubmittedEvent</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">RoutedEvent</span>&lt;<a class="xref" href="Nova.Avalonia.AIKit.Controls.ApprovalAnswerEventArgs.html">ApprovalAnswerEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_BackTextProperty" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.BackTextProperty">
+  BackTextProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;string&gt; BackTextProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_CanDismissProperty" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.CanDismissProperty">
+  CanDismissProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;bool&gt; CanDismissProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_CanGoNextProperty" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.CanGoNextProperty">
+  CanGoNextProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L126"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DirectProperty&lt;ApprovalCard, bool&gt; CanGoNextProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">DirectProperty</span>&lt;<a class="xref" href="Nova.Avalonia.AIKit.Controls.ApprovalCard.html">ApprovalCard</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_CanGoPreviousProperty" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.CanGoPreviousProperty">
+  CanGoPreviousProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L120"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DirectProperty&lt;ApprovalCard, bool&gt; CanGoPreviousProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">DirectProperty</span>&lt;<a class="xref" href="Nova.Avalonia.AIKit.Controls.ApprovalCard.html">ApprovalCard</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_CanSubmitProperty" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.CanSubmitProperty">
+  CanSubmitProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L117"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DirectProperty&lt;ApprovalCard, bool&gt; CanSubmitProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">DirectProperty</span>&lt;<a class="xref" href="Nova.Avalonia.AIKit.Controls.ApprovalCard.html">ApprovalCard</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_CompletedCommandProperty" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.CompletedCommandProperty">
+  CompletedCommandProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;ICommand?&gt; CompletedCommandProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.input.icommand">ICommand</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_CompletedEvent" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.CompletedEvent">
+  CompletedEvent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L138"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly RoutedEvent&lt;RoutedEventArgs&gt; CompletedEvent</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">RoutedEvent</span>&lt;<span class="xref">RoutedEventArgs</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_CompletedTextProperty" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.CompletedTextProperty">
+  CompletedTextProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;string&gt; CompletedTextProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_ContinueTextProperty" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.ContinueTextProperty">
+  ContinueTextProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;string&gt; ContinueTextProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_CurrentIndexProperty" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.CurrentIndexProperty">
+  CurrentIndexProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L95"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DirectProperty&lt;ApprovalCard, int&gt; CurrentIndexProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">DirectProperty</span>&lt;<a class="xref" href="Nova.Avalonia.AIKit.Controls.ApprovalCard.html">ApprovalCard</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_CurrentOptionsProperty" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.CurrentOptionsProperty">
+  CurrentOptionsProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DirectProperty&lt;ApprovalCard, IReadOnlyList&lt;string&gt;?&gt; CurrentOptionsProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">DirectProperty</span>&lt;<a class="xref" href="Nova.Avalonia.AIKit.Controls.ApprovalCard.html">ApprovalCard</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_CurrentQuestionTextProperty" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.CurrentQuestionTextProperty">
+  CurrentQuestionTextProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L102"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DirectProperty&lt;ApprovalCard, string?&gt; CurrentQuestionTextProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">DirectProperty</span>&lt;<a class="xref" href="Nova.Avalonia.AIKit.Controls.ApprovalCard.html">ApprovalCard</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_CurrentRiskLabelProperty" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.CurrentRiskLabelProperty">
+  CurrentRiskLabelProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DirectProperty&lt;ApprovalCard, string?&gt; CurrentRiskLabelProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">DirectProperty</span>&lt;<a class="xref" href="Nova.Avalonia.AIKit.Controls.ApprovalCard.html">ApprovalCard</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_CustomAnswerWatermarkProperty" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.CustomAnswerWatermarkProperty">
+  CustomAnswerWatermarkProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;string?&gt; CustomAnswerWatermarkProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_DismissCommandProperty" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.DismissCommandProperty">
+  DismissCommandProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;ICommand?&gt; DismissCommandProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.input.icommand">ICommand</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_DismissedEvent" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.DismissedEvent">
+  DismissedEvent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L141"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly RoutedEvent&lt;RoutedEventArgs&gt; DismissedEvent</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">RoutedEvent</span>&lt;<span class="xref">RoutedEventArgs</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_DraftAnswerProperty" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.DraftAnswerProperty">
+  DraftAnswerProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;string?&gt; DraftAnswerProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_HasMultipleQuestionsProperty" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.HasMultipleQuestionsProperty">
+  HasMultipleQuestionsProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L123"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DirectProperty&lt;ApprovalCard, bool&gt; HasMultipleQuestionsProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">DirectProperty</span>&lt;<a class="xref" href="Nova.Avalonia.AIKit.Controls.ApprovalCard.html">ApprovalCard</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_IsAnimationEnabledProperty" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.IsAnimationEnabledProperty">
+  IsAnimationEnabledProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;bool&gt; IsAnimationEnabledProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_IsCompletedProperty" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.IsCompletedProperty">
+  IsCompletedProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L114"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DirectProperty&lt;ApprovalCard, bool&gt; IsCompletedProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">DirectProperty</span>&lt;<a class="xref" href="Nova.Avalonia.AIKit.Controls.ApprovalCard.html">ApprovalCard</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_ItemsSourceProperty" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.ItemsSourceProperty">
+  ItemsSourceProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;IEnumerable?&gt; ItemsSourceProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_PartCustomAnswerBox" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.PartCustomAnswerBox">
+  PartCustomAnswerBox
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string PartCustomAnswerBox = &quot;PART_CustomAnswerBox&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_PartDotsPanel" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.PartDotsPanel">
+  PartDotsPanel
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string PartDotsPanel = &quot;PART_DotsPanel&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_PartOptionsList" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.PartOptionsList">
+  PartOptionsList
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string PartOptionsList = &quot;PART_OptionsList&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_PartQuestionContent" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.PartQuestionContent">
+  PartQuestionContent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string PartQuestionContent = &quot;PART_QuestionContent&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_PrimaryActionTextProperty" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.PrimaryActionTextProperty">
+  PrimaryActionTextProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L132"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DirectProperty&lt;ApprovalCard, string&gt; PrimaryActionTextProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">DirectProperty</span>&lt;<a class="xref" href="Nova.Avalonia.AIKit.Controls.ApprovalCard.html">ApprovalCard</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_ProgressTextProperty" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.ProgressTextProperty">
+  ProgressTextProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L129"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DirectProperty&lt;ApprovalCard, string&gt; ProgressTextProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">DirectProperty</span>&lt;<a class="xref" href="Nova.Avalonia.AIKit.Controls.ApprovalCard.html">ApprovalCard</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_QuestionNavigationNameFormatProperty" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.QuestionNavigationNameFormatProperty">
+  QuestionNavigationNameFormatProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;string&gt; QuestionNavigationNameFormatProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_QuestionProgressFormatProperty" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.QuestionProgressFormatProperty">
+  QuestionProgressFormatProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;string&gt; QuestionProgressFormatProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_QuestionTooltipFormatProperty" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.QuestionTooltipFormatProperty">
+  QuestionTooltipFormatProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;string&gt; QuestionTooltipFormatProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_ResetCommandProperty" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.ResetCommandProperty">
+  ResetCommandProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L92"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;ICommand?&gt; ResetCommandProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.input.icommand">ICommand</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_ResetRequestedEvent" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.ResetRequestedEvent">
+  ResetRequestedEvent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L144"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly RoutedEvent&lt;RoutedEventArgs&gt; ResetRequestedEvent</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">RoutedEvent</span>&lt;<span class="xref">RoutedEventArgs</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_SelectedOptionIdProperty" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.SelectedOptionIdProperty">
+  SelectedOptionIdProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;string?&gt; SelectedOptionIdProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_StartOverTextProperty" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.StartOverTextProperty">
+  StartOverTextProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;string&gt; StartOverTextProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_SubmitTextProperty" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.SubmitTextProperty">
+  SubmitTextProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;string&gt; SubmitTextProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_ApprovalCard_AllowsCustomAnswer_" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.AllowsCustomAnswer*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_AllowsCustomAnswer" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.AllowsCustomAnswer">
+  AllowsCustomAnswer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L417"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets whether the question currently shown accepts a typed answer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool AllowsCustomAnswer { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_ApprovalCard_AnswerCommand_" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.AnswerCommand*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_AnswerCommand" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.AnswerCommand">
+  AnswerCommand
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L354"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the answer command. It receives the same
+<a class="xref" href="Nova.Avalonia.AIKit.Controls.ApprovalAnswerEventArgs.html">ApprovalAnswerEventArgs</a> instance raised through <a class="xref" href="Nova.Avalonia.AIKit.Controls.ApprovalCard.html#Nova_Avalonia_AIKit_Controls_ApprovalCard_AnswerSubmitted">AnswerSubmitted</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICommand? AnswerCommand { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.input.icommand">ICommand</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_ApprovalCard_AnswerOptionIds_" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.AnswerOptionIds*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_AnswerOptionIds" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.AnswerOptionIds">
+  AnswerOptionIds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L472"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the stable structured-option IDs, one per question. Custom and unanswered answers
+are null; use these values rather than display labels for orchestration decisions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;string?&gt; AnswerOptionIds { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_ApprovalCard_Answers_" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.Answers*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_Answers" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.Answers">
+  Answers
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L466"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the submitted answers, one per question; unanswered questions are null.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;string?&gt; Answers { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_ApprovalCard_BackText_" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.BackText*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_BackText" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.BackText">
+  BackText
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L307"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the label of the action that returns to an earlier question.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string BackText { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_ApprovalCard_CanDismiss_" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.CanDismiss*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_CanDismiss" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.CanDismiss">
+  CanDismiss
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L234"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets whether the dismiss button is shown.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool CanDismiss { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_ApprovalCard_CanGoNext_" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.CanGoNext*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_CanGoNext" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.CanGoNext">
+  CanGoNext
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L446"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets whether the next question has already been answered and can be revisited.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool CanGoNext { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_ApprovalCard_CanGoPrevious_" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.CanGoPrevious*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_CanGoPrevious" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.CanGoPrevious">
+  CanGoPrevious
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L436"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets whether there is a previous question to navigate to.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool CanGoPrevious { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_ApprovalCard_CanSubmit_" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.CanSubmit*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_CanSubmit" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.CanSubmit">
+  CanSubmit
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L427"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets whether the current question has an answer ready to submit.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool CanSubmit { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_ApprovalCard_CompletedCommand_" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.CompletedCommand*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_CompletedCommand" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.CompletedCommand">
+  CompletedCommand
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L364"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the completion command. It receives the same routed-event arguments instance
+raised through <a class="xref" href="Nova.Avalonia.AIKit.Controls.ApprovalCard.html#Nova_Avalonia_AIKit_Controls_ApprovalCard_Completed">Completed</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICommand? CompletedCommand { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.input.icommand">ICommand</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_ApprovalCard_CompletedText_" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.CompletedText*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_CompletedText" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.CompletedText">
+  CompletedText
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L243"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the message shown when all questions are answered.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string CompletedText { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_ApprovalCard_ContinueText_" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.ContinueText*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_ContinueText" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.ContinueText">
+  ContinueText
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L316"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the primary-action label shown before the final question.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ContinueText { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_ApprovalCard_CurrentIndex_" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.CurrentIndex*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_CurrentIndex" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.CurrentIndex">
+  CurrentIndex
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L393"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the index of the question currently shown.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int CurrentIndex { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_ApprovalCard_CurrentOptions_" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.CurrentOptions*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_CurrentOptions" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.CurrentOptions">
+  CurrentOptions
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L407"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the options of the question currently shown.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;string&gt;? CurrentOptions { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_ApprovalCard_CurrentQuestionText_" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.CurrentQuestionText*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_CurrentQuestionText" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.CurrentQuestionText">
+  CurrentQuestionText
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L402"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the text of the question currently shown.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? CurrentQuestionText { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_ApprovalCard_CurrentRiskLabel_" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.CurrentRiskLabel*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_CurrentRiskLabel" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.CurrentRiskLabel">
+  CurrentRiskLabel
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L412"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the risk or policy label of the question currently shown.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? CurrentRiskLabel { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_ApprovalCard_CustomAnswerWatermark_" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.CustomAnswerWatermark*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_CustomAnswerWatermark" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.CustomAnswerWatermark">
+  CustomAnswerWatermark
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L261"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the watermark of the custom answer box.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? CustomAnswerWatermark { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_ApprovalCard_DismissCommand_" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.DismissCommand*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_DismissCommand" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.DismissCommand">
+  DismissCommand
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L374"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the dismiss command. It receives the same routed-event arguments instance
+raised through <a class="xref" href="Nova.Avalonia.AIKit.Controls.ApprovalCard.html#Nova_Avalonia_AIKit_Controls_ApprovalCard_Dismissed">Dismissed</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICommand? DismissCommand { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.input.icommand">ICommand</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_ApprovalCard_DraftAnswer_" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.DraftAnswer*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_DraftAnswer" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.DraftAnswer">
+  DraftAnswer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L334"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the current typed or selected answer. User edits update the binding by default.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? DraftAnswer { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_ApprovalCard_HasMultipleQuestions_" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.HasMultipleQuestions*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_HasMultipleQuestions" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.HasMultipleQuestions">
+  HasMultipleQuestions
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L441"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets whether question progress is worth showing at all.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasMultipleQuestions { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_ApprovalCard_IsAnimationEnabled_" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.IsAnimationEnabled*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_IsAnimationEnabled" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.IsAnimationEnabled">
+  IsAnimationEnabled
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L270"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets whether question and completion transitions animate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsAnimationEnabled { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_ApprovalCard_IsCompleted_" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.IsCompleted*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_IsCompleted" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.IsCompleted">
+  IsCompleted
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L422"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets whether every question has been answered and submitted.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsCompleted { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_ApprovalCard_ItemsSource_" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.ItemsSource*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_ItemsSource" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.ItemsSource">
+  ItemsSource
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L225"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the questions, typically <a class="xref" href="Nova.Avalonia.AIKit.Controls.ApprovalQuestion.html">ApprovalQuestion</a> items. Observable
+collection changes are tracked while attached; answers are preserved for questions with
+the same stable ID and revision.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable? ItemsSource { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_ApprovalCard_PrimaryActionText_" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.PrimaryActionText*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_PrimaryActionText" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.PrimaryActionText">
+  PrimaryActionText
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L459"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the label of the primary action for the current question.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string PrimaryActionText { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_ApprovalCard_ProgressText_" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.ProgressText*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_ProgressText" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.ProgressText">
+  ProgressText
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L452"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the localized progress label for the current question.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ProgressText { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_ApprovalCard_QuestionNavigationNameFormat_" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.QuestionNavigationNameFormat*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_QuestionNavigationNameFormat" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.QuestionNavigationNameFormat">
+  QuestionNavigationNameFormat
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L279"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the composite accessible-name format for pager dots.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string QuestionNavigationNameFormat { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_ApprovalCard_QuestionProgressFormat_" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.QuestionProgressFormat*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_QuestionProgressFormat" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.QuestionProgressFormat">
+  QuestionProgressFormat
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L298"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the composite format used for question progress. Argument zero is the
+one-based current question and argument one is the total question count.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string QuestionProgressFormat { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_ApprovalCard_QuestionTooltipFormat_" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.QuestionTooltipFormat*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_QuestionTooltipFormat" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.QuestionTooltipFormat">
+  QuestionTooltipFormat
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L288"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the composite tooltip format for pager dots.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string QuestionTooltipFormat { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_ApprovalCard_ResetCommand_" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.ResetCommand*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_ResetCommand" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.ResetCommand">
+  ResetCommand
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L384"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the reset command. It receives the same routed-event arguments instance
+raised through <a class="xref" href="Nova.Avalonia.AIKit.Controls.ApprovalCard.html#Nova_Avalonia_AIKit_Controls_ApprovalCard_ResetRequested">ResetRequested</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICommand? ResetCommand { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.input.icommand">ICommand</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_ApprovalCard_SelectedOptionId_" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.SelectedOptionId*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_SelectedOptionId" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.SelectedOptionId">
+  SelectedOptionId
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L344"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the stable ID of the currently selected structured option.
+Clearing the ID also clears the selected answer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? SelectedOptionId { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_ApprovalCard_StartOverText_" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.StartOverText*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_StartOverText" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.StartOverText">
+  StartOverText
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L252"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the label of the reset link in the completed view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string StartOverText { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_ApprovalCard_SubmitText_" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.SubmitText*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_SubmitText" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.SubmitText">
+  SubmitText
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L325"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the primary-action label shown on the final question.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string SubmitText { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_ApprovalCard_Dismiss_" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.Dismiss*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_Dismiss" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.Dismiss">
+  Dismiss()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L684"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Dismisses the card and raises <a class="xref" href="Nova.Avalonia.AIKit.Controls.ApprovalCard.html#Nova_Avalonia_AIKit_Controls_ApprovalCard_Dismissed">Dismissed</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dismiss()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_ApprovalCard_OnApplyTemplate_" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.OnApplyTemplate*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_OnApplyTemplate_Avalonia_Controls_Primitives_TemplateAppliedEventArgs_" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.OnApplyTemplate(Avalonia.Controls.Primitives.TemplateAppliedEventArgs)">
+  OnApplyTemplate(TemplateAppliedEventArgs)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L477"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called when the control's template is applied.
+In simple terms, this means the method is called just before the control is displayed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnApplyTemplate(TemplateAppliedEventArgs e)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>e</code> <span class="xref">TemplateAppliedEventArgs</span></dt>
+    <dd><p>The event args.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_ApprovalCard_OnAttachedToVisualTree_" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.OnAttachedToVisualTree*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_OnAttachedToVisualTree_Avalonia_VisualTreeAttachmentEventArgs_" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.OnAttachedToVisualTree(Avalonia.VisualTreeAttachmentEventArgs)">
+  OnAttachedToVisualTree(VisualTreeAttachmentEventArgs)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L517"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called when the control is added to a rooted visual tree.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>e</code> <span class="xref">VisualTreeAttachmentEventArgs</span></dt>
+    <dd><p>The event args.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_ApprovalCard_OnDetachedFromVisualTree_" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.OnDetachedFromVisualTree*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_OnDetachedFromVisualTree_Avalonia_VisualTreeAttachmentEventArgs_" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.OnDetachedFromVisualTree(Avalonia.VisualTreeAttachmentEventArgs)">
+  OnDetachedFromVisualTree(VisualTreeAttachmentEventArgs)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L525"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called when the control is removed from a rooted visual tree.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnDetachedFromVisualTree(VisualTreeAttachmentEventArgs e)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>e</code> <span class="xref">VisualTreeAttachmentEventArgs</span></dt>
+    <dd><p>The event args.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_ApprovalCard_OnPropertyChanged_" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.OnPropertyChanged*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_OnPropertyChanged_Avalonia_AvaloniaPropertyChangedEventArgs_" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.OnPropertyChanged(Avalonia.AvaloniaPropertyChangedEventArgs)">
+  OnPropertyChanged(AvaloniaPropertyChangedEventArgs)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L532"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called when a avalonia property changes on the object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>change</code> <span class="xref">AvaloniaPropertyChangedEventArgs</span></dt>
+    <dd><p>The property change details.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_AIKit_Controls_ApprovalCard_Reset_" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.Reset*"></a>
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_Reset" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.Reset">
+  Reset()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L662"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Clears all answers and shows the first question again.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Reset()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_AnswerSubmitted" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.AnswerSubmitted">
+  AnswerSubmitted
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L187"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Raised when a question is answered.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;ApprovalAnswerEventArgs&gt; AnswerSubmitted</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Nova.Avalonia.AIKit.Controls.ApprovalAnswerEventArgs.html">ApprovalAnswerEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_Completed" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.Completed">
+  Completed
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L196"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Raised when every question has been answered.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;RoutedEventArgs&gt; Completed</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<span class="xref">RoutedEventArgs</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_Dismissed" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.Dismissed">
+  Dismissed
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L205"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Raised when the card is dismissed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;RoutedEventArgs&gt; Dismissed</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<span class="xref">RoutedEventArgs</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_AIKit_Controls_ApprovalCard_ResetRequested" data-uid="Nova.Avalonia.AIKit.Controls.ApprovalCard.ResetRequested">
+  ResetRequested
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L214"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Raised before the card resets its answers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;RoutedEventArgs&gt; ResetRequested</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<span class="xref">RoutedEventArgs</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/src/Nova.Avalonia.AIKit/Controls/ApprovalCard.cs/#L23" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Code Review Controls | Nova.Avalonia.AIKit </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Code Review Controls | Nova.Avalonia.AIKit ">
+      
+      <meta name="description" content="Render code, unified diffs, and files changed by an agent.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/docs/docs/controls/code-review.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo-transparent.png" alt="Nova.Avalonia.AIKit">
+            Nova.Avalonia.AIKit
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="code-review-controls">Code Review Controls</h1>
+
+<p>Use <code>CodeBlock</code> for tokenized source, <code>CodeDiffView</code> for unified changes, and <code>CodeFileTree</code> for a navigable summary of affected files.</p>
+<h2 id="show-source-code">Show source code</h2>
+<pre><code class="lang-xml">&lt;nova:CodeBlock FileName=&quot;AgentService.cs&quot;
+                Language=&quot;csharp&quot;
+                ItemsSource=&quot;{Binding CodeLines}&quot;
+                CopiedCommand=&quot;{Binding CodeCopiedCommand}&quot; /&gt;
+</code></pre>
+<p><code>CodeBlock</code> accepts <code>CodeLine</code> items containing <code>CodeToken</code> values. This keeps tokenization provider-agnostic and lets the host stream line-by-line results. Copy success and failure are available as events and commands.</p>
+<img src="../../images/demos/aikit-code-block-light.gif" alt="Code block" width="520">
+<h2 id="display-a-diff">Display a diff</h2>
+<pre><code class="lang-xml">&lt;nova:CodeDiffView FileName=&quot;AgentService.cs&quot;
+                   ItemsSource=&quot;{Binding DiffLines}&quot;
+                   LinesMaxHeight=&quot;420&quot; /&gt;
+</code></pre>
+<p>Supply <code>DiffLine</code> items and classify them with <code>DiffLineKind</code>. The control renders gutters, line numbers, add/delete markers, and aggregate change labels.</p>
+<img src="../../images/demos/aikit-code-diff-light.gif" alt="Code diff" width="520">
+<h2 id="navigate-changed-files">Navigate changed files</h2>
+<pre><code class="lang-xml">&lt;nova:CodeFileTree Header=&quot;Files changed&quot;
+                   ItemsSource=&quot;{Binding Files}&quot;
+                   FileSelectedCommand=&quot;{Binding OpenFileCommand}&quot; /&gt;
+</code></pre>
+<p><code>CodeFileItem</code> captures the path, status, and change counts. Handle <code>FileSelected</code> or bind <code>FileSelectedCommand</code> to synchronize the tree with a code or diff view.</p>
+<img src="../../images/demos/aikit-code-files-light.gif" alt="Changed files" width="520">
+<h2 id="relevant-api">Relevant API</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.AIKit.Controls.CodeBlock.html">CodeBlock</a></li>
+<li><a class="xref" href="../../api/Nova.Avalonia.AIKit.Controls.CodeDiffView.html">CodeDiffView</a></li>
+<li><a class="xref" href="../../api/Nova.Avalonia.AIKit.Controls.CodeFileTree.html">CodeFileTree</a></li>
+<li><a class="xref" href="../../api/Nova.Avalonia.AIKit.Controls.CodeLine.html">CodeLine</a></li>
+<li><a class="xref" href="../../api/Nova.Avalonia.AIKit.Controls.DiffLine.html">DiffLine</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/docs/docs/controls/code-review.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

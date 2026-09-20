@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Context and Citations | Nova.Avalonia.AIKit </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Context and Citations | Nova.Avalonia.AIKit ">
+      
+      <meta name="description" content="Show retrieved context, source links, inline citations, and context-window usage.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/docs/docs/controls/context-and-citations.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo-transparent.png" alt="Nova.Avalonia.AIKit">
+            Nova.Avalonia.AIKit
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="context-and-citations">Context and Citations</h1>
+
+<p>These controls make grounding visible. Use context cards before or during a run, source and citation chips inside an answer, and the usage meter to show remaining model context.</p>
+<h2 id="retrieved-context">Retrieved context</h2>
+<pre><code class="lang-xml">&lt;nova:ContextCard Title=&quot;Refund policy&quot;
+                  Excerpt=&quot;Refunds are available within 30 days…&quot;
+                  Meta=&quot;Updated 2 days ago&quot;
+                  SourceLabel=&quot;Policy&quot;
+                  SourceName=&quot;handbook.md&quot;
+                  SourceUri=&quot;https://example.com/handbook&quot; /&gt;
+</code></pre>
+<p><code>ContextCard</code> separates the retrieved excerpt from its source metadata and supports custom source foreground and background brushes.</p>
+<img src="../../images/demos/aikit-context-cards-light.gif" alt="Context cards" width="520">
+<h2 id="inline-sources">Inline sources</h2>
+<pre><code class="lang-xml">&lt;WrapPanel&gt;
+  &lt;TextBlock Text=&quot;Pistachio recovered in Q2 &quot; /&gt;
+  &lt;nova:CitationChip Number=&quot;1&quot;
+                     Title=&quot;Quarterly sales report&quot;
+                     Domain=&quot;reports.example.com&quot;
+                     Snippet=&quot;Pistachio closed Q2 at +1.15%.&quot;
+                     NavigateUri=&quot;https://example.com/q2&quot; /&gt;
+  &lt;nova:SourceChip Text=&quot;Sales report&quot;
+                   NavigateUri=&quot;https://example.com/q2&quot; /&gt;
+&lt;/WrapPanel&gt;
+</code></pre>
+<p><code>CitationChip</code> opens a source preview and then navigates to <code>NavigateUri</code>. Handle <code>SourceOpened</code> and <code>NavigationFailed</code>, or bind their commands, for telemetry and error reporting. <code>SourceChip</code> is a lighter hyperlink label for a source already explained by surrounding content.</p>
+<img src="../../images/demos/aikit-citations-light.gif" alt="Citations" width="520">
+<h2 id="context-window-usage">Context-window usage</h2>
+<pre><code class="lang-xml">&lt;nova:ContextUsageMeter Capacity=&quot;200000&quot;
+                        UsedTokens=&quot;{Binding UsedTokens}&quot;
+                        Label=&quot;Research run&quot;
+                        WarningThreshold=&quot;0.75&quot;
+                        CriticalThreshold=&quot;0.9&quot; /&gt;
+</code></pre>
+<p>The meter computes its percentage, label, and sweep angle. Thresholds change semantic color before the context limit is reached.</p>
+<img src="../../images/demos/aikit-context-meter-light.gif" alt="Context meter" width="520">
+<h2 id="relevant-api">Relevant API</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.AIKit.Controls.ContextCard.html">ContextCard</a></li>
+<li><a class="xref" href="../../api/Nova.Avalonia.AIKit.Controls.CitationChip.html">CitationChip</a></li>
+<li><a class="xref" href="../../api/Nova.Avalonia.AIKit.Controls.SourceChip.html">SourceChip</a></li>
+<li><a class="xref" href="../../api/Nova.Avalonia.AIKit.Controls.ContextUsageMeter.html">ContextUsageMeter</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.AIKit/blob/main/docs/docs/controls/context-and-citations.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
