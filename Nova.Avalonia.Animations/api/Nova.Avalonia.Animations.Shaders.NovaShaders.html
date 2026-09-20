@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class NovaShaders | Nova.Avalonia.Animations </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class NovaShaders | Nova.Avalonia.Animations ">
+      
+      <meta name="description" content="Provides the built-in SkSL effects used by Nova shader controls.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/new/main/apiSpec/new?filename=Nova_Avalonia_Animations_Shaders_NovaShaders.md&amp;value=---%0Auid%3A%20Nova.Avalonia.Animations.Shaders.NovaShaders%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.png" alt="Nova.Avalonia.Animations">
+            Nova.Avalonia.Animations
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Nova.Avalonia.Animations.Shaders.NovaShaders">
+
+
+
+  <h1 id="Nova_Avalonia_Animations_Shaders_NovaShaders" data-uid="Nova.Avalonia.Animations.Shaders.NovaShaders" class="text-break">
+Class NovaShaders  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations.Shaders/NovaShaders.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Nova.html">Nova</a>.<a class="xref" href="Nova.Avalonia.html">Avalonia</a>.<a class="xref" href="Nova.Avalonia.Animations.html">Animations</a>.<a class="xref" href="Nova.Avalonia.Animations.Shaders.html">Shaders</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Nova.Avalonia.Animations.Shaders.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Provides the built-in SkSL effects used by Nova shader controls.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class NovaShaders</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">NovaShaders</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="Nova_Avalonia_Animations_Shaders_NovaShaders_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>A shader may declare any of these uniforms and <a class="xref" href="Nova.Avalonia.Animations.Shaders.ShaderView.html">ShaderView</a> sets only the ones it
+declares: <code>iTime</code> in seconds; <code>iResolution</code>, <code>iPointer</code>, and <code>iClick</code> in control
+coordinates; and <code>iProgress</code> and <code>iPress</code> from zero to one. Progress and press can be
+driven with Nova springs.</p>
+</div>
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Nova_Avalonia_Animations_Shaders_NovaShaders_AuroraRipple" data-uid="Nova.Avalonia.Animations.Shaders.NovaShaders.AuroraRipple">
+  AuroraRipple
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations.Shaders/NovaShaders.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Apple-Intelligence-style effect: aurora background, pointer glow, and an expanding ripple ring driven by iProgress (animate it with a Nova spring).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string AuroraRipple = &quot;uniform float iTime;\nuniform float2 iResolution;\nuniform float2 iPointer;\nuniform float iProgress;\n\nhalf4 main(float2 fragCoord) {\n    float2 uv = fragCoord / iResolution;\n    float aspect = iResolution.x / max(iResolution.y, 1.0);\n    float2 pos = float2(uv.x * aspect, uv.y);\n    float2 ptr = float2(iPointer.x / iResolution.x * aspect, iPointer.y / iResolution.y);\n\n    float d = distance(pos, ptr);\n\n    float t = iTime * 0.35;\n    half3 color = half3(\n        half(0.16 + 0.10 * sin(6.28318 * (uv.x * 0.7 + t))),\n        half(0.10 + 0.09 * sin(6.28318 * (uv.y * 0.6 + t + 0.33))),\n        half(0.26 + 0.14 * sin(6.28318 * ((uv.x + uv.y) * 0.5 + t + 0.66))));\n\n    color += half3(0.30, 0.18, 0.52) * half(exp(-d * 6.0));\n\n    // Swell in quickly, then fade out before the end so nothing is left frozen on screen.\n    // Written with clamp rather than smoothstep, which this SkSL dialect does not provide.\n    float rise = clamp(iProgress / 0.12, 0.0, 1.0);\n    float fall = clamp((1.0 - iProgress) / 0.45, 0.0, 1.0);\n    float envelope = rise * rise * (3.0 - 2.0 * rise) * fall * fall * (3.0 - 2.0 * fall);\n\n    float radius = iProgress * 1.6;\n    float ring = exp(-pow((d - radius) * 9.0, 2.0));\n    float wave = sin(d * 45.0 - iProgress * 22.0) * exp(-d * 2.5);\n    color += half3(0.85, 0.80, 1.00) * half(ring * 0.9 * envelope);\n    color += half3(half(wave * 0.18 * envelope));\n\n    return half4(color, 1.0);\n}&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_Animations_Shaders_NovaShaders_BackdropBlur" data-uid="Nova.Avalonia.Animations.Shaders.NovaShaders.BackdropBlur">
+  BackdropBlur
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations.Shaders/NovaShaders.cs/#L331"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A live backdrop blur without the tint, for dimming content behind a panel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string BackdropBlur = &quot;uniform shader iContent;\nuniform float2 iResolution;\nuniform float2 iOffset;\nuniform float iProgress;\n\nhalf4 main(float2 fragCoord) {\n    float2 source = fragCoord + iOffset;\n    float radius = 1.0 + iProgress * 14.0;\n\n    half4 sum = iContent.eval(source) * 4.0;\n    sum += iContent.eval(source + float2( radius, 0)) * 2.0;\n    sum += iContent.eval(source + float2(-radius, 0)) * 2.0;\n    sum += iContent.eval(source + float2(0,  radius)) * 2.0;\n    sum += iContent.eval(source + float2(0, -radius)) * 2.0;\n    sum += iContent.eval(source + float2( radius,  radius) * 0.7);\n    sum += iContent.eval(source + float2(-radius,  radius) * 0.7);\n    sum += iContent.eval(source + float2( radius, -radius) * 0.7);\n    sum += iContent.eval(source + float2(-radius, -radius) * 0.7);\n\n    return sum / 16.0;\n}&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_Animations_Shaders_NovaShaders_ClickRipple" data-uid="Nova.Avalonia.Animations.Shaders.NovaShaders.ClickRipple">
+  ClickRipple
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations.Shaders/NovaShaders.cs/#L141"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A ripple starting exactly where the pointer went down. Animate iProgress 0 to 1 per press; iClick holds the origin still while it expands.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string ClickRipple = &quot;uniform float2 iResolution;\nuniform float2 iClick;\nuniform float iProgress;\n\nhalf4 main(float2 fragCoord) {\n    float2 uv = fragCoord / iResolution;\n    float aspect = iResolution.x / max(iResolution.y, 1.0);\n    float2 pos = float2(uv.x * aspect, uv.y);\n    float2 origin = float2(iClick.x / iResolution.x * aspect, iClick.y / iResolution.y);\n\n    float d = distance(pos, origin);\n    float radius = iProgress * 1.9;\n\n    // Fade both ends to avoid a persistent point at progress zero.\n    float rise = clamp(iProgress / 0.06, 0.0, 1.0);\n    float fall = clamp((1.0 - iProgress) / 0.5, 0.0, 1.0);\n    float envelope = rise * fall * fall * (3.0 - 2.0 * fall);\n\n    float disc = clamp((radius - d) * 12.0, 0.0, 1.0);\n    float edge = exp(-pow((d - radius) * 14.0, 2.0));\n\n    half3 base = half3(0.09, 0.10, 0.15);\n    half3 fill = half3(0.42, 0.36, 0.95);\n    half3 color = mix(base, fill, half(disc * envelope * 0.85));\n    color += half3(0.85, 0.82, 1.00) * half(edge * envelope * 0.7);\n    return half4(color, 1.0);\n}&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_Animations_Shaders_NovaShaders_Dissolve" data-uid="Nova.Avalonia.Animations.Shaders.NovaShaders.Dissolve">
+  Dissolve
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations.Shaders/NovaShaders.cs/#L229"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Transition effects sample a captured frame of real UI through <code>iContent</code>. Use them with <a class="xref" href="Nova.Avalonia.Animations.Shaders.ShaderTransition.html">ShaderTransition</a>, which supplies the snapshot.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Dissolve = &quot;uniform shader iContent;\nuniform float2 iResolution;\nuniform float iProgress;\n\nfloat noise(float2 p) {\n    return fract(sin(dot(p, float2(12.9898, 78.233))) * 43758.5453);\n}\n\nhalf4 main(float2 fragCoord) {\n    half4 source = iContent.eval(fragCoord);\n\n    // Per-pixel thresholds produce a grain dissolve.\n    float threshold = noise(floor(fragCoord / 3.0));\n    float alpha = clamp((1.0 - iProgress) * 1.35 - threshold * 0.35, 0.0, 1.0);\n    return source * half(alpha);\n}&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_Animations_Shaders_NovaShaders_Foil" data-uid="Nova.Avalonia.Animations.Shaders.NovaShaders.Foil">
+  Foil
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations.Shaders/NovaShaders.cs/#L107"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Holographic foil whose hue shifts with the pointer, like a trading card.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Foil = &quot;uniform float iTime;\nuniform float2 iResolution;\nuniform float2 iPointer;\n\nhalf3 hue(float h) {\n    float3 k = float3(1.0, 0.6666667, 0.3333333);\n    float3 p = abs(fract(float3(h, h, h) + k) * 6.0 - 3.0);\n    return half3(clamp(p - 1.0, 0.0, 1.0));\n}\n\nhalf4 main(float2 fragCoord) {\n    float2 uv = fragCoord / iResolution;\n    float2 ptr = iPointer / iResolution;\n\n    float2 delta = uv - ptr;\n    float dist = length(delta);\n\n    // Two-argument atan is not available here, so the hue is driven by the direction\n    // components directly. It gives the same tilt-to-shift feel without the angle.\n    float tilt = (delta.x - delta.y) * 0.5;\n\n    float bands = sin((uv.x + uv.y) * 14.0 + iTime * 0.6) * 0.5 + 0.5;\n    float h = fract(tilt + dist * 0.9 + bands * 0.15 + iTime * 0.03);\n\n    half3 color = hue(h) * half(0.55 + 0.45 * bands);\n    color *= half(0.35 + 0.75 * exp(-dist * 1.6));\n    return half4(color, 1.0);\n}&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_Animations_Shaders_NovaShaders_Glass" data-uid="Nova.Avalonia.Animations.Shaders.NovaShaders.Glass">
+  Glass
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations.Shaders/NovaShaders.cs/#L296"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a frosted-glass effect over live content.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Glass = &quot;uniform shader iContent;\nuniform float2 iResolution;\nuniform float2 iOffset;\nuniform float iProgress;\n\nhalf4 main(float2 fragCoord) {\n    float2 source = fragCoord + iOffset;\n    float radius = 3.0 + iProgress * 11.0;\n\n    // A weighted 3x3 kernel avoids visible duplicate silhouettes without adding samples.\n    half4 sum = iContent.eval(source) * 4.0;\n    sum += iContent.eval(source + float2( radius, 0)) * 2.0;\n    sum += iContent.eval(source + float2(-radius, 0)) * 2.0;\n    sum += iContent.eval(source + float2(0,  radius)) * 2.0;\n    sum += iContent.eval(source + float2(0, -radius)) * 2.0;\n    sum += iContent.eval(source + float2( radius,  radius) * 0.7);\n    sum += iContent.eval(source + float2(-radius,  radius) * 0.7);\n    sum += iContent.eval(source + float2( radius, -radius) * 0.7);\n    sum += iContent.eval(source + float2(-radius, -radius) * 0.7);\n\n    half4 blurred = sum / 16.0;\n\n    // Lift and desaturate slightly so text stays readable on top.\n    half3 tinted = mix(blurred.rgb, half3(1.0, 1.0, 1.0), half(0.18));\n\n    float2 uv = fragCoord / iResolution;\n    float sheen = exp(-uv.y * 5.0) * 0.16;\n    return half4(tinted + half3(half(sheen)), 1.0);\n}&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section" id="Nova_Avalonia_Animations_Shaders_NovaShaders_Glass_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The effect samples the backdrop with a small blur kernel, lightens it, and adds a top-edge
+highlight. Use it with <a class="xref" href="Nova.Avalonia.Animations.Shaders.ShaderBackdrop.html">ShaderBackdrop</a>, which supplies the captured source and
+the offset that locates the panel within it.</p>
+</div>
+
+
+
+
+
+  <h3 id="Nova_Avalonia_Animations_Shaders_NovaShaders_MeshGradient" data-uid="Nova.Avalonia.Animations.Shaders.NovaShaders.MeshGradient">
+  MeshGradient
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations.Shaders/NovaShaders.cs/#L200"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Slowly drifting mesh gradient, for hero or card backgrounds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string MeshGradient = &quot;uniform float iTime;\nuniform float2 iResolution;\n\nhalf4 main(float2 fragCoord) {\n    float2 uv = fragCoord / iResolution;\n    float t = iTime * 0.18;\n\n    float2 a = float2(0.25 + 0.18 * sin(t * 1.1), 0.30 + 0.16 * cos(t * 0.9));\n    float2 b = float2(0.75 + 0.16 * cos(t * 0.8), 0.28 + 0.18 * sin(t * 1.3));\n    float2 c = float2(0.40 + 0.20 * sin(t * 0.7), 0.78 + 0.14 * cos(t * 1.1));\n\n    float wa = exp(-distance(uv, a) * 3.2);\n    float wb = exp(-distance(uv, b) * 3.2);\n    float wc = exp(-distance(uv, c) * 3.2);\n    float sum = max(wa + wb + wc, 0.0001);\n\n    half3 color = (half3(0.45, 0.36, 0.98) * half(wa)\n                 + half3(0.95, 0.42, 0.71) * half(wb)\n                 + half3(0.24, 0.78, 0.72) * half(wc)) / half(sum);\n\n    return half4(color, 1.0);\n}&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_Animations_Shaders_NovaShaders_Pixelate" data-uid="Nova.Avalonia.Animations.Shaders.NovaShaders.Pixelate">
+  Pixelate
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations.Shaders/NovaShaders.cs/#L251"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Pixelates the captured frame as it leaves.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Pixelate = &quot;uniform shader iContent;\nuniform float2 iResolution;\nuniform float iProgress;\n\nhalf4 main(float2 fragCoord) {\n    // Blocks grow with progress; the frame also fades so it does not end as colored squares.\n    float size = 1.0 + iProgress * iProgress * 60.0;\n    float2 snapped = (floor(fragCoord / size) + 0.5) * size;\n    half4 source = iContent.eval(snapped);\n    return source * half(clamp(1.0 - iProgress * 0.9, 0.0, 1.0));\n}&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_Animations_Shaders_NovaShaders_PressGlow" data-uid="Nova.Avalonia.Animations.Shaders.NovaShaders.PressGlow">
+  PressGlow
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations.Shaders/NovaShaders.cs/#L174"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A glow that swells while the pointer is held. Drive iPress with a spring.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string PressGlow = &quot;uniform float iTime;\nuniform float2 iResolution;\nuniform float2 iPointer;\nuniform float iPress;\n\nhalf4 main(float2 fragCoord) {\n    float2 uv = fragCoord / iResolution;\n    float aspect = iResolution.x / max(iResolution.y, 1.0);\n    float2 pos = float2(uv.x * aspect, uv.y);\n    float2 ptr = float2(iPointer.x / iResolution.x * aspect, iPointer.y / iResolution.y);\n\n    float d = distance(pos, ptr);\n    float pulse = 0.9 + 0.1 * sin(iTime * 6.0);\n    float glow = exp(-d * (7.0 - iPress * 3.5)) * iPress * pulse;\n\n    half3 base = half3(0.07, 0.08, 0.12);\n    half3 color = base + half3(0.55, 0.40, 1.00) * half(glow);\n    color += half3(1.0, 0.95, 0.85) * half(exp(-d * 26.0) * iPress);\n    return half4(color, 1.0);\n}&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_Animations_Shaders_NovaShaders_Shimmer" data-uid="Nova.Avalonia.Animations.Shaders.NovaShaders.Shimmer">
+  Shimmer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations.Shaders/NovaShaders.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Skeleton shimmer: a highlight sweeping across a loading placeholder. It loops on iTime, so it needs no animation state of its own.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Shimmer = &quot;uniform float iTime;\nuniform float2 iResolution;\n\nhalf4 main(float2 fragCoord) {\n    float2 uv = fragCoord / iResolution;\n\n    // The sweep runs on a diagonal and repeats with a pause between passes.\n    float cycle = fract(iTime * 0.6);\n    float head = cycle * 2.2 - 0.6;\n    float band = (uv.x + uv.y * 0.35) - head;\n    float sweep = exp(-band * band * 26.0);\n\n    float alpha = 0.07 + 0.22 * sweep;\n    return half4(half3(1.0) * half(alpha), half(alpha));\n}&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_Animations_Shaders_NovaShaders_Spotlight" data-uid="Nova.Avalonia.Animations.Shaders.NovaShaders.Spotlight">
+  Spotlight
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations.Shaders/NovaShaders.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A spotlight that follows the pointer and widens while held down.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Spotlight = &quot;uniform float2 iResolution;\nuniform float2 iPointer;\nuniform float iPress;\n\nhalf4 main(float2 fragCoord) {\n    float2 uv = fragCoord / iResolution;\n    float aspect = iResolution.x / max(iResolution.y, 1.0);\n    float2 pos = float2(uv.x * aspect, uv.y);\n    float2 ptr = float2(iPointer.x / iResolution.x * aspect, iPointer.y / iResolution.y);\n\n    float radius = 0.18 + iPress * 0.14;\n    float d = distance(pos, ptr);\n    float beam = exp(-pow(d / radius, 2.0));\n\n    half3 warm = half3(1.00, 0.94, 0.78);\n    half3 cool = half3(0.05, 0.06, 0.10);\n    half3 color = mix(cool, warm, half(beam));\n\n    // A faint rim keeps the edge of the beam readable on dark ground.\n    color += half3(0.20, 0.18, 0.30) * half(exp(-pow((d - radius) * 7.0, 2.0)) * 0.5);\n    return half4(color, 1.0);\n}&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_Animations_Shaders_NovaShaders_Wipe" data-uid="Nova.Avalonia.Animations.Shaders.NovaShaders.Wipe">
+  Wipe
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations.Shaders/NovaShaders.cs/#L268"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A diagonal wipe with a bright leading edge, the classic curtain transition.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Wipe = &quot;uniform shader iContent;\nuniform float2 iResolution;\nuniform float iProgress;\n\nhalf4 main(float2 fragCoord) {\n    float2 uv = fragCoord / iResolution;\n    half4 source = iContent.eval(fragCoord);\n\n    float edge = (uv.x * 0.7 + uv.y * 0.3);\n    float front = iProgress * 1.35 - 0.15;\n    float alpha = clamp((edge - front) * 14.0, 0.0, 1.0);\n\n    // Highlight the wipe boundary.\n    float glow = exp(-pow((edge - front) * 16.0, 2.0)) * (1.0 - iProgress);\n    return source * half(alpha) + half4(0.55, 0.50, 1.0, 0.0) * half(glow * 0.5);\n}&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Nova_Avalonia_Animations_Shaders_NovaShaders_All_" data-uid="Nova.Avalonia.Animations.Shaders.NovaShaders.All*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_Shaders_NovaShaders_All" data-uid="Nova.Avalonia.Animations.Shaders.NovaShaders.All">
+  All
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations.Shaders/NovaShaders.cs/#L358"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Every built-in effect, so tests can compile them all.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IReadOnlyDictionary&lt;string, string&gt; All { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2">IReadOnlyDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_Shaders_NovaShaders_Transitions_" data-uid="Nova.Avalonia.Animations.Shaders.NovaShaders.Transitions*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_Shaders_NovaShaders_Transitions" data-uid="Nova.Avalonia.Animations.Shaders.NovaShaders.Transitions">
+  Transitions
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations.Shaders/NovaShaders.cs/#L372"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Effects that sample captured UI. They need a child shader, so they compile separately.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IReadOnlyDictionary&lt;string, string&gt; Transitions { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2">IReadOnlyDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations.Shaders/NovaShaders.cs/#L12" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

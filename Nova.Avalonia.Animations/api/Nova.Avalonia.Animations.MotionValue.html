@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class MotionValue | Nova.Avalonia.Animations </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class MotionValue | Nova.Avalonia.Animations ">
+      
+      <meta name="description" content="An observable finite value with velocity tracking, mapping, smoothing, and animation bindings. Instances are not thread-safe. UI bindings marshal later updates to the UI thread.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/new/main/apiSpec/new?filename=Nova_Avalonia_Animations_MotionValue.md&amp;value=---%0Auid%3A%20Nova.Avalonia.Animations.MotionValue%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.png" alt="Nova.Avalonia.Animations">
+            Nova.Avalonia.Animations
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Nova.Avalonia.Animations.MotionValue">
+
+
+
+  <h1 id="Nova_Avalonia_Animations_MotionValue" data-uid="Nova.Avalonia.Animations.MotionValue" class="text-break">
+Class MotionValue  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/Values/MotionValue.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Nova.html">Nova</a>.<a class="xref" href="Nova.Avalonia.html">Avalonia</a>.<a class="xref" href="Nova.Avalonia.Animations.html">Animations</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Nova.Avalonia.Animations.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>An observable finite value with velocity tracking, mapping, smoothing, and animation bindings. Instances are not thread-safe. UI bindings marshal later updates to the UI thread.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class MotionValue : IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">MotionValue</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Nova_Avalonia_Animations_MotionValue__ctor_" data-uid="Nova.Avalonia.Animations.MotionValue.#ctor*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionValue__ctor_System_Double_" data-uid="Nova.Avalonia.Animations.MotionValue.#ctor(System.Double)">
+  MotionValue(double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/Values/MotionValue.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a live value with the supplied initial value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionValue(double value = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Nova_Avalonia_Animations_MotionValue_Value_" data-uid="Nova.Avalonia.Animations.MotionValue.Value*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionValue_Value" data-uid="Nova.Avalonia.Animations.MotionValue.Value">
+  Value
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/Values/MotionValue.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Current value. Setting it notifies every follower and derived value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Value { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionValue_Velocity_" data-uid="Nova.Avalonia.Animations.MotionValue.Velocity*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionValue_Velocity" data-uid="Nova.Avalonia.Animations.MotionValue.Velocity">
+  Velocity
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/Values/MotionValue.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Rate of change per second, from the last two updates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Velocity { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Nova_Avalonia_Animations_MotionValue_Bind_" data-uid="Nova.Avalonia.Animations.MotionValue.Bind*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionValue_Bind_Avalonia_AvaloniaObject_Avalonia_StyledProperty_System_Double__" data-uid="Nova.Avalonia.Animations.MotionValue.Bind(Avalonia.AvaloniaObject,Avalonia.StyledProperty{System.Double})">
+  Bind(AvaloniaObject, StyledProperty&lt;double&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/Values/MotionValue.cs/#L233"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Drives a double property from this value until disposed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IDisposable Bind(AvaloniaObject target, StyledProperty&lt;double&gt; property)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>target</code> <span class="xref">AvaloniaObject</span></dt>
+    <dd></dd>
+    <dt><code>property</code> <span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionValue_BindRotate_" data-uid="Nova.Avalonia.Animations.MotionValue.BindRotate*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionValue_BindRotate_Avalonia_AvaloniaObject_" data-uid="Nova.Avalonia.Animations.MotionValue.BindRotate(Avalonia.AvaloniaObject)">
+  BindRotate(AvaloniaObject)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/Values/MotionValue.cs/#L208"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Drives a target's two-dimensional rotation from this value until disposed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IDisposable BindRotate(AvaloniaObject target)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>target</code> <span class="xref">AvaloniaObject</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionValue_BindRotateX_" data-uid="Nova.Avalonia.Animations.MotionValue.BindRotateX*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionValue_BindRotateX_Avalonia_AvaloniaObject_" data-uid="Nova.Avalonia.Animations.MotionValue.BindRotateX(Avalonia.AvaloniaObject)">
+  BindRotateX(AvaloniaObject)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/Values/MotionValue.cs/#L218"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Drives horizontal-axis tilt from this value until disposed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IDisposable BindRotateX(AvaloniaObject target)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>target</code> <span class="xref">AvaloniaObject</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionValue_BindRotateY_" data-uid="Nova.Avalonia.Animations.MotionValue.BindRotateY*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionValue_BindRotateY_Avalonia_AvaloniaObject_" data-uid="Nova.Avalonia.Animations.MotionValue.BindRotateY(Avalonia.AvaloniaObject)">
+  BindRotateY(AvaloniaObject)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/Values/MotionValue.cs/#L213"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Drives vertical-axis tilt from this value until disposed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IDisposable BindRotateY(AvaloniaObject target)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>target</code> <span class="xref">AvaloniaObject</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionValue_BindScale_" data-uid="Nova.Avalonia.Animations.MotionValue.BindScale*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionValue_BindScale_Avalonia_AvaloniaObject_" data-uid="Nova.Avalonia.Animations.MotionValue.BindScale(Avalonia.AvaloniaObject)">
+  BindScale(AvaloniaObject)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/Values/MotionValue.cs/#L223"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Drives both scale channels from this value until disposed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IDisposable BindScale(AvaloniaObject target)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>target</code> <span class="xref">AvaloniaObject</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionValue_BindX_" data-uid="Nova.Avalonia.Animations.MotionValue.BindX*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionValue_BindX_Avalonia_AvaloniaObject_" data-uid="Nova.Avalonia.Animations.MotionValue.BindX(Avalonia.AvaloniaObject)">
+  BindX(AvaloniaObject)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/Values/MotionValue.cs/#L200"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Drives a target's horizontal translation from this value until disposed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IDisposable BindX(AvaloniaObject target)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>target</code> <span class="xref">AvaloniaObject</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionValue_BindY_" data-uid="Nova.Avalonia.Animations.MotionValue.BindY*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionValue_BindY_Avalonia_AvaloniaObject_" data-uid="Nova.Avalonia.Animations.MotionValue.BindY(Avalonia.AvaloniaObject)">
+  BindY(AvaloniaObject)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/Values/MotionValue.cs/#L204"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Drives a target's vertical translation from this value until disposed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IDisposable BindY(AvaloniaObject target)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>target</code> <span class="xref">AvaloniaObject</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionValue_Clamp_" data-uid="Nova.Avalonia.Animations.MotionValue.Clamp*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionValue_Clamp_System_Double_System_Double_" data-uid="Nova.Avalonia.Animations.MotionValue.Clamp(System.Double,System.Double)">
+  Clamp(double, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/Values/MotionValue.cs/#L157"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Clamps this value to the inclusive range.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionValue Clamp(double low = 0, double high = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>low</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>high</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionValue.html">MotionValue</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionValue_Dispose_" data-uid="Nova.Avalonia.Animations.MotionValue.Dispose*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionValue_Dispose" data-uid="Nova.Avalonia.Animations.MotionValue.Dispose">
+  Dispose()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/Values/MotionValue.cs/#L267"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Releases every subscription owned by or attached to this value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Nova_Avalonia_Animations_MotionValue_Dispose_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This includes scroll and layout sources, upstream values created by
+<a class="xref" href="Nova.Avalonia.Animations.MotionValue.html#Nova_Avalonia_Animations_MotionValue_Map_System_Func_System_Double_System_Double__">Map(Func&lt;double, double&gt;)</a> or <a class="xref" href="Nova.Avalonia.Animations.MotionValue.html#Nova_Avalonia_Animations_MotionValue_Smooth_Nova_Avalonia_Animations_Spring_">Smooth(Spring?)</a>, and followers
+subscribed to this value.</p>
+</div>
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionValue_Map_" data-uid="Nova.Avalonia.Animations.MotionValue.Map*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionValue_Map_System_Double_System_Double_System_Double_System_Double_" data-uid="Nova.Avalonia.Animations.MotionValue.Map(System.Double,System.Double,System.Double,System.Double)">
+  Map(double, double, double, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/Values/MotionValue.cs/#L141"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Remaps one range onto another and clamps at both endpoints.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionValue Map(double fromLow, double fromHigh, double toLow, double toHigh)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fromLow</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>fromHigh</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>toLow</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>toHigh</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionValue.html">MotionValue</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionValue_Map_" data-uid="Nova.Avalonia.Animations.MotionValue.Map*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionValue_Map_System_Func_System_Double_System_Double__" data-uid="Nova.Avalonia.Animations.MotionValue.Map(System.Func{System.Double,System.Double})">
+  Map(Func&lt;double, double&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/Values/MotionValue.cs/#L130"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A new value derived from this one by an arbitrary function.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionValue Map(Func&lt;double, double&gt; transform)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>transform</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionValue.html">MotionValue</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionValue_Set_" data-uid="Nova.Avalonia.Animations.MotionValue.Set*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionValue_Set_System_Double_" data-uid="Nova.Avalonia.Animations.MotionValue.Set(System.Double)">
+  Set(double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/Values/MotionValue.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Updates the value, calculates velocity, and synchronously notifies followers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Set(double value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionValue_Smooth_" data-uid="Nova.Avalonia.Animations.MotionValue.Smooth*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionValue_Smooth_Nova_Avalonia_Animations_Spring_" data-uid="Nova.Avalonia.Animations.MotionValue.Smooth(Nova.Avalonia.Animations.Spring)">
+  Smooth(Spring?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/Values/MotionValue.cs/#L163"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A value that chases this one through a spring, for smoothing a jumpy input. Scroll-linked animations use this to trail the raw offset instead of tracking it exactly.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionValue Smooth(Spring? spring = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>spring</code> <a class="xref" href="Nova.Avalonia.Animations.Spring.html">Spring</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionValue.html">MotionValue</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionValue_Subscribe_" data-uid="Nova.Avalonia.Animations.MotionValue.Subscribe*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionValue_Subscribe_System_Action_System_Double__" data-uid="Nova.Avalonia.Animations.MotionValue.Subscribe(System.Action{System.Double})">
+  Subscribe(Action&lt;double&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/Values/MotionValue.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Follow this value. Dispose to stop.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IDisposable Subscribe(Action&lt;double&gt; onChanged)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>onChanged</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/Values/MotionValue.cs/#L9" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

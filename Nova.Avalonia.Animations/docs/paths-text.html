@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Paths and text | Nova.Avalonia.Animations </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Paths and text | Nova.Avalonia.Animations ">
+      
+      <meta name="description" content="Animate along paths, draw and morph SVG data, and split or place text for animation.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/docs/docs/paths-text.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.png" alt="Nova.Avalonia.Animations">
+            Nova.Avalonia.Animations
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="paths-and-text">Paths and text</h1>
+
+<p>Nova samples paths by arc length so motion, drawing, morphing, and text placement remain stable through uneven curves.</p>
+<h2 id="move-along-a-path">Move along a path</h2>
+<p><code>Motion.AlongPath</code> accepts SVG data, an Avalonia <code>Geometry</code>, or a reusable <a class="xref" href="../api/Nova.Avalonia.Animations.MotionPath.html">MotionPath</a>. Set <code>orient</code> to rotate the target toward the path tangent.</p>
+<pre><code class="lang-csharp">await Motion.AlongPath(
+    Plane,
+    &quot;M 20,180 C 120,20 280,20 380,180&quot;,
+    Tween.EaseInOut(1.2),
+    offset: new Point(-12, -12),
+    orient: true);
+</code></pre>
+<p>The attached <code>PathData</code>, <code>PathProgress</code>, <code>PathOffset</code>, and <code>PathOrient</code> properties expose the same positioning for declarative or scrubbed experiences.</p>
+<p><img src="../images/novaanimations_motion_path_light.gif" alt="Motion path animation"></p>
+<h2 id="draw-a-stroke">Draw a stroke</h2>
+<p>Set <code>Motion.DrawData</code> on an Avalonia <code>Path</code>, begin at progress zero, and animate <code>DrawProgressProperty</code> like any other double property.</p>
+<pre><code class="lang-xml">&lt;Path x:Name=&quot;Route&quot;
+      nova:Motion.DrawData=&quot;M 10,80 C 120,0 220,160 340,80&quot;
+      nova:Motion.DrawProgress=&quot;0&quot;
+      Stroke=&quot;#7C3AED&quot;
+      StrokeThickness=&quot;4&quot; /&gt;
+</code></pre>
+<pre><code class="lang-csharp">Motion.Animate(Route)
+    .Property(Motion.DrawProgressProperty, 1d)
+    .With(Tween.EaseInOut(0.9))
+    .Start();
+</code></pre>
+<h2 id="morph-svg-paths">Morph SVG paths</h2>
+<p><a class="xref" href="../api/Nova.Avalonia.Animations.MorphPath.html">MorphPath</a> normalizes and interpolates differently sampled contours. Animate <code>Progress</code> from zero to one; increase <code>Samples</code> when a complex shape needs more detail.</p>
+<pre><code class="lang-xml">&lt;nova:MorphPath x:Name=&quot;Morph&quot;
+                Width=&quot;180&quot; Height=&quot;180&quot;
+                From=&quot;M 4,12 L 10,18 L 20,6&quot;
+                To=&quot;M 5,5 L 19,19 M 19,5 L 5,19&quot;
+                Stroke=&quot;#7C3AED&quot;
+                StrokeThickness=&quot;3&quot; /&gt;
+</code></pre>
+<pre><code class="lang-csharp">Motion.Animate(Morph)
+    .Property(MorphPath.ProgressProperty, 1d)
+    .With(Spring.Bouncy)
+    .Start();
+</code></pre>
+<p><img src="../images/novaanimations_path_morph_light.gif" alt="SVG path morph"></p>
+<h2 id="split-text">Split text</h2>
+<p><a class="xref" href="../api/Nova.Avalonia.Animations.SplitText.html">SplitText</a> creates one <code>TextBlock</code> per character, word, or line for independent animation. Pass a template <code>TextBlock</code> to copy font settings.</p>
+<pre><code class="lang-csharp">var pieces = SplitText.Into(Host, &quot;Build motion&quot;, SplitBy.Characters, Template);
+for (var index = 0; index &lt; pieces.Count; index++)
+{
+    Motion.Jump(pieces[index]).Y(20).Opacity(0);
+    Motion.Animate(pieces[index])
+        .Y(0).Opacity(1)
+        .With(Spring.Smooth)
+        .WithDelay(index * 0.035)
+        .Start();
+}
+</code></pre>
+<p><img src="../images/novaanimations_split_text_light.gif" alt="Staggered split-text animation"></p>
+<p>The resulting controls use normal Nova channels, so they can rise through clipped line masks, scatter from independent positions, or combine with an animated fill.</p>
+<p><img src="../images/novaanimations_text_effects_light.gif" alt="Masked, filled, and scattered text effects"></p>
+<h2 id="rolling-and-scrambling-text">Rolling and scrambling text</h2>
+<p>Rolling labels place repeated text inside a clipped viewport and animate the stack. Split the label into individual clipped stacks for a staggered roll, or use <code>Motion.OnEveryFrame</code> to replace unsettled glyphs until a scramble resolves to its target.</p>
+<p><img src="../images/novaanimations_rolling_text_light.gif" alt="Rolling, staggered, and scrambling text"></p>
+<h2 id="text-on-a-path">Text on a path</h2>
+<p><a class="xref" href="../api/Nova.Avalonia.Animations.TextPath.html">TextPath</a> places glyph controls along a <code>MotionPath</code>. Change the returned layout's <code>Offset</code> from a frame callback to orbit text without a layout pass.</p>
+<p><img src="../images/novaanimations_text_orbit_light.gif" alt="Text orbit animation"></p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/docs/docs/paths-text.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class MotionBuilder | Nova.Avalonia.Animations </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class MotionBuilder | Nova.Avalonia.Animations ">
+      
+      <meta name="description" content="Builds a fluent animation description for one target.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/new/main/apiSpec/new?filename=Nova_Avalonia_Animations_MotionBuilder.md&amp;value=---%0Auid%3A%20Nova.Avalonia.Animations.MotionBuilder%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.png" alt="Nova.Avalonia.Animations">
+            Nova.Avalonia.Animations
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Nova.Avalonia.Animations.MotionBuilder">
+
+
+
+  <h1 id="Nova_Avalonia_Animations_MotionBuilder" data-uid="Nova.Avalonia.Animations.MotionBuilder" class="text-break">
+Class MotionBuilder  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionBuilder.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Nova.html">Nova</a>.<a class="xref" href="Nova.Avalonia.html">Avalonia</a>.<a class="xref" href="Nova.Avalonia.Animations.html">Animations</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Nova.Avalonia.Animations.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Builds a fluent animation description for one target.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class MotionBuilder</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">MotionBuilder</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="Nova_Avalonia_Animations_MotionBuilder_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p><code>await Motion.Animate(card).X(120).Scale(1.05).With(Spring.Bouncy).Start();</code>
+Transform channels such as X, Y, scale, and rotation are independent. They compose onto one
+render transform and can each run their own animation without conflict.</p>
+</div>
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Nova_Avalonia_Animations_MotionBuilder_Current" data-uid="Nova.Avalonia.Animations.MotionBuilder.Current">
+  Current
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionBuilder.cs/#L160"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A keyframe step meaning &quot;whatever the channel is now&quot;, the wildcard from motion.dev.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double Current = NaN</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Nova_Avalonia_Animations_MotionBuilder_Depth_" data-uid="Nova.Avalonia.Animations.MotionBuilder.Depth*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionBuilder_Depth_System_Double_" data-uid="Nova.Avalonia.Animations.MotionBuilder.Depth(System.Double)">
+  Depth(double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionBuilder.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How far the element sits from the viewer, which controls how strong the tilt reads.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionBuilder Depth(double value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionBuilder.html">MotionBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionBuilder_Keyframes_" data-uid="Nova.Avalonia.Animations.MotionBuilder.Keyframes*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionBuilder_Keyframes_Avalonia_AvaloniaProperty_Nova_Avalonia_Animations_MotionKeyframe___" data-uid="Nova.Avalonia.Animations.MotionBuilder.Keyframes(Avalonia.AvaloniaProperty,Nova.Avalonia.Animations.MotionKeyframe[])">
+  Keyframes(AvaloniaProperty, params MotionKeyframe[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionBuilder.cs/#L154"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Animates a double property through keyframes with optional offsets and segment easings.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionBuilder Keyframes(AvaloniaProperty property, params MotionKeyframe[] keyframes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>property</code> <span class="xref">AvaloniaProperty</span></dt>
+    <dd></dd>
+    <dt><code>keyframes</code> <a class="xref" href="Nova.Avalonia.Animations.MotionKeyframe.html">MotionKeyframe</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionBuilder.html">MotionBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionBuilder_Opacity_" data-uid="Nova.Avalonia.Animations.MotionBuilder.Opacity*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionBuilder_Opacity_Nova_Avalonia_Animations_MotionKeyframe___" data-uid="Nova.Avalonia.Animations.MotionBuilder.Opacity(Nova.Avalonia.Animations.MotionKeyframe[])">
+  Opacity(params MotionKeyframe[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionBuilder.cs/#L145"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Animates opacity through rich keyframes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionBuilder Opacity(params MotionKeyframe[] keyframes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>keyframes</code> <a class="xref" href="Nova.Avalonia.Animations.MotionKeyframe.html">MotionKeyframe</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionBuilder.html">MotionBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionBuilder_Opacity_" data-uid="Nova.Avalonia.Animations.MotionBuilder.Opacity*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionBuilder_Opacity_System_Double_" data-uid="Nova.Avalonia.Animations.MotionBuilder.Opacity(System.Double)">
+  Opacity(double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionBuilder.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Animates opacity to <code class="paramref">value</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionBuilder Opacity(double value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionBuilder.html">MotionBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionBuilder_Opacity_" data-uid="Nova.Avalonia.Animations.MotionBuilder.Opacity*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionBuilder_Opacity_System_Double___" data-uid="Nova.Avalonia.Animations.MotionBuilder.Opacity(System.Double[])">
+  Opacity(params double[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionBuilder.cs/#L106"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Animates opacity through the supplied keyframe values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionBuilder Opacity(params double[] values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionBuilder.html">MotionBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionBuilder_Property_" data-uid="Nova.Avalonia.Animations.MotionBuilder.Property*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionBuilder_Property_Avalonia_AvaloniaProperty_System_Object_" data-uid="Nova.Avalonia.Animations.MotionBuilder.Property(Avalonia.AvaloniaProperty,System.Object)">
+  Property(AvaloniaProperty, object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionBuilder.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Animates any styled or attached property. Doubles preserve velocity in value space; other supported types use their registered interpolator.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionBuilder Property(AvaloniaProperty property, object value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>property</code> <span class="xref">AvaloniaProperty</span></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionBuilder.html">MotionBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionBuilder_Rotate_" data-uid="Nova.Avalonia.Animations.MotionBuilder.Rotate*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionBuilder_Rotate_Nova_Avalonia_Animations_MotionKeyframe___" data-uid="Nova.Avalonia.Animations.MotionBuilder.Rotate(Nova.Avalonia.Animations.MotionKeyframe[])">
+  Rotate(params MotionKeyframe[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionBuilder.cs/#L125"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Animates two-dimensional rotation through rich keyframes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionBuilder Rotate(params MotionKeyframe[] keyframes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>keyframes</code> <a class="xref" href="Nova.Avalonia.Animations.MotionKeyframe.html">MotionKeyframe</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionBuilder.html">MotionBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionBuilder_Rotate_" data-uid="Nova.Avalonia.Animations.MotionBuilder.Rotate*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionBuilder_Rotate_System_Double_" data-uid="Nova.Avalonia.Animations.MotionBuilder.Rotate(System.Double)">
+  Rotate(double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionBuilder.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Animates clockwise two-dimensional rotation to <code class="paramref">degrees</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionBuilder Rotate(double degrees)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>degrees</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionBuilder.html">MotionBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionBuilder_Rotate_" data-uid="Nova.Avalonia.Animations.MotionBuilder.Rotate*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionBuilder_Rotate_System_Double___" data-uid="Nova.Avalonia.Animations.MotionBuilder.Rotate(System.Double[])">
+  Rotate(params double[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionBuilder.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Animates two-dimensional rotation through the supplied keyframe values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionBuilder Rotate(params double[] values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionBuilder.html">MotionBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionBuilder_RotateX_" data-uid="Nova.Avalonia.Animations.MotionBuilder.RotateX*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionBuilder_RotateX_Nova_Avalonia_Animations_MotionKeyframe___" data-uid="Nova.Avalonia.Animations.MotionBuilder.RotateX(Nova.Avalonia.Animations.MotionKeyframe[])">
+  RotateX(params MotionKeyframe[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionBuilder.cs/#L129"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Animates horizontal-axis tilt through rich keyframes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionBuilder RotateX(params MotionKeyframe[] keyframes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>keyframes</code> <a class="xref" href="Nova.Avalonia.Animations.MotionKeyframe.html">MotionKeyframe</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionBuilder.html">MotionBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionBuilder_RotateX_" data-uid="Nova.Avalonia.Animations.MotionBuilder.RotateX*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionBuilder_RotateX_System_Double_" data-uid="Nova.Avalonia.Animations.MotionBuilder.RotateX(System.Double)">
+  RotateX(double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionBuilder.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tilt around the horizontal axis, for perspective effects like a tilt card.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionBuilder RotateX(double degrees)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>degrees</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionBuilder.html">MotionBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionBuilder_RotateX_" data-uid="Nova.Avalonia.Animations.MotionBuilder.RotateX*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionBuilder_RotateX_System_Double___" data-uid="Nova.Avalonia.Animations.MotionBuilder.RotateX(System.Double[])">
+  RotateX(params double[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionBuilder.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Animates horizontal-axis tilt through the supplied keyframe values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionBuilder RotateX(params double[] values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionBuilder.html">MotionBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionBuilder_RotateY_" data-uid="Nova.Avalonia.Animations.MotionBuilder.RotateY*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionBuilder_RotateY_Nova_Avalonia_Animations_MotionKeyframe___" data-uid="Nova.Avalonia.Animations.MotionBuilder.RotateY(Nova.Avalonia.Animations.MotionKeyframe[])">
+  RotateY(params MotionKeyframe[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionBuilder.cs/#L133"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Animates vertical-axis tilt through rich keyframes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionBuilder RotateY(params MotionKeyframe[] keyframes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>keyframes</code> <a class="xref" href="Nova.Avalonia.Animations.MotionKeyframe.html">MotionKeyframe</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionBuilder.html">MotionBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionBuilder_RotateY_" data-uid="Nova.Avalonia.Animations.MotionBuilder.RotateY*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionBuilder_RotateY_System_Double_" data-uid="Nova.Avalonia.Animations.MotionBuilder.RotateY(System.Double)">
+  RotateY(double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionBuilder.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tilt around the vertical axis.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionBuilder RotateY(double degrees)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>degrees</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionBuilder.html">MotionBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionBuilder_RotateY_" data-uid="Nova.Avalonia.Animations.MotionBuilder.RotateY*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionBuilder_RotateY_System_Double___" data-uid="Nova.Avalonia.Animations.MotionBuilder.RotateY(System.Double[])">
+  RotateY(params double[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionBuilder.cs/#L94"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Animates vertical-axis tilt through the supplied keyframe values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionBuilder RotateY(params double[] values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionBuilder.html">MotionBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionBuilder_Scale_" data-uid="Nova.Avalonia.Animations.MotionBuilder.Scale*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionBuilder_Scale_Nova_Avalonia_Animations_MotionKeyframe___" data-uid="Nova.Avalonia.Animations.MotionBuilder.Scale(Nova.Avalonia.Animations.MotionKeyframe[])">
+  Scale(params MotionKeyframe[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionBuilder.cs/#L149"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Animates both scale channels through the same rich keyframes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionBuilder Scale(params MotionKeyframe[] keyframes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>keyframes</code> <a class="xref" href="Nova.Avalonia.Animations.MotionKeyframe.html">MotionKeyframe</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionBuilder.html">MotionBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionBuilder_Scale_" data-uid="Nova.Avalonia.Animations.MotionBuilder.Scale*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionBuilder_Scale_System_Double_" data-uid="Nova.Avalonia.Animations.MotionBuilder.Scale(System.Double)">
+  Scale(double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionBuilder.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Animates horizontal and vertical scale to the same value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionBuilder Scale(double value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionBuilder.html">MotionBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionBuilder_Scale_" data-uid="Nova.Avalonia.Animations.MotionBuilder.Scale*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionBuilder_Scale_System_Double___" data-uid="Nova.Avalonia.Animations.MotionBuilder.Scale(System.Double[])">
+  Scale(params double[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionBuilder.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Animates both scale channels through the same keyframe values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionBuilder Scale(params double[] values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionBuilder.html">MotionBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionBuilder_ScaleX_" data-uid="Nova.Avalonia.Animations.MotionBuilder.ScaleX*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionBuilder_ScaleX_Nova_Avalonia_Animations_MotionKeyframe___" data-uid="Nova.Avalonia.Animations.MotionBuilder.ScaleX(Nova.Avalonia.Animations.MotionKeyframe[])">
+  ScaleX(params MotionKeyframe[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionBuilder.cs/#L137"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Animates horizontal scale through rich keyframes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionBuilder ScaleX(params MotionKeyframe[] keyframes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>keyframes</code> <a class="xref" href="Nova.Avalonia.Animations.MotionKeyframe.html">MotionKeyframe</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionBuilder.html">MotionBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionBuilder_ScaleX_" data-uid="Nova.Avalonia.Animations.MotionBuilder.ScaleX*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionBuilder_ScaleX_System_Double_" data-uid="Nova.Avalonia.Animations.MotionBuilder.ScaleX(System.Double)">
+  ScaleX(double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionBuilder.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Animates horizontal scale to <code class="paramref">value</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionBuilder ScaleX(double value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionBuilder.html">MotionBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionBuilder_ScaleX_" data-uid="Nova.Avalonia.Animations.MotionBuilder.ScaleX*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionBuilder_ScaleX_System_Double___" data-uid="Nova.Avalonia.Animations.MotionBuilder.ScaleX(System.Double[])">
+  ScaleX(params double[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionBuilder.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Animates horizontal scale through the supplied keyframe values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionBuilder ScaleX(params double[] values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionBuilder.html">MotionBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionBuilder_ScaleY_" data-uid="Nova.Avalonia.Animations.MotionBuilder.ScaleY*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionBuilder_ScaleY_Nova_Avalonia_Animations_MotionKeyframe___" data-uid="Nova.Avalonia.Animations.MotionBuilder.ScaleY(Nova.Avalonia.Animations.MotionKeyframe[])">
+  ScaleY(params MotionKeyframe[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionBuilder.cs/#L141"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Animates vertical scale through rich keyframes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionBuilder ScaleY(params MotionKeyframe[] keyframes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>keyframes</code> <a class="xref" href="Nova.Avalonia.Animations.MotionKeyframe.html">MotionKeyframe</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionBuilder.html">MotionBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionBuilder_ScaleY_" data-uid="Nova.Avalonia.Animations.MotionBuilder.ScaleY*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionBuilder_ScaleY_System_Double_" data-uid="Nova.Avalonia.Animations.MotionBuilder.ScaleY(System.Double)">
+  ScaleY(double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionBuilder.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Animates vertical scale to <code class="paramref">value</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionBuilder ScaleY(double value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionBuilder.html">MotionBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionBuilder_ScaleY_" data-uid="Nova.Avalonia.Animations.MotionBuilder.ScaleY*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionBuilder_ScaleY_System_Double___" data-uid="Nova.Avalonia.Animations.MotionBuilder.ScaleY(System.Double[])">
+  ScaleY(params double[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionBuilder.cs/#L102"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Animates vertical scale through the supplied keyframe values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionBuilder ScaleY(params double[] values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionBuilder.html">MotionBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionBuilder_Start_" data-uid="Nova.Avalonia.Animations.MotionBuilder.Start*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionBuilder_Start" data-uid="Nova.Avalonia.Animations.MotionBuilder.Start">
+  Start()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionBuilder.cs/#L205"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Start all channels. Must be called on the UI thread.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionHandle Start()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionHandle.html">MotionHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionBuilder_With_" data-uid="Nova.Avalonia.Animations.MotionBuilder.With*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionBuilder_With_Nova_Avalonia_Animations_MotionTiming_" data-uid="Nova.Avalonia.Animations.MotionBuilder.With(Nova.Avalonia.Animations.MotionTiming)">
+  With(MotionTiming)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionBuilder.cs/#L165"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the spring or tween used by every channel in this builder.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionBuilder With(MotionTiming timing)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>timing</code> <a class="xref" href="Nova.Avalonia.Animations.MotionTiming.html">MotionTiming</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionBuilder.html">MotionBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionBuilder_WithDelay_" data-uid="Nova.Avalonia.Animations.MotionBuilder.WithDelay*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionBuilder_WithDelay_System_Double_" data-uid="Nova.Avalonia.Animations.MotionBuilder.WithDelay(System.Double)">
+  WithDelay(double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionBuilder.cs/#L175"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a one-time delay in seconds to every channel in this builder.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionBuilder WithDelay(double seconds)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>seconds</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionBuilder.html">MotionBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionBuilder_X_" data-uid="Nova.Avalonia.Animations.MotionBuilder.X*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionBuilder_X_Nova_Avalonia_Animations_MotionKeyframe___" data-uid="Nova.Avalonia.Animations.MotionBuilder.X(Nova.Avalonia.Animations.MotionKeyframe[])">
+  X(params MotionKeyframe[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionBuilder.cs/#L117"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Animates horizontal translation through keyframes with optional offsets and segment easings.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionBuilder X(params MotionKeyframe[] keyframes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>keyframes</code> <a class="xref" href="Nova.Avalonia.Animations.MotionKeyframe.html">MotionKeyframe</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionBuilder.html">MotionBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionBuilder_X_" data-uid="Nova.Avalonia.Animations.MotionBuilder.X*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionBuilder_X_System_Double_" data-uid="Nova.Avalonia.Animations.MotionBuilder.X(System.Double)">
+  X(double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionBuilder.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Animates horizontal translation to <code class="paramref">value</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionBuilder X(double value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionBuilder.html">MotionBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionBuilder_X_" data-uid="Nova.Avalonia.Animations.MotionBuilder.X*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionBuilder_X_System_Double___" data-uid="Nova.Avalonia.Animations.MotionBuilder.X(System.Double[])">
+  X(params double[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionBuilder.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Animates horizontal translation through keyframes over a tween's duration. <a class="xref" href="Nova.Avalonia.Animations.MotionBuilder.html#Nova_Avalonia_Animations_MotionBuilder_Current">Current</a> preserves the channel value at that step.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionBuilder X(params double[] values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionBuilder.html">MotionBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionBuilder_Y_" data-uid="Nova.Avalonia.Animations.MotionBuilder.Y*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionBuilder_Y_Nova_Avalonia_Animations_MotionKeyframe___" data-uid="Nova.Avalonia.Animations.MotionBuilder.Y(Nova.Avalonia.Animations.MotionKeyframe[])">
+  Y(params MotionKeyframe[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionBuilder.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Animates vertical translation through rich keyframes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionBuilder Y(params MotionKeyframe[] keyframes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>keyframes</code> <a class="xref" href="Nova.Avalonia.Animations.MotionKeyframe.html">MotionKeyframe</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionBuilder.html">MotionBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionBuilder_Y_" data-uid="Nova.Avalonia.Animations.MotionBuilder.Y*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionBuilder_Y_System_Double_" data-uid="Nova.Avalonia.Animations.MotionBuilder.Y(System.Double)">
+  Y(double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionBuilder.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Animates vertical translation to <code class="paramref">value</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionBuilder Y(double value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionBuilder.html">MotionBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionBuilder_Y_" data-uid="Nova.Avalonia.Animations.MotionBuilder.Y*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionBuilder_Y_System_Double___" data-uid="Nova.Avalonia.Animations.MotionBuilder.Y(System.Double[])">
+  Y(params double[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionBuilder.cs/#L82"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Animates vertical translation through the supplied keyframe values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionBuilder Y(params double[] values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionBuilder.html">MotionBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionBuilder.cs/#L17" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

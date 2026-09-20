@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#f4f8fe" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0d1520" media="(prefers-color-scheme: dark)">
+    <meta name="description" content="Explore springs, gestures, layout transitions, paths, text effects, and shaders in the Nova.Avalonia.Animations browser gallery.">
+    <title>Nova.Avalonia.Animations Gallery</title>
+    <link rel="icon" href="./favicon.ico">
+    <link rel="stylesheet" href="./app.css">
+</head>
+<body>
+    <main id="out">
+        <div class="avalonia-splash" role="status" aria-live="polite" aria-label="Loading Nova.Avalonia.Animations Gallery">
+            <div class="splash-glow splash-glow-top" aria-hidden="true"></div>
+            <div class="splash-glow splash-glow-bottom" aria-hidden="true"></div>
+            <div class="splash-content">
+                <div class="splash-mark" aria-hidden="true">
+                    <img src="./favicon.ico" width="96" height="96" alt="">
+                </div>
+                <div class="splash-copy">
+                    <div class="splash-title"><strong>Nova</strong><span>.Avalonia.Animations</span></div>
+                    <p>Motion and interactions for Avalonia</p>
+                </div>
+                <div class="splash-loading" aria-hidden="true"><span></span><span></span><span></span></div>
+                <span class="splash-label">Loading gallery</span>
+            </div>
+            <span class="splash-footer">WebAssembly Gallery</span>
+        </div>
+    </main>
+    <section id="startup-error" class="startup-error" role="alert" aria-labelledby="error-title" hidden>
+        <img src="./favicon.ico" width="64" height="64" alt="">
+        <h1 id="error-title">The gallery couldn’t load</h1>
+        <p>Check your connection and try again.</p>
+        <div class="startup-actions">
+            <button id="reload-gallery" type="button">Try again</button>
+            <a href="./docs/">Read the documentation</a>
+        </div>
+    </section>
+    <noscript>
+        <style>.splash-loading, .splash-label { display: none; }</style>
+        <p class="noscript-message">Enable JavaScript to explore the gallery, or <a href="./docs/">read the documentation</a>.</p>
+    </noscript>
+    <script type="module" src="./main.js"></script>
+</body>
+</html>

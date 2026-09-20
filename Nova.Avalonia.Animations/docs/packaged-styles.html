@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Packaged styles | Nova.Avalonia.Animations </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Packaged styles | Nova.Avalonia.Animations ">
+      
+      <meta name="description" content="Register Nova theme tokens, selection styles, loaders, and shader skeletons.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/docs/docs/packaged-styles.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.png" alt="Nova.Avalonia.Animations">
+            Nova.Avalonia.Animations
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="packaged-styles">Packaged styles</h1>
+
+<p>Most of Nova does not require style registration. The package also includes optional styles for stock Avalonia controls so existing items, bindings, selection, keyboard navigation, and automation remain intact.</p>
+<h2 id="theme-resources">Theme resources</h2>
+<p>Register the tokens before styles that consume them:</p>
+<pre><code class="lang-xml">&lt;Application.Resources&gt;
+    &lt;ResourceDictionary&gt;
+        &lt;ResourceDictionary.MergedDictionaries&gt;
+            &lt;ResourceInclude Source=&quot;avares://Nova.Avalonia.Animations/Themes/NovaTokens.axaml&quot; /&gt;
+        &lt;/ResourceDictionary.MergedDictionaries&gt;
+    &lt;/ResourceDictionary&gt;
+&lt;/Application.Resources&gt;
+</code></pre>
+<p>The resources are theme-aware and work with Avalonia's Fluent and Simple themes.</p>
+<h2 id="selection-styles">Selection styles</h2>
+<pre><code class="lang-xml">&lt;Application.Styles&gt;
+    &lt;FluentTheme /&gt;
+    &lt;StyleInclude Source=&quot;avares://Nova.Avalonia.Animations/Themes/Segmented.axaml&quot; /&gt;
+    &lt;StyleInclude Source=&quot;avares://Nova.Avalonia.Animations/Themes/Rail.axaml&quot; /&gt;
+    &lt;StyleInclude Source=&quot;avares://Nova.Avalonia.Animations/Themes/Dots.axaml&quot; /&gt;
+&lt;/Application.Styles&gt;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Style source</th>
+<th>Control classes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Segmented.axaml</code></td>
+<td><code>nova-segmented</code>, <code>nova-underlined</code> on <code>TabControl</code></td>
+</tr>
+<tr>
+<td><code>Rail.axaml</code></td>
+<td><code>nova-rail</code> on <code>ListBox</code></td>
+</tr>
+<tr>
+<td><code>Dots.axaml</code></td>
+<td><code>nova-dots</code> on <code>ListBox</code>; add <code>vertical</code> for a vertical stack</td>
+</tr>
+</tbody>
+</table>
+<p>These styles use <code>Motion.SlidingSelection</code> to move one selection indicator between containers.</p>
+<h2 id="loading-indicators">Loading indicators</h2>
+<p>Register <code>Themes/Loaders.axaml</code>, then apply the base <code>nova</code> class and one variant to an indeterminate <code>ProgressBar</code>.</p>
+<pre><code class="lang-xml">&lt;ProgressBar Classes=&quot;nova nova-arc&quot; IsIndeterminate=&quot;True&quot; /&gt;
+&lt;ProgressBar Classes=&quot;nova nova-dots&quot; IsIndeterminate=&quot;True&quot; Foreground=&quot;#34D399&quot; /&gt;
+&lt;ProgressBar Classes=&quot;nova nova-wave&quot; IsIndeterminate=&quot;True&quot; /&gt;
+</code></pre>
+<p>Variants include <code>nova-arc</code>, <code>nova-dual-ring</code>, <code>nova-dots</code>, <code>nova-pulse-dots</code>, <code>nova-bars</code>, <code>nova-wave</code>, <code>nova-orbit</code>, <code>nova-chase</code>, <code>nova-ripple</code>, <code>nova-bounce</code>, <code>nova-flip</code>, and <code>nova-slide</code>.</p>
+<p><img src="../images/novaanimations_loaders_light.gif" alt="Nova loading indicators"></p>
+<h2 id="skeleton-placeholders">Skeleton placeholders</h2>
+<p>Skeletons live in the shader package:</p>
+<pre><code class="lang-xml">&lt;StyleInclude Source=&quot;avares://Nova.Avalonia.Animations.Shaders/Themes/Skeletons.axaml&quot; /&gt;
+</code></pre>
+<p>Use <code>nova-skeleton</code> on an indeterminate <code>ProgressBar</code>, optionally with <code>card</code> or <code>circle</code>.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/docs/docs/packaged-styles.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

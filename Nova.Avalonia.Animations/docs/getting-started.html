@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Getting started | Nova.Avalonia.Animations </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Getting started | Nova.Avalonia.Animations ">
+      
+      <meta name="description" content="Install Nova.Avalonia.Animations and create a first spring animation.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/docs/docs/getting-started.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.png" alt="Nova.Avalonia.Animations">
+            Nova.Avalonia.Animations
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="getting-started">Getting started</h1>
+
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Avalonia 12 or later</li>
+<li>.NET 8 or later</li>
+</ul>
+<h2 id="install-the-core-package">Install the core package</h2>
+<p>Run this command from your application project:</p>
+<pre><code class="lang-bash">dotnet add package Nova.Avalonia.Animations
+</code></pre>
+<p>Install the optional shader package only when the application uses SkSL effects:</p>
+<pre><code class="lang-bash">dotnet add package Nova.Avalonia.Animations.Shaders
+</code></pre>
+<h2 id="add-the-xaml-namespace">Add the XAML namespace</h2>
+<p>No style registration is required for the motion engine. Add the Nova namespace to any view that uses attached motion properties or Nova controls:</p>
+<pre><code class="lang-xml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:nova=&quot;https://nova.avaloniaui.net&quot;&gt;
+    &lt;Border Width=&quot;180&quot;
+            Padding=&quot;20&quot;
+            Background=&quot;#7C3AED&quot;
+            CornerRadius=&quot;16&quot;
+            nova:Motion.WhileHover=&quot;scale:1.05; y:-6&quot;
+            nova:Motion.WhilePress=&quot;scale:0.96&quot;&gt;
+        &lt;TextBlock Text=&quot;Move me&quot; Foreground=&quot;White&quot; /&gt;
+    &lt;/Border&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<p>Compact XAML states accept <code>x</code>, <code>y</code>, <code>scale</code>, <code>scaleX</code>, <code>scaleY</code>, <code>rotate</code>, <code>rotateX</code>, <code>rotateY</code>, <code>depth</code>, <code>opacity</code>, and <code>delay</code> entries separated by semicolons or commas.</p>
+<h2 id="start-an-animation-from-c">Start an animation from C#</h2>
+<p>Import the namespace, choose the destination channels, select timing, and call <code>Start</code> on the UI thread:</p>
+<pre><code class="lang-csharp">using Nova.Avalonia.Animations;
+
+await Motion.Animate(Card)
+    .X(120)
+    .Y(-8)
+    .Scale(1.05)
+    .Opacity(1)
+    .With(Spring.Bouncy)
+    .Start();
+</code></pre>
+<p>Springs are the default timing, so <code>.With(Spring.Default)</code> can be omitted. Use a tween when duration is the important part of the design:</p>
+<pre><code class="lang-csharp">await Motion.Animate(Card)
+    .X(0)
+    .Rotate(0)
+    .With(Tween.Css(0.35, &quot;cubic-bezier(0.22, 1, 0.36, 1)&quot;))
+    .Start();
+</code></pre>
+<p>Continue with <a href="timing.html">Timing</a> and <a href="fluent-animations.html">Fluent animations</a>.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/docs/docs/getting-started.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

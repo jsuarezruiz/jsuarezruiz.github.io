@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Motion values and scroll | Nova.Avalonia.Animations </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Motion values and scroll | Nova.Avalonia.Animations ">
+      
+      <meta name="description" content="Compose observable motion values and drive animation from scroll position.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/docs/docs/motion-values-scroll.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.png" alt="Nova.Avalonia.Animations">
+            Nova.Avalonia.Animations
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="motion-values-and-scroll">Motion values and scroll</h1>
+
+<p><a class="xref" href="../api/Nova.Avalonia.Animations.MotionValue.html">MotionValue</a> is an observable scalar for continuous relationships. It can be mapped, clamped, spring-smoothed, subscribed to, and bound to transform or double-property channels.</p>
+<h2 id="compose-a-value">Compose a value</h2>
+<pre><code class="lang-csharp">using var pointer = new MotionValue();
+using var mapped = pointer.Map(0, 800, 0, 1);
+using var normalized = mapped.Clamp();
+using var eased = normalized.Smooth(Spring.Snappy);
+using var binding = eased.BindScale(Card);
+
+pointer.Set(pointerX);
+</code></pre>
+<p>Dispose derived values and bindings when their owner is detached. Derived values dispose their own source subscriptions, but they do not dispose the upstream value.</p>
+<p>Create UI bindings on the UI thread. Later updates can originate on a worker thread and are coalesced before delivery; a newer UI-thread update supersedes older queued values. <code>MotionValue</code> itself is not thread-safe, so serialize updates and subscription changes. A failed binding write is reported through <code>MotionConfig.Diagnostic</code> and removes that binding, whether the update was synchronous or queued.</p>
+<p>Disposing a source value also discards its pending UI binding updates. If a subscriber calls <code>Set</code> again on the same value, that newer update supersedes the remaining notifications from the older call, keeping mapped values and bindings consistent with the source.</p>
+<h2 id="whole-scroller-progress">Whole-scroller progress</h2>
+<p><code>Motion.ScrollProgress</code> returns zero at the start and one at the end of a <code>ScrollViewer</code>.</p>
+<pre><code class="lang-csharp">using var progress = Motion.ScrollProgress(Scroller, ScrollAxis.Horizontal);
+using var angle = progress.Map(0, 1, 16, -16);
+using var smoothAngle = angle.Smooth(Spring.Smooth);
+using var rotation = smoothAngle.BindRotateY(Card);
+</code></pre>
+<h2 id="element-progress">Element progress</h2>
+<p>The element overload measures between two <a class="xref" href="../api/Nova.Avalonia.Animations.ScrollAnchor.html">ScrollAnchor</a> values. The default range begins when the element's leading edge reaches the far edge of the viewport and ends when its trailing edge leaves the near edge.</p>
+<pre><code class="lang-csharp">using var progress = Motion.ScrollProgress(
+    Hero,
+    Scroller,
+    from: ScrollAnchor.Entering,
+    to: ScrollAnchor.Centered);
+
+using var y = progress.Map(0, 1, 48, 0);
+using var opacity = progress.Bind(Hero, Visual.OpacityProperty);
+using var translation = y.BindY(Hero);
+</code></pre>
+<p>Available anchors include <code>Entering</code>, <code>Leaving</code>, <code>Centered</code>, and <code>Pinned</code>; custom anchors use fractional element and viewport points.</p>
+<p><img src="../images/novaanimations_coverflow_light.gif" alt="Motion values driving a coverflow"></p>
+<p>The same continuous-value pattern works with direct manipulation. This carousel maps the tracked position into image parallax and pagination, then projects release velocity to choose the nearest snap point.</p>
+<p><img src="../images/novaanimations_photo_carousel_light.gif" alt="Drag-driven photo carousel with parallax"></p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/docs/docs/motion-values-scroll.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

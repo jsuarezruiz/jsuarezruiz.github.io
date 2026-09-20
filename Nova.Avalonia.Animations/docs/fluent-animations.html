@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Fluent animations | Nova.Avalonia.Animations </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Fluent animations | Nova.Avalonia.Animations ">
+      
+      <meta name="description" content="Animate transform channels and Avalonia properties, then control playback with MotionHandle.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/docs/docs/fluent-animations.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.png" alt="Nova.Avalonia.Animations">
+            Nova.Avalonia.Animations
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="fluent-animations">Fluent animations</h1>
+
+<p>Begin with <a class="xref" href="../api/Nova.Avalonia.Animations.Motion.html">Motion</a>. A <a class="xref" href="../api/Nova.Avalonia.Animations.MotionBuilder.html">MotionBuilder</a> collects channels for one target and starts them together.</p>
+<h2 id="transform-channels">Transform channels</h2>
+<pre><code class="lang-csharp">var handle = Motion.Animate(Card)
+    .X(140)
+    .Y(-20)
+    .Scale(1.08)
+    .Rotate(4)
+    .RotateY(-10)
+    .Depth(700)
+    .Opacity(0.95)
+    .With(Spring.Snappy)
+    .Start();
+</code></pre>
+<p>Transform channels compose onto Nova's render transform. A later call targeting only <code>X</code> does not cancel a running opacity or scale channel.</p>
+<h2 id="avalonia-properties">Avalonia properties</h2>
+<p>Use <code>Property</code> for any supported styled or attached property:</p>
+<pre><code class="lang-csharp">Panel.Background = Brushes.MediumSlateBlue;
+
+Motion.Animate(Panel)
+    .Property(Border.CornerRadiusProperty, new CornerRadius(28))
+    .Property(Border.BackgroundProperty, Brushes.MediumPurple)
+    .With(Spring.Smooth)
+    .Start();
+</code></pre>
+<p>Nova includes interpolation for numbers, <code>Point</code>, <code>Vector</code>, <code>Size</code>, <code>Rect</code>, <code>Thickness</code>, <code>CornerRadius</code>, <code>Color</code>, and solid brushes. Register an application-specific value type at startup with <a class="xref" href="../api/Nova.Avalonia.Animations.Interpolators.html">Interpolators</a>.</p>
+<h2 id="immediate-writes">Immediate writes</h2>
+<p><code>Motion.Jump</code> writes a channel immediately and interrupts an animation already controlling it. It is useful for scrubbing and direct pointer tracking.</p>
+<pre><code class="lang-csharp">Motion.Jump(Card).X(pointerX).Y(pointerY).Rotate(tilt);
+</code></pre>
+<p>Read transform channel state with <code>Motion.GetX</code>, <code>GetY</code>, <code>GetScaleX</code>, <code>GetScaleY</code>, <code>GetRotate</code>, <code>GetRotateX</code>, <code>GetRotateY</code>, and <code>GetDepth</code>.</p>
+<h2 id="playback-control">Playback control</h2>
+<p><code>Start</code> returns an awaitable <a class="xref" href="../api/Nova.Avalonia.Animations.MotionHandle.html">MotionHandle</a>.</p>
+<pre><code class="lang-csharp">var playback = Motion.Animate(Card)
+    .X(0, 180, 360)
+    .Y(0, -56, 0)
+    .With(Tween.EaseInOut(1.2))
+    .Start();
+
+playback.Pause();
+playback.Seek(0.5);
+playback.Resume();
+
+await playback;
+</code></pre>
+<p><code>Reverse</code> and <code>Seek</code> require a finite, non-repeating handle. <code>Stop</code> leaves channels at their current values, while <code>Complete</code> writes their final values. <code>CancelWhen(token)</code> stops playback when the token is cancelled.</p>
+<p>If only part of a handle is interrupted, seeking updates its remaining channels and skips those that have already ended. It cannot overwrite a replacement animation on an interrupted channel.</p>
+<p>Playback mutations must run on the Avalonia thread.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/docs/docs/fluent-animations.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

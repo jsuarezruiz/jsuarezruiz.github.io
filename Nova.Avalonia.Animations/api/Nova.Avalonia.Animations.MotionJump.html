@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Struct MotionJump | Nova.Avalonia.Animations </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct MotionJump | Nova.Avalonia.Animations ">
+      
+      <meta name="description" content="Writes motion channels immediately without animation.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/new/main/apiSpec/new?filename=Nova_Avalonia_Animations_MotionJump.md&amp;value=---%0Auid%3A%20Nova.Avalonia.Animations.MotionJump%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.png" alt="Nova.Avalonia.Animations">
+            Nova.Avalonia.Animations
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Nova.Avalonia.Animations.MotionJump">
+
+
+
+  <h1 id="Nova_Avalonia_Animations_MotionJump" data-uid="Nova.Avalonia.Animations.MotionJump" class="text-break">
+Struct MotionJump  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionJump.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Nova.html">Nova</a>.<a class="xref" href="Nova.Avalonia.html">Avalonia</a>.<a class="xref" href="Nova.Avalonia.Animations.html">Animations</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Nova.Avalonia.Animations.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Writes motion channels immediately without animation.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly struct MotionJump : IEquatable&lt;MotionJump&gt;</code></pre>
+  </div>
+
+
+
+
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Nova.Avalonia.Animations.MotionJump.html">MotionJump</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.tostring">ValueType.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="Nova_Avalonia_Animations_MotionJump_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Use immediate writes to scrub values directly from input for dragging, scroll linking, and
+carousels. A write interrupts animation on the touched channels, and a follow-up spring inherits
+its optional velocity:
+<code>Motion.Jump(track).X(pointerX, velocity); Motion.Animate(track).X(snap).With(spring).Start();</code></p>
+</div>
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Nova_Avalonia_Animations_MotionJump_Depth_" data-uid="Nova.Avalonia.Animations.MotionJump.Depth*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionJump_Depth_System_Double_System_Double_" data-uid="Nova.Avalonia.Animations.MotionJump.Depth(System.Double,System.Double)">
+  Depth(double, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionJump.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes the perspective depth immediately.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionJump Depth(double value, double velocity = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>velocity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionJump.html">MotionJump</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionJump_Equals_" data-uid="Nova.Avalonia.Animations.MotionJump.Equals*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionJump_Equals_Nova_Avalonia_Animations_MotionJump_" data-uid="Nova.Avalonia.Animations.MotionJump.Equals(Nova.Avalonia.Animations.MotionJump)">
+  Equals(MotionJump)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionJump.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates whether the current object is equal to another object of the same type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(MotionJump other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="Nova.Avalonia.Animations.MotionJump.html">MotionJump</a></dt>
+    <dd><p>An object to compare with this object.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionJump_Equals_" data-uid="Nova.Avalonia.Animations.MotionJump.Equals*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionJump_Equals_System_Object_" data-uid="Nova.Avalonia.Animations.MotionJump.Equals(System.Object)">
+  Equals(object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionJump.cs/#L82"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates whether this instance and a specified object are equal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>The object to compare with the current instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">obj</code> and this instance are the same type and represent the same value; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionJump_GetHashCode_" data-uid="Nova.Avalonia.Animations.MotionJump.GetHashCode*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionJump_GetHashCode" data-uid="Nova.Avalonia.Animations.MotionJump.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionJump.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the hash code for this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A 32-bit signed integer that is the hash code for this instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionJump_Opacity_" data-uid="Nova.Avalonia.Animations.MotionJump.Opacity*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionJump_Opacity_System_Double_" data-uid="Nova.Avalonia.Animations.MotionJump.Opacity(System.Double)">
+  Opacity(double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionJump.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes opacity immediately and interrupts its active animation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionJump Opacity(double value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionJump.html">MotionJump</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionJump_Property_" data-uid="Nova.Avalonia.Animations.MotionJump.Property*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionJump_Property_Avalonia_AvaloniaProperty_System_Double_System_Double_" data-uid="Nova.Avalonia.Animations.MotionJump.Property(Avalonia.AvaloniaProperty,System.Double,System.Double)">
+  Property(AvaloniaProperty, double, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionJump.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes a double styled or attached property immediately and interrupts its active animation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionJump Property(AvaloniaProperty property, double value, double velocity = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>property</code> <span class="xref">AvaloniaProperty</span></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>velocity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionJump.html">MotionJump</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionJump_Rotate_" data-uid="Nova.Avalonia.Animations.MotionJump.Rotate*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionJump_Rotate_System_Double_System_Double_" data-uid="Nova.Avalonia.Animations.MotionJump.Rotate(System.Double,System.Double)">
+  Rotate(double, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionJump.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes two-dimensional rotation in degrees immediately.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionJump Rotate(double degrees, double velocity = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>degrees</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>velocity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionJump.html">MotionJump</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionJump_RotateX_" data-uid="Nova.Avalonia.Animations.MotionJump.RotateX*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionJump_RotateX_System_Double_System_Double_" data-uid="Nova.Avalonia.Animations.MotionJump.RotateX(System.Double,System.Double)">
+  RotateX(double, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionJump.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes horizontal-axis tilt in degrees immediately.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionJump RotateX(double degrees, double velocity = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>degrees</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>velocity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionJump.html">MotionJump</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionJump_RotateY_" data-uid="Nova.Avalonia.Animations.MotionJump.RotateY*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionJump_RotateY_System_Double_System_Double_" data-uid="Nova.Avalonia.Animations.MotionJump.RotateY(System.Double,System.Double)">
+  RotateY(double, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionJump.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes vertical-axis tilt in degrees immediately.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionJump RotateY(double degrees, double velocity = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>degrees</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>velocity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionJump.html">MotionJump</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionJump_Scale_" data-uid="Nova.Avalonia.Animations.MotionJump.Scale*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionJump_Scale_System_Double_System_Double_" data-uid="Nova.Avalonia.Animations.MotionJump.Scale(System.Double,System.Double)">
+  Scale(double, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionJump.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes both scale channels and their handoff velocity immediately.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionJump Scale(double value, double velocity = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>velocity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionJump.html">MotionJump</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionJump_ScaleX_" data-uid="Nova.Avalonia.Animations.MotionJump.ScaleX*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionJump_ScaleX_System_Double_System_Double_" data-uid="Nova.Avalonia.Animations.MotionJump.ScaleX(System.Double,System.Double)">
+  ScaleX(double, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionJump.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes horizontal scale and its handoff velocity immediately.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionJump ScaleX(double value, double velocity = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>velocity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionJump.html">MotionJump</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionJump_ScaleY_" data-uid="Nova.Avalonia.Animations.MotionJump.ScaleY*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionJump_ScaleY_System_Double_System_Double_" data-uid="Nova.Avalonia.Animations.MotionJump.ScaleY(System.Double,System.Double)">
+  ScaleY(double, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionJump.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes vertical scale and its handoff velocity immediately.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionJump ScaleY(double value, double velocity = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>velocity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionJump.html">MotionJump</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionJump_X_" data-uid="Nova.Avalonia.Animations.MotionJump.X*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionJump_X_System_Double_System_Double_" data-uid="Nova.Avalonia.Animations.MotionJump.X(System.Double,System.Double)">
+  X(double, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionJump.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes horizontal translation and its handoff velocity immediately.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionJump X(double value, double velocity = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>velocity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionJump.html">MotionJump</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionJump_Y_" data-uid="Nova.Avalonia.Animations.MotionJump.Y*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionJump_Y_System_Double_System_Double_" data-uid="Nova.Avalonia.Animations.MotionJump.Y(System.Double,System.Double)">
+  Y(double, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionJump.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes vertical translation and its handoff velocity immediately.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MotionJump Y(double value, double velocity = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>velocity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.Animations.MotionJump.html">MotionJump</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="Nova_Avalonia_Animations_MotionJump_op_Equality_" data-uid="Nova.Avalonia.Animations.MotionJump.op_Equality*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionJump_op_Equality_Nova_Avalonia_Animations_MotionJump_Nova_Avalonia_Animations_MotionJump_" data-uid="Nova.Avalonia.Animations.MotionJump.op_Equality(Nova.Avalonia.Animations.MotionJump,Nova.Avalonia.Animations.MotionJump)">
+  operator ==(MotionJump, MotionJump)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionJump.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns whether two jump writers address the same target state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(MotionJump left, MotionJump right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Nova.Avalonia.Animations.MotionJump.html">MotionJump</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="Nova.Avalonia.Animations.MotionJump.html">MotionJump</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_Animations_MotionJump_op_Inequality_" data-uid="Nova.Avalonia.Animations.MotionJump.op_Inequality*"></a>
+
+  <h3 id="Nova_Avalonia_Animations_MotionJump_op_Inequality_Nova_Avalonia_Animations_MotionJump_Nova_Avalonia_Animations_MotionJump_" data-uid="Nova.Avalonia.Animations.MotionJump.op_Inequality(Nova.Avalonia.Animations.MotionJump,Nova.Avalonia.Animations.MotionJump)">
+  operator !=(MotionJump, MotionJump)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionJump.cs/#L95"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns whether two jump writers address different target states.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(MotionJump left, MotionJump right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Nova.Avalonia.Animations.MotionJump.html">MotionJump</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="Nova.Avalonia.Animations.MotionJump.html">MotionJump</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.Animations/blob/main/src/Nova.Avalonia.Animations/MotionJump.cs/#L14" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

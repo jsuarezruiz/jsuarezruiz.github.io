@@ -1,0 +1,1050 @@
+{
+  "source_base_path": "/Users/jsuarezruiz/Documents/GitHub/Nova.Avalonia.Animations/docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "../images/banner.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/banner.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "../images/novaanimations_card_stack_light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/novaanimations_card_stack_light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "../images/novaanimations_coverflow_light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/novaanimations_coverflow_light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "../images/novaanimations_drag_light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/novaanimations_drag_light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "../images/novaanimations_gallery_home_light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/novaanimations_gallery_home_light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "../images/novaanimations_hold_to_confirm_light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/novaanimations_hold_to_confirm_light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "../images/novaanimations_lightbox_light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/novaanimations_lightbox_light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "../images/novaanimations_list_exit_light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/novaanimations_list_exit_light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "../images/novaanimations_loaders_light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/novaanimations_loaders_light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "../images/novaanimations_motion_path_light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/novaanimations_motion_path_light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "../images/novaanimations_page_transitions_light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/novaanimations_page_transitions_light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "../images/novaanimations_path_morph_light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/novaanimations_path_morph_light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "../images/novaanimations_photo_carousel_light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/novaanimations_photo_carousel_light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "../images/novaanimations_reorder_light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/novaanimations_reorder_light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "../images/novaanimations_rolling_text_light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/novaanimations_rolling_text_light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "../images/novaanimations_shader_backdrop_light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/novaanimations_shader_backdrop_light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "../images/novaanimations_shader_transition_light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/novaanimations_shader_transition_light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "../images/novaanimations_shader_view_light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/novaanimations_shader_view_light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "../images/novaanimations_shared_element_light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/novaanimations_shared_element_light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "../images/novaanimations_split_text_light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/novaanimations_split_text_light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "../images/novaanimations_swipe_actions_light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/novaanimations_swipe_actions_light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "../images/novaanimations_text_effects_light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/novaanimations_text_effects_light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "../images/novaanimations_text_orbit_light.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/novaanimations_text_orbit_light.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.Animations.CurtainPattern.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.Animations.CurtainPattern.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.Animations.CurtainPattern",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.Animations.CurtainPattern.yml\" sourcestartlinenumber=\"1\">The shape a <xref href=\"Nova.Avalonia.Animations.CurtainsPageTransition\" data-throw-if-not-resolved=\"false\"></xref> takes the outgoing page away in.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.Animations.CurtainsPageTransition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.Animations.CurtainsPageTransition.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.Animations.CurtainsPageTransition",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.Animations.CurtainsPageTransition.yml\" sourcestartlinenumber=\"1\">Reveals incoming content using the selected <xref href=\"Nova.Avalonia.Animations.CurtainsPageTransition.Pattern\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.Animations.DragAxis.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.Animations.DragAxis.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.Animations.DragAxis",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.Animations.DragAxis.yml\" sourcestartlinenumber=\"1\">Which axes a control can be dragged along via <code>Motion.Drag</code>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.Animations.EasingLibrary.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.Animations.EasingLibrary.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.Animations.EasingLibrary",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.Animations.EasingLibrary.yml\" sourcestartlinenumber=\"1\">Parses CSS-style easing strings, plus Avalonia easing type names, into Avalonia easings.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.Animations.FadePageTransition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.Animations.FadePageTransition.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.Animations.FadePageTransition",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.Animations.FadePageTransition.yml\" sourcestartlinenumber=\"1\">Fades the outgoing page over the incoming page.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.Animations.Interpolators.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.Animations.Interpolators.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.Animations.Interpolators",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.Animations.Interpolators.yml\" sourcestartlinenumber=\"1\">Typed value interpolation. Numeric-ish types extrapolate (springs may overshoot); colors clamp.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.Animations.LayoutAnchor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.Animations.LayoutAnchor.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.Animations.LayoutAnchor",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.Animations.LayoutAnchor.yml\" sourcestartlinenumber=\"1\">Which point of an element stays put while its layout changes.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.Animations.MorphPath.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.Animations.MorphPath.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.Animations.MorphPath",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.Animations.MorphPath.yml\" sourcestartlinenumber=\"1\">Represents a shape that morphs between two SVG paths.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.Animations.Motion.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.Animations.Motion.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.Animations.Motion",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.Animations.Motion.yml\" sourcestartlinenumber=\"1\">Entry point for fluent animations, immediate channel writes, timelines, and frame callbacks.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.Animations.MotionBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.Animations.MotionBuilder.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.Animations.MotionBuilder",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.Animations.MotionBuilder.yml\" sourcestartlinenumber=\"1\">Builds a fluent animation description for one target.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.Animations.MotionConfig.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.Animations.MotionConfig.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.Animations.MotionConfig",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.Animations.MotionConfig.yml\" sourcestartlinenumber=\"1\">Global animation configuration.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.Animations.MotionDiagnosticEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.Animations.MotionDiagnosticEventArgs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.Animations.MotionDiagnosticEventArgs",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.Animations.MotionDiagnosticEventArgs.yml\" sourcestartlinenumber=\"1\">Information reported for a recoverable Nova configuration or extension failure.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.Animations.MotionExitedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.Animations.MotionExitedEventArgs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.Animations.MotionExitedEventArgs",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.Animations.MotionExitedEventArgs.yml\" sourcestartlinenumber=\"1\">Information raised after a control finishes its presence exit and becomes hidden.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.Animations.MotionHandle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.Animations.MotionHandle.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.Animations.MotionHandle",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.Animations.MotionHandle.yml\" sourcestartlinenumber=\"1\">A running (group of) animation(s). Awaitable: <code>await Motion.Animate(x).X(100).Start();</code>. Methods that change playback state must be called on the UI thread.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.Animations.MotionJump.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.Animations.MotionJump.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.Animations.MotionJump",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.Animations.MotionJump.yml\" sourcestartlinenumber=\"1\">Writes motion channels immediately without animation.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.Animations.MotionKeyframe.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.Animations.MotionKeyframe.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.Animations.MotionKeyframe",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.Animations.MotionKeyframe.yml\" sourcestartlinenumber=\"1\">One value on a tween timeline. Offset is normalized time; Easing controls the segment that starts at this keyframe. Missing offsets are distributed between their nearest explicit peers.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.Animations.MotionPath.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.Animations.MotionPath.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.Animations.MotionPath",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.Animations.MotionPath.yml\" sourcestartlinenumber=\"1\">Represents a path sampled by arc length for even-speed motion.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.Animations.MotionSequence.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.Animations.MotionSequence.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.Animations.MotionSequence",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.Animations.MotionSequence.yml\" sourcestartlinenumber=\"1\">Schedules multiple animations on a shared timeline.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.Animations.MotionTiming.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.Animations.MotionTiming.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.Animations.MotionTiming",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.Animations.MotionTiming.yml\" sourcestartlinenumber=\"1\">Describes how an animation progresses over time as either a <xref href=\"Nova.Avalonia.Animations.Spring\" data-throw-if-not-resolved=\"false\"></xref> or a <xref href=\"Nova.Avalonia.Animations.Tween\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.Animations.MotionValue.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.Animations.MotionValue.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.Animations.MotionValue",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.Animations.MotionValue.yml\" sourcestartlinenumber=\"1\">An observable finite value with velocity tracking, mapping, smoothing, and animation bindings. Instances are not thread-safe. UI bindings marshal later updates to the UI thread.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.Animations.RepeatMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.Animations.RepeatMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.Animations.RepeatMode",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.Animations.RepeatMode.yml\" sourcestartlinenumber=\"1\">How a repeating animation behaves at the end of each cycle.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.Animations.ScaleFadePageTransition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.Animations.ScaleFadePageTransition.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.Animations.ScaleFadePageTransition",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.Animations.ScaleFadePageTransition.yml\" sourcestartlinenumber=\"1\">Scales and fades the outgoing page while the incoming page settles from a smaller scale.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.Animations.ScrollAnchor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.Animations.ScrollAnchor.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.Animations.ScrollAnchor",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.Animations.ScrollAnchor.yml\" sourcestartlinenumber=\"1\">Represents the point where an element anchor meets a viewport anchor during scrolling.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.Animations.ScrollAxis.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.Animations.ScrollAxis.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.Animations.ScrollAxis",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.Animations.ScrollAxis.yml\" sourcestartlinenumber=\"1\">Which direction a scroll progress value reads.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.Animations.Shaders.NovaShaders.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.Animations.Shaders.NovaShaders.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.Animations.Shaders.NovaShaders",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.Animations.Shaders.NovaShaders.yml\" sourcestartlinenumber=\"1\">Provides the built-in SkSL effects used by Nova shader controls.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.Animations.Shaders.ShaderBackdrop.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.Animations.Shaders.ShaderBackdrop.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.Animations.Shaders.ShaderBackdrop",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.Animations.Shaders.ShaderBackdrop.yml\" sourcestartlinenumber=\"1\">Applies an SkSL effect to periodic captures of <xref href=\"Nova.Avalonia.Animations.Shaders.ShaderBackdrop.SourceVisual\" data-throw-if-not-resolved=\"false\"></xref>. Capture frequency is controlled by <xref href=\"Nova.Avalonia.Animations.Shaders.ShaderBackdrop.RefreshRate\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.Animations.Shaders.ShaderDiagnosticEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.Animations.Shaders.ShaderDiagnosticEventArgs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.Animations.Shaders.ShaderDiagnosticEventArgs",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.Animations.Shaders.ShaderDiagnosticEventArgs.yml\" sourcestartlinenumber=\"1\">Information reported for a recoverable shader compilation or configuration failure.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.Animations.Shaders.ShaderDiagnostics.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.Animations.Shaders.ShaderDiagnostics.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.Animations.Shaders.ShaderDiagnostics",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.Animations.Shaders.ShaderDiagnostics.yml\" sourcestartlinenumber=\"1\">Reports recoverable shader compilation and configuration failures in all build modes.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.Animations.Shaders.ShaderTransition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.Animations.Shaders.ShaderTransition.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.Animations.Shaders.ShaderTransition",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.Animations.Shaders.ShaderTransition.yml\" sourcestartlinenumber=\"1\">Applies an SkSL transition to a captured child frame. The shader receives the capture as <code>iContent</code> and <xref href=\"Nova.Avalonia.Animations.Shaders.ShaderTransition.Progress\" data-throw-if-not-resolved=\"false\"></xref> as <code>iProgress</code>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.Animations.Shaders.ShaderView.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.Animations.Shaders.ShaderView.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.Animations.Shaders.ShaderView",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.Animations.Shaders.ShaderView.yml\" sourcestartlinenumber=\"1\">Hosts an SkSL runtime shader as a composition visual.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.Animations.Shaders.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.Animations.Shaders.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.Animations.Shaders",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.Animations.SlidePushPageTransition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.Animations.SlidePushPageTransition.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.Animations.SlidePushPageTransition",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.Animations.SlidePushPageTransition.yml\" sourcestartlinenumber=\"1\">Slides both pages at different rates while keeping them visible throughout the transition.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.Animations.SplitBy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.Animations.SplitBy.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.Animations.SplitBy",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.Animations.SplitBy.yml\" sourcestartlinenumber=\"1\">How a run of text is broken up for animation.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.Animations.SplitText.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.Animations.SplitText.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.Animations.SplitText",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.Animations.SplitText.yml\" sourcestartlinenumber=\"1\">Splits text into independently animatable text blocks.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.Animations.Spring.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.Animations.Spring.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.Animations.Spring",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.Animations.Spring.yml\" sourcestartlinenumber=\"1\">A physics-based spring. Unlike easing-based springs it has no fixed duration: it runs until it physically settles, and it preserves velocity when an in-flight animation is retargeted.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.Animations.SpringEstimate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.Animations.SpringEstimate.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.Animations.SpringEstimate",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.Animations.SpringEstimate.yml\" sourcestartlinenumber=\"1\">How long a spring takes to settle. Springs have no duration of their own, so a sequence needs an estimate to know when the next step should start.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.Animations.Stagger.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.Animations.Stagger.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.Animations.Stagger",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.Animations.Stagger.yml\" sourcestartlinenumber=\"1\">Delay helpers for staggered group animations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.Animations.StaggerFrom.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.Animations.StaggerFrom.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.Animations.StaggerFrom",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.Animations.StaggerFrom.yml\" sourcestartlinenumber=\"1\">Which item a staggered group animation radiates from.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.Animations.SwipeAxis.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.Animations.SwipeAxis.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.Animations.SwipeAxis",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.Animations.SwipeAxis.yml\" sourcestartlinenumber=\"1\">Which direction a swipe gesture moves a selection.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.Animations.TextPath.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.Animations.TextPath.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.Animations.TextPath",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.Animations.TextPath.yml\" sourcestartlinenumber=\"1\">Lays measured text blocks along a path by arc length and heading.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.Animations.TextPathLayout.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.Animations.TextPathLayout.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.Animations.TextPathLayout",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.Animations.TextPathLayout.yml\" sourcestartlinenumber=\"1\">Positions glyph blocks along a <xref href=\"Nova.Avalonia.Animations.MotionPath\" data-throw-if-not-resolved=\"false\"></xref> by arc length and path heading. <xref href=\"Nova.Avalonia.Animations.TextPathLayout.Offset\" data-throw-if-not-resolved=\"false\"></xref> moves the run using render transforms without a layout pass.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.Animations.Tween.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.Animations.Tween.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.Animations.Tween",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.Animations.Tween.yml\" sourcestartlinenumber=\"1\">A duration-and-easing animation with optional CSS easing strings from <xref href=\"Nova.Avalonia.Animations.EasingLibrary\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.Animations.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.Animations.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.Animations",
+      "Summary": null
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/diagnostics.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/diagnostics.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/fluent-animations.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/fluent-animations.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/getting-started.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/getting-started.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/interactions.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/interactions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/introduction.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/introduction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/keyframes-sequences.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/keyframes-sequences.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/motion-values-scroll.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/motion-values-scroll.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/packaged-styles.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/packaged-styles.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/page-transitions.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/page-transitions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/paths-text.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/paths-text.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/presence-layout.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/presence-layout.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/runtime-shaders.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/runtime-shaders.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/timing.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/timing.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "docs/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "docs/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "favicon.ico",
+      "output": {
+        "resource": {
+          "relative_path": "favicon.ico"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "logo.png",
+      "output": {
+        "resource": {
+          "relative_path": "logo.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
