@@ -4,7 +4,6 @@ Documentation sites and galleries for my projects, served from GitHub Pages.
 
 | Project | Documentation | Gallery | Source |
 | --- | --- | --- | --- |
-| Cupertino.Avalonia | [Docs](https://jsuarezruiz.github.io/Cupertino.Avalonia/) | [Gallery](https://jsuarezruiz.github.io/Cupertino.Avalonia/gallery/) | [Repository](https://github.com/jsuarezruiz/Cupertino.Avalonia) |
 | Nova.Avalonia.AIKit | [Docs](https://jsuarezruiz.github.io/Nova.Avalonia.AIKit/) | [Gallery](https://jsuarezruiz.github.io/Nova.Avalonia.AIKit/gallery/) | Private |
 | Nova.Avalonia.Animations | [Docs](https://jsuarezruiz.github.io/Nova.Avalonia.Animations/) | [Gallery](https://jsuarezruiz.github.io/Nova.Avalonia.Animations/gallery/) | Private |
 
@@ -14,7 +13,6 @@ Each project lives in a folder named after its repository, which becomes the URL
 
 - The folder root holds the DocFX site (the project's `docs/_site` output).
 - `gallery/` holds the published WebAssembly sample (the `publish/wwwroot` output of `dotnet publish -c Release -r browser-wasm`).
-- Avalonia Vignettes has no documentation site, so its folder is the showcase itself.
 
 The `.nojekyll` files stop Jekyll from dropping `_framework` and other folders that start with an underscore. Keep them when replacing a folder.
 
