@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Light and dark surfaces | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Light and dark surfaces | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="How light layers adapt to light and dark surfaces, how the host picks its surface, and how to theme layer colors.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/concepts/light-and-dark.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="light-and-dark-surfaces">Light and dark surfaces</h1>
+
+<p>Light layers such as a glow, a pulse, sparkles or lightning add light, as rune draws them. That reads well on a dark surface. On a light surface, added light would vanish into white, so these layers know which surface they sit on and change how they draw.</p>
+<h2 id="how-light-layers-draw-on-each-surface">How light layers draw on each surface</h2>
+<p>On a <strong>dark surface</strong>, light adds to what is beneath it: rings, halos and stars brighten the background, and the hottest parts turn white.</p>
+<p>On a <strong>light surface</strong>, glow, pulse, sparkles and lightning draw as tinted haze instead: saturated color, white-hot cores in the layer's own color, and faint light kept faint, so a radar's rings stay rings instead of merging into a wash. Lightning's core becomes a crisp line in a deep shade of the color over a pale tint of its glow. A white light, such as the spotlight's default, stays white. Very pale colors still read weakly on white, so pick deeper colors for light themes.</p>
+<p>Other layers adjust to the surface in their own way:</p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>On a light surface</th>
+<th>On a dark surface</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fire</td>
+<td>Simulated flames draw as color over the smoke; the procedural smoke veil and dim tips stay fainter.</td>
+<td>Flames add light.</td>
+</tr>
+<tr>
+<td>Fireworks</td>
+<td>The sparks show as color.</td>
+<td>The sparks add light.</td>
+</tr>
+<tr>
+<td>Holo foil</td>
+<td>Pastel bands.</td>
+<td>A thin film's cooler colors, added as light.</td>
+</tr>
+<tr>
+<td>Frost</td>
+<td>The crystal lines darken a little, where white ice alone would vanish.</td>
+<td>White ice.</td>
+</tr>
+<tr>
+<td>Halftone</td>
+<td></td>
+<td>The dots leave a margin of paper at the edge, so the outline still shows.</td>
+</tr>
+<tr>
+<td>Inner shadow</td>
+<td></td>
+<td>An inset adds a faint lip of light along its far edges.</td>
+</tr>
+<tr>
+<td>Liquid progress</td>
+<td>The wave behind the surface is paler and see-through.</td>
+<td></td>
+</tr>
+<tr>
+<td>Pointer shadow</td>
+<td></td>
+<td>A deeper shadow.</td>
+</tr>
+<tr>
+<td>Reveal</td>
+<td></td>
+<td>A dissolve's edge catches a faint light.</td>
+</tr>
+<tr>
+<td>Shatter</td>
+<td>The shards' edges are dark.</td>
+<td></td>
+</tr>
+<tr>
+<td>Voice orb</td>
+<td>Its glassy rim is fainter.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>The layers that know the surface are ambient glow, beam, border beam, electric, fire, fireworks, frost, glow, halftone, holo foil, ink, inner shadow, light leaks, light rays, liquid progress, pointer shadow, pulse, reveal, shatter, sparkles, spotlight, trail, voice orb and voice wave. The other layers draw the same on both.</p>
+<h2 id="how-the-host-picks-its-surface">How the host picks its surface</h2>
+<p><a class="xref" href="../../api/Nova.Avalonia.FX.FXHost.html#Nova_Avalonia_FX_FXHost_Surface">FXHost.Surface</a> sets the surface for every layer in the host:</p>
+<table>
+<thead>
+<tr>
+<th>Surface</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Auto</code> (the default)</td>
+<td>Follows the host's theme: a light theme is a light surface, a dark theme a dark one.</td>
+</tr>
+<tr>
+<td><code>Dark</code></td>
+<td>Light adds, as rune draws it.</td>
+</tr>
+<tr>
+<td><code>Light</code></td>
+<td>Light shows as tinted haze, so it neither vanishes into white nor washes it out.</td>
+</tr>
+</tbody>
+</table>
+<p>With <code>Auto</code>, the host reads its actual theme variant, so it follows the application's theme, a <code>ThemeVariantScope</code> around it, or a theme switch while the app runs. <code>FXHost.IsLightSurface</code> tells you which surface the host is using now.</p>
+<p>Set the surface yourself when the theme doesn't describe what is behind the layers, for example a dark card in a light app:</p>
+<pre><code class="lang-xml">&lt;fx:FXHost Surface=&quot;Dark&quot;&gt;
+    &lt;fx:FXHost.Layers&gt;
+        &lt;fx:Pulse Style=&quot;Radar&quot; Color=&quot;#22d3ee&quot; /&gt;
+    &lt;/fx:FXHost.Layers&gt;
+    &lt;Border Width=&quot;64&quot; Height=&quot;64&quot; CornerRadius=&quot;32&quot; Background=&quot;#101217&quot; /&gt;
+&lt;/fx:FXHost&gt;
+</code></pre>
+<p>You can also put the card in a <code>ThemeVariantScope</code> with <code>RequestedThemeVariant=&quot;Dark&quot;</code>; the host then picks the dark surface on its own, and so do the card's own theme resources.</p>
+<h2 id="theme-the-colors">Theme the colors</h2>
+<p>Layer colors are ordinary <code>Color</code> properties, so they can come from theme resources. Define a color per theme and use it with <code>DynamicResource</code>; the layer changes color when the theme changes:</p>
+<pre><code class="lang-xml">&lt;Application.Resources&gt;
+    &lt;ResourceDictionary&gt;
+        &lt;ResourceDictionary.ThemeDictionaries&gt;
+            &lt;ResourceDictionary x:Key=&quot;Light&quot;&gt;
+                &lt;Color x:Key=&quot;StatusGlowColor&quot;&gt;#0e7490&lt;/Color&gt;
+            &lt;/ResourceDictionary&gt;
+            &lt;ResourceDictionary x:Key=&quot;Dark&quot;&gt;
+                &lt;Color x:Key=&quot;StatusGlowColor&quot;&gt;#22d3ee&lt;/Color&gt;
+            &lt;/ResourceDictionary&gt;
+        &lt;/ResourceDictionary.ThemeDictionaries&gt;
+    &lt;/ResourceDictionary&gt;
+&lt;/Application.Resources&gt;
+</code></pre>
+<pre><code class="lang-xml">&lt;fx:FXHost CornerRadius=&quot;999&quot;&gt;
+    &lt;fx:FXHost.Layers&gt;
+        &lt;fx:Pulse Style=&quot;Radar&quot; Color=&quot;{DynamicResource StatusGlowColor}&quot; /&gt;
+        &lt;fx:Glow Color=&quot;{DynamicResource StatusGlowColor}&quot; Radius=&quot;9&quot; /&gt;
+    &lt;/fx:FXHost.Layers&gt;
+    &lt;Ellipse Width=&quot;14&quot; Height=&quot;14&quot; Fill=&quot;#16a34a&quot; /&gt;
+&lt;/fx:FXHost&gt;
+</code></pre>
+<p>A few tips:</p>
+<ul>
+<li>Fire reads best on dark UI.</li>
+<li>For pure additive light on any surface, set <code>BlendMode=&quot;Plus&quot;</code> or <code>&quot;Screen&quot;</code>. See <a href="layers.html#blend-modes">Blend modes</a>.</li>
+<li>Most fills, glass layers and backgrounds draw the same on both surfaces: give them colors that suit each theme, as above.</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/concepts/light-and-dark.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Struct FXDrawStats | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct FXDrawStats | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="Totals for one layer type since the last reset.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/new/main/apiSpec/new?filename=Nova_Avalonia_FX_FXDrawStats.md&amp;value=---%0Auid%3A%20Nova.Avalonia.FX.FXDrawStats%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Nova.Avalonia.FX.FXDrawStats">
+
+
+
+  <h1 id="Nova_Avalonia_FX_FXDrawStats" data-uid="Nova.Avalonia.FX.FXDrawStats" class="text-break">
+Struct FXDrawStats  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/FXDiagnostics.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><span class="xref">Nova</span>.<span class="xref">Avalonia</span>.<a class="xref" href="Nova.Avalonia.FX.html">FX</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Nova.Avalonia.FX.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Totals for one layer type since the last reset.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly record struct FXDrawStats : IEquatable&lt;FXDrawStats&gt;</code></pre>
+  </div>
+
+
+
+
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Nova.Avalonia.FX.FXDrawStats.html">FXDrawStats</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.equals">ValueType.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode">ValueType.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.tostring">ValueType.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Nova_Avalonia_FX_FXDrawStats__ctor_" data-uid="Nova.Avalonia.FX.FXDrawStats.#ctor*"></a>
+
+  <h3 id="Nova_Avalonia_FX_FXDrawStats__ctor_System_String_System_Int32_System_Double_System_Double_System_Double_System_Double_System_Double_" data-uid="Nova.Avalonia.FX.FXDrawStats.#ctor(System.String,System.Int32,System.Double,System.Double,System.Double,System.Double,System.Double)">
+  FXDrawStats(string, int, double, double, double, double, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/FXDiagnostics.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Totals for one layer type since the last reset.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FXDrawStats(string Layer, int Draws, double CpuMs, double GpuMs, double Pixels, double FirstDrawMs = 0, double PrepMs = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>Layer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The layer's type name.</p>
+</dd>
+    <dt><code>Draws</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Draws recorded (a layer with one-shots may draw several instances a frame).</p>
+</dd>
+    <dt><code>CpuMs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Render-thread time spent setting up and issuing the draws (uniforms, backdrop
+copies, draw calls); the state's per-frame work is <code class="paramref">PrepMs</code>.</p>
+</dd>
+    <dt><code>GpuMs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>GPU time of the draws (only with <a class="xref" href="Nova.Avalonia.FX.FXDiagnostics.html#Nova_Avalonia_FX_FXDiagnostics_MeasureGpu">MeasureGpu</a>).</p>
+</dd>
+    <dt><code>Pixels</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Pixels shaded.</p>
+</dd>
+    <dt><code>FirstDrawMs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The first draw of this layer type in the process, start to finish on
+the GPU: shader and pipeline compiles included (only with <a class="xref" href="Nova.Avalonia.FX.FXDiagnostics.html#Nova_Avalonia_FX_FXDiagnostics_MeasureGpu">MeasureGpu</a>).</p>
+</dd>
+    <dt><code>PrepMs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Render-thread time the layer's state spent preparing its frames: simulations
+stepped, one-shots and tables updated, before any draw.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Nova_Avalonia_FX_FXDrawStats_CpuMs_" data-uid="Nova.Avalonia.FX.FXDrawStats.CpuMs*"></a>
+
+  <h3 id="Nova_Avalonia_FX_FXDrawStats_CpuMs" data-uid="Nova.Avalonia.FX.FXDrawStats.CpuMs">
+  CpuMs
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/FXDiagnostics.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Render-thread time spent setting up and issuing the draws (uniforms, backdrop
+copies, draw calls); the state's per-frame work is <code class="paramref">PrepMs</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double CpuMs { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_FX_FXDrawStats_CpuMsPerDraw_" data-uid="Nova.Avalonia.FX.FXDrawStats.CpuMsPerDraw*"></a>
+
+  <h3 id="Nova_Avalonia_FX_FXDrawStats_CpuMsPerDraw" data-uid="Nova.Avalonia.FX.FXDrawStats.CpuMsPerDraw">
+  CpuMsPerDraw
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/FXDiagnostics.cs/#L107"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double CpuMsPerDraw { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_FX_FXDrawStats_Draws_" data-uid="Nova.Avalonia.FX.FXDrawStats.Draws*"></a>
+
+  <h3 id="Nova_Avalonia_FX_FXDrawStats_Draws" data-uid="Nova.Avalonia.FX.FXDrawStats.Draws">
+  Draws
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/FXDiagnostics.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Draws recorded (a layer with one-shots may draw several instances a frame).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Draws { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_FX_FXDrawStats_FirstDrawMs_" data-uid="Nova.Avalonia.FX.FXDrawStats.FirstDrawMs*"></a>
+
+  <h3 id="Nova_Avalonia_FX_FXDrawStats_FirstDrawMs" data-uid="Nova.Avalonia.FX.FXDrawStats.FirstDrawMs">
+  FirstDrawMs
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/FXDiagnostics.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The first draw of this layer type in the process, start to finish on
+the GPU: shader and pipeline compiles included (only with <a class="xref" href="Nova.Avalonia.FX.FXDiagnostics.html#Nova_Avalonia_FX_FXDiagnostics_MeasureGpu">MeasureGpu</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double FirstDrawMs { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_FX_FXDrawStats_GpuMs_" data-uid="Nova.Avalonia.FX.FXDrawStats.GpuMs*"></a>
+
+  <h3 id="Nova_Avalonia_FX_FXDrawStats_GpuMs" data-uid="Nova.Avalonia.FX.FXDrawStats.GpuMs">
+  GpuMs
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/FXDiagnostics.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>GPU time of the draws (only with <a class="xref" href="Nova.Avalonia.FX.FXDiagnostics.html#Nova_Avalonia_FX_FXDiagnostics_MeasureGpu">MeasureGpu</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double GpuMs { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_FX_FXDrawStats_GpuMsPerDraw_" data-uid="Nova.Avalonia.FX.FXDrawStats.GpuMsPerDraw*"></a>
+
+  <h3 id="Nova_Avalonia_FX_FXDrawStats_GpuMsPerDraw" data-uid="Nova.Avalonia.FX.FXDrawStats.GpuMsPerDraw">
+  GpuMsPerDraw
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/FXDiagnostics.cs/#L110"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double GpuMsPerDraw { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_FX_FXDrawStats_Layer_" data-uid="Nova.Avalonia.FX.FXDrawStats.Layer*"></a>
+
+  <h3 id="Nova_Avalonia_FX_FXDrawStats_Layer" data-uid="Nova.Avalonia.FX.FXDrawStats.Layer">
+  Layer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/FXDiagnostics.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The layer's type name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Layer { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_FX_FXDrawStats_MegapixelsPerDraw_" data-uid="Nova.Avalonia.FX.FXDrawStats.MegapixelsPerDraw*"></a>
+
+  <h3 id="Nova_Avalonia_FX_FXDrawStats_MegapixelsPerDraw" data-uid="Nova.Avalonia.FX.FXDrawStats.MegapixelsPerDraw">
+  MegapixelsPerDraw
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/FXDiagnostics.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double MegapixelsPerDraw { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_FX_FXDrawStats_NsPerPixel_" data-uid="Nova.Avalonia.FX.FXDrawStats.NsPerPixel*"></a>
+
+  <h3 id="Nova_Avalonia_FX_FXDrawStats_NsPerPixel" data-uid="Nova.Avalonia.FX.FXDrawStats.NsPerPixel">
+  NsPerPixel
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/FXDiagnostics.cs/#L113"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>GPU nanoseconds per shaded pixel: the kernel's cost independent of size.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double NsPerPixel { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_FX_FXDrawStats_Pixels_" data-uid="Nova.Avalonia.FX.FXDrawStats.Pixels*"></a>
+
+  <h3 id="Nova_Avalonia_FX_FXDrawStats_Pixels" data-uid="Nova.Avalonia.FX.FXDrawStats.Pixels">
+  Pixels
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/FXDiagnostics.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Pixels shaded.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Pixels { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_FX_FXDrawStats_PrepMs_" data-uid="Nova.Avalonia.FX.FXDrawStats.PrepMs*"></a>
+
+  <h3 id="Nova_Avalonia_FX_FXDrawStats_PrepMs" data-uid="Nova.Avalonia.FX.FXDrawStats.PrepMs">
+  PrepMs
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/FXDiagnostics.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Render-thread time the layer's state spent preparing its frames: simulations
+stepped, one-shots and tables updated, before any draw.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double PrepMs { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_FX_FXDrawStats_PrepMsPerDraw_" data-uid="Nova.Avalonia.FX.FXDrawStats.PrepMsPerDraw*"></a>
+
+  <h3 id="Nova_Avalonia_FX_FXDrawStats_PrepMsPerDraw" data-uid="Nova.Avalonia.FX.FXDrawStats.PrepMsPerDraw">
+  PrepMsPerDraw
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/FXDiagnostics.cs/#L109"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The state's preparation per draw, comparable with <a class="xref" href="Nova.Avalonia.FX.FXDrawStats.html#Nova_Avalonia_FX_FXDrawStats_CpuMsPerDraw">CpuMsPerDraw</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double PrepMsPerDraw { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/FXDiagnostics.cs/#L105" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

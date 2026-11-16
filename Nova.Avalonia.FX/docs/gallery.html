@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Gallery | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Gallery | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="Explore every Nova.Avalonia.FX effect in the gallery, on the desktop or in the browser, and use its tools.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/gallery.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="gallery">Gallery</h1>
+
+<p>The Nova.Avalonia.FX gallery lets you try every effect layer, change its settings and copy its XAML. It runs in your browser as well as on the desktop.</p>
+<p><strong><a href="https://jsuarezruiz.github.io/Nova.Avalonia.FX/gallery/">Open the WebAssembly gallery</a></strong></p>
+<p><img src="../effect-page.png" alt="An effect page in the gallery"></p>
+<h2 id="what-is-in-it">What is in it</h2>
+<ul>
+<li><strong>Home</strong> shows curated demos on real controls.</li>
+<li><strong>Effect pages</strong> show one layer on a target you pick (a button, card, field, pill, avatar or text), with its one-shots, its XAML and its settings. The settings panel only shows the settings that do something for the current style. Glass and distortion pages put a drifting scene behind the target so there is something to bend.</li>
+<li><strong>The settings flyout</strong> switches the theme (light, dark or the system's), motion (full or reduced) and dither.</li>
+</ul>
+<p><img src="../glass-page.png" alt="The glass page over its drifting scene, with frost at 0.35"></p>
+<p>In a narrow window the settings fold into a drawer that the settings button at the right of the page header opens. A press outside it or Escape closes it.</p>
+<p>The gallery uses the Nova.Avalonia.UI gallery theme: Fluent, the Nova palette and the shared Nova shell.</p>
+<p><img src="../gallery-light.png" alt="The gallery in the light theme"></p>
+<h2 id="run-on-the-desktop">Run on the desktop</h2>
+<pre><code class="lang-bash">dotnet run --project samples/Nova.Avalonia.FX.Gallery.Desktop
+</code></pre>
+<p>The gallery itself is <code>samples/Nova.Avalonia.FX.Gallery</code> (the app, pages and styles). The desktop app around it, <code>samples/Nova.Avalonia.FX.Gallery.Desktop</code>, adds the tools below.</p>
+<h2 id="run-in-the-browser">Run in the browser</h2>
+<p><code>samples/Nova.Avalonia.FX.Gallery.Browser</code> runs the same gallery in the browser (WebAssembly, drawn with WebGL). Install the WebAssembly tools once, then run the browser host:</p>
+<pre><code class="lang-bash">dotnet workload install wasm-tools
+dotnet run -c Release --project samples/Nova.Avalonia.FX.Gallery.Browser
+</code></pre>
+<p>Then open http://localhost:5240. The page takes these options in its address:</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>?effect=glow</code></td>
+<td>Opens an effect page; <code>?effect=fire:Simulated</code> opens it in a style.</td>
+</tr>
+<tr>
+<td><code>?check</code></td>
+<td>Compiles every shader at start and reports any that fail in the browser's console.</td>
+</tr>
+<tr>
+<td><code>?tour</code></td>
+<td>Opens every effect page in turn and fires its one-shot; <code>?tour=5&amp;only=glass,fire</code> shows some, 5 seconds each.</td>
+</tr>
+<tr>
+<td><code>?verify</code></td>
+<td>Opens every effect in every style, fires its one-shot, checks that it drew, and prints the ones that didn't.</td>
+</tr>
+<tr>
+<td><code>?bench</code></td>
+<td>Times every effect, as the desktop's <code>--bench</code> does; <code>?bench=glow,fire:Simulated</code> times some, <code>&amp;seconds=3</code> each.</td>
+</tr>
+</tbody>
+</table>
+<p><code>?check</code>, <code>?verify</code> and <code>?bench</code> also show their results on the page (click to hide), for browsers without a console at hand.</p>
+<p><code>global.json</code> asks for the .NET 10.0.100 SDK or a later 10.0 feature band.</p>
+<h3 id="publish-the-browser-gallery">Publish the browser gallery</h3>
+<p>A Release publish compiles the .NET code ahead of time, which keeps every effect smooth on slower machines at the cost of a larger download (see <a href="concepts/performance.html#in-the-browser">Performance</a>):</p>
+<pre><code class="lang-bash">dotnet publish -c Release samples/Nova.Avalonia.FX.Gallery.Browser -o publish/browser
+</code></pre>
+<p>Then serve <code>publish/browser/wwwroot</code> with any static web server. The page loads everything by relative path, so it works under any path. The documentation workflow publishes it the same way and deploys it under <code>/gallery/</code>, next to this documentation, whenever a push to <code>main</code> passes the build and tests.</p>
+<h2 id="tools">Tools</h2>
+<p>The desktop app has command-line tools for snapshots, checks and timing. Pass them after <code>--</code>.</p>
+<h3 id="snapshots---snap">Snapshots: <code>--snap</code></h3>
+<pre><code class="lang-bash">dotnet run --project samples/Nova.Avalonia.FX.Gallery.Desktop -- --snap gallery.png --theme dark --time 2.3
+</code></pre>
+<p>Renders the gallery headless, through Skia, at a fixed time, and exits. Add:</p>
+<ul>
+<li><code>--effect electric</code> to open an effect page, and <code>--target 1</code> to pick its target: 0 button, 1 card, 2 field, 3 pill, 4 avatar, 5 text, 6 panel.</li>
+<li><code>--reduced</code> for the reduced-motion poses.</li>
+<li><code>--size 1380x900</code> to set the size.</li>
+<li><code>--set Style=Heat</code> to set any parameter of the effect page's layer.</li>
+<li><code>--frames 96 --fps 24</code> to write a numbered frame sequence.</li>
+<li><code>--fire</code> to fire the page's one-shot (a splash, a reveal) on the first frame, and <code>--fire-every 4</code> to fire it again every 4 frames.</li>
+<li><code>--settings</code> to open the settings drawer in a narrow window.</li>
+</ul>
+<p>The animated images in the README are frame sequences made this way.</p>
+<h3 id="every-effect-on-every-target---sweep">Every effect on every target: <code>--sweep</code></h3>
+<pre><code class="lang-bash">dotnet run -c Release --project samples/Nova.Avalonia.FX.Gallery.Desktop -- --sweep sweep
+</code></pre>
+<p>Renders every effect on every target in both themes, in one run (about five minutes), with one-shots caught mid-flight: <code>sweep/&lt;effect&gt;/&lt;theme&gt;-&lt;target&gt;.png</code>, plus a labeled sheet per effect, <code>sweep/&lt;effect&gt;.png</code>, for checking that every demo reads well. <code>--only glow,beam</code> limits it to some effects.</p>
+<h3 id="timing---bench">Timing: <code>--bench</code></h3>
+<pre><code class="lang-bash">dotnet run -c Release --project samples/Nova.Avalonia.FX.Gallery.Desktop -- --bench bench.csv
+</code></pre>
+<p>Times every layer in a real window on the GPU the app uses, and writes the results to a CSV file. <a href="concepts/performance.html#measure-in-your-own-app">Performance</a> covers its options and how to compare a run with the baseline.</p>
+<h3 id="the-settings-panel---audit-panel">The settings panel: <code>--audit-panel</code></h3>
+<pre><code class="lang-bash">dotnet run --project samples/Nova.Avalonia.FX.Gallery.Desktop -- --audit-panel panel-audit.md
+</code></pre>
+<p>Drives every editor of every effect page headless (a slider moved, a toggle flipped, a choice picked, a color typed), checks that its property changed, and writes a report. It also checks the settings drawer in a narrow window. The build workflow runs it on Windows, Linux and macOS.</p>
+<h3 id="checks-and-tours---verify-and---tour">Checks and tours: <code>--verify</code> and <code>--tour</code></h3>
+<pre><code class="lang-bash">dotnet run --project samples/Nova.Avalonia.FX.Gallery.Desktop -- --verify
+dotnet run --project samples/Nova.Avalonia.FX.Gallery.Desktop -- --tour 3
+</code></pre>
+<p><code>--verify</code> opens the gallery and checks that every effect and style draws, as <code>?verify</code> does in the browser. <code>--tour 3</code> walks through every page, 3 seconds each.</p>
+<h3 id="documentation-images---docs">Documentation images: <code>--docs</code></h3>
+<pre><code class="lang-bash">dotnet run -c Release --project samples/Nova.Avalonia.FX.Gallery.Desktop -- --docs docs
+</code></pre>
+<p>Writes the parts of this documentation that come from the code: each effect's tables of properties, styles and methods under <code>docs/includes/</code>, and its light and dark images under <code>docs/images/effects/</code>, on the target the gallery opens it on. <code>--only glow,border_beam</code> limits it to some effects, and <code>--no-images</code> writes only the tables (in under a second). A full run takes about six minutes, and running it twice gives the same files.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/gallery.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Trail | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Trail | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="A cursor trail: a glowing ribbon or a stream of sparks following the pointer.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/trail.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="trail">Trail</h1>
+
+<p>Trail leaves a mark behind the pointer as it moves over the host: a glowing ribbon that tapers and fades, or a stream of sparks that drift, twinkle and fall. It runs from the head color at the pointer to the tail color at the end. Use it on a playful hero, a game screen or a drawing surface. It draws over the child, and a still pointer leaves nothing.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/trail-light.png" alt="Trail on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/trail-dark.png" alt="Trail on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-a-trail">Add a trail</h2>
+<p>Put a <code>Trail</code> on the panel the pointer moves over. <code>Width</code> sets the ribbon's thickness and <code>Life</code> how long each point of the trail lasts.</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;fx:FXHost CornerRadius=&quot;12&quot;&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:Trail Color=&quot;#A78BFA&quot; TailColor=&quot;#22D3EE&quot; Width=&quot;6&quot; Life=&quot;0.45&quot; /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Border Width=&quot;340&quot; Height=&quot;220&quot; CornerRadius=&quot;12&quot; Background=&quot;#15171C&quot; /&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<p><code>Glow</code> scales the soft light around the ribbon; 0 leaves a plain stroke.</p>
+<h2 id="styles">Styles</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ribbon</code> (default)</td>
+<td>A glowing ribbon that tapers and fades behind the pointer.</td>
+</tr>
+<tr>
+<td><code>Sparkles</code></td>
+<td>Sparks shed along the path that drift, twinkle and fall.</td>
+</tr>
+</tbody>
+</table>
+
+<pre><code class="lang-xaml">&lt;fx:FXHost CornerRadius=&quot;10&quot;&gt;
+    &lt;fx:FXHost.Layers&gt;
+        &lt;fx:Starfield Density=&quot;0.6&quot; Twinkle=&quot;0.4&quot; Speed=&quot;0.3&quot; /&gt;
+        &lt;fx:Trail Style=&quot;Sparkles&quot; Color=&quot;#FFE08A&quot; TailColor=&quot;#FF8FD8&quot; Width=&quot;5&quot; Life=&quot;0.7&quot; /&gt;
+    &lt;/fx:FXHost.Layers&gt;
+    &lt;Grid Width=&quot;340&quot; Height=&quot;220&quot;&gt;
+        &lt;TextBlock Text=&quot;Move the pointer here&quot; Foreground=&quot;#C9D2FF&quot;
+                   HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot; /&gt;
+    &lt;/Grid&gt;
+&lt;/fx:FXHost&gt;
+</code></pre>
+<h2 id="keep-the-trail-going-past-the-edge">Keep the trail going past the edge</h2>
+<p>By default the pointer only leaves a trail while it is over the shape. <code>PointerReach</code> extends that some DIPs past the edge, so a trail doesn't stop abruptly where the shape ends.</p>
+<pre><code class="lang-xaml">&lt;fx:Trail PointerReach=&quot;40&quot; /&gt;
+</code></pre>
+<h2 id="draw-a-trail-from-code">Draw a trail from code</h2>
+<p><code>PointAt</code> moves the trail's head as if the pointer were there, adding a point each time; <code>null</code> lifts it and the trail fades. Use it for a demo or an onboarding hint. The pointer takes over again when it moves.</p>
+<pre><code class="lang-csharp">// DemoTrail is the Trail layer. Sweeps a wave across the panel, then lifts.
+var start = DateTime.Now;
+DispatcherTimer.Run(() =&gt;
+{
+    var t = (DateTime.Now - start).TotalSeconds;
+    if (t &gt; 1.2) { DemoTrail.PointAt(null); return false; }
+    DemoTrail.PointAt(new Point(20 + t * 240, 110 + Math.Sin(t * 6) * 40));
+    return true;
+}, TimeSpan.FromMilliseconds(16));
+</code></pre>
+<h2 id="methods">Methods</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PointAt(Point? at)</code></td>
+<td>Moves the trail's head to <code>at</code> (host coordinates), as if the pointer were there, adding a point to the trail; null lifts it and the trail fades.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Style</code></td>
+<td><code>TrailStyle</code></td>
+<td><code>Ribbon</code></td>
+<td>What follows the pointer: a glowing ribbon, or a stream of sparks. Values: <code>Ribbon</code>, <code>Sparkles</code>.</td>
+</tr>
+<tr>
+<td><code>Color</code></td>
+<td><code>Color</code></td>
+<td><code>#A78BFA</code></td>
+<td>The ribbon's color at its head; each spark takes a mix of this and <code>TailColor</code>.</td>
+</tr>
+<tr>
+<td><code>TailColor</code></td>
+<td><code>Color</code></td>
+<td><code>#22D3EE</code></td>
+<td>The color the ribbon fades to at its tail.</td>
+</tr>
+<tr>
+<td><code>Width</code></td>
+<td><code>double</code></td>
+<td><code>6</code></td>
+<td>Width of the ribbon at its head, in DIPs (it tapers behind); for sparks, their size. Range 1–30.</td>
+</tr>
+<tr>
+<td><code>Life</code></td>
+<td><code>double</code></td>
+<td><code>0.45</code></td>
+<td>How long a point of the trail lasts. Range 0.1–2 seconds.</td>
+</tr>
+<tr>
+<td><code>Glow</code></td>
+<td><code>double</code></td>
+<td><code>0.8</code></td>
+<td>The soft light around the ribbon, a multiple: 1 is full, 0 none. Range 0–2. Applies to the <code>Ribbon</code> style.</td>
+</tr>
+<tr>
+<td><code>PointerReach</code></td>
+<td><code>double</code></td>
+<td><code>0</code></td>
+<td>How far outside the shape the pointer still leaves a trail. Range 0–200 DIPs.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>:
+<code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>. On a trail, <code>Intensity</code> dims the layer and <code>Seed</code> doesn't apply.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>Light and dark surfaces.</strong> On a dark surface the trail adds light. On a light surface it draws as tinted haze in its own colors. See <a href="../concepts/light-and-dark.html#how-light-layers-draw-on-each-surface">Light and dark surfaces</a>.</li>
+<li><strong>Reduced motion.</strong> There is no trail: it only exists as motion. See <a href="../concepts/reduced-motion.html#the-poses">Reduced motion</a>.</li>
+<li><strong>Cost.</strong> Nothing while the pointer is still or away. While it moves, about 0.17 ms of GPU time a frame on the bench's 340×190 card. The trail keeps the pointer's last 32 positions. See <a href="../concepts/performance.html#what-a-layer-costs">Performance</a>.</li>
+<li><strong>The pointer.</strong> The host listens to the window's pointer while the layer is active and passes it on within the shape plus <code>PointerReach</code>. See <a href="../concepts/one-shots-and-pointer.html#layers-that-follow-the-pointer">Layers that follow the pointer</a>.</li>
+<li><strong>Room around the host.</strong> Sparks fall and the glow spreads a little past the shape. A clipping ancestor cuts them off.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.Trail.html">Trail</a> API reference</li>
+<li><a href="sparkles.html">Sparkles</a>, stars twinkling around a shape</li>
+<li><a href="ink.html">Ink</a>, colored fluid stirred by the pointer</li>
+<li><a href="spotlight.html">Spotlight</a>, a light that follows the pointer</li>
+<li><a href="../concepts/one-shots-and-pointer.html#layers-that-follow-the-pointer">One-shots and the pointer</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/trail.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

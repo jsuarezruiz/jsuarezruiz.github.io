@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Frost | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Frost | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="Ice creeps in from the edges in crystal branches, frosting what is under it; it melts around the pointer.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/frost.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="frost">Frost</h1>
+
+<p><code>Frost</code> grows ice in from the shape's edges in feathery crystal branches, frosting what is under it: blurred, whitened toward <code>Tint</code> and dotted with glints. <code>Amount</code> is how far the ice has crept in, so a transition on it freezes or thaws the content. It melts in a ragged circle around the pointer and freezes back when the pointer leaves. Use it for a locked or paused state, a &quot;cold&quot; plan in a pricing table, or a wintry promo. It draws over the child, so it frosts the child and whatever shows through it.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/frost-light.png" alt="Frost on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/frost-dark.png" alt="Frost on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-frost">Add frost</h2>
+<p>Wrap the content in a host. A picture or colorful content shows the frost best:</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;fx:FXHost CornerRadius=&quot;14&quot;&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:Frost Amount=&quot;0.72&quot; /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Border Width=&quot;250&quot; Height=&quot;150&quot; CornerRadius=&quot;14&quot;&gt;
+            &lt;Border.Background&gt;
+                &lt;LinearGradientBrush StartPoint=&quot;0%,0%&quot; EndPoint=&quot;100%,100%&quot;&gt;
+                    &lt;GradientStop Color=&quot;#1E3A8A&quot; Offset=&quot;0&quot; /&gt;
+                    &lt;GradientStop Color=&quot;#7C3AED&quot; Offset=&quot;0.55&quot; /&gt;
+                    &lt;GradientStop Color=&quot;#F59E0B&quot; Offset=&quot;1&quot; /&gt;
+                &lt;/LinearGradientBrush&gt;
+            &lt;/Border.Background&gt;
+            &lt;TextBlock Text=&quot;Cold open&quot; Foreground=&quot;White&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;22&quot;
+                       HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot; /&gt;
+        &lt;/Border&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<h2 id="freeze-and-thaw">Freeze and thaw</h2>
+<p><code>Amount</code> runs from 0 (no ice, and nothing drawn) to 1 (covered). Give it a transition, and every change glides:</p>
+<pre><code class="lang-xaml">&lt;Style Selector=&quot;fx|Frost&quot;&gt;
+    &lt;Setter Property=&quot;Transitions&quot;&gt;
+        &lt;Transitions&gt;
+            &lt;DoubleTransition Property=&quot;Amount&quot; Duration=&quot;0:0:1.2&quot; /&gt;
+        &lt;/Transitions&gt;
+    &lt;/Setter&gt;
+&lt;/Style&gt;
+</code></pre>
+<pre><code class="lang-csharp">CardFrost.Amount = 1;   // freeze
+CardFrost.Amount = 0;   // thaw
+</code></pre>
+<h2 id="melt-it-around-the-pointer">Melt it around the pointer</h2>
+<p><code>MeltRadius</code> is the radius of the clear patch around the pointer; 0 turns melting off. <code>PointAt(at)</code> melts the ice around a point from code, in the host's coordinates, for keyboard focus or a tour; <code>PointAt(null)</code> lets it freeze back:</p>
+<pre><code class="lang-csharp">PlayButton.GotFocus += (_, _) =&gt;
+{
+    var center = new Point(PlayButton.Bounds.Width / 2, PlayButton.Bounds.Height / 2);
+    CardFrost.PointAt(PlayButton.TranslatePoint(center, CardHost));
+};
+PlayButton.LostFocus += (_, _) =&gt; CardFrost.PointAt(null);
+</code></pre>
+<p><code>CrystalSize</code> sets the size of the crystal pattern, <code>Blur</code> how frosted the content under the ice is, and <code>Sparkle</code> the glints.</p>
+<h2 id="methods">Methods</h2>
+<p>Call <code>PointAt</code> to melt the ice without a pointer.</p>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PointAt(Point? at)</code></td>
+<td>Melts the ice around <code>at</code> (host coordinates) from code; null lets it freeze back.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Amount</code></td>
+<td><code>double</code></td>
+<td><code>0.6</code></td>
+<td>How far the ice has crept in from the edges; 1 covers it all. Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>CrystalSize</code></td>
+<td><code>double</code></td>
+<td><code>22</code></td>
+<td>Size of the crystal pattern. Range 4–80 DIPs.</td>
+</tr>
+<tr>
+<td><code>Blur</code></td>
+<td><code>double</code></td>
+<td><code>6</code></td>
+<td>How frosted: the blur of what is under the ice. Range 0.5–24 DIPs.</td>
+</tr>
+<tr>
+<td><code>Tint</code></td>
+<td><code>Color</code></td>
+<td><code>#DCECFF</code></td>
+<td>The color the ice whitens what is under it toward; the crystals take it too.</td>
+</tr>
+<tr>
+<td><code>MeltRadius</code></td>
+<td><code>double</code></td>
+<td><code>60</code></td>
+<td>Radius of the clear patch around the pointer; 0: no melting. Range 0–200 DIPs.</td>
+</tr>
+<tr>
+<td><code>Sparkle</code></td>
+<td><code>double</code></td>
+<td><code>0.5</code></td>
+<td>Glints in the ice. Range 0–1 (0–100%).</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>: <code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>. <code>Seed</code> changes the crystal pattern; frost has no clock of its own, so <code>Speed</code> doesn't apply.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>It frosts what is drawn before it.</strong> It copies what is under it just before it draws (see <a href="../concepts/layers.html#layers-that-read-the-backdrop">Layers that read the backdrop</a>). Over the child, the default, that is the child and what shows through it. With <code>Placement=&quot;Under&quot;</code> it frosts only what is behind the host, and the child stays sharp on top. Inside an offscreen layer (an ancestor with <code>Opacity</code> below 1, an effect, or a clip that needs a layer) the copy can't see that ancestor's content, so keep such ancestors opaque.</li>
+<li><strong>Light and dark surfaces:</strong> the layer knows the surface. On a light one the crystal lines darken a little, where white ice alone would vanish. Over a colorful picture in a light app they can all but vanish: set <code>Surface=&quot;Dark&quot;</code> on the host, as the gallery does (see <a href="../concepts/light-and-dark.html#how-light-layers-draw-on-each-surface">Light and dark surfaces</a>).</li>
+<li><strong>Reduced motion:</strong> the melt jumps to the pointer instead of easing, and appears and fades at once.</li>
+<li><strong>Cost:</strong> about 0.63 ms of GPU time a frame on the benchmark card, including a blurred copy of what is under it. It doesn't animate, so it only redraws when what is under it changes or the melt moves. See <a href="../concepts/performance.html#what-a-layer-costs">Performance</a>.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.Frost.html">Frost</a> API reference</li>
+<li><a href="../concepts/one-shots-and-pointer.html#layers-that-follow-the-pointer">Layers that follow the pointer</a></li>
+<li><a href="rainglass.html">Rain glass</a>, <a href="glass.html">Glass</a> and <a href="progressiveblur.html">Progressive blur</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/frost.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

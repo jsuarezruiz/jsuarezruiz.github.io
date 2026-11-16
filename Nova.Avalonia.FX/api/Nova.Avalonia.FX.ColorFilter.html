@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ColorFilter | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ColorFilter | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="CSS-style color filters, live, within the shape: over the child (the default) they recolor the child and whatever shows through it, as CSS filter does; under it ( Under) they recolor what is behind the host, as backdrop-filter does. With  only the child&#39;s own pixels change (an icon, not the card around it). Brightness, contrast, saturation, hue, grayscale and sepia use CSS&#39;s formulas; Intensity is how much of the filter shows. Disabled states, &amp;quot;grayscale until hover&amp;quot;, styled photos, images dimmed in dark mode. It starts as grayscale ().">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/new/main/apiSpec/new?filename=Nova_Avalonia_FX_ColorFilter.md&amp;value=---%0Auid%3A%20Nova.Avalonia.FX.ColorFilter%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Nova.Avalonia.FX.ColorFilter">
+
+
+
+  <h1 id="Nova_Avalonia_FX_ColorFilter" data-uid="Nova.Avalonia.FX.ColorFilter" class="text-break">
+Class ColorFilter  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/Layers/ColorFilter.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><span class="xref">Nova</span>.<span class="xref">Avalonia</span>.<a class="xref" href="Nova.Avalonia.FX.html">FX</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Nova.Avalonia.FX.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>CSS-style color filters, live, within the shape: over the child (the default) they recolor the
+child and whatever shows through it, as CSS <code>filter</code> does; under it
+(<a class="xref" href="Nova.Avalonia.FX.FXLayer.html#Nova_Avalonia_FX_FXLayer_Placement">Placement</a> Under) they recolor what is behind the host, as
+<code>backdrop-filter</code> does. With <a class="xref" href="Nova.Avalonia.FX.ColorFilter.html#Nova_Avalonia_FX_ColorFilter_UseMask">UseMask</a> only the child's own pixels change (an
+icon, not the card around it). Brightness, contrast, saturation, hue, grayscale and sepia use
+CSS's formulas; Intensity is how much of the filter shows. Disabled states, &quot;grayscale until
+hover&quot;, styled photos, images dimmed in dark mode. It starts as grayscale (<a class="xref" href="Nova.Avalonia.FX.ColorFilter.html#Nova_Avalonia_FX_ColorFilter_Preset">Preset</a>).</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class ColorFilter : FXLayer, INotifyPropertyChanged, IDataContextProvider, ILogical, IThemeVariantHost, IResourceHost, IResourceNode, IStyleHost, ISetLogicalParent, ISetInheritanceParent, ISupportInitialize, INamed</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">AvaloniaObject</span></div>
+      <div><span class="xref">Animatable</span></div>
+      <div><span class="xref">StyledElement</span></div>
+      <div><a class="xref" href="Nova.Avalonia.FX.FXLayer.html">FXLayer</a></div>
+      <div><span class="xref">ColorFilter</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged">INotifyPropertyChanged</a></div>
+      <div><span class="xref">IDataContextProvider</span></div>
+      <div><span class="xref">ILogical</span></div>
+      <div><span class="xref">IThemeVariantHost</span></div>
+      <div><span class="xref">IResourceHost</span></div>
+      <div><span class="xref">IResourceNode</span></div>
+      <div><span class="xref">IStyleHost</span></div>
+      <div><span class="xref">ISetLogicalParent</span></div>
+      <div><span class="xref">ISetInheritanceParent</span></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.isupportinitialize">ISupportInitialize</a></div>
+      <div><span class="xref">INamed</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Nova.Avalonia.FX.FXLayer.html#Nova_Avalonia_FX_FXLayer_IntensityProperty">FXLayer.IntensityProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="Nova.Avalonia.FX.FXLayer.html#Nova_Avalonia_FX_FXLayer_OpacityProperty">FXLayer.OpacityProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="Nova.Avalonia.FX.FXLayer.html#Nova_Avalonia_FX_FXLayer_SpeedProperty">FXLayer.SpeedProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="Nova.Avalonia.FX.FXLayer.html#Nova_Avalonia_FX_FXLayer_SeedProperty">FXLayer.SeedProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="Nova.Avalonia.FX.FXLayer.html#Nova_Avalonia_FX_FXLayer_PlacementProperty">FXLayer.PlacementProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="Nova.Avalonia.FX.FXLayer.html#Nova_Avalonia_FX_FXLayer_BlendModeProperty">FXLayer.BlendModeProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="Nova.Avalonia.FX.FXLayer.html#Nova_Avalonia_FX_FXLayer_IsActiveProperty">FXLayer.IsActiveProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="Nova.Avalonia.FX.FXLayer.html#Nova_Avalonia_FX_FXLayer_RenderScaleProperty">FXLayer.RenderScaleProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="Nova.Avalonia.FX.FXLayer.html#Nova_Avalonia_FX_FXLayer_Intensity">FXLayer.Intensity</a>
+    </div>
+    <div>
+      <a class="xref" href="Nova.Avalonia.FX.FXLayer.html#Nova_Avalonia_FX_FXLayer_Opacity">FXLayer.Opacity</a>
+    </div>
+    <div>
+      <a class="xref" href="Nova.Avalonia.FX.FXLayer.html#Nova_Avalonia_FX_FXLayer_Speed">FXLayer.Speed</a>
+    </div>
+    <div>
+      <a class="xref" href="Nova.Avalonia.FX.FXLayer.html#Nova_Avalonia_FX_FXLayer_Seed">FXLayer.Seed</a>
+    </div>
+    <div>
+      <a class="xref" href="Nova.Avalonia.FX.FXLayer.html#Nova_Avalonia_FX_FXLayer_Placement">FXLayer.Placement</a>
+    </div>
+    <div>
+      <a class="xref" href="Nova.Avalonia.FX.FXLayer.html#Nova_Avalonia_FX_FXLayer_BlendMode">FXLayer.BlendMode</a>
+    </div>
+    <div>
+      <a class="xref" href="Nova.Avalonia.FX.FXLayer.html#Nova_Avalonia_FX_FXLayer_IsActive">FXLayer.IsActive</a>
+    </div>
+    <div>
+      <a class="xref" href="Nova.Avalonia.FX.FXLayer.html#Nova_Avalonia_FX_FXLayer_RenderScale">FXLayer.RenderScale</a>
+    </div>
+    <div>
+      <a class="xref" href="Nova.Avalonia.FX.FXLayer.html#Nova_Avalonia_FX_FXLayer_ReadsBackdrop">FXLayer.ReadsBackdrop</a>
+    </div>
+    <div>
+      <span class="xref">StyledElement.DataContextProperty</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.NameProperty</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.ParentProperty</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.TemplatedParentProperty</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.ThemeProperty</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.BeginInit()</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.EndInit()</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.ApplyStyling()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">StyledElement.TryGetResource(object, ThemeVariant, out object)</a>
+    </div>
+    <div>
+      <span class="xref">StyledElement.Name</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.Classes</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.DataContext</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.IsInitialized</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.Styles</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.StyleKey</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.Resources</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.TemplatedParent</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.Theme</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.Parent</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.ActualThemeVariant</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.AttachedToLogicalTree</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.DetachedFromLogicalTree</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.DataContextChanged</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.Initialized</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.ResourcesChanged</span>
+    </div>
+    <div>
+      <span class="xref">StyledElement.ActualThemeVariantChanged</span>
+    </div>
+    <div>
+      <span class="xref">Animatable.TransitionsProperty</span>
+    </div>
+    <div>
+      <span class="xref">Animatable.Transitions</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.CheckAccess()</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.VerifyAccess()</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.ClearValue(AvaloniaProperty)</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.ClearValue&lt;T&gt;(AvaloniaProperty&lt;T&gt;)</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.ClearValue&lt;T&gt;(StyledProperty&lt;T&gt;)</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.ClearValue&lt;T&gt;(DirectPropertyBase&lt;T&gt;)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">AvaloniaObject.Equals(object)</a>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.GetValue(AvaloniaProperty)</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.GetValue&lt;T&gt;(StyledProperty&lt;T&gt;)</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.GetValue&lt;T&gt;(DirectPropertyBase&lt;T&gt;)</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.GetBaseValue&lt;T&gt;(StyledProperty&lt;T&gt;)</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.IsAnimating(AvaloniaProperty)</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.IsSet(AvaloniaProperty)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">AvaloniaObject.SetValue(AvaloniaProperty, object, BindingPriority)</a>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.SetValue&lt;T&gt;(StyledProperty&lt;T&gt;, T, BindingPriority)</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.SetValue&lt;T&gt;(DirectPropertyBase&lt;T&gt;, T)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">AvaloniaObject.SetCurrentValue(AvaloniaProperty, object)</a>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.SetCurrentValue&lt;T&gt;(StyledProperty&lt;T&gt;, T)</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.Bind(AvaloniaProperty, BindingBase)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">AvaloniaObject.Bind(AvaloniaProperty, IObservable&lt;object&gt;, BindingPriority)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">AvaloniaObject.Bind&lt;T&gt;(StyledProperty&lt;T&gt;, IObservable&lt;object&gt;, BindingPriority)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">AvaloniaObject.Bind&lt;T&gt;(StyledProperty&lt;T&gt;, IObservable&lt;T&gt;, BindingPriority)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">AvaloniaObject.Bind&lt;T&gt;(StyledProperty&lt;T&gt;, IObservable&lt;BindingValue&lt;T&gt;&gt;, BindingPriority)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">AvaloniaObject.Bind&lt;T&gt;(DirectPropertyBase&lt;T&gt;, IObservable&lt;object&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">AvaloniaObject.Bind&lt;T&gt;(DirectPropertyBase&lt;T&gt;, IObservable&lt;T&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">AvaloniaObject.Bind&lt;T&gt;(DirectPropertyBase&lt;T&gt;, IObservable&lt;BindingValue&lt;T&gt;&gt;)</a>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.CoerceValue(AvaloniaProperty)</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.this[AvaloniaProperty]</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.this[IndexerDescriptor]</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.Dispatcher</span>
+    </div>
+    <div>
+      <span class="xref">AvaloniaObject.PropertyChanged</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Nova_Avalonia_FX_ColorFilter_BrightnessProperty" data-uid="Nova.Avalonia.FX.ColorFilter.BrightnessProperty">
+  BrightnessProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/Layers/ColorFilter.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>1: as it is; 0: black.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;double&gt; BrightnessProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_FX_ColorFilter_ContrastProperty" data-uid="Nova.Avalonia.FX.ColorFilter.ContrastProperty">
+  ContrastProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/Layers/ColorFilter.cs/#L83"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>1: as it is; 0: flat gray.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;double&gt; ContrastProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_FX_ColorFilter_DuotoneProperty" data-uid="Nova.Avalonia.FX.ColorFilter.DuotoneProperty">
+  DuotoneProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/Layers/ColorFilter.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How much the picture becomes two colors, its lightness running from <a class="xref" href="Nova.Avalonia.FX.ColorFilter.html#Nova_Avalonia_FX_ColorFilter_ShadowColor">ShadowColor</a> to <a class="xref" href="Nova.Avalonia.FX.ColorFilter.html#Nova_Avalonia_FX_ColorFilter_HighlightColor">HighlightColor</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;double&gt; DuotoneProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_FX_ColorFilter_GrayscaleProperty" data-uid="Nova.Avalonia.FX.ColorFilter.GrayscaleProperty">
+  GrayscaleProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/Layers/ColorFilter.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How far the colors drain to gray: 0 none, 1 fully gray (CSS grayscale()).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;double&gt; GrayscaleProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_FX_ColorFilter_HighlightColorProperty" data-uid="Nova.Avalonia.FX.ColorFilter.HighlightColorProperty">
+  HighlightColorProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/Layers/ColorFilter.cs/#L109"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The duotone color for the lightest parts; applies as <a class="xref" href="Nova.Avalonia.FX.ColorFilter.html#Nova_Avalonia_FX_ColorFilter_Duotone">Duotone</a> rises.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;Color&gt; HighlightColorProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<span class="xref">Color</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_FX_ColorFilter_HueProperty" data-uid="Nova.Avalonia.FX.ColorFilter.HueProperty">
+  HueProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/Layers/ColorFilter.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Turns every hue around the color wheel, degrees: 0 leaves them; positive turns red toward
+yellow and green, as CSS's <code>hue-rotate</code> does.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;double&gt; HueProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_FX_ColorFilter_InvertProperty" data-uid="Nova.Avalonia.FX.ColorFilter.InvertProperty">
+  InvertProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/Layers/ColorFilter.cs/#L116"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How far the colors invert: 0 none, 1 a negative; 0.5 is flat gray (CSS invert()).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;double&gt; InvertProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_FX_ColorFilter_PresetProperty" data-uid="Nova.Avalonia.FX.ColorFilter.PresetProperty">
+  PresetProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/Layers/ColorFilter.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A set of the settings below. The default is Grayscale; None puts every setting at rest, to
+start from the picture as it is (a local value on any setting wins over the preset).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;ColorFilterPreset&gt; PresetProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="Nova.Avalonia.FX.ColorFilterPreset.html">ColorFilterPreset</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_FX_ColorFilter_SaturationProperty" data-uid="Nova.Avalonia.FX.ColorFilter.SaturationProperty">
+  SaturationProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/Layers/ColorFilter.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>1: as it is; 0: gray; above 1: more vivid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;double&gt; SaturationProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_FX_ColorFilter_SepiaProperty" data-uid="Nova.Avalonia.FX.ColorFilter.SepiaProperty">
+  SepiaProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/Layers/ColorFilter.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How far the picture tones to brown, like an old photograph: 0 none, 1 full (CSS sepia()).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;double&gt; SepiaProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_FX_ColorFilter_ShadowColorProperty" data-uid="Nova.Avalonia.FX.ColorFilter.ShadowColorProperty">
+  ShadowColorProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/Layers/ColorFilter.cs/#L103"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The duotone color for the darkest parts; applies as <a class="xref" href="Nova.Avalonia.FX.ColorFilter.html#Nova_Avalonia_FX_ColorFilter_Duotone">Duotone</a> rises.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;Color&gt; ShadowColorProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<span class="xref">Color</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_FX_ColorFilter_TemperatureProperty" data-uid="Nova.Avalonia.FX.ColorFilter.TemperatureProperty">
+  TemperatureProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/Layers/ColorFilter.cs/#L88"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Warmer (positive) or cooler (negative) white balance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;double&gt; TemperatureProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_FX_ColorFilter_TintProperty" data-uid="Nova.Avalonia.FX.ColorFilter.TintProperty">
+  TintProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/Layers/ColorFilter.cs/#L92"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A color the picture is toned toward at the same lightness; its alpha is how much.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;Color&gt; TintProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<span class="xref">Color</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Nova_Avalonia_FX_ColorFilter_UseMaskProperty" data-uid="Nova.Avalonia.FX.ColorFilter.UseMaskProperty">
+  UseMaskProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/Layers/ColorFilter.cs/#L120"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Recolors only the child's own pixels (text, an icon, a picture), not the shape around them.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly StyledProperty&lt;bool&gt; UseMaskProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">StyledProperty</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Nova_Avalonia_FX_ColorFilter_Brightness_" data-uid="Nova.Avalonia.FX.ColorFilter.Brightness*"></a>
+
+  <h3 id="Nova_Avalonia_FX_ColorFilter_Brightness" data-uid="Nova.Avalonia.FX.ColorFilter.Brightness">
+  Brightness
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/Layers/ColorFilter.cs/#L128"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Brightness { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_FX_ColorFilter_Contrast_" data-uid="Nova.Avalonia.FX.ColorFilter.Contrast*"></a>
+
+  <h3 id="Nova_Avalonia_FX_ColorFilter_Contrast" data-uid="Nova.Avalonia.FX.ColorFilter.Contrast">
+  Contrast
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/Layers/ColorFilter.cs/#L129"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Contrast { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_FX_ColorFilter_DefaultPlacement_" data-uid="Nova.Avalonia.FX.ColorFilter.DefaultPlacement*"></a>
+
+  <h3 id="Nova_Avalonia_FX_ColorFilter_DefaultPlacement" data-uid="Nova.Avalonia.FX.ColorFilter.DefaultPlacement">
+  DefaultPlacement
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/Layers/ColorFilter.cs/#L176"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Where this layer draws when <a class="xref" href="Nova.Avalonia.FX.FXLayer.html#Nova_Avalonia_FX_FXLayer_Placement">Placement</a> is <a class="xref" href="Nova.Avalonia.FX.FXPlacement.html#Nova_Avalonia_FX_FXPlacement_Auto">Auto</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override FXPlacement DefaultPlacement { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.FX.FXPlacement.html">FXPlacement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_FX_ColorFilter_Duotone_" data-uid="Nova.Avalonia.FX.ColorFilter.Duotone*"></a>
+
+  <h3 id="Nova_Avalonia_FX_ColorFilter_Duotone" data-uid="Nova.Avalonia.FX.ColorFilter.Duotone">
+  Duotone
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/Layers/ColorFilter.cs/#L132"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Duotone { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_FX_ColorFilter_Grayscale_" data-uid="Nova.Avalonia.FX.ColorFilter.Grayscale*"></a>
+
+  <h3 id="Nova_Avalonia_FX_ColorFilter_Grayscale" data-uid="Nova.Avalonia.FX.ColorFilter.Grayscale">
+  Grayscale
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/Layers/ColorFilter.cs/#L124"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Grayscale { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_FX_ColorFilter_HighlightColor_" data-uid="Nova.Avalonia.FX.ColorFilter.HighlightColor*"></a>
+
+  <h3 id="Nova_Avalonia_FX_ColorFilter_HighlightColor" data-uid="Nova.Avalonia.FX.ColorFilter.HighlightColor">
+  HighlightColor
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/Layers/ColorFilter.cs/#L134"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Color HighlightColor { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Color</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_FX_ColorFilter_Hue_" data-uid="Nova.Avalonia.FX.ColorFilter.Hue*"></a>
+
+  <h3 id="Nova_Avalonia_FX_ColorFilter_Hue" data-uid="Nova.Avalonia.FX.ColorFilter.Hue">
+  Hue
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/Layers/ColorFilter.cs/#L127"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Hue { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_FX_ColorFilter_Invert_" data-uid="Nova.Avalonia.FX.ColorFilter.Invert*"></a>
+
+  <h3 id="Nova_Avalonia_FX_ColorFilter_Invert" data-uid="Nova.Avalonia.FX.ColorFilter.Invert">
+  Invert
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/Layers/ColorFilter.cs/#L135"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Invert { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_FX_ColorFilter_Preset_" data-uid="Nova.Avalonia.FX.ColorFilter.Preset*"></a>
+
+  <h3 id="Nova_Avalonia_FX_ColorFilter_Preset" data-uid="Nova.Avalonia.FX.ColorFilter.Preset">
+  Preset
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/Layers/ColorFilter.cs/#L123"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ColorFilterPreset Preset { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Nova.Avalonia.FX.ColorFilterPreset.html">ColorFilterPreset</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_FX_ColorFilter_Saturation_" data-uid="Nova.Avalonia.FX.ColorFilter.Saturation*"></a>
+
+  <h3 id="Nova_Avalonia_FX_ColorFilter_Saturation" data-uid="Nova.Avalonia.FX.ColorFilter.Saturation">
+  Saturation
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/Layers/ColorFilter.cs/#L126"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Saturation { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_FX_ColorFilter_Sepia_" data-uid="Nova.Avalonia.FX.ColorFilter.Sepia*"></a>
+
+  <h3 id="Nova_Avalonia_FX_ColorFilter_Sepia" data-uid="Nova.Avalonia.FX.ColorFilter.Sepia">
+  Sepia
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/Layers/ColorFilter.cs/#L125"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Sepia { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_FX_ColorFilter_ShadowColor_" data-uid="Nova.Avalonia.FX.ColorFilter.ShadowColor*"></a>
+
+  <h3 id="Nova_Avalonia_FX_ColorFilter_ShadowColor" data-uid="Nova.Avalonia.FX.ColorFilter.ShadowColor">
+  ShadowColor
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/Layers/ColorFilter.cs/#L133"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Color ShadowColor { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Color</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_FX_ColorFilter_Temperature_" data-uid="Nova.Avalonia.FX.ColorFilter.Temperature*"></a>
+
+  <h3 id="Nova_Avalonia_FX_ColorFilter_Temperature" data-uid="Nova.Avalonia.FX.ColorFilter.Temperature">
+  Temperature
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/Layers/ColorFilter.cs/#L130"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Temperature { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_FX_ColorFilter_Tint_" data-uid="Nova.Avalonia.FX.ColorFilter.Tint*"></a>
+
+  <h3 id="Nova_Avalonia_FX_ColorFilter_Tint" data-uid="Nova.Avalonia.FX.ColorFilter.Tint">
+  Tint
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/Layers/ColorFilter.cs/#L131"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Color Tint { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Color</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Nova_Avalonia_FX_ColorFilter_UseMask_" data-uid="Nova.Avalonia.FX.ColorFilter.UseMask*"></a>
+
+  <h3 id="Nova_Avalonia_FX_ColorFilter_UseMask" data-uid="Nova.Avalonia.FX.ColorFilter.UseMask">
+  UseMask
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/Layers/ColorFilter.cs/#L136"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool UseMask { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Nova_Avalonia_FX_ColorFilter_OnPropertyChanged_" data-uid="Nova.Avalonia.FX.ColorFilter.OnPropertyChanged*"></a>
+
+  <h3 id="Nova_Avalonia_FX_ColorFilter_OnPropertyChanged_Avalonia_AvaloniaPropertyChangedEventArgs_" data-uid="Nova.Avalonia.FX.ColorFilter.OnPropertyChanged(Avalonia.AvaloniaPropertyChangedEventArgs)">
+  OnPropertyChanged(AvaloniaPropertyChangedEventArgs)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/Layers/ColorFilter.cs/#L138"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called when a avalonia property changes on the object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>change</code> <span class="xref">AvaloniaPropertyChangedEventArgs</span></dt>
+    <dd><p>The property change details.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/src/Nova.Avalonia.FX/Layers/ColorFilter.cs/#L41" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

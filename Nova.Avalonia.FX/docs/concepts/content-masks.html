@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Content masks | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Content masks | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="Layers that follow the content&#39;s own pixels, how the host captures them, the distance field, and their cost and limits.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/concepts/content-masks.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="content-masks">Content masks</h1>
+
+<p>Most layers follow the child's <em>shape</em>: its bounding box with rounded corners. Some follow the child's own <em>pixels</em> instead: the letters of a text, the outline of an icon, the colors of a picture. For those, the host captures the child into a mask.</p>
+<h2 id="layers-that-follow-the-content">Layers that follow the content</h2>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>What it takes from the content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="xref" href="../../api/Nova.Avalonia.FX.Glow.html">Glow</a> with <code>Style=&quot;Mask&quot;</code></td>
+<td>Blooms around the child's own pixels (text, icons) instead of its box.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Nova.Avalonia.FX.Shimmer.html">Shimmer</a> with <code>UseMask</code></td>
+<td>Sweeps across the child's own pixels: &quot;Thinking…&quot; text.</td>
+</tr>
+<tr>
+<td>Every fill with <code>UseMask</code></td>
+<td>Paints only the child's own pixels: gradient or aurora text, a liquid-metal logo, holographic icons.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Nova.Avalonia.FX.ColorFilter.html">ColorFilter</a> with <code>UseMask</code></td>
+<td>Recolors only the child's own pixels: an icon, not the card around it.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Nova.Avalonia.FX.Outline.html">Outline</a></td>
+<td>Strokes the child's own shape at an exact width, or cuts it out as a sticker.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Nova.Avalonia.FX.InnerShadow.html">InnerShadow</a></td>
+<td>Shades the inside of the child's own shape: inset, emboss or letterpress.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Nova.Avalonia.FX.AmbientGlow.html">AmbientGlow</a></td>
+<td>Blurs the child's own colors and spreads them behind it.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Nova.Avalonia.FX.MotionBlur.html">MotionBlur</a></td>
+<td>Smears a capture of the child along its motion.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Nova.Avalonia.FX.PointerShadow.html">PointerShadow</a></td>
+<td>Casts a shadow in the shape of the child's own pixels.</td>
+</tr>
+</tbody>
+</table>
+<p>The fills are the gradients, materials, patterns and backgrounds: liquid metal, plastic, holo foil, silk, mesh gradient, grain gradient, swirl, waves, voronoi, metaballs, dither, halftone, fluted glass, liquid progress, retro grid, starfield, dot grid, weather, caustics, bokeh, code rain and beams. With <code>UseMask</code> a fill goes over the child, unless its <code>Placement</code> says otherwise.</p>
+<h2 id="examples">Examples</h2>
+<p>Gradient text:</p>
+<pre><code class="lang-xml">&lt;fx:FXHost&gt;
+    &lt;fx:FXHost.Layers&gt;
+        &lt;fx:MeshGradient UseMask=&quot;True&quot; /&gt;
+    &lt;/fx:FXHost.Layers&gt;
+    &lt;TextBlock Text=&quot;Aurora&quot; FontSize=&quot;46&quot; FontWeight=&quot;Black&quot; /&gt;
+&lt;/fx:FXHost&gt;
+</code></pre>
+<p>A glow around the letters of a label, not its box:</p>
+<pre><code class="lang-xml">&lt;fx:FXHost&gt;
+    &lt;fx:FXHost.Layers&gt;
+        &lt;fx:Glow Style=&quot;Mask&quot; Color=&quot;#f472b6&quot; Radius=&quot;10&quot; /&gt;
+    &lt;/fx:FXHost.Layers&gt;
+    &lt;TextBlock Text=&quot;LIVE&quot; FontSize=&quot;32&quot; FontWeight=&quot;Bold&quot; Foreground=&quot;White&quot; /&gt;
+&lt;/fx:FXHost&gt;
+</code></pre>
+<p>A &quot;Thinking…&quot; shimmer that sweeps across the text only:</p>
+<pre><code class="lang-xml">&lt;fx:FXHost&gt;
+    &lt;fx:FXHost.Layers&gt;
+        &lt;fx:Shimmer UseMask=&quot;True&quot; /&gt;
+    &lt;/fx:FXHost.Layers&gt;
+    &lt;TextBlock Text=&quot;Thinking…&quot; FontSize=&quot;16&quot; /&gt;
+&lt;/fx:FXHost&gt;
+</code></pre>
+<p>A sticker cut out around a picture:</p>
+<pre><code class="lang-xml">&lt;fx:FXHost&gt;
+    &lt;fx:FXHost.Layers&gt;
+        &lt;fx:Outline Style=&quot;Sticker&quot; Color=&quot;White&quot; /&gt;
+    &lt;/fx:FXHost.Layers&gt;
+    &lt;Image Source=&quot;/Assets/logo.png&quot; Width=&quot;96&quot; /&gt;
+&lt;/fx:FXHost&gt;
+</code></pre>
+<h2 id="when-the-host-captures">When the host captures</h2>
+<p>The host captures its child on the UI thread, by rendering it to a bitmap, and builds six halving, slightly blurred levels from it on the CPU, once per change. The capture extends past the child by as far as the layers reach (a mask glow's radius), up to 128 DIPs. Layers that need color (the ambient glow, motion blur) keep the child's colors as well as its coverage.</p>
+<p>The host captures again when:</p>
+<ul>
+<li>the child's size or the display scaling changes;</li>
+<li>one of the child's own properties changes;</li>
+<li>the child is replaced;</li>
+<li>a layer is added that needs more than the last capture had (color, a distance field or a wider reach).</li>
+</ul>
+<p>Properties that can't change the child's pixels by themselves are ignored: pointer-over, focus, <code>DataContext</code>, <code>Tag</code>, <code>Name</code>, <code>Transitions</code>, <code>Cursor</code>, the context menu and flyout, <code>Focusable</code>, <code>IsHitTestVisible</code> and tooltips. A style those trigger, such as a background on pointer-over, changes real properties, and those count.</p>
+<p>The host only watches the child itself, not its descendants. After changing something deeper inside the child, call <a class="xref" href="../../api/Nova.Avalonia.FX.FXHost.html#Nova_Avalonia_FX_FXHost_RefreshMask">RefreshMask</a>:</p>
+<pre><code class="lang-csharp">// StatusText is a TextBlock inside the StackPanel that is the host's child.
+StatusText.Text = &quot;Uploaded&quot;;
+StatusHost.RefreshMask();
+</code></pre>
+<p>While changes keep coming, captures are spaced about 100 ms apart, with one more once they stop. For the ambient glow behind a video, call <code>RefreshMask()</code> as the frames change.</p>
+<h2 id="the-distance-field">The distance field</h2>
+<p><code>Outline</code> and <code>InnerShadow</code> need to know how far each pixel is from the edge of the child's own shape, on both sides, at an exact distance whatever the shape. The mask's blurred levels can't tell them that, so when one of these layers is in the host, the capture also builds a <em>distance field</em>: an exact Euclidean distance transform of the child's coverage, once to the nearest inside pixel and once to the nearest outside one.</p>
+<p>The field stores one byte a pixel, in steps of a quarter of a DIP, from 16 DIPs inside the edge to 47.75 DIPs outside it. That range bounds how far an outline or an inner shadow can reach. A pixel counts as inside when its alpha is at least half the child's own strongest alpha, so text in a translucent color, or a child at <code>Opacity</code> 0.4, still has a shape.</p>
+<h2 id="cost">Cost</h2>
+<p>A capture happens on the UI thread, and only when something changed; nothing is captured per frame.</p>
+<p>The distance field is the costly part. It takes a few milliseconds for a card on the desktop: about 4 ms for a 340×190 card with extra padding at 2× scaling, 2.4 ms with an ordinary pad, and 13 ms for a 700×500 panel. In the browser without ahead-of-time compilation the card takes about 14 ms, and text about 2 ms. While the child keeps changing, the host reuses the last field and builds a new one once the changes settle.</p>
+<h2 id="limits">Limits</h2>
+<ul>
+<li><strong>Only the child itself is watched.</strong> Call <code>RefreshMask()</code> after changing something inside it.</li>
+<li><strong>Very large content gets a softer mask.</strong> A capture is limited to 4096 pixels on a side and 8 million pixels (4 million with a distance field). A larger child is captured at a lower scale.</li>
+<li><strong>A failed capture doesn't throw.</strong> If the child can't be captured (out of memory, a texture too large for the platform, a child that fails to render), the host logs a warning and the layers that need the mask draw nothing.</li>
+<li><strong>The transitions use their own capture.</strong> <a class="xref" href="../../api/Nova.Avalonia.FX.Reveal.html">Reveal</a>, <a class="xref" href="../../api/Nova.Avalonia.FX.Genie.html">Genie</a>, <a class="xref" href="../../api/Nova.Avalonia.FX.Shatter.html">Shatter</a>, <a class="xref" href="../../api/Nova.Avalonia.FX.Jelly.html">Jelly</a> and <a class="xref" href="../../api/Nova.Avalonia.FX.PagePeel.html">PagePeel</a> capture the content once, as it looks when they start, and hide the real element while they stand in for it. See <a href="one-shots-and-pointer.html#show-and-hide-transitions">One-shots and the pointer</a>.</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/concepts/content-masks.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

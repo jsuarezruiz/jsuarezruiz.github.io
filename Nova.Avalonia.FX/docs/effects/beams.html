@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Beams | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Beams | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="Shafts of light drifting slowly sideways, with light falling down them.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/beams.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="beams">Beams</h1>
+
+<p><code>Beams</code> paints shafts of light that drift slowly sideways over a dark background, with light falling down them: a quiet, cinematic backdrop for a hero section, a launch announcement or a dark landing page. The shafts can lean, and they're brightest at the top, where they come in. It's a fill: it paints the host's shape under the child. For light traveling along a path between two controls, see <a href="beam.html">Beam</a> instead.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/beams-light.png" alt="Beams on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/beams-dark.png" alt="Beams on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-beams">Add beams</h2>
+<p>Put the host around the panel, and leave the panel without a background so the beams show through it.</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;fx:FXHost CornerRadius=&quot;12&quot;&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:Beams Count=&quot;7&quot; Angle=&quot;12&quot; Glow=&quot;0.7&quot; /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Grid Height=&quot;240&quot;&gt;
+            &lt;StackPanel HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot; Spacing=&quot;2&quot;&gt;
+                &lt;TextBlock Text=&quot;Launch week&quot; Foreground=&quot;White&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;24&quot;
+                           HorizontalAlignment=&quot;Center&quot; /&gt;
+                &lt;TextBlock Text=&quot;Five days of new features&quot; Foreground=&quot;#AAB4D8&quot; FontSize=&quot;12&quot;
+                           HorizontalAlignment=&quot;Center&quot; /&gt;
+            &lt;/StackPanel&gt;
+        &lt;/Grid&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<h2 id="space-and-lean-the-shafts">Space and lean the shafts</h2>
+<p><code>Count</code> is how many shafts cross the shape (12 by default). They're spaced evenly, so the count holds at any size: on a wider shape the shafts sit farther apart. <code>Width</code> is a shaft's average width in DIPs. A shaft is never wider than about two thirds of the space between shafts, so packed shafts stay separate, nor wider than a ninth of the shape's height, so a short shape shows streaks rather than blobs.</p>
+<p><code>Angle</code> leans the shafts, in degrees from upright: positive turns them clockwise, tops to the right. <code>Glow</code> sets the soft light around each shaft (1 by default, 0 for none, up to 2), and <code>Color</code> the light's color.</p>
+<pre><code class="lang-xaml">&lt;fx:Beams Count=&quot;24&quot; Width=&quot;8&quot; Angle=&quot;-15&quot; Glow=&quot;1.4&quot; Color=&quot;#FDE68A&quot; /&gt;
+</code></pre>
+<p>Each shaft drifts around its place at its own pace. <code>Speed</code> multiplies the clock, the drift and the falling light. Fills run on one shared clock, so beams on different hosts, with the same settings, move in step.</p>
+<h2 id="put-the-beams-over-your-own-background">Put the beams over your own background</h2>
+<p><code>BackgroundColor</code> is the color behind the beams (#06070D by default); its alpha is how opaque it is. A transparent background lets what is under the host show, such as a gradient on a border around it:</p>
+<pre><code class="lang-xaml">&lt;Border CornerRadius=&quot;12&quot;&gt;
+    &lt;Border.Background&gt;
+        &lt;LinearGradientBrush StartPoint=&quot;0%,0%&quot; EndPoint=&quot;0%,100%&quot;&gt;
+            &lt;GradientStop Color=&quot;#1E1B4B&quot; Offset=&quot;0&quot; /&gt;
+            &lt;GradientStop Color=&quot;#020617&quot; Offset=&quot;1&quot; /&gt;
+        &lt;/LinearGradientBrush&gt;
+    &lt;/Border.Background&gt;
+    &lt;fx:FXHost CornerRadius=&quot;12&quot;&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:Beams BackgroundColor=&quot;Transparent&quot; Color=&quot;#A5B4FC&quot; /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Grid Height=&quot;240&quot; /&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/Border&gt;
+</code></pre>
+<p>The beams are added as light, so keep what is under them dark.</p>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Color</code></td>
+<td><code>Color</code></td>
+<td><code>#C8D2FF</code></td>
+<td>The color of the shafts and of the light falling down them.</td>
+</tr>
+<tr>
+<td><code>BackgroundColor</code></td>
+<td><code>Color</code></td>
+<td><code>#06070D</code></td>
+<td>Behind the beams; transparent lets what is under the host show.</td>
+</tr>
+<tr>
+<td><code>Count</code></td>
+<td><code>int</code></td>
+<td><code>12</code></td>
+<td>How many shafts cross the shape. Range 1–48.</td>
+</tr>
+<tr>
+<td><code>Width</code></td>
+<td><code>double</code></td>
+<td><code>14</code></td>
+<td>How wide a shaft is, on average; never wider than about two thirds of the space between shafts, or a ninth of the shape's height. Range 2–80 DIPs.</td>
+</tr>
+<tr>
+<td><code>Glow</code></td>
+<td><code>double</code></td>
+<td><code>1</code></td>
+<td>The soft light around each shaft, a multiple: 1 is the default, 0 none. Range 0–2.</td>
+</tr>
+<tr>
+<td><code>Angle</code></td>
+<td><code>double</code></td>
+<td><code>0</code></td>
+<td>How far the shafts lean from upright, degrees: 0 upright; positive turns them clockwise (tops to the right). Range -60 to 60.</td>
+</tr>
+<tr>
+<td><code>BorderWidth</code></td>
+<td><code>double</code></td>
+<td><code>0</code></td>
+<td>Width of a band inside the edge, DIPs. 0: the whole shape. Range 0–48.</td>
+</tr>
+<tr>
+<td><code>UseMask</code></td>
+<td><code>bool</code></td>
+<td><code>false</code></td>
+<td>Paints only the child's own pixels (text, icons, a logo) instead of the shape: gradient text, a liquid-metal logo, holographic icons. It then goes over the child unless <code>Placement</code> says otherwise. The host captures the child to know its pixels: call <code>RefreshMask</code> after changing something deep inside it.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>: <code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>. On a fill, <code>Intensity</code> is its coverage, up to 1, and <code>Seed</code> picks each shaft's width and pace.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>Light and dark surfaces:</strong> beams don't change with the surface. The default background is dark, so they look the same in both themes; with a transparent background, the shafts fade out over a light surface. See <a href="../concepts/light-and-dark.html#how-light-layers-draw-on-each-surface">Light and dark surfaces</a>.</li>
+<li><strong>Reduced motion:</strong> the shafts and their falling light hold one fixed pose. See <a href="../concepts/reduced-motion.html#the-poses">Reduced motion</a>.</li>
+<li><strong>Cost:</strong> about 0.11 ms of GPU time a frame on the benchmark's 340×190 card. Each pixel only looks at the five nearest shafts, so a higher <code>Count</code> doesn't cost more. The cost grows with the area. See <a href="../concepts/performance.html#what-a-layer-costs">Performance</a>.</li>
+<li><strong>Bands and masks:</strong> like every fill, it has <code>BorderWidth</code>, which paints only a band inside the edge, and <code>UseMask</code>, which paints only the child's own pixels, such as large text. See <a href="../concepts/content-masks.html#layers-that-follow-the-content">Content masks</a>.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.Beams.html">Beams</a> API reference</li>
+<li><a href="beam.html">Beam</a>, light traveling along a path between two controls</li>
+<li><a href="lightrays.html">Light rays</a>, shafts falling across the shape from a source outside it</li>
+<li><a href="starfield.html">Starfield</a> and <a href="retrogrid.html">Retro grid</a>, other backgrounds</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/beams.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

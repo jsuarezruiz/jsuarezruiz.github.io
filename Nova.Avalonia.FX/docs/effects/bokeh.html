@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Bokeh | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Bokeh | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="Soft out-of-focus lights drifting at three depths, with brighter rims like a real lens.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/bokeh.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="bokeh">Bokeh</h1>
+
+<p><code>Bokeh</code> paints soft, out-of-focus lights drifting at three depths over a background, the way a lens renders lights it isn't focused on: round discs with brighter rims, the nearest ones biggest and fastest. Use it behind an evening event, a music or nightlife screen, or a festive banner. It's a fill: it paints the host's shape under the child.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/bokeh-light.png" alt="Bokeh on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/bokeh-dark.png" alt="Bokeh on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-bokeh">Add bokeh</h2>
+<p>Put the host around the panel, and leave the panel without a background so the lights show through it.</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;fx:FXHost CornerRadius=&quot;16&quot;&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:Bokeh /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Grid Height=&quot;260&quot;&gt;
+            &lt;TextBlock Text=&quot;Tonight&quot; Foreground=&quot;White&quot; FontSize=&quot;30&quot; FontWeight=&quot;Bold&quot;
+                       HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot; /&gt;
+        &lt;/Grid&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<h2 id="presets">Presets</h2>
+<p>A preset picks the palette of the lights:</p>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>City</code> (default)</td>
+<td>Warm street lights with a few cool ones.</td>
+</tr>
+<tr>
+<td><code>Sunset</code></td>
+<td>Coral, orange, yellow and pink lights, with a touch of violet.</td>
+</tr>
+<tr>
+<td><code>Neon</code></td>
+<td>Aqua, blue, purple, pink and yellow lights, like neon signs.</td>
+</tr>
+</tbody>
+</table>
+
+<p><code>Colors</code> takes up to six colors of your own, and each light takes one of them at random. <code>BackgroundColor</code> is the color behind the lights.</p>
+<pre><code class="lang-xaml">&lt;fx:Bokeh Preset=&quot;Neon&quot; /&gt;
+
+&lt;fx:Bokeh Colors=&quot;#FDE68A, #F472B6, #60A5FA&quot; BackgroundColor=&quot;#111827&quot; /&gt;
+</code></pre>
+<h2 id="set-the-focus-and-the-drift">Set the focus and the drift</h2>
+<p><code>Size</code> is the radius of the nearest lights in DIPs; farther ones are smaller. <code>Focus</code> sets how sharp the discs' edges are, from 0 (very soft) to 1. <code>Density</code> sets how many lights there are. <code>Drift</code> multiplies how fast they drift, and <code>Twinkle</code> how much they brighten and dim, from 0 (steady) to 1. With both at 0 the lights hold still, and the layer asks for no frames.</p>
+<pre><code class="lang-xaml">&lt;fx:Bokeh Size=&quot;60&quot; Focus=&quot;0.7&quot; Density=&quot;0.6&quot; Drift=&quot;0.4&quot; Twinkle=&quot;0&quot; /&gt;
+</code></pre>
+<p>To change the pace while it runs, change <code>Speed</code> or <code>Drift</code>: neither makes the animation jump, and the lights carry on from where they are. Fills run on one shared clock, so bokeh on different hosts, with the same settings from the start, drifts in step.</p>
+<h2 id="float-the-lights-over-content">Float the lights over content</h2>
+<p>Set <code>BackgroundColor</code> to a transparent color to keep only the lights. Under the child, they then show wherever the child is see-through; with <code>Placement=&quot;Over&quot;</code>, they float over the content, such as a photo:</p>
+<pre><code class="lang-xaml">&lt;fx:FXHost CornerRadius=&quot;16&quot;&gt;
+    &lt;fx:FXHost.Layers&gt;
+        &lt;fx:Bokeh BackgroundColor=&quot;Transparent&quot; Placement=&quot;Over&quot; Density=&quot;0.5&quot; /&gt;
+    &lt;/fx:FXHost.Layers&gt;
+    &lt;Image Source=&quot;/Assets/city-night.jpg&quot; Width=&quot;360&quot; Height=&quot;240&quot; Stretch=&quot;UniformToFill&quot; /&gt;
+&lt;/fx:FXHost&gt;
+</code></pre>
+<p>The lights are added as light, so they show best over dark content.</p>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Preset</code></td>
+<td><code>BokehPreset</code></td>
+<td><code>City</code></td>
+<td>The palette of the lights, used while <code>Colors</code> is unset. Values: <code>City</code>, <code>Sunset</code>, <code>Neon</code>.</td>
+</tr>
+<tr>
+<td><code>Colors</code></td>
+<td><code>FXColorList</code></td>
+<td>Unset</td>
+<td>The colors (up to six). Unset: the preset's palette.</td>
+</tr>
+<tr>
+<td><code>BackgroundColor</code></td>
+<td><code>Color</code></td>
+<td><code>#0B0F1D</code></td>
+<td>The color behind the lights; transparent shows what is behind the host. To lay the lights over the content, also set <code>Placement</code> to <code>Over</code>.</td>
+</tr>
+<tr>
+<td><code>Density</code></td>
+<td><code>double</code></td>
+<td><code>1</code></td>
+<td>How many lights. Range 0.2–3.</td>
+</tr>
+<tr>
+<td><code>Size</code></td>
+<td><code>double</code></td>
+<td><code>34</code></td>
+<td>Radius of the nearest lights, DIPs; farther ones are smaller. Range 4–120.</td>
+</tr>
+<tr>
+<td><code>Focus</code></td>
+<td><code>double</code></td>
+<td><code>0.3</code></td>
+<td>How sharp the discs' edges are (0: very soft). Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>Drift</code></td>
+<td><code>double</code></td>
+<td><code>1</code></td>
+<td>How fast the lights drift down, a multiple; nearer lights move faster (0: still). Range 0–3.</td>
+</tr>
+<tr>
+<td><code>Twinkle</code></td>
+<td><code>double</code></td>
+<td><code>0.4</code></td>
+<td>How much each light slowly dims and brightens (0: steady). Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>BorderWidth</code></td>
+<td><code>double</code></td>
+<td><code>0</code></td>
+<td>Width of a band inside the edge, DIPs. 0: the whole shape. Range 0–48.</td>
+</tr>
+<tr>
+<td><code>UseMask</code></td>
+<td><code>bool</code></td>
+<td><code>false</code></td>
+<td>Paints only the child's own pixels (text, icons, a logo) instead of the shape: gradient text, a liquid-metal logo, holographic icons. It then goes over the child unless <code>Placement</code> says otherwise. The host captures the child to know its pixels: call <code>RefreshMask</code> after changing something deep inside it.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>: <code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>. On a fill, <code>Intensity</code> is its coverage, up to 1, and <code>Seed</code> picks where the lights are.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>Light and dark surfaces:</strong> bokeh doesn't change with the surface. Its default background is dark, so it looks the same in both themes; with a transparent background, the lights fade out over a light surface. See <a href="../concepts/light-and-dark.html#how-light-layers-draw-on-each-surface">Light and dark surfaces</a>.</li>
+<li><strong>Reduced motion:</strong> the lights hold one fixed pose. See <a href="../concepts/reduced-motion.html#the-poses">Reduced motion</a>.</li>
+<li><strong>Cost:</strong> 0.44 ms of GPU time a frame on the benchmark's 340×190 card, among the heavier backgrounds. The cost grows with the area; the discs are soft, so on a large panel <code>RenderScale=&quot;0.5&quot;</code> suits it. See <a href="../concepts/performance.html#what-a-layer-costs">Performance</a>.</li>
+<li><strong>Bands and masks:</strong> like every fill, it has <code>BorderWidth</code>, which paints only a band inside the edge, and <code>UseMask</code>, which paints only the child's own pixels, such as large text. See <a href="../concepts/content-masks.html#layers-that-follow-the-content">Content masks</a>.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.Bokeh.html">Bokeh</a> API reference</li>
+<li><a href="starfield.html">Starfield</a>, <a href="caustics.html">Caustics</a> and <a href="lightleaks.html">Light leaks</a></li>
+<li><a href="meshgradient.html">Mesh gradient</a>, another fill painted from a list of colors</li>
+<li><a href="../concepts/performance.html#render-scale">Render scale</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/bokeh.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

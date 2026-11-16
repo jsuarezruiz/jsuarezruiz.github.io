@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Glitch | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Glitch | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="Bands of the content tear sideways, colors split and rows flash: a burst on demand, or now and then on its own.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/glitch.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="glitch">Glitch</h1>
+
+<p><code>Glitch</code> breaks the content up like a failing digital signal: bands tear sideways, blocks jump, the color channels split, a few rows flash in the glitch colors and scanlines show, changing in steps about 20 times a second. Use a short burst for an error or a denied action, or let it glitch now and then on its own for a &quot;signal lost&quot; screen. It draws over the child and works on what is drawn there, and draws nothing between glitches.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/glitch-light.png" alt="Glitch on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/glitch-dark.png" alt="Glitch on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-a-glitch">Add a glitch</h2>
+<p>Wrap the content in a host. By default a press plays a short burst (<code>TriggerOnPress</code> is on):</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;fx:FXHost CornerRadius=&quot;12&quot;&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:Glitch /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Button Content=&quot;Delete account&quot; Padding=&quot;20,10&quot; /&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<h2 id="glitch-on-an-error">Glitch on an error</h2>
+<p>Turn presses off and call <code>Trigger()</code> when something fails. A burst covers the whole content, so it takes no point:</p>
+<pre><code class="lang-xaml">&lt;fx:Glitch x:Name=&quot;PasswordGlitch&quot; TriggerOnPress=&quot;False&quot; Duration=&quot;0.6&quot; /&gt;
+</code></pre>
+<pre><code class="lang-csharp">if (!await SignInAsync())
+    PasswordGlitch.Trigger();
+</code></pre>
+<h2 id="glitch-now-and-then">Glitch now and then</h2>
+<p>With <code>IsContinuous</code>, it glitches on its own, <code>Frequency</code> times a second on average. <code>Duration</code> and <code>TriggerOnPress</code> apply to bursts only:</p>
+<pre><code class="lang-xaml">&lt;fx:FXHost CornerRadius=&quot;12&quot;&gt;
+    &lt;fx:FXHost.Layers&gt;
+        &lt;fx:Glitch IsContinuous=&quot;True&quot; Frequency=&quot;0.8&quot; Displacement=&quot;18&quot; /&gt;
+    &lt;/fx:FXHost.Layers&gt;
+    &lt;Border Width=&quot;230&quot; Height=&quot;70&quot; CornerRadius=&quot;12&quot; Background=&quot;#0D0F14&quot;&gt;
+        &lt;TextBlock Text=&quot;SIGNAL LOST&quot; Foreground=&quot;White&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;20&quot;
+                   HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot; /&gt;
+    &lt;/Border&gt;
+&lt;/fx:FXHost&gt;
+</code></pre>
+<p><code>Displacement</code> is how far bands tear sideways, <code>Chroma</code> how far the channels split, <code>BlockSize</code> the height of the thinnest band, and <code>Color</code> and <code>SecondColor</code> the colors of the flashing rows.</p>
+<h2 id="methods">Methods</h2>
+<p>Call <code>Trigger</code> to play a burst without a press. See <a href="../concepts/one-shots-and-pointer.html#one-shots">One-shots</a>.</p>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Trigger()</code></td>
+<td>Plays a burst now (over the whole content, so it takes no point).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>IsContinuous</code></td>
+<td><code>bool</code></td>
+<td><code>false</code></td>
+<td>Glitches now and then on its own, <code>Frequency</code> times a second on average. Off (the default): only bursts.</td>
+</tr>
+<tr>
+<td><code>Displacement</code></td>
+<td><code>double</code></td>
+<td><code>16</code></td>
+<td>How far bands tear sideways at full strength, DIPs. Range 0–80.</td>
+</tr>
+<tr>
+<td><code>Chroma</code></td>
+<td><code>double</code></td>
+<td><code>3</code></td>
+<td>How far the color channels split, DIPs. Range 0–12.</td>
+</tr>
+<tr>
+<td><code>BlockSize</code></td>
+<td><code>double</code></td>
+<td><code>5</code></td>
+<td>Height of the thinnest torn band, DIPs. Range 1–40.</td>
+</tr>
+<tr>
+<td><code>Duration</code></td>
+<td><code>double</code></td>
+<td><code>0.45</code></td>
+<td>How long a burst lasts. Range 0.1–2 seconds. Applies when <code>IsContinuous</code> is <code>false</code>.</td>
+</tr>
+<tr>
+<td><code>Frequency</code></td>
+<td><code>double</code></td>
+<td><code>0.5</code></td>
+<td>Glitches a second, on average. Range 0.05–4 per second. Applies when <code>IsContinuous</code> is <code>true</code>.</td>
+</tr>
+<tr>
+<td><code>Color</code></td>
+<td><code>Color</code></td>
+<td><code>#FF2BD6</code></td>
+<td>One of the two colors thin rows flash in during a glitch.</td>
+</tr>
+<tr>
+<td><code>SecondColor</code></td>
+<td><code>Color</code></td>
+<td><code>#00E5FF</code></td>
+<td>The other color thin rows flash in; each row takes one of the two.</td>
+</tr>
+<tr>
+<td><code>TriggerOnPress</code></td>
+<td><code>bool</code></td>
+<td><code>true</code></td>
+<td>Bursts when the host is pressed. Applies when <code>IsContinuous</code> is <code>false</code>.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>: <code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>It tears what is drawn before it.</strong> It copies what is under it just before it draws (see <a href="../concepts/layers.html#layers-that-read-the-backdrop">Layers that read the backdrop</a>): the child, and whatever shows through it. Inside an offscreen layer (an ancestor with <code>Opacity</code> below 1, an effect, or a clip that needs a layer) the copy can't see that ancestor's content, so keep such ancestors opaque.</li>
+<li><strong>It draws past the sides.</strong> Bands tear sideways past the left and right edges, by up to one and a half times <code>Displacement</code> plus <code>Chroma</code>. A clipping ancestor cuts them: leave room at the sides.</li>
+<li><strong>A press must land on the host's child.</strong> A child with no background in empty areas doesn't take presses: give it a <code>Background</code>, even <code>Transparent</code>.</li>
+<li><strong>Light and dark surfaces:</strong> it draws the same on both.</li>
+<li><strong>Reduced motion:</strong> a burst is a short, mild color split, and a continuous glitch stays still.</li>
+<li><strong>Cost:</strong> about 0.11 ms of GPU time a frame on the benchmark card while it glitches, and nothing between glitches. See <a href="../concepts/performance.html#what-a-layer-costs">Performance</a>.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.Glitch.html">Glitch</a> API reference</li>
+<li><a href="chromasplit.html">Chroma split</a>, for a steady color split</li>
+<li><a href="crt.html">CRT</a>, <a href="shockwave.html">Shockwave</a> and <a href="jelly.html">Jelly</a></li>
+<li><a href="../concepts/one-shots-and-pointer.html#one-shots">One-shots</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/glitch.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

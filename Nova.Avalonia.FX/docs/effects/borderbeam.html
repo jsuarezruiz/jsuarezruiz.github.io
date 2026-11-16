@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Border beam | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Border beam | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="Streaks of light running around the border, from a bright head to the tail color.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/borderbeam.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="border-beam">Border beam</h1>
+
+<p>Border beam sends streaks of light running around the host's border, each fading from a bright head to its tail color, with a soft glow on either side. Use it on a chat input, a &quot;new&quot; badge, or a card that is working on something. The streaks run along the edge of the shape, following its corner radius, and draw over the child.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/borderbeam-light.png" alt="Border beam on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/borderbeam-dark.png" alt="Border beam on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-a-border-beam">Add a border beam</h2>
+<p><code>Color</code> is the bright head and <code>TailColor</code> the end of the streak. <code>Period</code> is the time for one lap, in seconds, and <code>Length</code> the length of each streak along the border.</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;fx:FXHost CornerRadius=&quot;22&quot;&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:BorderBeam Period=&quot;5&quot; Length=&quot;110&quot; /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;TextBox PlaceholderText=&quot;Ask anything…&quot; Width=&quot;260&quot; Height=&quot;44&quot; CornerRadius=&quot;22&quot;
+                 Padding=&quot;18,0&quot; VerticalContentAlignment=&quot;Center&quot; BorderThickness=&quot;0&quot; /&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<h2 id="run-several-streaks">Run several streaks</h2>
+<p><code>Count</code> spreads up to four streaks evenly around the border. <code>IsReversed</code> runs them the other way around, and <code>Offset</code> sets where the first one starts, as a share of a lap.</p>
+<pre><code class="lang-xaml">&lt;fx:BorderBeam Count=&quot;2&quot; IsReversed=&quot;True&quot; Color=&quot;#22D3EE&quot; TailColor=&quot;#7C5CFF&quot; Length=&quot;80&quot; /&gt;
+</code></pre>
+<p><code>Width</code> is the thickness of the stroke. <code>Glow</code> scales the soft light on either side of it (0 for none) and <code>GlowRadius</code> sets how far that light spreads.</p>
+<h2 id="show-it-while-working">Show it while working</h2>
+<p>Bind <code>IsActive</code> to show the beam only while something is in progress. Switched off, the layer draws nothing and costs nothing.</p>
+<pre><code class="lang-xaml">&lt;fx:FXHost CornerRadius=&quot;16&quot;&gt;
+    &lt;fx:FXHost.Layers&gt;
+        &lt;fx:BorderBeam IsActive=&quot;{Binding IsGenerating}&quot; Period=&quot;3&quot; /&gt;
+    &lt;/fx:FXHost.Layers&gt;
+    &lt;Border Width=&quot;280&quot; Height=&quot;140&quot; CornerRadius=&quot;16&quot; Background=&quot;#15171C&quot; /&gt;
+&lt;/fx:FXHost&gt;
+</code></pre>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Color</code></td>
+<td><code>Color</code></td>
+<td><code>#FFAA40</code></td>
+<td>The color at a streak's bright head.</td>
+</tr>
+<tr>
+<td><code>TailColor</code></td>
+<td><code>Color</code></td>
+<td><code>#9C40FF</code></td>
+<td>The color a streak fades to at its tail.</td>
+</tr>
+<tr>
+<td><code>Length</code></td>
+<td><code>double</code></td>
+<td><code>120</code></td>
+<td>Length of each streak along the border. Range 8–1000 DIPs.</td>
+</tr>
+<tr>
+<td><code>Period</code></td>
+<td><code>double</code></td>
+<td><code>6</code></td>
+<td>Seconds for one lap. Range 0.5–30.</td>
+</tr>
+<tr>
+<td><code>Width</code></td>
+<td><code>double</code></td>
+<td><code>1.5</code></td>
+<td>Thickness of a streak's line, in DIPs. Range 0.5–8.</td>
+</tr>
+<tr>
+<td><code>Glow</code></td>
+<td><code>double</code></td>
+<td><code>0.6</code></td>
+<td>The soft light either side of a streak, a multiple: 1 is full, 0 none. Range 0–2.</td>
+</tr>
+<tr>
+<td><code>GlowRadius</code></td>
+<td><code>double</code></td>
+<td><code>6</code></td>
+<td>How far the glow spreads either side of a streak, in DIPs. Range 1–30.</td>
+</tr>
+<tr>
+<td><code>Count</code></td>
+<td><code>int</code></td>
+<td><code>1</code></td>
+<td>Streaks, evenly spaced around the border. Range 1–4.</td>
+</tr>
+<tr>
+<td><code>IsReversed</code></td>
+<td><code>bool</code></td>
+<td><code>false</code></td>
+<td>Runs the other way around.</td>
+</tr>
+<tr>
+<td><code>Offset</code></td>
+<td><code>double</code></td>
+<td><code>0</code></td>
+<td>Where the first streak starts, as a share of a lap. Range 0–1 (0–100%).</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>:
+<code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>. On a border beam, <code>Intensity</code> dims the layer and <code>Seed</code> doesn't apply.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>Light and dark surfaces.</strong> On a dark surface the streaks add light. On a light surface they draw as tinted haze, and the glow stays mostly inside the shape, so it doesn't smudge the surface around it. See <a href="../concepts/light-and-dark.html#how-light-layers-draw-on-each-surface">Light and dark surfaces</a>.</li>
+<li><strong>Reduced motion.</strong> The streaks hold still. See <a href="../concepts/reduced-motion.html#the-poses">Reduced motion</a>.</li>
+<li><strong>Cost.</strong> About 0.03 ms of GPU time a frame on the bench's 340×190 card. It shades only a ring around the border, not the interior. See <a href="../concepts/performance.html#what-a-layer-costs">Performance</a>.</li>
+<li><strong>Room around the host.</strong> The glow spreads a little past the edge, about 2.5 × <code>GlowRadius</code>. A clipping ancestor cuts it off: leave a few DIPs of room around the host.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.BorderBeam.html">BorderBeam</a> API reference</li>
+<li><a href="glow.html">Glow</a>, whose <code>Aura</code> style flows colors around the whole border</li>
+<li><a href="electric.html">Electric</a>, lightning crawling around the border</li>
+<li><a href="beam.html">Beam</a>, light traveling between two controls</li>
+<li><a href="../concepts/layers.html">Layers and hosts</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/borderbeam.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

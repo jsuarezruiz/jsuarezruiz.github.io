@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Progressive blur | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Progressive blur | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="What is behind the host goes from sharp to fully blurred toward one edge, like a header over a scrolling list.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/progressiveblur.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="progressive-blur">Progressive blur</h1>
+
+<p><code>ProgressiveBlur</code> blurs what is behind the host more and more toward one edge, from sharp to fully blurred, so content fades into a bar instead of meeting a hard line. Use it for a header or a tab bar over a scrolling list, or a caption over a photo. Every point sees a real blur, not a mix of sharp and blurred, and <code>Tint</code> fades toward the bar's own surface. It draws under the child and shows what is drawn behind the host, so it needs content behind it.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/progressiveblur-light.png" alt="Progressive blur on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/progressiveblur-dark.png" alt="Progressive blur on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-a-progressive-blur">Add a progressive blur</h2>
+<p>Lay a header over a scrolling list: the list first, then the host on top of it in the same <code>Grid</code>. The header's child has no background, so the blurred list shows through it:</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;Grid&gt;
+        &lt;ScrollViewer&gt;
+            &lt;ItemsControl ItemsSource=&quot;{Binding Messages}&quot; Margin=&quot;0,70,0,0&quot; /&gt;
+        &lt;/ScrollViewer&gt;
+        &lt;fx:FXHost VerticalAlignment=&quot;Top&quot;&gt;
+            &lt;fx:FXHost.Layers&gt;
+                &lt;fx:ProgressiveBlur Blur=&quot;14&quot; Tint=&quot;#99FFFFFF&quot; /&gt;
+            &lt;/fx:FXHost.Layers&gt;
+            &lt;Border Height=&quot;70&quot;&gt;
+                &lt;TextBlock Text=&quot;Inbox&quot; FontSize=&quot;18&quot; FontWeight=&quot;Bold&quot; Margin=&quot;16,12,0,0&quot; /&gt;
+            &lt;/Border&gt;
+        &lt;/fx:FXHost&gt;
+    &lt;/Grid&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<p>The top margin on the list lets its first item start below the bar; as it scrolls, items slide under it.</p>
+<h2 id="give-it-something-to-blur">Give it something to blur</h2>
+<p>The layer copies the region of the window behind the host just before it draws (see <a href="../concepts/layers.html#layers-that-read-the-backdrop">Layers that read the backdrop</a>). So:</p>
+<ul>
+<li><strong>The content goes first.</strong> Only what is drawn before the host is blurred: put the list before the host in the <code>Grid</code>, or give the host a higher <code>ZIndex</code>. Controls drawn after the host sit in front of the bar.</li>
+<li><strong>Keep the child see-through.</strong> The blur draws under the child, so a <code>Background</code> on the child hides it. The bar's title and buttons stay sharp on top.</li>
+<li><strong>Keep ancestors opaque.</strong> Inside an offscreen layer (an ancestor with <code>Opacity</code> below 1, an effect, or a clip that needs a layer) the copy can't see that ancestor's content.</li>
+</ul>
+<h2 id="choose-the-edge-and-the-ramp">Choose the edge and the ramp</h2>
+<p><code>Edge</code> is where the blur is strongest: <code>Top</code> (the default) for a header, <code>Bottom</code> for a tab bar, <code>Left</code> or <code>Right</code> for a side panel. <code>Ramp</code> is how much of the shape the ramp covers from that edge, and <code>Blur</code> the blur at the edge:</p>
+<pre><code class="lang-xaml">&lt;fx:ProgressiveBlur Edge=&quot;Bottom&quot; Ramp=&quot;0.6&quot; Blur=&quot;24&quot; /&gt;
+</code></pre>
+<h2 id="tint-it-per-theme">Tint it per theme</h2>
+<p><code>Tint</code> is the color the blur fades toward at the strong edge, and its alpha is how much: the bar's own surface. Give it a value per theme, as the gallery does with <code>#99FFFFFF</code> on light and <code>#991B1D22</code> on dark:</p>
+<pre><code class="lang-xaml">&lt;fx:ProgressiveBlur Tint=&quot;{DynamicResource HeaderTintColor}&quot; /&gt;
+</code></pre>
+<p>See <a href="../concepts/light-and-dark.html">Light and dark surfaces</a> for theme resources.</p>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Blur</code></td>
+<td><code>double</code></td>
+<td><code>16</code></td>
+<td>Blur at the strongest edge, DIPs. Range 1–64.</td>
+</tr>
+<tr>
+<td><code>Edge</code></td>
+<td><code>FXEdge</code></td>
+<td><code>Top</code></td>
+<td>The edge where the blur is strongest. Values: <code>Top</code>, <code>Bottom</code>, <code>Left</code>, <code>Right</code>.</td>
+</tr>
+<tr>
+<td><code>Ramp</code></td>
+<td><code>double</code></td>
+<td><code>1</code></td>
+<td>How much of the shape the ramp covers, from the strong edge. Range 0.05–1 (5–100%).</td>
+</tr>
+<tr>
+<td><code>Tint</code></td>
+<td><code>Color</code></td>
+<td><code>#00FFFFFF</code></td>
+<td>A color the blur fades toward at the strong edge; its alpha is how much (a bar's surface).</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>: <code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>. The blur is still, so <code>Speed</code> and <code>Seed</code> don't apply.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>Light and dark surfaces:</strong> it draws the same on both; only the <code>Tint</code> should change.</li>
+<li><strong>Reduced motion:</strong> the blur has no motion of its own, so nothing changes.</li>
+<li><strong>Cost:</strong> about 1.0 ms of GPU time a frame on the benchmark card, the most of any layer, for its five copies of what is behind it (sharp, then blurred by an eighth, a quarter, a half and all of <code>Blur</code>). It doesn't animate, so it only redraws when what is behind it changes, such as while the list scrolls. See <a href="../concepts/performance.html#what-a-layer-costs">Performance</a>.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.ProgressiveBlur.html">ProgressiveBlur</a> API reference</li>
+<li><a href="glass.html">Glass</a> with <code>Frost</code>, for an evenly frosted pane</li>
+<li><a href="frost.html">Frost</a> and <a href="colorfilter.html">Color filter</a></li>
+<li><a href="../concepts/layers.html#layers-that-read-the-backdrop">Layers that read the backdrop</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/progressiveblur.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

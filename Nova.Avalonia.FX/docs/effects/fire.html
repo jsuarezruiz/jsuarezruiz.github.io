@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Fire | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Fire | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="Flames off the top edge with embers, warm heat for UI, plasma hugging the border, or simulated fire and smoke.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/fire.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="fire">Fire</h1>
+
+<p>Fire sets the top edge of the host's shape alight: turbulent tongues that curl, narrow and tear, a white-yellow base fading to red tips, and embers flung up to drift and cool. Use it for a trending item, a streak, a hot deal or a game-like moment. <code>Heat</code> is a low, warm version for buttons, <code>Plasma</code> a thin band of energy around the border, and <code>Simulated</code> and <code>Smoke</code> run a small fluid simulation for fire and smoke that rise, curl and drift with the wind. The flames draw under the child and rise above it.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/fire-light.png" alt="Fire on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/fire-dark.png" alt="Fire on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-flames">Add flames</h2>
+<p>The default style, <code>Top</code>, sends flames up from the top edge. <code>Height</code> sets how tall they are and <code>Embers</code> how many embers fly. Leave room above the host for the flames.</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;fx:FXHost Margin=&quot;0,90,0,0&quot;&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:Fire Height=&quot;44&quot; Embers=&quot;10&quot; /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Border Width=&quot;140&quot; Height=&quot;58&quot; CornerRadius=&quot;12&quot; Background=&quot;#1C1917&quot; Padding=&quot;12,0&quot;&gt;
+            &lt;TextBlock Text=&quot;Trending&quot; Foreground=&quot;White&quot; FontWeight=&quot;SemiBold&quot; VerticalAlignment=&quot;Center&quot; /&gt;
+        &lt;/Border&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<p><code>LowColor</code>, <code>MidColor</code> and <code>HotColor</code> are the temperature ramp, from the tips to the base. <code>Scale</code> sets the size of the turbulence, <code>FlowSpeed</code> how fast it rises and <code>Warp</code> how much it curls.</p>
+<h2 id="styles">Styles</h2>
+<p>Each style sets its own colors, height, turbulence, embers and intensity at template priority. Set any of them yourself to override it.</p>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Top</code> (default)</td>
+<td>Flames rising off the top edge, with embers.</td>
+</tr>
+<tr>
+<td><code>Heat</code></td>
+<td>Low, warm tongues for UI: a hot button or a streak.</td>
+</tr>
+<tr>
+<td><code>Plasma</code></td>
+<td>Contained energy hugging the border: a thin, breathing band of violet and ice-blue filaments flowing around it.</td>
+</tr>
+<tr>
+<td><code>Embers</code></td>
+<td>Embers alone, rising off the top edge.</td>
+</tr>
+<tr>
+<td><code>Simulated</code></td>
+<td>A small fluid simulation over the top edge: flames that rise, curl and tear into smoke. It carries momentum, so gusts and changes play out over time.</td>
+</tr>
+<tr>
+<td><code>Smoke</code></td>
+<td>Simulated gray smoke that rises, curls and spreads, without flames.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="warm-a-button">Warm a button</h2>
+<p><code>Heat</code> is low and warm, with few embers: enough to mark a button without covering what is around it.</p>
+<pre><code class="lang-xaml">&lt;fx:FXHost CornerRadius=&quot;999&quot;&gt;
+    &lt;fx:FXHost.Layers&gt;
+        &lt;fx:Fire Style=&quot;Heat&quot; /&gt;
+    &lt;/fx:FXHost.Layers&gt;
+    &lt;Border Width=&quot;104&quot; Height=&quot;36&quot; CornerRadius=&quot;18&quot; Background=&quot;#FF5A14&quot;&gt;
+        &lt;TextBlock Text=&quot;Hot deal&quot; Foreground=&quot;White&quot; FontWeight=&quot;SemiBold&quot;
+                   HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot; /&gt;
+    &lt;/Border&gt;
+&lt;/fx:FXHost&gt;
+</code></pre>
+<h2 id="simulated-fire-and-smoke">Simulated fire and smoke</h2>
+<p><code>Simulated</code> steps a small fluid grid above the top edge, so the flames carry momentum: a gust or a change plays out over time. <code>Height</code> is the height of the space the fire and smoke fill, <code>Wind</code> pushes them sideways (positive to the right), <code>Buoyancy</code> sets how strongly heat rises and <code>Swirl</code> how much the flow curls. <code>Intensity</code> is how much heat is fed in. <code>Smoke</code> is the same simulation with gray smoke and no flames.</p>
+<pre><code class="lang-xaml">&lt;fx:FXHost Margin=&quot;0,130,0,0&quot;&gt;
+    &lt;fx:FXHost.Layers&gt;
+        &lt;fx:Fire Style=&quot;Simulated&quot; Height=&quot;120&quot; Wind=&quot;0.4&quot; /&gt;
+    &lt;/fx:FXHost.Layers&gt;
+    &lt;Border Width=&quot;200&quot; Height=&quot;40&quot; CornerRadius=&quot;8&quot; Background=&quot;#1C1917&quot; /&gt;
+&lt;/fx:FXHost&gt;
+</code></pre>
+<p><code>CellSize</code> is the simulation's cell: smaller is finer and costs more.</p>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Style</code></td>
+<td><code>FireStyle</code></td>
+<td><code>Top</code></td>
+<td>What burns: flames off the top edge, low heat for UI, plasma around the border, embers alone, or simulated fire or smoke. Choosing a style resets the other settings to its defaults (local values win). Values: <code>Top</code>, <code>Heat</code>, <code>Plasma</code>, <code>Embers</code>, <code>Simulated</code>, <code>Smoke</code>.</td>
+</tr>
+<tr>
+<td><code>LowColor</code></td>
+<td><code>Color</code></td>
+<td><code>#8A1405</code></td>
+<td>The ramp's low end: the cool tips of the flames (deep red by default); in plasma, the glow around the band (violet by default). Applies to the <code>Top</code>, <code>Heat</code>, <code>Plasma</code>, and <code>Simulated</code> styles.</td>
+</tr>
+<tr>
+<td><code>MidColor</code></td>
+<td><code>Color</code></td>
+<td><code>#FF5A14</code></td>
+<td>The ramp's middle: the body of the flames, or of the plasma band. Applies to the <code>Top</code>, <code>Heat</code>, <code>Plasma</code>, and <code>Simulated</code> styles.</td>
+</tr>
+<tr>
+<td><code>HotColor</code></td>
+<td><code>Color</code></td>
+<td><code>#FFC65A</code></td>
+<td>The ramp's hot end: the bright base of the flames, or the plasma's filaments. Applies to the <code>Top</code>, <code>Heat</code>, <code>Plasma</code>, and <code>Simulated</code> styles.</td>
+</tr>
+<tr>
+<td><code>Height</code></td>
+<td><code>double</code></td>
+<td><code>54</code></td>
+<td>Flame height; for plasma, sets the band's thickness with <code>Sides</code>; simulated, the height of the space above the shape the fire and smoke fill. Range 4–400 DIPs.</td>
+</tr>
+<tr>
+<td><code>Scale</code></td>
+<td><code>double</code></td>
+<td><code>20</code></td>
+<td>Size of the turbulence. Range 4–80 DIPs. Applies to the <code>Top</code>, <code>Heat</code>, and <code>Plasma</code> styles.</td>
+</tr>
+<tr>
+<td><code>FlowSpeed</code></td>
+<td><code>double</code></td>
+<td><code>1.5</code></td>
+<td>How fast the turbulence rises, in scales per second. Range 0–5. Applies to the <code>Top</code>, <code>Heat</code>, and <code>Plasma</code> styles.</td>
+</tr>
+<tr>
+<td><code>Embers</code></td>
+<td><code>int</code></td>
+<td><code>16</code></td>
+<td>How many embers are in the air at once (0: none). Range 0–40. Applies to the <code>Top</code>, <code>Heat</code>, and <code>Embers</code> styles.</td>
+</tr>
+<tr>
+<td><code>EmberRise</code></td>
+<td><code>double</code></td>
+<td><code>58</code></td>
+<td>How fast embers are flung up, DIPs a second; drag slows them to about a third of it. Range 0–200 DIPs per second. Applies to the <code>Top</code>, <code>Heat</code>, and <code>Embers</code> styles.</td>
+</tr>
+<tr>
+<td><code>EmberSize</code></td>
+<td><code>double</code></td>
+<td><code>0.8</code></td>
+<td>Size of an ember, in DIPs. Range 0.2–3. Applies to the <code>Top</code>, <code>Heat</code>, and <code>Embers</code> styles.</td>
+</tr>
+<tr>
+<td><code>EmberLife</code></td>
+<td><code>double</code></td>
+<td><code>1.5</code></td>
+<td>How long an ember glows, in seconds, on average; each lives 0.6 to 1.4 times this. Range 0.2–4. Applies to the <code>Top</code>, <code>Heat</code>, and <code>Embers</code> styles.</td>
+</tr>
+<tr>
+<td><code>Warp</code></td>
+<td><code>double</code></td>
+<td><code>1</code></td>
+<td>How much the turbulence curls the tongues. Range 0–3. Applies to the <code>Top</code> and <code>Heat</code> styles.</td>
+</tr>
+<tr>
+<td><code>Sides</code></td>
+<td><code>double</code></td>
+<td><code>0.32</code></td>
+<td>Plasma: the band's thickness, as a share of the height. Range 0–1 (0–100%). Applies to the <code>Plasma</code> style.</td>
+</tr>
+<tr>
+<td><code>BaseGlow</code></td>
+<td><code>double</code></td>
+<td><code>0.5</code></td>
+<td>The fire's light on the edge it sits on. Range 0–2. Applies to the <code>Top</code> and <code>Heat</code> styles.</td>
+</tr>
+<tr>
+<td><code>Occlusion</code></td>
+<td><code>double</code></td>
+<td><code>0.25</code></td>
+<td>How much the flames cover what is behind them. Range 0–1 (0–100%). Applies to the <code>Top</code>, <code>Heat</code>, and <code>Plasma</code> styles.</td>
+</tr>
+<tr>
+<td><code>Swirl</code></td>
+<td><code>double</code></td>
+<td><code>0</code></td>
+<td>A slow sideways swirl in the flames; faster flow in plasma; simulated, how much the flow curls. Range 0–3. Applies to the <code>Top</code>, <code>Heat</code>, <code>Plasma</code>, <code>Simulated</code>, and <code>Smoke</code> styles.</td>
+</tr>
+<tr>
+<td><code>SmokeColor</code></td>
+<td><code>Color</code></td>
+<td><code>#4A4A52</code></td>
+<td>The smoke's color. Applies to the <code>Simulated</code> and <code>Smoke</code> styles.</td>
+</tr>
+<tr>
+<td><code>CellSize</code></td>
+<td><code>double</code></td>
+<td><code>4</code></td>
+<td>Simulation cell size: smaller is finer and costs more. Range 2–12 DIPs. Applies to the <code>Simulated</code> and <code>Smoke</code> styles.</td>
+</tr>
+<tr>
+<td><code>SmokeAmount</code></td>
+<td><code>double</code></td>
+<td><code>0.6</code></td>
+<td>How much smoke the fire gives off. Range 0–2. Applies to the <code>Simulated</code> and <code>Smoke</code> styles.</td>
+</tr>
+<tr>
+<td><code>SmokeOpacity</code></td>
+<td><code>double</code></td>
+<td><code>0.55</code></td>
+<td>How dense the smoke looks. Range 0–1 (0–100%). Applies to the <code>Simulated</code> and <code>Smoke</code> styles.</td>
+</tr>
+<tr>
+<td><code>Buoyancy</code></td>
+<td><code>double</code></td>
+<td><code>1</code></td>
+<td>How strongly heat rises. Range 0–3. Applies to the <code>Simulated</code> and <code>Smoke</code> styles.</td>
+</tr>
+<tr>
+<td><code>Wind</code></td>
+<td><code>double</code></td>
+<td><code>0</code></td>
+<td>Sideways wind (positive: to the right). Range -2 to 2. Applies to the <code>Simulated</code> and <code>Smoke</code> styles.</td>
+</tr>
+<tr>
+<td><code>Cooling</code></td>
+<td><code>double</code></td>
+<td><code>1</code></td>
+<td>How fast heat cools into smoke. Range 0.2–3. Applies to the <code>Simulated</code> style.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>:
+<code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>. On fire, <code>Intensity</code> is the strength of the flames, up to 3.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>Light and dark surfaces.</strong> Fire reads best on dark UI. On a dark surface the flames add light. On a light surface the simulated flames draw as color over the smoke, and the procedural smoke veil and dim tips stay fainter. See <a href="../concepts/light-and-dark.html#how-light-layers-draw-on-each-surface">Light and dark surfaces</a>.</li>
+<li><strong>Reduced motion.</strong> The flames hold one pose and the embers stop; the simulated styles hold their current state. See <a href="../concepts/reduced-motion.html#the-poses">Reduced motion</a>.</li>
+<li><strong>Cost.</strong> Procedural flames take about 0.23 ms of GPU time a frame on the bench's 340×190 card, among the heavier layers; they only shade the area above the shape. The simulated styles take about 0.07 ms of GPU time plus the simulation step on the render thread, about 0.4 ms. In the browser the simulated fire takes 0.4–0.45 ms a frame plus 1.4–1.5 ms for its steps when interpreted, and 0.18–0.4 plus 0.35–0.8 ms when compiled ahead of time. See <a href="../concepts/performance.html#what-a-layer-costs">Performance</a>.</li>
+<li><strong>Room around the host.</strong> The flames and embers rise above the top edge, and the simulated box reaches <code>Height</code> above it and a little past the sides. A clipping ancestor, such as a <code>ScrollViewer</code>, cuts them off: leave room above the host.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.Fire.html">Fire</a> API reference</li>
+<li><a href="electric.html">Electric</a>, lightning around the border</li>
+<li><a href="glow.html">Glow</a>, a steady light around the shape</li>
+<li><a href="heathaze.html">Heat haze</a>, rising hot air to pair with flames</li>
+<li><a href="../concepts/performance.html#what-a-layer-costs">Performance</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/fire.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

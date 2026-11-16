@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Retro grid | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Retro grid | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="A synthwave floor of glowing lines running to a horizon, under a gradient sky and a striped sun.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/retrogrid.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="retro-grid">Retro grid</h1>
+
+<p><code>RetroGrid</code> paints a synthwave scene: a floor of glowing grid lines running toward a horizon, a gradient sky above it and a striped sun sitting on the horizon. Use it as the background of a hero section, a splash screen or a game menu. It's a fill, so it paints the host's shape under the child and your content sits on top of it.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/retrogrid-light.png" alt="Retro grid on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/retrogrid-dark.png" alt="Retro grid on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-a-retro-grid">Add a retro grid</h2>
+<p>Put the host around the panel, and leave the panel without a background so the scene shows through it. The host's <code>CornerRadius</code> rounds the scene's corners.</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;fx:FXHost CornerRadius=&quot;16&quot;&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:RetroGrid /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Grid Height=&quot;320&quot;&gt;
+            &lt;TextBlock Text=&quot;NIGHT DRIVE&quot; Foreground=&quot;White&quot; FontSize=&quot;40&quot; FontWeight=&quot;Black&quot;
+                       HorizontalAlignment=&quot;Center&quot; Margin=&quot;0,40,0,0&quot; /&gt;
+        &lt;/Grid&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<p>The scene follows the panel's size: the horizon sits at a share of its height, and the sun's radius is a share of its shorter side. <code>CellSize</code> is the size of a grid cell at the front (bottom) edge, in DIPs.</p>
+<h2 id="move-the-horizon-and-the-sun">Move the horizon and the sun</h2>
+<p><code>Horizon</code> is where the horizon sits, as a share of the height from the top (0.55 by default). Lower values give more floor. <code>SunSize</code> sets the sun's radius as a share of the shape's shorter side, and <code>ShowSun=&quot;False&quot;</code> leaves the sky empty. The sun shades from <code>SunColor</code> at the top to <code>SunEdgeColor</code> at the bottom.</p>
+<pre><code class="lang-xaml">&lt;fx:RetroGrid Horizon=&quot;0.4&quot; SunSize=&quot;0.2&quot; SunColor=&quot;#7DF9FF&quot; SunEdgeColor=&quot;#3A86FF&quot; /&gt;
+
+&lt;fx:RetroGrid ShowSun=&quot;False&quot; CellSize=&quot;24&quot; /&gt;
+</code></pre>
+<h2 id="change-the-colors">Change the colors</h2>
+<p><code>SkyColor</code> is the top of the sky and <code>HorizonColor</code> the sky at the horizon, which also tints the haze along it. <code>FloorColor</code> fills the floor between the lines, and <code>LineColor</code> colors the lines. <code>Glow</code> sets the glow around the lines and the sun (1 by default, 0 for none, up to 2), <code>LineWidth</code> the lines' width in DIPs, and <code>Fog</code> how far below the horizon the lines fade into the haze.</p>
+<pre><code class="lang-xaml">&lt;fx:RetroGrid SkyColor=&quot;#020617&quot; HorizonColor=&quot;#0EA5E9&quot; FloorColor=&quot;#020617&quot;
+              LineColor=&quot;#38BDF8&quot; SunColor=&quot;#E0F2FE&quot; SunEdgeColor=&quot;#0284C7&quot;
+              Glow=&quot;0.6&quot; Fog=&quot;0.8&quot; /&gt;
+</code></pre>
+<h2 id="set-the-pace">Set the pace</h2>
+<p><code>FlowSpeed</code> is how many rows run toward the viewer each second (0.6 by default). At 0 the whole scene stands still and asks for no frames. <code>Speed</code>, which every layer has, multiplies the clock of the whole scene, the sun's drifting stripes included.</p>
+<p>To speed the floor up or slow it down while it runs, change <code>Speed</code> or <code>FlowSpeed</code>: neither makes the animation jump.</p>
+<pre><code class="lang-xaml">&lt;fx:RetroGrid FlowSpeed=&quot;1.5&quot; /&gt;
+&lt;fx:RetroGrid Speed=&quot;0.5&quot; /&gt;
+</code></pre>
+<p>Fills run on one shared clock, so retro grids on different hosts, with the same settings, move their floors in step, whenever each host was created.</p>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SkyColor</code></td>
+<td><code>Color</code></td>
+<td><code>#0D0221</code></td>
+<td>The sky's color at the top; it shades to <code>HorizonColor</code> toward the horizon.</td>
+</tr>
+<tr>
+<td><code>HorizonColor</code></td>
+<td><code>Color</code></td>
+<td><code>#FF2E88</code></td>
+<td>The sky's color at the horizon, and the glow along the horizon.</td>
+</tr>
+<tr>
+<td><code>FloorColor</code></td>
+<td><code>Color</code></td>
+<td><code>#0D0221</code></td>
+<td>The floor's color under the grid lines.</td>
+</tr>
+<tr>
+<td><code>LineColor</code></td>
+<td><code>Color</code></td>
+<td><code>#FF3CD6</code></td>
+<td>The grid lines' color.</td>
+</tr>
+<tr>
+<td><code>SunColor</code></td>
+<td><code>Color</code></td>
+<td><code>#FFD319</code></td>
+<td>The sun's color at its top.</td>
+</tr>
+<tr>
+<td><code>SunEdgeColor</code></td>
+<td><code>Color</code></td>
+<td><code>#FF2975</code></td>
+<td>The sun's color at its bottom: it shades from <code>SunColor</code> at the top to this.</td>
+</tr>
+<tr>
+<td><code>Horizon</code></td>
+<td><code>double</code></td>
+<td><code>0.55</code></td>
+<td>Where the horizon sits, as a share of the height from the top. Range 0.1–0.9 (10–90%).</td>
+</tr>
+<tr>
+<td><code>CellSize</code></td>
+<td><code>double</code></td>
+<td><code>36</code></td>
+<td>Size of a grid cell at the front edge. Range 8–200 DIPs.</td>
+</tr>
+<tr>
+<td><code>FlowSpeed</code></td>
+<td><code>double</code></td>
+<td><code>0.6</code></td>
+<td>Rows per second running toward the viewer. Range 0–4.</td>
+</tr>
+<tr>
+<td><code>LineWidth</code></td>
+<td><code>double</code></td>
+<td><code>1.5</code></td>
+<td>Width of the grid lines, in DIPs. Range 0.5–6.</td>
+</tr>
+<tr>
+<td><code>ShowSun</code></td>
+<td><code>bool</code></td>
+<td><code>true</code></td>
+<td>Whether the striped sun shows above the horizon.</td>
+</tr>
+<tr>
+<td><code>SunSize</code></td>
+<td><code>double</code></td>
+<td><code>0.28</code></td>
+<td>The sun's radius, as a share of the shape's shorter side. Range 0.05–0.5 (5–50%).</td>
+</tr>
+<tr>
+<td><code>Glow</code></td>
+<td><code>double</code></td>
+<td><code>1</code></td>
+<td>The glow around the grid lines and the sun, a multiple: 1 is the default, 0 none. Range 0–2.</td>
+</tr>
+<tr>
+<td><code>Fog</code></td>
+<td><code>double</code></td>
+<td><code>0.5</code></td>
+<td>How far up the floor the lines fade into the haze at the horizon; more fades them from further forward. Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>BorderWidth</code></td>
+<td><code>double</code></td>
+<td><code>0</code></td>
+<td>Width of a band inside the edge, DIPs. 0: the whole shape. Range 0–48.</td>
+</tr>
+<tr>
+<td><code>UseMask</code></td>
+<td><code>bool</code></td>
+<td><code>false</code></td>
+<td>Paints only the child's own pixels (text, icons, a logo) instead of the shape: gradient text, a liquid-metal logo, holographic icons. It then goes over the child unless <code>Placement</code> says otherwise. The host captures the child to know its pixels: call <code>RefreshMask</code> after changing something deep inside it.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>: <code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>. On a fill, <code>Intensity</code> is its coverage, up to 1.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>Light and dark surfaces:</strong> the scene is opaque and paints its own colors, so it looks the same on a light or a dark surface.</li>
+<li><strong>Reduced motion:</strong> with <a class="xref" href="../../api/Nova.Avalonia.FX.FXSettings.html#Nova_Avalonia_FX_FXSettings_ReducedMotion">FXSettings.ReducedMotion</a> on, the floor and the sun hold one fixed pose. See <a href="../concepts/reduced-motion.html#the-poses">Reduced motion</a>.</li>
+<li><strong>Cost:</strong> about 0.05 ms of GPU time a frame on the benchmark's 340×190 card, among the cheapest layers. The cost grows with the area. See <a href="../concepts/performance.html#what-a-layer-costs">Performance</a>.</li>
+<li><strong>Seed:</strong> the grid has no randomness, so <code>Seed</code> changes nothing.</li>
+<li><strong>Bands and masks:</strong> like every fill, it has <code>BorderWidth</code>, which paints only a band inside the edge, and <code>UseMask</code>, which paints only the child's own pixels, such as large text. See <a href="../concepts/content-masks.html#layers-that-follow-the-content">Content masks</a>.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.RetroGrid.html">RetroGrid</a> API reference</li>
+<li><a href="starfield.html">Starfield</a>, <a href="beams.html">Beams</a> and <a href="bokeh.html">Bokeh</a>, other backgrounds</li>
+<li><a href="../concepts/layers.html#properties-every-layer-has">Layers and hosts</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/retrogrid.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

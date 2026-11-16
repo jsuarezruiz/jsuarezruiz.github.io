@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Holo foil | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Holo foil | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="Holographic foil, an iridescent sheen that shifts with the pointer, with etched lines, glitter and glare.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/holofoil.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="holo-foil">Holo foil</h1>
+
+<p>Holographic foil laid over the shape: rainbow bands that shift as the pointer moves across it, as if the foil tilted, with fine etched lines, glitter that flares as the angle passes each fleck, and a soft glare under the pointer. Use it for collectible cards, premium badges, membership passes and rare items. Unlike other fills, it goes over the host's child, so the content shows through the foil. At rest it holds still and costs nothing.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/holofoil-light.png" alt="Holo foil on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/holofoil-dark.png" alt="Holo foil on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-a-holo-foil">Add a holo foil</h2>
+<p>Add a <code>HoloFoil</code> over a card, then move the pointer across it:</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;fx:FXHost CornerRadius=&quot;16&quot;&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:HoloFoil /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Border Width=&quot;150&quot; Height=&quot;200&quot; CornerRadius=&quot;16&quot; Background=&quot;#1D2140&quot; Padding=&quot;14&quot;&gt;
+            &lt;StackPanel VerticalAlignment=&quot;Bottom&quot; Spacing=&quot;2&quot;&gt;
+                &lt;TextBlock Text=&quot;RARE&quot; FontSize=&quot;11&quot; FontWeight=&quot;Bold&quot; Foreground=&quot;#C7D2FE&quot; /&gt;
+                &lt;TextBlock Text=&quot;Foil card&quot; FontSize=&quot;17&quot; FontWeight=&quot;Bold&quot; Foreground=&quot;White&quot; /&gt;
+            &lt;/StackPanel&gt;
+        &lt;/Border&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<p>The foil follows the pointer while it is over the shape, and settles back when it leaves.</p>
+<h2 id="tilt-it-from-code">Tilt it from code</h2>
+<p><code>PointAt</code> tilts the foil toward a point in host coordinates, as if the pointer were there: for keyboard focus, a tour or an attract loop. Pass <code>null</code> to let it settle. The pointer takes over again when it moves.</p>
+<pre><code class="lang-csharp">// CardFoil is the HoloFoil (x:Name=&quot;CardFoil&quot;) in the host named CardHost.
+CardFoil.PointAt(new Point(CardHost.Bounds.Width, 0)); // toward the top-right corner
+CardFoil.PointAt(null);
+</code></pre>
+<h2 id="let-it-drift">Let it drift</h2>
+<p>Without a pointer, on touch screens or in a list nobody hovers, <code>Drift</code> moves the bands on their own, in bands per second:</p>
+<pre><code class="lang-xaml">&lt;fx:HoloFoil Drift=&quot;0.1&quot; /&gt;
+</code></pre>
+<p>With <code>Drift</code> at 0 (the default), the foil only moves with the pointer or <code>PointAt</code>.</p>
+<h2 id="make-holographic-text-and-icons">Make holographic text and icons</h2>
+<p>With <code>UseMask</code>, the foil covers only the child's own pixels:</p>
+<pre><code class="lang-xaml">&lt;fx:FXHost&gt;
+    &lt;fx:FXHost.Layers&gt;
+        &lt;fx:HoloFoil UseMask=&quot;True&quot; /&gt;
+    &lt;/fx:FXHost.Layers&gt;
+    &lt;TextBlock Text=&quot;LEGENDARY&quot; FontSize=&quot;32&quot; FontWeight=&quot;Black&quot; Foreground=&quot;#6366F1&quot; /&gt;
+&lt;/fx:FXHost&gt;
+</code></pre>
+<p>The foil tints the letters rather than replacing them, so give the text a color that already stands out on its background.</p>
+<h2 id="tune-the-foil">Tune the foil</h2>
+<p><code>Strength</code> sets how strongly the rainbow tints what is under it, and <code>Band</code> the width of one rainbow band. <code>Angle</code> turns the way the rainbow runs, and <code>Tilt</code> sets how far the bands shift as the pointer crosses the shape. <code>Glare</code>, <code>Glitter</code> and <code>Lines</code> set the glare under the pointer, the flecks and the etched lines. On small controls, where the label is most of the shape, a fainter foil keeps the label readable:</p>
+<pre><code class="lang-xaml">&lt;fx:HoloFoil Strength=&quot;0.12&quot; Glare=&quot;0.15&quot; /&gt;
+</code></pre>
+<h2 id="methods">Methods</h2>
+<p>Call <code>PointAt</code> to aim the foil without a pointer, and with <code>null</code> to release it.</p>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PointAt(Point? at)</code></td>
+<td>Tilts the foil toward <code>at</code> (host coordinates); null settles it.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Strength</code></td>
+<td><code>double</code></td>
+<td><code>0.24</code></td>
+<td>How strongly the rainbow tints what is under it; on a dark surface, how much light it adds. Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>Band</code></td>
+<td><code>double</code></td>
+<td><code>140</code></td>
+<td>Width of one rainbow band. Range 8–600 DIPs.</td>
+</tr>
+<tr>
+<td><code>Angle</code></td>
+<td><code>double</code></td>
+<td><code>35</code></td>
+<td>The way the rainbow runs, across its bands, degrees: 0 left to right (upright bands); positive turns clockwise. Range -180 to 180.</td>
+</tr>
+<tr>
+<td><code>Tilt</code></td>
+<td><code>double</code></td>
+<td><code>1</code></td>
+<td>How far the bands shift as the pointer crosses the shape. Range 0–3.</td>
+</tr>
+<tr>
+<td><code>Glare</code></td>
+<td><code>double</code></td>
+<td><code>0.35</code></td>
+<td>Strength of the soft glare under the pointer (0: none). Range 0–1.5.</td>
+</tr>
+<tr>
+<td><code>Glitter</code></td>
+<td><code>double</code></td>
+<td><code>0.6</code></td>
+<td>How bright the glitter flares as the angle passes each fleck (0: none). Range 0–2.</td>
+</tr>
+<tr>
+<td><code>Lines</code></td>
+<td><code>double</code></td>
+<td><code>0.4</code></td>
+<td>Etched lines across the bands. Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>Drift</code></td>
+<td><code>double</code></td>
+<td><code>0</code></td>
+<td>Bands per second drifting on their own (0: still until the pointer moves). Range 0–1.</td>
+</tr>
+<tr>
+<td><code>BorderWidth</code></td>
+<td><code>double</code></td>
+<td><code>0</code></td>
+<td>Width of a band inside the edge, DIPs. 0: the whole shape. Range 0–48.</td>
+</tr>
+<tr>
+<td><code>UseMask</code></td>
+<td><code>bool</code></td>
+<td><code>false</code></td>
+<td>Paints only the child's own pixels (text, icons, a logo) instead of the shape: gradient text, a liquid-metal logo, holographic icons. It then goes over the child unless <code>Placement</code> says otherwise. The host captures the child to know its pixels: call <code>RefreshMask</code> after changing something deep inside it.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>:
+<code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>Light and dark surfaces:</strong> on a light surface the bands are pastel colors that tint the content; on a dark one they are a thin film's cooler colors, cyan through violet to pink, added as light. See <a href="../concepts/light-and-dark.html#how-light-layers-draw-on-each-surface">Light and dark surfaces</a>.</li>
+<li><strong>Pointer:</strong> the foil reacts while the pointer is over the shape. See <a href="../concepts/one-shots-and-pointer.html#layers-that-follow-the-pointer">Layers that follow the pointer</a>.</li>
+<li><strong>Reduced motion:</strong> the drift holds still, and the foil jumps to the pointer instead of easing toward it.</li>
+<li><strong>Intensity</strong> is the foil's coverage, from 0 to 1. <code>Speed</code> doesn't change it; the foil moves with the pointer, and <code>Drift</code> sets its own pace.</li>
+<li><strong>Cost:</strong> 0.060 ms of GPU time per frame on a 340×190 card in the gallery's bench, and nothing while it rests.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.HoloFoil.html">HoloFoil</a> API reference</li>
+<li><a href="tilt.html">Tilt</a>, which leans the card toward the pointer, and <a href="spotlight.html">Spotlight</a></li>
+<li><a href="shimmer.html">Shimmer</a> and <a href="liquidmetal.html">Liquid metal</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/holofoil.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

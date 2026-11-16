@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Layers and hosts | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Layers and hosts | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="How FXHost draws its layers, how layers stack and blend, and the properties every layer shares.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/concepts/layers.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="layers-and-hosts">Layers and hosts</h1>
+
+<p>Every effect in Nova.Avalonia.FX is a <em>layer</em>, and every layer lives in a <em>host</em>. This page covers how the two work together.</p>
+<h2 id="the-host">The host</h2>
+<p><a class="xref" href="../../api/Nova.Avalonia.FX.FXHost.html">FXHost</a> is a control that takes one child (its <code>Child</code>, the XAML content) and draws a list of layers around it (its <code>Layers</code>). It keeps two drawing surfaces: one under the child and one over it.</p>
+<pre><code class="lang-xml">&lt;fx:FXHost CornerRadius=&quot;16&quot;&gt;
+    &lt;fx:FXHost.Layers&gt;
+        &lt;fx:Glow Color=&quot;#7c5cff&quot; Radius=&quot;18&quot; /&gt;
+        &lt;fx:Grain Amount=&quot;0.08&quot; /&gt;
+    &lt;/fx:FXHost.Layers&gt;
+    &lt;Border Width=&quot;240&quot; Height=&quot;120&quot; Background=&quot;#15171c&quot; /&gt;
+&lt;/fx:FXHost&gt;
+</code></pre>
+<p>The layers follow the child's <em>shape</em>: its bounds and corner radius. The corner radius comes from <code>FXHost.CornerRadius</code> when it is set, or else from the child itself when it is a <code>Border</code> or a templated control. The shape uses one radius for every corner (the top-left one). Set <code>CornerRadius=&quot;999&quot;</code> for a capsule or a circle.</p>
+<p>Light that spills past the child (a glow, a pulse, flames) is drawn outside the host's bounds, so any clipping ancestor cuts it: a <code>ScrollViewer</code>, a <code>Border</code> with <code>ClipToBounds</code>, or Fluent's <code>ContentControl</code>, which clips by default. Leave room around the host inside such containers, or set <code>ClipToBounds=&quot;False&quot;</code> where that is safe.</p>
+<p>A layer draws with its host, so a later sibling covers anything the layer draws past the host. Give the host a higher <code>ZIndex</code> when, for example, a ping should land on top of another control.</p>
+<p>A layer can be in one host at a time. Adding a layer that is still in another host's <code>Layers</code> throws an <code>InvalidOperationException</code>: remove it from the first host, or give each host its own layer.</p>
+<h2 id="how-layers-stack">How layers stack</h2>
+<p>Each layer draws either under the child or over it. Its <a class="xref" href="../../api/Nova.Avalonia.FX.FXLayer.html#Nova_Avalonia_FX_FXLayer_Placement">Placement</a> decides which:</p>
+<table>
+<thead>
+<tr>
+<th>Placement</th>
+<th>Where the layer draws</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Auto</code> (the default)</td>
+<td>The layer's own default: light that spills out goes under, overlays go over.</td>
+</tr>
+<tr>
+<td><code>Under</code></td>
+<td>Behind the child, like a background or a glow.</td>
+</tr>
+<tr>
+<td><code>Over</code></td>
+<td>On top of the child, like a sheen or grain.</td>
+</tr>
+</tbody>
+</table>
+<p>With <code>Auto</code>, glows, the pulse's rings, fills, glass and backgrounds go under the child; the shimmer, grain, sparkles, lightning, ripples, distortions, transitions and the pointer layers go over it. A fill with <code>UseMask</code> goes over the child, since it paints the child's own pixels (see <a href="content-masks.html">Content masks</a>).</p>
+<p>Within each placement, layers paint in the order they appear in <code>Layers</code>: the first one is painted first, and each later one on top of it.</p>
+<pre><code class="lang-xml">&lt;fx:FXHost.Layers&gt;
+    &lt;!-- Under the child: the glow first, then the fill on top of it. --&gt;
+    &lt;fx:Glow Color=&quot;#22d3ee&quot; /&gt;
+    &lt;fx:MeshGradient Preset=&quot;Lagoon&quot; /&gt;
+    &lt;!-- Over the child, the shimmer's own default. --&gt;
+    &lt;fx:Shimmer /&gt;
+&lt;/fx:FXHost.Layers&gt;
+</code></pre>
+<h3 id="blend-modes">Blend modes</h3>
+<p><a class="xref" href="../../api/Nova.Avalonia.FX.FXLayer.html#Nova_Avalonia_FX_FXLayer_BlendMode">BlendMode</a> sets how a layer composites onto what is beneath it:</p>
+<table>
+<thead>
+<tr>
+<th>Blend mode</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Normal</code> (the default)</td>
+<td>Premultiplied source-over.</td>
+</tr>
+<tr>
+<td><code>Screen</code></td>
+<td>Light that brightens without ever exceeding white.</td>
+</tr>
+<tr>
+<td><code>Plus</code></td>
+<td>Additive light.</td>
+</tr>
+<tr>
+<td><code>Multiply</code></td>
+<td>Darkens by the layer's color.</td>
+</tr>
+<tr>
+<td><code>Overlay</code></td>
+<td>Multiplies or screens, depending on what is beneath.</td>
+</tr>
+<tr>
+<td><code>SoftLight</code></td>
+<td>A gentler overlay.</td>
+</tr>
+</tbody>
+</table>
+<p>Light layers already draw as light over a dark surface. For pure additive light, set <code>BlendMode=&quot;Plus&quot;</code> or <code>&quot;Screen&quot;</code>. A transparent caustics layer with <code>BlendMode=&quot;Screen&quot;</code>, for example, lights the content under it:</p>
+<pre><code class="lang-xml">&lt;fx:Caustics WaterColor=&quot;Transparent&quot; BlendMode=&quot;Screen&quot; Placement=&quot;Over&quot; /&gt;
+</code></pre>
+<h2 id="properties-every-layer-has">Properties every layer has</h2>
+<p>Every layer derives from <a class="xref" href="../../api/Nova.Avalonia.FX.FXLayer.html">FXLayer</a> and has these properties:</p>
+<ul>
+<li><strong><code>Intensity</code></strong> is the strength of light on light layers (aurora, electric, fire, glow, grain, light leaks, light rays, pulse, shimmer and sparkles), up to 3; the coverage of fills, up to 1; and a dimmer that fades every other layer. So a transition on <code>Intensity</code> fades any layer in and out.</li>
+<li><strong><code>Opacity</code></strong> fades the layer, from 0 to 1.</li>
+<li><strong><code>Speed</code></strong> multiplies the layer's clock, from 0 to 4. Changing it never makes the animation jump, and at 0 the layer stops. A layer's own pace settings (a <code>FlowSpeed</code>, <code>Drift</code>, <code>FallSpeed</code> and the like) run on that clock and don't make it jump either: the pattern carries on from where it is. The show and hide transitions run on their <code>Duration</code> instead.</li>
+<li><strong><code>Seed</code></strong> picks the random layout of layers with randomness (noise, scattered stars, confetti). Two layers with different seeds look different; the same seed always draws the same frames.</li>
+<li><strong><code>Placement</code></strong> and <strong><code>BlendMode</code></strong>, described above.</li>
+<li><strong><code>IsActive</code></strong> switches the layer off: it draws nothing, costs nothing, and ignores presses and the pointer.</li>
+<li><strong><code>RenderScale</code></strong> shades the layer at a fraction of the display's resolution (0.25 to 1) and scales it up. It is meant for large, soft, heavy layers; see <a href="performance.html#render-scale">Performance</a>. Layers drawn as shapes (confetti, fireworks, shatter, particle network) don't use it.</li>
+</ul>
+<p>Each layer also reports <a class="xref" href="../../api/Nova.Avalonia.FX.FXLayer.html#Nova_Avalonia_FX_FXLayer_ReadsBackdrop">ReadsBackdrop</a>, which is true for layers that read what is drawn behind the host (see <a href="#layers-that-read-the-backdrop">below</a>).</p>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Intensity</code></td>
+<td><code>double</code></td>
+<td><code>1</code></td>
+<td>How strong the layer is. Light and fills read it as their own strength (a glow's brightness, up to 3; a fill's coverage); on other layers it is a dimmer that fades the layer, like <code>Opacity</code>. 0 draws nothing. Range 0–3.</td>
+</tr>
+<tr>
+<td><code>Opacity</code></td>
+<td><code>double</code></td>
+<td><code>1</code></td>
+<td>How opaque the whole layer is: 0 invisible, 1 as drawn. Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>Speed</code></td>
+<td><code>double</code></td>
+<td><code>1</code></td>
+<td>Multiplies the layer's clock. Changing it never makes the animation jump. Range 0–4.</td>
+</tr>
+<tr>
+<td><code>Seed</code></td>
+<td><code>int</code></td>
+<td><code>1</code></td>
+<td>Picks a variation of the layer's random pattern (its noise, where pieces fall); the same seed always draws the same picture. Layers without randomness ignore it. Range 1–999.</td>
+</tr>
+<tr>
+<td><code>Placement</code></td>
+<td><code>FXPlacement</code></td>
+<td><code>Auto</code></td>
+<td>Where the layer draws: behind the host's child, over it, or (Auto) where the layer usually goes. Values: <code>Auto</code>, <code>Under</code>, <code>Over</code>.</td>
+</tr>
+<tr>
+<td><code>BlendMode</code></td>
+<td><code>FXBlendMode</code></td>
+<td><code>Normal</code></td>
+<td>How the layer combines with what is beneath it: painted over it (Normal), or blended as light or color. Values: <code>Normal</code>, <code>Screen</code>, <code>Plus</code>, <code>Multiply</code>, <code>Overlay</code>, <code>SoftLight</code>.</td>
+</tr>
+<tr>
+<td><code>IsActive</code></td>
+<td><code>bool</code></td>
+<td><code>true</code></td>
+<td>Whether the layer draws. Off, it draws nothing, costs nothing and ignores the pointer and presses; a transition layer then shows or hides its content at once.</td>
+</tr>
+<tr>
+<td><code>RenderScale</code></td>
+<td><code>double</code></td>
+<td><code>1</code></td>
+<td>Shades at this fraction of the display's resolution and scales the result up: 0.5 shades a quarter of the pixels. For large, soft layers (a window-sized aurora or swirl), where the cost grows with the area; edges and grain soften. 1 (the default) is full resolution. Range 0.25–1 (25–100%).</td>
+</tr>
+</tbody>
+</table>
+
+<p>Not every setting applies to every layer, or to every style of a layer: <code>Seed</code> and <code>Speed</code> only matter on layers with randomness or motion, and many settings belong to some styles only. The gallery's settings panel shows only the settings that do something, from what <a class="xref" href="../../api/Nova.Avalonia.FX.Catalog.FXCatalog.html">FXCatalog</a> knows.</p>
+<h2 id="idle-layers-cost-nothing">Idle layers cost nothing</h2>
+<p>A layer asks the compositor for frames only while it moves. A layer at rest draws once and then asks for nothing:</p>
+<ul>
+<li>still layers, such as a plastic fill, a static grain or a glow that doesn't breathe;</li>
+<li>layers that are switched off, or at an <code>Intensity</code> or <code>Opacity</code> of 0;</li>
+<li>one-shot layers between shots: a glitch draws nothing until it fires;</li>
+<li>pointer layers while the pointer is away: a spotlight draws nothing and costs nothing until the pointer arrives;</li>
+<li>the small simulations (simulated fire, ink, water) once they have settled or emptied;</li>
+<li>every layer of a host that is hidden, or scrolled out of view.</li>
+</ul>
+<p>When you change a setting, only that layer is snapshotted again, and the host sends at most one update per frame.</p>
+<h2 id="layers-that-read-the-backdrop">Layers that read the backdrop</h2>
+<p>Some layers show or change what is drawn behind them: glass, fluted glass, the magnifier, progressive blur, frost, rain on glass, water, heat haze, shockwave, CRT, chroma split, glitch, old film, ASCII, the color filter, the spoiler (except its <code>Solid</code> style), and dither or halftone with <code>Input=&quot;Backdrop&quot;</code>. Their <code>ReadsBackdrop</code> is true.</p>
+<p>Such a layer copies its region of the window's surface just before it draws. <code>Glass</code> and <code>FlutedGlass</code> sit under the child, so they bend what is behind the host; the distortions sit over it, so they bend the child too.</p>
+<p>Inside an offscreen layer (an ancestor with <code>Opacity</code> below 1, an effect, or a clip that needs a layer), the copy can't see that ancestor's content. Keep such ancestors opaque.</p>
+<h2 id="styles-bindings-and-presets">Styles, bindings and presets</h2>
+<p>Layers are styled elements. They join the host's logical tree, so they inherit its <code>DataContext</code>, and styles, bindings, dynamic resources and transitions apply to them like to any other property:</p>
+<pre><code class="lang-xml">&lt;fx:FXHost Classes=&quot;hover&quot;&gt;
+    &lt;fx:FXHost.Layers&gt;
+        &lt;fx:Glow Color=&quot;{DynamicResource SystemAccentColor}&quot; IsLit=&quot;{Binding IsOnline}&quot; /&gt;
+    &lt;/fx:FXHost.Layers&gt;
+    &lt;Border Width=&quot;200&quot; Height=&quot;80&quot; CornerRadius=&quot;12&quot; Background=&quot;#101217&quot; /&gt;
+&lt;/fx:FXHost&gt;
+</code></pre>
+<pre><code class="lang-xml">&lt;Style Selector=&quot;fx|FXHost.hover fx|Glow&quot;&gt;
+    &lt;Setter Property=&quot;Intensity&quot; Value=&quot;0.2&quot; /&gt;
+    &lt;Setter Property=&quot;Transitions&quot;&gt;
+        &lt;Transitions&gt;
+            &lt;DoubleTransition Property=&quot;Intensity&quot; Duration=&quot;0:0:0.3&quot; /&gt;
+        &lt;/Transitions&gt;
+    &lt;/Setter&gt;
+&lt;/Style&gt;
+&lt;Style Selector=&quot;fx|FXHost.hover:pointerover fx|Glow&quot;&gt;
+    &lt;Setter Property=&quot;Intensity&quot; Value=&quot;1.3&quot; /&gt;
+&lt;/Style&gt;
+</code></pre>
+<p>Many layers have a <code>Preset</code> or a <code>Style</code> that sets several values at once. Presets apply at template priority: a local value, or a style with a class or pseudo-class, wins over a preset; a plain type-selector style does not.</p>
+<p>Fills painted from a list of colors (mesh gradient, swirl, waves, grain gradient, voronoi, metaballs, dither and bokeh) take up to six colors in <code>Colors</code>. Unset, they use the preset's palette. In XAML, separate the colors with commas, semicolons or spaces; hex values, color names and CSS forms such as <code>rgb(43, 27, 90)</code> all work:</p>
+<pre><code class="lang-xml">&lt;fx:MeshGradient Colors=&quot;#2b1b5a, #ff6f91, #ffc46b&quot; /&gt;
+</code></pre>
+<h2 id="the-catalog">The catalog</h2>
+<p><a class="xref" href="../../api/Nova.Avalonia.FX.Catalog.FXCatalog.html">FXCatalog</a> describes every layer type: its id, display name, summary and parameters, with their ranges, units, choices and the styles they apply to. The gallery builds its navigation and settings panel from it. <code>ToXaml</code> writes a layer back as XAML, as its preset or style plus the values that differ:</p>
+<pre><code class="lang-csharp">using Nova.Avalonia.FX;
+using Nova.Avalonia.FX.Catalog;
+
+foreach (var info in FXCatalog.Layers)
+    Console.WriteLine($&quot;{info.Id}: {info.Name}, {info.Parameters.Count} settings&quot;);
+
+var glow = new Glow { Style = GlowStyle.Neon, Radius = 20 };
+Console.WriteLine(FXCatalog.ToXaml(glow)); // &lt;fx:Glow Style=&quot;Neon&quot; Radius=&quot;20&quot; /&gt;
+</code></pre>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/concepts/layers.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

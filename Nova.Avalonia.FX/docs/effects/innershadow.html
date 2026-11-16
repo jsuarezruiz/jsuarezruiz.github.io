@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Inner shadow | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Inner shadow | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="Light and shade inside the content&#39;s own shape: inset, emboss or letterpress, lit from any angle.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/innershadow.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="inner-shadow">Inner shadow</h1>
+
+<p><code>InnerShadow</code> puts light and shade inside the child's own shape, lit from <code>LightAngle</code>: pressed in (inset), raised (emboss), or pressed into the page with a fine highlight below (letterpress). Use it for an inset text field, debossed labels, raised icons or a soft, tactile look. It follows the child's pixels, not just its box: when the host captures the child, it measures how far each pixel is from the edge, so it works on glyphs as well as rounded fields.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/innershadow-light.png" alt="Inner shadow on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/innershadow-dark.png" alt="Inner shadow on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-an-inner-shadow">Add an inner shadow</h2>
+<p>An inset text field is the classic use. Wrap the field in a host:</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;fx:FXHost&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:InnerShadow /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;TextBox PlaceholderText=&quot;Ask anything…&quot; Width=&quot;360&quot; Height=&quot;52&quot; CornerRadius=&quot;26&quot;
+                 Padding=&quot;22,0&quot; VerticalContentAlignment=&quot;Center&quot; BorderThickness=&quot;0&quot; /&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<h2 id="styles">Styles</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Inset</code> (default)</td>
+<td>Pressed in: the walls on the light's side cast a shadow inward. On a dark surface the far walls also catch a faint lip of light, so the recess still reads.</td>
+</tr>
+<tr>
+<td><code>Emboss</code></td>
+<td>Raised: the edges toward the light catch it, the far ones fall into shade.</td>
+</tr>
+<tr>
+<td><code>Letterpress</code></td>
+<td>Pressed into the page: an inset shadow, and a fine highlight just below the far edges.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="press-letters-into-the-page">Press letters into the page</h2>
+<p>On text, the shading follows each glyph. <code>Letterpress</code> presses the letters in and adds a highlight just below their far edges; <code>Emboss</code> raises them. Here the pressed letters are a gray just darker than the page:</p>
+<pre><code class="lang-xaml">&lt;Border Background=&quot;#DDE2E8&quot; Padding=&quot;24&quot; CornerRadius=&quot;12&quot;&gt;
+    &lt;StackPanel Spacing=&quot;6&quot;&gt;
+        &lt;fx:FXHost HorizontalAlignment=&quot;Center&quot;&gt;
+            &lt;fx:FXHost.Layers&gt;
+                &lt;fx:InnerShadow Style=&quot;Letterpress&quot; Depth=&quot;2&quot; Softness=&quot;1.5&quot; Shadow=&quot;0.5&quot; Highlight=&quot;0.9&quot; /&gt;
+            &lt;/fx:FXHost.Layers&gt;
+            &lt;TextBlock Text=&quot;PRESSED&quot; FontSize=&quot;40&quot; FontWeight=&quot;Black&quot; Foreground=&quot;#B8C0CB&quot; /&gt;
+        &lt;/fx:FXHost&gt;
+        &lt;fx:FXHost HorizontalAlignment=&quot;Center&quot;&gt;
+            &lt;fx:FXHost.Layers&gt;
+                &lt;fx:InnerShadow Style=&quot;Emboss&quot; Depth=&quot;2&quot; Softness=&quot;2&quot; Shadow=&quot;0.5&quot; Highlight=&quot;0.7&quot; /&gt;
+            &lt;/fx:FXHost.Layers&gt;
+            &lt;TextBlock Text=&quot;Raised&quot; FontSize=&quot;30&quot; FontWeight=&quot;Black&quot; Foreground=&quot;#3B82F6&quot; /&gt;
+        &lt;/fx:FXHost&gt;
+    &lt;/StackPanel&gt;
+&lt;/Border&gt;
+</code></pre>
+<h2 id="move-the-light">Move the light</h2>
+<p><code>LightAngle</code> is where the light comes from, in degrees: 0 from the right, -90 (the default) from above, positive turning clockwise. <code>Depth</code> is how far from an edge the shade reaches, and <code>Softness</code> how gradual it is:</p>
+<pre><code class="lang-xaml">&lt;fx:InnerShadow LightAngle=&quot;-135&quot; Depth=&quot;8&quot; Softness=&quot;4&quot; ShadowColor=&quot;#1E1B4B&quot; Shadow=&quot;0.6&quot; /&gt;
+</code></pre>
+<p><code>HighlightColor</code> and <code>Highlight</code> apply to <code>Emboss</code> and <code>Letterpress</code>.</p>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Style</code></td>
+<td><code>InnerShadowStyle</code></td>
+<td><code>Inset</code></td>
+<td>The look: pressed in (inset), raised (emboss), or pressed into the page (letterpress). Values: <code>Inset</code>, <code>Emboss</code>, <code>Letterpress</code>.</td>
+</tr>
+<tr>
+<td><code>LightAngle</code></td>
+<td><code>double</code></td>
+<td><code>-90</code></td>
+<td>Where the light comes from, degrees: 0 from the right, -90 from above; positive turns clockwise. Range -180 to 180.</td>
+</tr>
+<tr>
+<td><code>Depth</code></td>
+<td><code>double</code></td>
+<td><code>5</code></td>
+<td>How deep the shape looks: how far from an edge the shade reaches, DIPs. Range 0.5–12.</td>
+</tr>
+<tr>
+<td><code>Softness</code></td>
+<td><code>double</code></td>
+<td><code>7</code></td>
+<td>How soft the shade's edge is, in DIPs (0: crisp). Range 0–12.</td>
+</tr>
+<tr>
+<td><code>ShadowColor</code></td>
+<td><code>Color</code></td>
+<td><code>#000000</code></td>
+<td>The shade's color.</td>
+</tr>
+<tr>
+<td><code>Shadow</code></td>
+<td><code>double</code></td>
+<td><code>0.4</code></td>
+<td>Strength of the shade (0: none). Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>HighlightColor</code></td>
+<td><code>Color</code></td>
+<td><code>#FFFFFF</code></td>
+<td>The color of the lit edges. Applies to the <code>Emboss</code> and <code>Letterpress</code> styles.</td>
+</tr>
+<tr>
+<td><code>Highlight</code></td>
+<td><code>double</code></td>
+<td><code>0.6</code></td>
+<td>Strength of the lit edges (0: none). Range 0–1 (0–100%). Applies to the <code>Emboss</code> and <code>Letterpress</code> styles.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>: <code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>. The inner shadow is still, so <code>Speed</code> and <code>Seed</code> don't apply.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>It follows the content's pixels.</strong> See <a href="../concepts/content-masks.html#layers-that-follow-the-content">Content masks</a>. The host watches only the child itself: after changing something deeper inside it, call <a class="xref" href="../../api/Nova.Avalonia.FX.FXHost.html#Nova_Avalonia_FX_FXHost_RefreshMask">RefreshMask</a>.</li>
+<li><strong>A field is captured again as it changes.</strong> Typing changes its <code>Text</code>, and a hover or focus style changes its brushes. While changes keep coming, captures are spaced about 100 ms apart, and the distance field is rebuilt once they settle.</li>
+<li><strong>Depth is bounded.</strong> The distance field reaches 16 DIPs inside the edge, which bounds how far the shading reaches.</li>
+<li><strong>Light and dark surfaces:</strong> the layer knows the surface. On a dark one, an inset adds a faint lip of light along its far edges, so the recess still reads. See <a href="../concepts/light-and-dark.html#how-light-layers-draw-on-each-surface">Light and dark surfaces</a>.</li>
+<li><strong>Reduced motion:</strong> nothing moves, so nothing changes.</li>
+<li><strong>Cost:</strong> drawing is cheap (about 0.03 ms of GPU time a frame on the benchmark card) and happens once, since the layer doesn't animate. The cost is in the capture: building the distance field takes a few milliseconds on the UI thread each time the child changes, never per frame. See <a href="../concepts/content-masks.html#cost">Content masks</a> and <a href="../concepts/performance.html#what-a-layer-costs">Performance</a>.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.InnerShadow.html">InnerShadow</a> API reference</li>
+<li><a href="outline.html">Outline</a>, which strokes the same shape from outside</li>
+<li><a href="plastic.html">Plastic</a>, for a glossy or dished material fill</li>
+<li><a href="../concepts/content-masks.html#layers-that-follow-the-content">Content masks</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/innershadow.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

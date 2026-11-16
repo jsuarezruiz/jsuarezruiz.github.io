@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Confetti | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Confetti | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="A burst of paper pieces that fly, tumble, flutter and fall, fired from code or on a press.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/confetti.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="confetti">Confetti</h1>
+
+<p>Confetti fires a burst of paper pieces that fly, tumble, flutter and fall: for a success, a completed order or a milestone. It is a one-shot: it draws nothing until you fire it, from code or on a press, and each burst is gone after its <code>Duration</code>. The pieces are drawn over the host and fly well past it.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/confetti-light.png" alt="Confetti on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/confetti-dark.png" alt="Confetti on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-confetti">Add confetti</h2>
+<p>With <code>FireOnPress</code>, a press on the host fires a burst from the press point:</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;fx:FXHost CornerRadius=&quot;14&quot; HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot;&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:Confetti FireOnPress=&quot;True&quot; Count=&quot;80&quot; /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Button Content=&quot;Complete order&quot; Padding=&quot;24,12&quot; CornerRadius=&quot;14&quot; /&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<p>The host hears the press even when the button handles it, so the button's <code>Click</code> still runs.</p>
+<h2 id="styles">Styles</h2>
+<p><code>Style</code> sets where the pieces come from. <code>Shape</code> picks the pieces themselves: <code>Mixed</code> (the default), <code>Paper</code> or <code>Dots</code>.</p>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Burst</code> (default)</td>
+<td>A cone of pieces from a point (the press point, or the shape's center).</td>
+</tr>
+<tr>
+<td><code>Cannons</code></td>
+<td>Two cannons at the shape's bottom corners, firing up and inward.</td>
+</tr>
+<tr>
+<td><code>Fall</code></td>
+<td>Pieces drifting down from above the shape.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="fire-from-code">Fire from code</h2>
+<p>Name the layer and call <code>Fire()</code> when the moment comes, for example from an event your view model raises:</p>
+<pre><code class="lang-csharp">// In the view's code-behind; OrderPlaced is the view model's own event.
+viewModel.OrderPlaced += (_, _) =&gt; Celebration.Fire();
+</code></pre>
+<p><code>Fire(at)</code> takes a point in the host's coordinates. Only <code>Burst</code> uses it, or the center of the shape without one; <code>Cannons</code> always fire from the bottom corners, and <code>Fall</code> drops from above the shape. Bursts overlap: firing again while one plays starts another beside it, up to four at once, and a fifth drops the oldest.</p>
+<h2 id="aim-the-burst">Aim the burst</h2>
+<p><code>Angle</code> points the burst (0 to the right, -90 up) and <code>Spread</code> sets the width of its cone. <code>Power</code> sets the launch speed and <code>Gravity</code> how fast the pieces fall. <code>Colors</code> takes your own palette:</p>
+<pre><code class="lang-xaml">&lt;fx:Confetti x:Name=&quot;Celebration&quot; Angle=&quot;-60&quot; Spread=&quot;40&quot; Power=&quot;1.4&quot;
+             Colors=&quot;#22d3ee, #a78bfa, #f472b6, #facc15&quot; /&gt;
+</code></pre>
+<p>With <code>Burst</code> and <code>Cannons</code>, on a shape larger than about 250 × 250 DIPs, the whole burst grows up to 1.6 times as large, so it fills the shape. For a whole panel, try <code>Cannons</code>, or <code>Fall</code> for a gentle drift down.</p>
+<h2 id="methods">Methods</h2>
+<p>Call <code>Fire</code> to start a burst from code.</p>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Fire(Point? at = null)</code></td>
+<td>Fires a burst from <code>at</code> (host coordinates), or the style's own origin.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Style</code></td>
+<td><code>ConfettiStyle</code></td>
+<td><code>Burst</code></td>
+<td>Where the pieces come from: a burst from a point, two cannons at the bottom corners, or a fall from above. Values: <code>Burst</code>, <code>Cannons</code>, <code>Fall</code>.</td>
+</tr>
+<tr>
+<td><code>Colors</code></td>
+<td><code>FXColorList</code></td>
+<td>Unset</td>
+<td>The pieces' colors. Unset: six bright party colors.</td>
+</tr>
+<tr>
+<td><code>Shape</code></td>
+<td><code>ConfettiShape</code></td>
+<td><code>Mixed</code></td>
+<td>The pieces' shape: paper strips, round dots, or a mix of both. Values: <code>Mixed</code>, <code>Paper</code>, <code>Dots</code>.</td>
+</tr>
+<tr>
+<td><code>Count</code></td>
+<td><code>int</code></td>
+<td><code>70</code></td>
+<td>How many pieces each burst throws. Range 4–200.</td>
+</tr>
+<tr>
+<td><code>Power</code></td>
+<td><code>double</code></td>
+<td><code>1</code></td>
+<td>Launch speed, as a multiple of a lively default. On a shape larger than about 250 × 250 DIPs the whole burst is up to 1.6 times as large (faster, with gravity to match), so it fills the shape. Range 0.2–3. Applies to the <code>Burst</code> and <code>Cannons</code> styles.</td>
+</tr>
+<tr>
+<td><code>Spread</code></td>
+<td><code>double</code></td>
+<td><code>75</code></td>
+<td>Width of the burst's cone, degrees, centered on <code>Angle</code>. Range 0–360. Applies to the <code>Burst</code> style.</td>
+</tr>
+<tr>
+<td><code>Angle</code></td>
+<td><code>double</code></td>
+<td><code>-90</code></td>
+<td>Where the burst points, degrees: 0 to the right, -90 up; positive turns clockwise. Range -180 to 180. Applies to the <code>Burst</code> style.</td>
+</tr>
+<tr>
+<td><code>Gravity</code></td>
+<td><code>double</code></td>
+<td><code>1</code></td>
+<td>How strongly the pieces fall, a multiple of the default (0: they don't fall). Range 0–3.</td>
+</tr>
+<tr>
+<td><code>Size</code></td>
+<td><code>double</code></td>
+<td><code>8</code></td>
+<td>Size of a piece, DIPs. Range 2–24.</td>
+</tr>
+<tr>
+<td><code>Duration</code></td>
+<td><code>double</code></td>
+<td><code>2.6</code></td>
+<td>How long a burst lasts. Range 0.5–6 seconds.</td>
+</tr>
+<tr>
+<td><code>FireOnPress</code></td>
+<td><code>bool</code></td>
+<td><code>false</code></td>
+<td>Fires wherever the pointer is pressed on the host.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>:
+<code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>. While <code>IsActive</code> is off, presses fire nothing.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>Light and dark.</strong> The pieces are drawn the same on both surfaces, in their own colors.</li>
+<li><strong>Reduced motion.</strong> The pieces appear in place and fade, without flying. See <a href="../concepts/reduced-motion.html#the-poses">the poses</a>.</li>
+<li><strong>Cost.</strong> Confetti is drawn as Skia shapes, not a shader: 0.1–0.5 ms of CPU time a frame while a burst plays, with almost no GPU time, and nothing between bursts. <code>RenderScale</code> doesn't apply. See <a href="../concepts/performance.html#what-a-layer-costs">What a layer costs</a>.</li>
+<li><strong>Room to fly.</strong> Pieces fly well past the host. A clipping ancestor (a <code>ScrollViewer</code>, a <code>Border</code> with <code>ClipToBounds</code>) cuts them, and later siblings cover them: leave room, and give the host a higher <code>ZIndex</code> if needed.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.Confetti.html">Confetti</a> API reference</li>
+<li><a href="../concepts/one-shots-and-pointer.html#one-shots">One-shots</a></li>
+<li><a href="fireworks.html">Fireworks</a> and <a href="sparkles.html">Sparkles</a>, for other celebrations</li>
+<li><a href="pulse.html">Pulse</a>, a ripple from the press point</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/confetti.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

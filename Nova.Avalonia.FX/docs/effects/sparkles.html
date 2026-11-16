@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Sparkles | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Sparkles | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="Four-point stars twinkling around the shape, or a one-shot burst that pops them all.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/sparkles.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="sparkles">Sparkles</h1>
+
+<p>Sparkles scatters crisp four-point stars around the host's shape, each with its own size, twinkle and spin. The stars take turns, so only a few are lit at once. Use them on a &quot;New&quot; badge, a premium feature or a reward. A burst pops every star at once and flings it out a little, as a one-shot for a success, a like or a completed task. The stars sit just outside the shape and draw over the child.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/sparkles-light.png" alt="Sparkles on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/sparkles-dark.png" alt="Sparkles on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-sparkles">Add sparkles</h2>
+<p>The defaults suit a small pill; on a larger target, raise <code>Count</code> and <code>Size</code>.</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;fx:FXHost CornerRadius=&quot;999&quot;&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:Sparkles Count=&quot;12&quot; Size=&quot;12&quot; Margin=&quot;14&quot; Color=&quot;#F59E0B&quot; /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Border Width=&quot;92&quot; Height=&quot;38&quot; CornerRadius=&quot;19&quot; Background=&quot;#FEF3C7&quot;&gt;
+            &lt;TextBlock Text=&quot;New&quot; Foreground=&quot;#B45309&quot; FontWeight=&quot;SemiBold&quot;
+                       HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot; /&gt;
+        &lt;/Border&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<p><code>Margin</code> is how far outside the shape the stars sit. <code>Life</code> is how long each star stays lit before it rests.</p>
+<h2 id="burst-on-a-press">Burst on a press</h2>
+<p>Turn <code>IsContinuous</code> off to show stars only during a burst, and <code>BurstOnPress</code> on to burst whenever the host is pressed. Every burst has its own layout, so two quick presses show two different bursts.</p>
+<pre><code class="lang-xaml">&lt;fx:FXHost CornerRadius=&quot;10&quot;&gt;
+    &lt;fx:FXHost.Layers&gt;
+        &lt;fx:Sparkles IsContinuous=&quot;False&quot; BurstOnPress=&quot;True&quot;
+                     Count=&quot;18&quot; Size=&quot;10&quot; Margin=&quot;22&quot; Color=&quot;#7C5CFF&quot; /&gt;
+    &lt;/fx:FXHost.Layers&gt;
+    &lt;Button Content=&quot;Like&quot; CornerRadius=&quot;10&quot; /&gt;
+&lt;/fx:FXHost&gt;
+</code></pre>
+<h2 id="burst-from-code">Burst from code</h2>
+<p>Name the layer and call <code>Burst()</code> when something worth celebrating happens, for example when a save completes:</p>
+<pre><code class="lang-xaml">&lt;fx:Sparkles x:Name=&quot;SaveSparkles&quot; IsContinuous=&quot;False&quot; /&gt;
+</code></pre>
+<pre><code class="lang-csharp">private void OnSaved(object? sender, EventArgs e)
+{
+    SaveSparkles.Burst();
+}
+</code></pre>
+<p>A burst takes no point: the stars sit all around the shape.</p>
+<h2 id="methods">Methods</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Burst()</code></td>
+<td>Pops every star once; they fly a little way out and twinkle away. The stars sit all around the shape, so a burst takes no point.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Color</code></td>
+<td><code>Color</code></td>
+<td><code>#FFE6A8</code></td>
+<td>The stars' color.</td>
+</tr>
+<tr>
+<td><code>Count</code></td>
+<td><code>int</code></td>
+<td><code>6</code></td>
+<td>How many stars sit around the shape; continuous stars rest between appearances, so fewer are lit at once. Range 1–32.</td>
+</tr>
+<tr>
+<td><code>Life</code></td>
+<td><code>double</code></td>
+<td><code>1.5</code></td>
+<td>How long a star stays lit, seconds. Range 0.3–5.</td>
+</tr>
+<tr>
+<td><code>Size</code></td>
+<td><code>double</code></td>
+<td><code>7</code></td>
+<td>A star's base size, DIPs: most are smaller, a few larger. Range 2–24.</td>
+</tr>
+<tr>
+<td><code>Margin</code></td>
+<td><code>double</code></td>
+<td><code>10</code></td>
+<td>How far outside the shape stars sit. Range 0–60 DIPs.</td>
+</tr>
+<tr>
+<td><code>IsContinuous</code></td>
+<td><code>bool</code></td>
+<td><code>true</code></td>
+<td>Twinkle forever. Off: stars show only during a <code>Burst</code>.</td>
+</tr>
+<tr>
+<td><code>BurstOnPress</code></td>
+<td><code>bool</code></td>
+<td><code>false</code></td>
+<td>Bursts whenever the pointer is pressed on the host.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>:
+<code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>. On sparkles, <code>Intensity</code> is the strength of the light, up to 3, and <code>Seed</code> picks where the stars sit.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>Light and dark surfaces.</strong> On a dark surface the stars add light and their cores turn white. On a light surface they draw as tinted haze with cores in the layer's own color, so a pale gold reads weakly on white: pick a deeper color for light themes, such as amber. See <a href="../concepts/light-and-dark.html#how-light-layers-draw-on-each-surface">Light and dark surfaces</a>.</li>
+<li><strong>Reduced motion.</strong> Continuous stars hold still: a fixed handful stays lit. A burst still shows, but the stars fade in and out in place without flying or spinning. See <a href="../concepts/reduced-motion.html#the-poses">Reduced motion</a>.</li>
+<li><strong>One-shots.</strong> With <code>IsContinuous</code> off, the layer draws nothing between bursts. When too many bursts are live at once, the oldest fades out. See <a href="../concepts/one-shots-and-pointer.html#one-shots">One-shots</a>.</li>
+<li><strong>Cost.</strong> About 0.19 ms of GPU time a frame on the bench's 340×190 card. See <a href="../concepts/performance.html#what-a-layer-costs">Performance</a>.</li>
+<li><strong>Room around the host.</strong> The stars draw outside the shape, as far as <code>Margin</code> plus a star's size. A clipping ancestor cuts them off: leave room around the host.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.Sparkles.html">Sparkles</a> API reference</li>
+<li><a href="trail.html">Trail</a>, sparks that follow the pointer</li>
+<li><a href="pulse.html">Pulse</a>, a ripple or a ping as a one-shot</li>
+<li><a href="../concepts/one-shots-and-pointer.html#one-shots">One-shots and the pointer</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/sparkles.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

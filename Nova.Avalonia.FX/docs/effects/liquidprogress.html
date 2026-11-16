@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Liquid progress | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Liquid progress | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="A liquid that fills the shape to a level, with waves and rising bubbles; a new level eases in and sloshes the surface.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/liquidprogress.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="liquid-progress">Liquid progress</h1>
+
+<p>Liquid progress fills the host's shape with a liquid up to <code>Level</code>: for progress bars, gauges, and battery or storage levels. Its surface waves and bubbles rise through it, and a change of level eases in with a little overshoot and sloshes the surface. It is a fill, drawn under the child as its background, rising from the bottom or filling from the left.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/liquidprogress-light.png" alt="Liquid progress on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/liquidprogress-dark.png" alt="Liquid progress on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-liquid-progress">Add liquid progress</h2>
+<p>Bind <code>Level</code>, from 0 (empty) to 1 (full). Here a slider fills a tall glass:</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;18&quot; HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot;&gt;
+        &lt;fx:FXHost CornerRadius=&quot;18&quot;&gt;
+            &lt;fx:FXHost.Layers&gt;
+                &lt;fx:LiquidProgress Level=&quot;{Binding #LevelSlider.Value}&quot; /&gt;
+            &lt;/fx:FXHost.Layers&gt;
+            &lt;Border Width=&quot;74&quot; Height=&quot;150&quot; CornerRadius=&quot;18&quot; BorderBrush=&quot;#5a6170&quot; BorderThickness=&quot;1&quot; /&gt;
+        &lt;/fx:FXHost&gt;
+        &lt;Slider x:Name=&quot;LevelSlider&quot; Orientation=&quot;Vertical&quot; Height=&quot;150&quot; Minimum=&quot;0&quot; Maximum=&quot;1&quot; Value=&quot;0.6&quot; /&gt;
+    &lt;/StackPanel&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<p>The liquid goes under the child, so the child has no background of its own: only a border line, and whatever sits on top of the liquid.</p>
+<h2 id="show-progress">Show progress</h2>
+<p>Bind <code>Level</code> to a progress value from 0 to 1; values outside that range are clamped. Each new value eases in with a small overshoot, and <code>Slosh</code> sets how much the change stirs the surface (0: not at all).</p>
+<pre><code class="lang-xaml">&lt;fx:FXHost CornerRadius=&quot;22&quot;&gt;
+    &lt;fx:FXHost.Layers&gt;
+        &lt;fx:LiquidProgress Level=&quot;{Binding UploadProgress}&quot; Orientation=&quot;Horizontal&quot; /&gt;
+    &lt;/fx:FXHost.Layers&gt;
+    &lt;Border Width=&quot;240&quot; Height=&quot;44&quot; CornerRadius=&quot;22&quot; BorderBrush=&quot;#5a6170&quot; BorderThickness=&quot;1&quot;&gt;
+        &lt;TextBlock Text=&quot;{Binding UploadStatus}&quot; Foreground=&quot;White&quot; FontWeight=&quot;SemiBold&quot;
+                   HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot; /&gt;
+    &lt;/Border&gt;
+&lt;/fx:FXHost&gt;
+</code></pre>
+<p><code>Orientation=&quot;Horizontal&quot;</code> fills from the left, for a bar; the default, <code>Vertical</code>, rises from the bottom. If your progress counts to 100, divide it by 100 in the view model or a converter.</p>
+<h2 id="color-the-liquid">Color the liquid</h2>
+<p><code>Color</code> is the liquid near its surface, <code>DeepColor</code> the color it shades into with depth, and <code>SurfaceColor</code> the bright line along the surface, the wave behind it and the bubbles' rims. <code>WaveHeight</code> and <code>WaveLength</code> shape the waves, <code>WaveSpeed</code> sets how many pass a second, and <code>Bubbles</code> how many rise.</p>
+<pre><code class="lang-xaml">&lt;fx:LiquidProgress Level=&quot;0.42&quot; Color=&quot;#10b981&quot; DeepColor=&quot;#065f46&quot; SurfaceColor=&quot;#6ee7b7&quot;
+                   WaveHeight=&quot;6&quot; Bubbles=&quot;0.5&quot; /&gt;
+</code></pre>
+<p>For a liquid that stays still while the level holds, set <code>WaveSpeed</code> and <code>Bubbles</code> to 0: the layer then asks for frames only while a new level settles.</p>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Level</code></td>
+<td><code>double</code></td>
+<td><code>0.6</code></td>
+<td>How full, 0..1. Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>Color</code></td>
+<td><code>Color</code></td>
+<td><code>#3B82F6</code></td>
+<td>The liquid's color near its surface; it shades toward <code>DeepColor</code> further down.</td>
+</tr>
+<tr>
+<td><code>DeepColor</code></td>
+<td><code>Color</code></td>
+<td><code>#1E40AF</code></td>
+<td>The color the liquid shades to with depth.</td>
+</tr>
+<tr>
+<td><code>SurfaceColor</code></td>
+<td><code>Color</code></td>
+<td><code>#93C5FD</code></td>
+<td>The color of the bright line along the surface, the bubbles' rims and the wave behind.</td>
+</tr>
+<tr>
+<td><code>WaveHeight</code></td>
+<td><code>double</code></td>
+<td><code>4</code></td>
+<td>How tall the surface waves are, in DIPs (0: flat). A change of level makes them taller for a moment. Range 0–24.</td>
+</tr>
+<tr>
+<td><code>WaveLength</code></td>
+<td><code>double</code></td>
+<td><code>120</code></td>
+<td>Distance between wave crests, in DIPs. Range 16–600.</td>
+</tr>
+<tr>
+<td><code>WaveSpeed</code></td>
+<td><code>double</code></td>
+<td><code>0.6</code></td>
+<td>Waves per second (0: a still surface; with <code>Bubbles</code> at 0 too, no frames are drawn while the level holds). Range 0–3.</td>
+</tr>
+<tr>
+<td><code>Bubbles</code></td>
+<td><code>double</code></td>
+<td><code>0.25</code></td>
+<td>How many bubbles rise: the share of narrow columns that carry one (0: none). Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>Slosh</code></td>
+<td><code>double</code></td>
+<td><code>1</code></td>
+<td>How much a change of level stirs the surface. Range 0–2.</td>
+</tr>
+<tr>
+<td><code>Orientation</code></td>
+<td><code>Orientation</code></td>
+<td><code>Vertical</code></td>
+<td>Vertical rises from the bottom; horizontal fills from the left. Values: <code>Horizontal</code>, <code>Vertical</code>.</td>
+</tr>
+<tr>
+<td><code>BorderWidth</code></td>
+<td><code>double</code></td>
+<td><code>0</code></td>
+<td>Width of a band inside the edge, DIPs. 0: the whole shape. Range 0–48.</td>
+</tr>
+<tr>
+<td><code>UseMask</code></td>
+<td><code>bool</code></td>
+<td><code>false</code></td>
+<td>Paints only the child's own pixels (text, icons, a logo) instead of the shape: gradient text, a liquid-metal logo, holographic icons. It then goes over the child unless <code>Placement</code> says otherwise. The host captures the child to know its pixels: call <code>RefreshMask</code> after changing something deep inside it.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>:
+<code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>. On a fill, <code>Intensity</code> is its coverage, up to 1.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>Light and dark.</strong> On a light surface the wave behind the surface is drawn paler and see-through. See <a href="../concepts/light-and-dark.html#how-light-layers-draw-on-each-surface">Light and dark surfaces</a>.</li>
+<li><strong>Reduced motion.</strong> The level jumps to its new value, and the surface stays calm. See <a href="../concepts/reduced-motion.html#the-poses">the poses</a>.</li>
+<li><strong>Cost.</strong> About 0.06 ms of GPU time a frame on a card. See <a href="../concepts/performance.html#what-a-layer-costs">What a layer costs</a>.</li>
+<li><strong>Shape.</strong> The liquid fills the child's bounds with the host's corner radius, so give the child the full size of the bar or the glass. <code>BorderWidth</code> fills only a band inside the edge, and <code>UseMask</code> fills the child's own pixels instead, such as the letters of a text; see <a href="../concepts/content-masks.html#layers-that-follow-the-content">Content masks</a>.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.LiquidProgress.html">LiquidProgress</a> API reference</li>
+<li><a href="waves.html">Waves</a>, layered bands with rolling crests</li>
+<li><a href="water.html">Water</a>, a surface that ripples under the pointer</li>
+<li><a href="shimmer.html">Shimmer</a>, a loading sweep for content that isn't ready yet</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/liquidprogress.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Weather | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Weather | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="Rain streaks or snowflakes falling in three depths, slanted by the wind.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/weather.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="weather">Weather</h1>
+
+<p><code>Weather</code> lets rain streaks or snowflakes fall across the host's shape in three depths, slanted by the wind. Use it on a weather card, over a photo or a hero section, or for a seasonal touch. Unlike the other fills, it goes over the child by default and draws only the drops, so the content stays visible between them.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/weather-light.png" alt="Weather on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/weather-dark.png" alt="Weather on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-rain">Add rain</h2>
+<p>Put the host around the card. The card keeps its own background, and the rain falls over it, clipped to its rounded shape.</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;fx:FXHost&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:Weather /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Border Width=&quot;340&quot; Height=&quot;190&quot; CornerRadius=&quot;16&quot; Background=&quot;#1E293B&quot; Padding=&quot;20&quot;&gt;
+            &lt;TextBlock Text=&quot;Showers until 6 PM&quot; Foreground=&quot;White&quot; FontSize=&quot;18&quot; FontWeight=&quot;SemiBold&quot; /&gt;
+        &lt;/Border&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<h2 id="styles">Styles</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Rain</code> (default)</td>
+<td>Thin streaks falling fast.</td>
+</tr>
+<tr>
+<td><code>Snow</code></td>
+<td>Soft round flakes drifting slowly down, swaying as they fall.</td>
+</tr>
+</tbody>
+</table>
+
+<p><code>Snow</code> drifts down slowly, and each flake sways a little as it falls:</p>
+<pre><code class="lang-xaml">&lt;fx:Weather Style=&quot;Snow&quot; Density=&quot;1.4&quot; Size=&quot;1.2&quot; /&gt;
+</code></pre>
+<h2 id="slant-it-and-set-the-fall">Slant it and set the fall</h2>
+<p><code>WindAngle</code> slants the fall, in degrees from straight down: positive slants it to the right, negative to the left (12 by default). <code>Density</code> sets how many drops or flakes fall, and <code>Size</code> how big they are, as a multiple (1 is natural). <code>FallSpeed</code> multiplies how fast they fall; at 0 they hold still and the layer asks for no frames.</p>
+<pre><code class="lang-xaml">&lt;fx:Weather WindAngle=&quot;-25&quot; Density=&quot;2&quot; FallSpeed=&quot;1.4&quot; /&gt;
+</code></pre>
+<p>To change the pace while it falls, change <code>Speed</code> or <code>FallSpeed</code>; neither makes the animation jump. Fills run on one shared clock, so weather on different hosts, with the same settings from the start, falls in step.</p>
+<h2 id="pick-a-color-for-each-theme">Pick a color for each theme</h2>
+<p>The default color, a pale blue (#CFE3FF), reads on dark content but all but vanishes on a white card. Give the layer a deeper color in light themes; the gallery uses #5878B0. With theme resources, it changes when the theme does:</p>
+<pre><code class="lang-xaml">&lt;Application.Resources&gt;
+    &lt;ResourceDictionary&gt;
+        &lt;ResourceDictionary.ThemeDictionaries&gt;
+            &lt;ResourceDictionary x:Key=&quot;Light&quot;&gt;
+                &lt;Color x:Key=&quot;RainColor&quot;&gt;#5878B0&lt;/Color&gt;
+            &lt;/ResourceDictionary&gt;
+            &lt;ResourceDictionary x:Key=&quot;Dark&quot;&gt;
+                &lt;Color x:Key=&quot;RainColor&quot;&gt;#CFE3FF&lt;/Color&gt;
+            &lt;/ResourceDictionary&gt;
+        &lt;/ResourceDictionary.ThemeDictionaries&gt;
+    &lt;/ResourceDictionary&gt;
+&lt;/Application.Resources&gt;
+</code></pre>
+<pre><code class="lang-xaml">&lt;fx:Weather Color=&quot;{DynamicResource RainColor}&quot; /&gt;
+</code></pre>
+<h2 id="fall-behind-the-content">Fall behind the content</h2>
+<p>With <code>Placement=&quot;Under&quot;</code>, the weather falls behind the child instead, like the other fills. Leave the child without a background so the drops show through it, and put any background on a container around the host:</p>
+<pre><code class="lang-xaml">&lt;Border Background=&quot;#0F172A&quot; CornerRadius=&quot;16&quot;&gt;
+    &lt;fx:FXHost CornerRadius=&quot;16&quot;&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:Weather Style=&quot;Snow&quot; Placement=&quot;Under&quot; /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Grid Height=&quot;220&quot;&gt;
+            &lt;TextBlock Text=&quot;Winter sale&quot; Foreground=&quot;White&quot; FontSize=&quot;28&quot; FontWeight=&quot;Bold&quot;
+                       HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot; /&gt;
+        &lt;/Grid&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/Border&gt;
+</code></pre>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Style</code></td>
+<td><code>WeatherStyle</code></td>
+<td><code>Rain</code></td>
+<td>What falls: rain streaks or snowflakes. Values: <code>Rain</code>, <code>Snow</code>.</td>
+</tr>
+<tr>
+<td><code>Color</code></td>
+<td><code>Color</code></td>
+<td><code>#CFE3FF</code></td>
+<td>The color of the drops or flakes.</td>
+</tr>
+<tr>
+<td><code>Density</code></td>
+<td><code>double</code></td>
+<td><code>1</code></td>
+<td>How much falls, a multiple of the default. Range 0.1–3.</td>
+</tr>
+<tr>
+<td><code>FallSpeed</code></td>
+<td><code>double</code></td>
+<td><code>1</code></td>
+<td>How fast it falls, a multiple of the default (0: it hangs still). Range 0–3.</td>
+</tr>
+<tr>
+<td><code>WindAngle</code></td>
+<td><code>double</code></td>
+<td><code>12</code></td>
+<td>Slant from straight down, degrees: 0 falls straight down; positive slants the fall to the right (counterclockwise), negative to the left. Range -60 to 60.</td>
+</tr>
+<tr>
+<td><code>Size</code></td>
+<td><code>double</code></td>
+<td><code>1</code></td>
+<td>Size of the drops or flakes, a multiple: 1 is natural. Range 0.3–4.</td>
+</tr>
+<tr>
+<td><code>BorderWidth</code></td>
+<td><code>double</code></td>
+<td><code>0</code></td>
+<td>Width of a band inside the edge, DIPs. 0: the whole shape. Range 0–48.</td>
+</tr>
+<tr>
+<td><code>UseMask</code></td>
+<td><code>bool</code></td>
+<td><code>false</code></td>
+<td>Paints only the child's own pixels (text, icons, a logo) instead of the shape: gradient text, a liquid-metal logo, holographic icons. It then goes over the child unless <code>Placement</code> says otherwise. The host captures the child to know its pixels: call <code>RefreshMask</code> after changing something deep inside it.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>: <code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>. On a fill, <code>Intensity</code> is its coverage, up to 1.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>Light and dark surfaces:</strong> the drops are drawn in <code>Color</code> on any surface, so pick a color for each theme, as above. See <a href="../concepts/light-and-dark.html#how-light-layers-draw-on-each-surface">Light and dark surfaces</a>.</li>
+<li><strong>Reduced motion:</strong> the rain or snow holds one fixed pose. See <a href="../concepts/reduced-motion.html#the-poses">Reduced motion</a>.</li>
+<li><strong>Cost:</strong> about 0.07 ms of GPU time a frame on the benchmark's 340×190 card. The cost grows with the area. See <a href="../concepts/performance.html#what-a-layer-costs">Performance</a>.</li>
+<li><strong>Room:</strong> the drops are clipped to the host's shape. Rain needs some height to read as rain, so it suits a card or a panel more than a button.</li>
+<li><strong>Bands and masks:</strong> like every fill, it has <code>BorderWidth</code>, which paints only a band inside the edge, and <code>UseMask</code>, which lets it fall only on the child's own pixels, such as large text. See <a href="../concepts/content-masks.html#layers-that-follow-the-content">Content masks</a>.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.Weather.html">Weather</a> API reference</li>
+<li><a href="rainglass.html">Rain on glass</a>, drops beading on a pane over the content</li>
+<li><a href="fog.html">Fog</a> and <a href="water.html">Water</a></li>
+<li><a href="starfield.html">Starfield</a>, another sky to put behind content</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/weather.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

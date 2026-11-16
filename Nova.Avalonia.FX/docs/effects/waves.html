@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Waves | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Waves | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="Layered bands of color with rolling crests, like a sea or dunes.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/waves.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="waves">Waves</h1>
+
+<p>Layered bands of color, one per color, stacked from back to front, with rolling, swaying crests; each band in front shades the one behind it. It reads as a sea, a range of dunes or hills. Use it for headers, weather and travel cards, footers and calm backgrounds. It is a fill: it paints the host's shape and goes under the child, or paints the child's own pixels with <code>UseMask</code>.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/waves-light.png" alt="Waves on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/waves-dark.png" alt="Waves on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-waves">Add waves</h2>
+<p>The fill goes under the child, so leave the child without a background:</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;fx:FXHost&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:Waves Preset=&quot;Sea&quot; /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Border Width=&quot;120&quot; Height=&quot;116&quot; CornerRadius=&quot;16&quot; Padding=&quot;12&quot;&gt;
+            &lt;TextBlock Text=&quot;Sea&quot; FontSize=&quot;13&quot; FontWeight=&quot;SemiBold&quot; Foreground=&quot;#0A2649&quot;
+                       VerticalAlignment=&quot;Top&quot; /&gt;
+        &lt;/Border&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<h2 id="presets">Presets</h2>
+<p>Each preset brings a palette and sets <code>Amplitude</code>, <code>Crests</code> and <code>FlowSpeed</code>. Set any of them yourself to adjust a preset.</p>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Sea</code> (default)</td>
+<td>Pale sky blue at the back to deep navy in front, with lively crests.</td>
+</tr>
+<tr>
+<td><code>Dunes</code></td>
+<td>Sand cream to deep rust, with broad, slow crests.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="use-your-own-colors">Use your own colors</h2>
+<p>Each color in <code>Colors</code> is one band, up to six. The first is the band at the back, at the top of the shape, and the last the one in front, at the bottom. A dusk sea:</p>
+<pre><code class="lang-xaml">&lt;fx:Waves Colors=&quot;#FFD6A5, #F28482, #84A59D, #3D5A80, #1D2D44&quot; /&gt;
+</code></pre>
+<p>Text sits on the band at its height, so pick its color by that band: dark text near the top of the <code>Sea</code> preset, light text lower down.</p>
+<h2 id="shape-the-crests">Shape the crests</h2>
+<p><code>Amplitude</code> is the height of the crests, as a share of the shape, and <code>Crests</code> how many cross it. <code>FlowSpeed</code> sets how fast they roll, and <code>Softness</code> how soft the edges between bands are. <code>Angle</code> turns the direction the bands stack along; 0 is top to bottom, and positive angles turn clockwise:</p>
+<pre><code class="lang-xaml">&lt;fx:Waves Preset=&quot;Dunes&quot; Amplitude=&quot;0.1&quot; Crests=&quot;2.5&quot; Softness=&quot;0.02&quot; Angle=&quot;90&quot; /&gt;
+</code></pre>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Preset</code></td>
+<td><code>WavesPreset</code></td>
+<td><code>Sea</code></td>
+<td>The palette used while <code>Colors</code> is unset, with matching <code>Amplitude</code>, <code>Crests</code> and <code>FlowSpeed</code>. Local values win. Values: <code>Sea</code>, <code>Dunes</code>.</td>
+</tr>
+<tr>
+<td><code>Colors</code></td>
+<td><code>FXColorList</code></td>
+<td>Unset</td>
+<td>The colors (up to six). Unset: the preset's palette.</td>
+</tr>
+<tr>
+<td><code>Amplitude</code></td>
+<td><code>double</code></td>
+<td><code>0.05</code></td>
+<td>Crest height, as a fraction of the rect. Range 0–0.25 (0–25%).</td>
+</tr>
+<tr>
+<td><code>Crests</code></td>
+<td><code>double</code></td>
+<td><code>1.6</code></td>
+<td>Crests across the rect. Range 0.2–6.</td>
+</tr>
+<tr>
+<td><code>FlowSpeed</code></td>
+<td><code>double</code></td>
+<td><code>0.4</code></td>
+<td>How fast the crests roll and sway (0: still). Range 0–2 per second.</td>
+</tr>
+<tr>
+<td><code>Angle</code></td>
+<td><code>double</code></td>
+<td><code>0</code></td>
+<td>Direction the bands stack along, degrees: 0 top to bottom; positive turns clockwise. Range -180 to 180.</td>
+</tr>
+<tr>
+<td><code>Softness</code></td>
+<td><code>double</code></td>
+<td><code>0.006</code></td>
+<td>Edge softness, as a fraction of the rect. Range 0–0.1 (0–10%).</td>
+</tr>
+<tr>
+<td><code>BorderWidth</code></td>
+<td><code>double</code></td>
+<td><code>0</code></td>
+<td>Width of a band inside the edge, DIPs. 0: the whole shape. Range 0–48.</td>
+</tr>
+<tr>
+<td><code>UseMask</code></td>
+<td><code>bool</code></td>
+<td><code>false</code></td>
+<td>Paints only the child's own pixels (text, icons, a logo) instead of the shape: gradient text, a liquid-metal logo, holographic icons. It then goes over the child unless <code>Placement</code> says otherwise. The host captures the child to know its pixels: call <code>RefreshMask</code> after changing something deep inside it.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>:
+<code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>Intensity</strong> is the fill's coverage, from 0 to 1.</li>
+<li><strong>Still waves:</strong> with <code>FlowSpeed</code> or <code>Amplitude</code> at 0, the bands hold still and the layer requests no frames.</li>
+<li><strong>Light and dark surfaces:</strong> the waves draw the same on both.</li>
+<li><strong>Reduced motion:</strong> the bands hold one pose. See <a href="../concepts/reduced-motion.html#the-poses">Reduced motion</a>.</li>
+<li><strong>Cost:</strong> 0.073 ms of GPU time per frame on a 340×190 card in the gallery's bench. See <a href="../concepts/performance.html#what-a-layer-costs">Performance</a>.</li>
+<li>Like every fill, waves can paint only the child's own pixels with <code>UseMask</code>, or a band inside the edge with <code>BorderWidth</code>.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.Waves.html">Waves</a> API reference</li>
+<li><a href="swirl.html">Swirl</a>, <a href="meshgradient.html">Mesh gradient</a> and <a href="silk.html">Silk</a></li>
+<li><a href="topography.html">Topography</a> and <a href="retrogrid.html">Retro grid</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/waves.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

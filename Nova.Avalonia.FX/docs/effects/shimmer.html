@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Shimmer | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Shimmer | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="A sheen sweeping across the shape, for skeleton loaders, busy buttons and &quot;Thinking…&quot; text.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/shimmer.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="shimmer">Shimmer</h1>
+
+<p>A soft band of light sweeps across the shape once a period, then rests off it before the next pass. Use it for skeleton loaders, a button that is working, or a &quot;Thinking…&quot; label while an answer streams in. It draws over the host's child, and the band starts and ends off the shape, so it never cuts in or out mid-pass. With <code>UseMask</code>, it sweeps across the child's own pixels instead of its box.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/shimmer-light.png" alt="Shimmer on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/shimmer-dark.png" alt="Shimmer on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-a-shimmer">Add a shimmer</h2>
+<p>Wrap the control in an <code>FXHost</code> and add a <code>Shimmer</code> to its layers:</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;fx:FXHost&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:Shimmer /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Button Classes=&quot;accent&quot; Content=&quot;Generate&quot; /&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<h2 id="build-a-skeleton-loader">Build a skeleton loader</h2>
+<p><code>BaseColor</code> paints a block under the sheen, so an empty <code>Border</code> becomes a placeholder bar. Each bar needs its own host and its own layer, since a layer can be in one host at a time:</p>
+<pre><code class="lang-xaml">&lt;StackPanel Spacing=&quot;12&quot; Width=&quot;240&quot;&gt;
+    &lt;fx:FXHost CornerRadius=&quot;8&quot;&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:Shimmer BaseColor=&quot;#E2E5EA&quot; Intensity=&quot;1.6&quot; /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Border Height=&quot;16&quot; /&gt;
+    &lt;/fx:FXHost&gt;
+    &lt;fx:FXHost CornerRadius=&quot;8&quot; HorizontalAlignment=&quot;Left&quot;&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:Shimmer BaseColor=&quot;#E2E5EA&quot; Intensity=&quot;1.6&quot; /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Border Height=&quot;16&quot; Width=&quot;130&quot; /&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/StackPanel&gt;
+</code></pre>
+<p><code>BaseColor</code> is a <code>Color</code>, so a theme resource bound to it must be a color resource, not a brush. Transparent (the default) paints no block.</p>
+<p>To switch the placeholder off when the data arrives, bind <code>IsActive</code>. Layers inherit the host's <code>DataContext</code>:</p>
+<pre><code class="lang-xaml">&lt;fx:Shimmer BaseColor=&quot;#E2E5EA&quot; IsActive=&quot;{Binding IsLoading}&quot; /&gt;
+</code></pre>
+<h2 id="sweep-across-text">Sweep across text</h2>
+<p>With <code>UseMask</code>, the sheen runs over the letters only, not the text's whole box. A gray text color lets it show on both light and dark themes:</p>
+<pre><code class="lang-xaml">&lt;fx:FXHost&gt;
+    &lt;fx:FXHost.Layers&gt;
+        &lt;fx:Shimmer UseMask=&quot;True&quot; Intensity=&quot;2.5&quot; Band=&quot;18&quot; /&gt;
+    &lt;/fx:FXHost.Layers&gt;
+    &lt;TextBlock Text=&quot;Thinking…&quot; FontSize=&quot;16&quot; FontWeight=&quot;SemiBold&quot; Foreground=&quot;#8A8F98&quot; /&gt;
+&lt;/fx:FXHost&gt;
+</code></pre>
+<p>The host captures its child to find those pixels. After changing something deeper inside the child, call <code>FXHost.RefreshMask()</code>; see <a href="../concepts/content-masks.html#layers-that-follow-the-content">Content masks</a>.</p>
+<h2 id="shape-the-sweep">Shape the sweep</h2>
+<p><code>Period</code> is the length of one pass plus its rest, in seconds, and <code>Pause</code> is the share of it the band spends off the shape. <code>Band</code> sets the band's width, <code>Angle</code> tilts it from upright, and <code>Color</code> tints it:</p>
+<pre><code class="lang-xaml">&lt;fx:Shimmer Period=&quot;2.4&quot; Pause=&quot;0.5&quot; Band=&quot;40&quot; Angle=&quot;-15&quot; Color=&quot;#BFDBFE&quot; /&gt;
+</code></pre>
+<p><code>Feather</code> softens the edge of the shape. It doesn't apply with <code>UseMask</code>, which follows the child's own edges.</p>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Color</code></td>
+<td><code>Color</code></td>
+<td><code>#FFFFFF</code></td>
+<td>The sheen's color.</td>
+</tr>
+<tr>
+<td><code>BaseColor</code></td>
+<td><code>Color</code></td>
+<td><code>#00FFFFFF</code></td>
+<td>A base color under the sheen (a skeleton block). Transparent: none.</td>
+</tr>
+<tr>
+<td><code>Period</code></td>
+<td><code>double</code></td>
+<td><code>1.8</code></td>
+<td>Seconds from one sweep to the next, pause included. Range 0.3–6.</td>
+</tr>
+<tr>
+<td><code>Band</code></td>
+<td><code>double</code></td>
+<td><code>28</code></td>
+<td>Width of the sheen band, in DIPs. Range 4–120.</td>
+</tr>
+<tr>
+<td><code>Angle</code></td>
+<td><code>double</code></td>
+<td><code>20</code></td>
+<td>Tilt of the band from upright, degrees: 0 upright; positive turns it clockwise (top to the right). Range -60 to 60.</td>
+</tr>
+<tr>
+<td><code>Pause</code></td>
+<td><code>double</code></td>
+<td><code>0.3</code></td>
+<td>Share of each period the band rests off the shape. Range 0–0.9 (0–90%).</td>
+</tr>
+<tr>
+<td><code>Feather</code></td>
+<td><code>double</code></td>
+<td><code>0</code></td>
+<td>How far inside the shape's edge the sheen fades in, in DIPs (0: a crisp edge). Not used with <code>UseMask</code>. Range 0–24.</td>
+</tr>
+<tr>
+<td><code>UseMask</code></td>
+<td><code>bool</code></td>
+<td><code>false</code></td>
+<td>Sweep across the child's own pixels (text, icons) instead of its box.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>:
+<code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>Intensity</strong> is the sheen's strength, up to 3. At 0 the sheen is gone, but a <code>BaseColor</code> block still draws. <code>Seed</code> doesn't change the shimmer.</li>
+<li><strong>Light and dark surfaces:</strong> the shimmer draws the same on both. The sheen adds light, so it shows over colored or darker content and has little to brighten on plain white; give a skeleton a <code>BaseColor</code>, and text a gray or colored foreground.</li>
+<li><strong>Reduced motion:</strong> the band stops traveling, and the whole surface breathes gently instead. See <a href="../concepts/reduced-motion.html#the-poses">Reduced motion</a>.</li>
+<li><strong>Cost:</strong> 0.025 ms of GPU time per frame on a 340×190 card, in the gallery's bench. See <a href="../concepts/performance.html#what-a-layer-costs">Performance</a>.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.Shimmer.html">Shimmer</a> API reference</li>
+<li><a href="glow.html">Glow</a>, whose <code>Mask</code> style blooms around text instead of sweeping it</li>
+<li><a href="holofoil.html">Holo foil</a> and <a href="grain.html">Grain</a></li>
+<li><a href="../concepts/content-masks.html">Content masks</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/shimmer.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

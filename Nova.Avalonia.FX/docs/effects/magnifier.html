@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Magnifier | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Magnifier | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="A glass loupe that follows the pointer over the host and magnifies what is under it.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/magnifier.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="magnifier">Magnifier</h1>
+
+<p><code>Magnifier</code> is a glass loupe that follows the pointer over the host and magnifies what is under it, with a rim, a soft shadow and a slight color split toward its edge. Use it for fine print, charts, maps and product photos. It grows in when the pointer arrives and fades when it leaves, and <code>PointAt</code> aims it from code. It draws over the child and magnifies what is drawn there: the child and anything behind it that shows through.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/magnifier-light.png" alt="Magnifier on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/magnifier-dark.png" alt="Magnifier on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-a-magnifier">Add a magnifier</h2>
+<p>Wrap the content to magnify in a host:</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;fx:FXHost&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:Magnifier Radius=&quot;48&quot; Zoom=&quot;2&quot; /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Image Source=&quot;/Assets/map.png&quot; Width=&quot;480&quot; /&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<h2 id="choose-what-it-covers">Choose what it covers</h2>
+<ul>
+<li><strong>It follows the pointer only over the host's shape.</strong> To magnify a whole panel, wrap the panel, not one item in it.</li>
+<li><strong>It magnifies what is drawn before it.</strong> It copies what is under the lens just before it draws (see <a href="../concepts/layers.html#layers-that-read-the-backdrop">Layers that read the backdrop</a>): the child, and whatever shows through the child's see-through parts. Controls drawn after the host sit in front of the lens and aren't magnified.</li>
+<li><strong>The lens can reach past the shape</strong> when the pointer is near an edge. A clipping ancestor cuts it there.</li>
+<li><strong>Keep ancestors opaque.</strong> Inside an offscreen layer (an ancestor with <code>Opacity</code> below 1, an effect, or a clip that needs a layer) the copy can't see that ancestor's content.</li>
+</ul>
+<h2 id="aim-it-from-code">Aim it from code</h2>
+<p><code>PointAt(at)</code> holds the lens over a point in the host's coordinates, as if the pointer were there: for keyboard focus or a guided tour. <code>PointAt(null)</code> puts it away, and the pointer takes over again when it moves. This holds the lens over a label while it has keyboard focus:</p>
+<pre><code class="lang-csharp">PriceLabel.GotFocus += (_, _) =&gt;
+{
+    var center = new Point(PriceLabel.Bounds.Width / 2, PriceLabel.Bounds.Height / 2);
+    ChartLoupe.PointAt(PriceLabel.TranslatePoint(center, ChartHost));
+};
+PriceLabel.LostFocus += (_, _) =&gt; ChartLoupe.PointAt(null);
+</code></pre>
+<h2 id="size-the-lens">Size the lens</h2>
+<p><code>Radius</code> sets the lens's size and <code>Zoom</code> how much it magnifies. <code>FollowTime</code> is how long it takes to catch up with the pointer; 0 sticks to it. <code>Rim</code>, <code>Shadow</code> and <code>Dispersion</code> shape the glass:</p>
+<pre><code class="lang-xaml">&lt;fx:Magnifier Radius=&quot;80&quot; Zoom=&quot;2.5&quot; FollowTime=&quot;0.1&quot; Dispersion=&quot;0&quot; /&gt;
+</code></pre>
+<h2 id="methods">Methods</h2>
+<p>Call <code>PointAt</code> to aim the lens without a pointer.</p>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PointAt(Point? at)</code></td>
+<td>Holds the lens over <code>at</code> (host coordinates); null puts it away.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Radius</code></td>
+<td><code>double</code></td>
+<td><code>56</code></td>
+<td>Radius of the lens, in DIPs. Range 12–200.</td>
+</tr>
+<tr>
+<td><code>Zoom</code></td>
+<td><code>double</code></td>
+<td><code>1.8</code></td>
+<td>How much the lens magnifies at its center: 1 not at all, 2 twice the size. Range 1–5.</td>
+</tr>
+<tr>
+<td><code>Rim</code></td>
+<td><code>double</code></td>
+<td><code>1</code></td>
+<td>Strength of the light on the lens's rim (0: none). Range 0–2.</td>
+</tr>
+<tr>
+<td><code>Shadow</code></td>
+<td><code>double</code></td>
+<td><code>0.45</code></td>
+<td>How dark the soft shadow around the lens is (0: none). Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>Dispersion</code></td>
+<td><code>double</code></td>
+<td><code>0.2</code></td>
+<td>Color split toward the rim. Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>FollowTime</code></td>
+<td><code>double</code></td>
+<td><code>0.04</code></td>
+<td>How long the lens takes to catch up with the pointer (a time constant). Range 0–0.5 seconds.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>: <code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>. The lens follows the pointer, not a clock, so <code>Speed</code> and <code>Seed</code> don't apply.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>Light and dark surfaces:</strong> it draws the same on both.</li>
+<li><strong>Reduced motion:</strong> the lens jumps to the pointer instead of easing, and appears and fades at once.</li>
+<li><strong>Cost:</strong> with the pointer away it draws nothing. While it shows, it shades only around the lens: about 0.08 ms of GPU time a frame on the benchmark card, plus a copy of what is under it. See <a href="../concepts/performance.html#what-a-layer-costs">Performance</a>.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.Magnifier.html">Magnifier</a> API reference</li>
+<li><a href="../concepts/one-shots-and-pointer.html#layers-that-follow-the-pointer">Layers that follow the pointer</a></li>
+<li><a href="glass.html">Glass</a>, <a href="spotlight.html">Spotlight</a> and <a href="frost.html">Frost</a></li>
+<li><a href="../concepts/layers.html#layers-that-read-the-backdrop">Layers that read the backdrop</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/magnifier.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

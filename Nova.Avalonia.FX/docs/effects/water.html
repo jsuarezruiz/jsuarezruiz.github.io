@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Water | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Water | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="The content under a water surface: the pointer drags ripples across it, a press makes a splash, and rain can fall on its own.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/water.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="water">Water</h1>
+
+<p><code>Water</code> puts the content under a sheet of water: moving the pointer over it drags ripples across the surface, a press drops a splash, and <code>Rain</code> lets drops fall on their own. The waves bend what is under them and catch the light. Use it for a playful hero, a calm &quot;drop files here&quot; area, or a pool on a game screen. A small wave simulation runs only while the water moves, and calm water draws nothing. It draws over the child, so it bends the child and whatever shows through it.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/water-light.png" alt="Water on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/water-dark.png" alt="Water on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-water">Add water</h2>
+<p>Wrap the content in a host. Move the pointer over it for ripples, and press for a splash:</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;fx:FXHost CornerRadius=&quot;14&quot;&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:Water /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Border Width=&quot;260&quot; Height=&quot;150&quot; CornerRadius=&quot;14&quot;&gt;
+            &lt;Border.Background&gt;
+                &lt;RadialGradientBrush&gt;
+                    &lt;GradientStop Color=&quot;#22D3EE&quot; Offset=&quot;0&quot; /&gt;
+                    &lt;GradientStop Color=&quot;#0E7490&quot; Offset=&quot;1&quot; /&gt;
+                &lt;/RadialGradientBrush&gt;
+            &lt;/Border.Background&gt;
+            &lt;TextBlock Text=&quot;Touch the water&quot; Foreground=&quot;White&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;20&quot;
+                       HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot; /&gt;
+        &lt;/Border&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<h2 id="give-it-something-to-bend">Give it something to bend</h2>
+<p>The water copies what is under it just before it draws (see <a href="../concepts/layers.html#layers-that-read-the-backdrop">Layers that read the backdrop</a>): the child, and whatever shows through it. Text, edges and pictures show the waves best. A press splashes only when it lands on the host's child, so give a see-through child a <code>Background</code>, even <code>Transparent</code>. Inside an offscreen layer (an ancestor with <code>Opacity</code> below 1, an effect, or a clip that needs a layer) the copy can't see that ancestor's content, so keep such ancestors opaque.</p>
+<h2 id="splash-from-code">Splash from code</h2>
+<p><code>Splash(at)</code> drops a splash at a point in the host's coordinates, or at the center with no point. Set <code>SplashOnPress=&quot;False&quot;</code> to stop presses from splashing:</p>
+<pre><code class="lang-csharp">// A splash where a drag ends over the pool.
+private void OnPoolReleased(object? sender, PointerReleasedEventArgs e)
+{
+    PoolWater.Splash(e.GetPosition(PoolHost));
+}
+
+// A splash in the middle when a task completes.
+PoolWater.Splash();
+</code></pre>
+<h2 id="let-it-rain">Let it rain</h2>
+<p><code>Rain</code> is how many drops fall a second on their own; <code>Seed</code> places them. With rain, the water keeps moving and keeps drawing:</p>
+<pre><code class="lang-xaml">&lt;fx:Water Rain=&quot;1.5&quot; /&gt;
+</code></pre>
+<h2 id="tune-the-surface">Tune the surface</h2>
+<p><code>Damping</code> sets how long ripples last, <code>Refraction</code> how strongly the waves bend what is under them (1 is natural water), <code>Stir</code> how hard the pointer pushes, and <code>Highlight</code> the light on the waves. <code>Tint</code> colors the water where it rises, and its alpha is how much. <code>CellSize</code> is the simulation's cell size: smaller is finer and costs more.</p>
+<pre><code class="lang-xaml">&lt;fx:Water Damping=&quot;0.992&quot; Refraction=&quot;1.5&quot; Stir=&quot;1.4&quot; Tint=&quot;#4022D3EE&quot; /&gt;
+</code></pre>
+<h2 id="methods">Methods</h2>
+<p>Call <code>Splash</code> to make waves without a press.</p>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Splash(Point? at = null)</code></td>
+<td>Drops a splash at <code>at</code> (host coordinates), or the center.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Damping</code></td>
+<td><code>double</code></td>
+<td><code>0.985</code></td>
+<td>How long ripples last: each 60th of a second keeps this share of the wave. Range 0.9–0.999.</td>
+</tr>
+<tr>
+<td><code>Refraction</code></td>
+<td><code>double</code></td>
+<td><code>1</code></td>
+<td>How strongly the waves bend what is under them, a multiple: 1 is natural water, 0 none. Range 0–3.</td>
+</tr>
+<tr>
+<td><code>Stir</code></td>
+<td><code>double</code></td>
+<td><code>1</code></td>
+<td>How hard the pointer pushes the water. Range 0–3.</td>
+</tr>
+<tr>
+<td><code>Rain</code></td>
+<td><code>double</code></td>
+<td><code>0</code></td>
+<td>Drops a second falling on their own. Range 0–20 per second.</td>
+</tr>
+<tr>
+<td><code>CellSize</code></td>
+<td><code>double</code></td>
+<td><code>4</code></td>
+<td>Simulation cell size: smaller is finer and costs more. Range 2–12 DIPs.</td>
+</tr>
+<tr>
+<td><code>Highlight</code></td>
+<td><code>double</code></td>
+<td><code>1</code></td>
+<td>Highlights on the waves. Range 0–2.</td>
+</tr>
+<tr>
+<td><code>Tint</code></td>
+<td><code>Color</code></td>
+<td><code>#303AA0FF</code></td>
+<td>A color where the water rises; its alpha is how much.</td>
+</tr>
+<tr>
+<td><code>SplashOnPress</code></td>
+<td><code>bool</code></td>
+<td><code>true</code></td>
+<td>Drops a splash where the host is pressed.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>: <code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>The pointer:</strong> ripples follow it while it is over the shape. See <a href="../concepts/one-shots-and-pointer.html#layers-that-follow-the-pointer">Layers that follow the pointer</a> and <a href="../concepts/one-shots-and-pointer.html#one-shots">One-shots</a>.</li>
+<li><strong>Light and dark surfaces:</strong> it draws the same on both.</li>
+<li><strong>Reduced motion:</strong> gentler ripples and splashes, and no rain.</li>
+<li><strong>Cost:</strong> about 0.13 ms of GPU time a frame on the benchmark card while the water moves. The simulation steps at 60 Hz on the render thread; once the surface is flat it clears and stops, so calm water costs nothing. See <a href="../concepts/performance.html#what-a-layer-costs">Performance</a>.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.Water.html">Water</a> API reference</li>
+<li><a href="rainglass.html">Rain glass</a>, <a href="shockwave.html">Shockwave</a>, <a href="ink.html">Ink</a> and <a href="caustics.html">Caustics</a></li>
+<li><a href="../concepts/layers.html#layers-that-read-the-backdrop">Layers that read the backdrop</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/water.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

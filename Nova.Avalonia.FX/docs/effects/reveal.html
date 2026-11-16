@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Reveal | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Reveal | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="Shows or hides the host&#39;s content with a transition, from a dissolve, a burn or an iris to a melt or noise resolving into it.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/reveal.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="reveal">Reveal</h1>
+
+<p>Reveal shows and hides the host's content with a transition: it dissolves into noise, burns away, closes in an iris, melts out of its place, or resolves out of noise like an image being generated. Use it wherever content arrives or goes away: a panel that opens, a draft that's discarded, a result that comes in. The layer captures the content as it looks, hides the real element, and plays the transition over it.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/reveal-light.png" alt="Reveal on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/reveal-dark.png" alt="Reveal on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-a-reveal">Add a reveal</h2>
+<p>Bind <code>IsShown</code> to whatever says the content should be there. Here a switch burns a card away and back:</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;StackPanel Spacing=&quot;12&quot; HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot;&gt;
+        &lt;fx:FXHost CornerRadius=&quot;14&quot;&gt;
+            &lt;fx:FXHost.Layers&gt;
+                &lt;fx:Reveal Style=&quot;Burn&quot; IsShown=&quot;{Binding #ShownSwitch.IsChecked}&quot; /&gt;
+            &lt;/fx:FXHost.Layers&gt;
+            &lt;Border Width=&quot;200&quot; Height=&quot;96&quot; CornerRadius=&quot;14&quot; Padding=&quot;16&quot; Background=&quot;#15171c&quot;&gt;
+                &lt;TextBlock Text=&quot;Draft&quot; Foreground=&quot;White&quot; FontWeight=&quot;SemiBold&quot; /&gt;
+            &lt;/Border&gt;
+        &lt;/fx:FXHost&gt;
+        &lt;ToggleSwitch x:Name=&quot;ShownSwitch&quot; IsChecked=&quot;True&quot; OnContent=&quot;Shown&quot; OffContent=&quot;Burned&quot; /&gt;
+    &lt;/StackPanel&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<h2 id="styles">Styles</h2>
+<p><code>Style</code> picks the transition. <code>Softness</code>, <code>EdgeColor</code>, <code>Angle</code>, <code>NoiseScale</code>, <code>CellSize</code> and <code>Twist</code> each belong to some styles; the properties table lists which.</p>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Dissolve</code> (default)</td>
+<td>The content breaks up into noise; on a dark surface its edge catches a faint light.</td>
+</tr>
+<tr>
+<td><code>Burn</code></td>
+<td>A dissolve with a glowing, charring edge.</td>
+</tr>
+<tr>
+<td><code>Pixelate</code></td>
+<td>The content coarsens into blocks, then fades.</td>
+</tr>
+<tr>
+<td><code>Iris</code></td>
+<td>A circle closes on (or opens from) the origin.</td>
+</tr>
+<tr>
+<td><code>Wipe</code></td>
+<td>A soft edge sweeps across.</td>
+</tr>
+<tr>
+<td><code>Melt</code></td>
+<td>The content melts and drips down out of its place.</td>
+</tr>
+<tr>
+<td><code>Radial</code></td>
+<td>A hand sweeps around the origin, like a clock.</td>
+</tr>
+<tr>
+<td><code>Diamonds</code></td>
+<td>Diamonds grow in a grid, in a wave across.</td>
+</tr>
+<tr>
+<td><code>Swirl</code></td>
+<td>The content twists in from a swirl as it fades in, and out into one.</td>
+</tr>
+<tr>
+<td><code>Halftone</code></td>
+<td>Halftone dots grow into the content, in a wave across.</td>
+</tr>
+<tr>
+<td><code>Generate</code></td>
+<td>Noise resolves into the content in ever finer steps, as an image being generated.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="show-and-hide">Show and hide</h2>
+<p><code>IsShown</code> is true by default and binds both ways, so <code>Show()</code> and <code>Hide()</code> also update a bound view-model property. Set <code>IsShown=&quot;False&quot;</code> in XAML to start hidden: the content is hidden at once, with no transition.</p>
+<p>While hidden, the element is transparent but keeps its place in the layout. Its own <code>Opacity</code> value is left alone, and it still takes clicks and keyboard focus; set <code>IsHitTestVisible</code> from the same property if it shouldn't. A change while a transition plays turns it around from where it is, without a jump. The capture is taken as the transition starts, so changes to the content show once it is handed back.</p>
+<h2 id="play-it-from-a-point">Play it from a point</h2>
+<p><code>Show(from)</code> and <code>Hide(toward)</code> take a point in the host's coordinates. An iris opens from it or closes on it, a clock wipe (<code>Radial</code>) sweeps around it, and a swirl twists around it. With no point they use the center of the shape; the other styles ignore the point.</p>
+<pre><code class="lang-csharp">private void OnCardReleased(object? sender, PointerReleasedEventArgs e)
+{
+    // Close the iris on the point that was tapped.
+    CardReveal.Hide(e.GetPosition(CardHost));
+}
+</code></pre>
+<h2 id="drive-it-from-a-view-model">Drive it from a view model</h2>
+<p>Bind <code>IsShown</code> to a property and change the property:</p>
+<pre><code class="lang-csharp">// ViewModelBase is any base class that raises PropertyChanged,
+// such as CommunityToolkit.Mvvm's ObservableObject.
+public class ComposerViewModel : ViewModelBase
+{
+    private bool _isDraftShown = true;
+
+    public bool IsDraftShown
+    {
+        get =&gt; _isDraftShown;
+        set =&gt; SetProperty(ref _isDraftShown, value);
+    }
+
+    public void Discard() =&gt; IsDraftShown = false;
+
+    public void Undo() =&gt; IsDraftShown = true;
+}
+</code></pre>
+<pre><code class="lang-xaml">&lt;fx:Reveal x:Name=&quot;CardReveal&quot; Style=&quot;Dissolve&quot; IsShown=&quot;{Binding IsDraftShown}&quot; /&gt;
+</code></pre>
+<p>Because the binding is two-way, a <code>Hide(point)</code> called from the view also sets <code>IsDraftShown</code> to false.</p>
+<h2 id="set-the-pace">Set the pace</h2>
+<p><code>Duration</code> is the length of one transition in seconds (0.8 by default). The layer's <code>Speed</code> doesn't apply. The length is read when a transition starts, so a change applies from the next one; under reduced motion it is at most a quarter of a second.</p>
+<h2 id="before-the-content-is-laid-out">Before the content is laid out</h2>
+<p>A transition needs a capture of the content. With nothing to capture, the layer switches at once without playing: when the host has no child, the child isn't visible, it hasn't been laid out yet (for example, <code>IsShown</code> set in a view's constructor), or the layer's <code>IsActive</code> is false. To play an entrance as a view opens, start hidden and call <code>Show()</code> once the content is laid out:</p>
+<pre><code class="lang-xaml">&lt;fx:Reveal x:Name=&quot;WelcomeReveal&quot; Style=&quot;Generate&quot; Duration=&quot;1.6&quot; IsShown=&quot;False&quot; /&gt;
+</code></pre>
+<pre><code class="lang-csharp">public WelcomeView()
+{
+    InitializeComponent();
+    // Loaded is raised after the view's first layout pass.
+    Loaded += (_, _) =&gt; WelcomeReveal.Show();
+}
+</code></pre>
+<h2 id="methods">Methods</h2>
+<p><code>Show</code> and <code>Hide</code> play the transition from code, from or toward a point.</p>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Show(Point? from = null)</code></td>
+<td>Shows the content, playing the layer's transition from <code>from</code> (host coordinates). Null: the layer's own point.</td>
+</tr>
+<tr>
+<td><code>Hide(Point? toward = null)</code></td>
+<td>Hides the content, playing the layer's transition toward <code>toward</code> (host coordinates). Null: the layer's own point.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Style</code></td>
+<td><code>RevealStyle</code></td>
+<td><code>Dissolve</code></td>
+<td>How the content appears and disappears. Values: <code>Dissolve</code>, <code>Burn</code>, <code>Pixelate</code>, <code>Iris</code>, <code>Wipe</code>, <code>Melt</code>, <code>Radial</code>, <code>Diamonds</code>, <code>Swirl</code>, <code>Halftone</code>, <code>Generate</code>.</td>
+</tr>
+<tr>
+<td><code>IsShown</code></td>
+<td><code>bool</code></td>
+<td><code>true</code></td>
+<td>Whether the content is shown. Changing it plays the transition: true reveals the content, false hides it.</td>
+</tr>
+<tr>
+<td><code>Duration</code></td>
+<td><code>double</code></td>
+<td><code>0.8</code></td>
+<td>How long the transition takes, in seconds. Range 0.1–4.</td>
+</tr>
+<tr>
+<td><code>Softness</code></td>
+<td><code>double</code></td>
+<td><code>0.06</code></td>
+<td>Softness of the edge, as a share of the transition. Range 0.01–0.4 (1–40%). Applies to the <code>Dissolve</code>, <code>Burn</code>, <code>Iris</code>, <code>Wipe</code>, and <code>Radial</code> styles.</td>
+</tr>
+<tr>
+<td><code>EdgeColor</code></td>
+<td><code>Color</code></td>
+<td><code>#FF8A2A</code></td>
+<td>The burning edge's color. Applies to the <code>Burn</code> style.</td>
+</tr>
+<tr>
+<td><code>Angle</code></td>
+<td><code>double</code></td>
+<td><code>0</code></td>
+<td>Direction a wipe, or the wave of diamonds or dots, sweeps (0: left to right); where a clock wipe starts (0: at the top). Degrees; positive turns clockwise. Range -180 to 180. Applies to the <code>Wipe</code>, <code>Radial</code>, <code>Diamonds</code>, and <code>Halftone</code> styles.</td>
+</tr>
+<tr>
+<td><code>NoiseScale</code></td>
+<td><code>double</code></td>
+<td><code>26</code></td>
+<td>Grain of a dissolve or burn; the width of a melt's drips. Range 4–120 DIPs. Applies to the <code>Dissolve</code>, <code>Burn</code>, and <code>Melt</code> styles.</td>
+</tr>
+<tr>
+<td><code>CellSize</code></td>
+<td><code>double</code></td>
+<td><code>28</code></td>
+<td>The coarsest block of a pixelate or a generate; the grid of diamonds or dots. Range 4–80 DIPs. Applies to the <code>Pixelate</code>, <code>Diamonds</code>, <code>Halftone</code>, and <code>Generate</code> styles.</td>
+</tr>
+<tr>
+<td><code>Twist</code></td>
+<td><code>double</code></td>
+<td><code>300</code></td>
+<td>How far a swirl twists the middle of the content, degrees (0: not at all); it turns counterclockwise as it hides. Range 0–1080. Applies to the <code>Swirl</code> style.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>:
+<code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>Light and dark.</strong> Reveal knows the surface it sits on: on a dark one, a dissolve's edge catches a faint light. See <a href="../concepts/light-and-dark.html#how-light-layers-draw-on-each-surface">Light and dark surfaces</a>.</li>
+<li><strong>Reduced motion.</strong> Every style becomes a fade of at most a quarter of a second. See <a href="../concepts/reduced-motion.html#the-poses">the poses</a>.</li>
+<li><strong>Cost.</strong> Each transition renders the content once into an image on the UI thread. While it plays, a reveal takes about 0.1 ms of GPU time a frame on a card (the melt 0.12 ms). Once shown and handed back, or hidden, it draws nothing. See <a href="../concepts/performance.html#what-a-layer-costs">What a layer costs</a>.</li>
+<li><strong>Room below a melt.</strong> <code>Melt</code> runs down past the content's bottom edge. Leave room below the host, or a clipping ancestor cuts the drips.</li>
+<li><strong>Contrast.</strong> A dissolve reads by what shows through its holes. Content with the same color as the surface behind it needs an edge or a border to show the transition.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.Reveal.html">Reveal</a> API reference</li>
+<li><a href="../concepts/one-shots-and-pointer.html#show-and-hide-transitions">Show and hide transitions</a></li>
+<li><a href="genie.html">Genie</a> and <a href="shatter.html">Shatter</a>, the other show and hide transitions</li>
+<li><a href="spoiler.html">Spoiler</a>, which covers content until it is tapped</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/reveal.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

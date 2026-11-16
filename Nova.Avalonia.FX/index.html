@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Welcome to Nova.Avalonia.FX | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Welcome to Nova.Avalonia.FX | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="Overview of the Nova.Avalonia.FX effect layers for Avalonia and how to get started.">
+      <link rel="icon" href="favicon.ico">
+      <link rel="stylesheet" href="public/docfx.min.css">
+      <link rel="stylesheet" href="public/main.css">
+      <meta name="docfx:navrel" content="toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/index.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="index.html">
+            <img id="logo" class="svg" src="logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+
+      <div class="content">
+        <div class="actionbar">
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="welcome-to-novaavaloniafx">Welcome to Nova.Avalonia.FX</h1>
+
+<p><strong>Nova.Avalonia.FX</strong> is a library of 70 GPU effect layers for <a href="https://avaloniaui.net/">Avalonia UI</a> 12: glows, pulses, sparkles, lightning, fire, liquid metal and other animated fills, glass and distortions, show and hide transitions, outlines and inner shadows, beams, ink, and animated backgrounds. Wrap any control in an <code>FXHost</code>, add layers, and they draw under or over it, following its bounds and corner radius.</p>
+<p>Each layer is an SkSL shader that runs on the composition render thread, and it only asks for frames while something actually moves, so an idle layer costs nothing. The math is ported from <a href="https://github.com/anomalyco/rune">rune</a>'s <code>rune-fx</code>, and so are its rules: every frame is a pure function of time, speed changes never jump, one-shots overlap, and every layer has a reduced-motion pose.</p>
+<p>The library is in preview (0.1.0-preview.1), and the API may still change.</p>
+<p><img src="gallery.png" alt="The Nova.Avalonia.FX gallery"></p>
+<p><strong><a href="https://jsuarezruiz.github.io/Nova.Avalonia.FX/gallery/">Try every effect in the WebAssembly gallery</a></strong></p>
+<h2 id="get-started">Get started</h2>
+<ul>
+<li><a href="docs/getting-started.html">Getting Started</a> installs the package and puts a first layer on a control.</li>
+<li><a href="docs/concepts/layers.html">Layers and hosts</a> explains how layers stack and the properties every layer shares.</li>
+<li><a href="docs/gallery.html">Gallery</a> shows how to run the gallery on the desktop and in the browser.</li>
+</ul>
+<h2 id="overview">Overview</h2>
+<p>The effects are grouped as they are in the gallery.</p>
+<h3 id="light">Light</h3>
+<ul>
+<li><strong><a href="docs/effects/glow.html">Glow</a></strong>: Bloom around the shape: soft, neon with a white-hot rim, or an aura flowing around the border. Lights cool instead of cutting off.</li>
+<li><strong><a href="docs/effects/pulse.html">Pulse</a></strong>: Radar rings, a breathing halo, a heartbeat, tap ripples, or a ping that flies to a destination.</li>
+<li><strong><a href="docs/effects/sparkles.html">Sparkles</a></strong>: Four-point stars twinkling around the shape, or a one-shot burst that pops them all.</li>
+<li><strong><a href="docs/effects/electric.html">Electric</a></strong>: Lightning between two points or around the border, with forks and afterimages; or a calm charged hairline.</li>
+<li><strong><a href="docs/effects/fire.html">Fire</a></strong>: Flames off the top edge with embers, warm heat for UI, plasma hugging the border, or simulated fire and smoke.</li>
+<li><strong><a href="docs/effects/spotlight.html">Spotlight</a></strong>: A soft light that follows the pointer across the shape and lights the border near it.</li>
+<li><strong><a href="docs/effects/borderbeam.html">Border beam</a></strong>: Streaks of light running around the border, from a bright head to the tail color.</li>
+<li><strong><a href="docs/effects/ambientglow.html">Ambient glow</a></strong>: A glow in the content's own colors, blurred and spread out behind it.</li>
+<li><strong><a href="docs/effects/trail.html">Trail</a></strong>: A cursor trail: a glowing ribbon or a stream of sparks following the pointer.</li>
+<li><strong><a href="docs/effects/ink.html">Ink</a></strong>: Colored fluid that follows the pointer, swirls, and splashes where it is pressed.</li>
+<li><strong><a href="docs/effects/voiceorb.html">Voice orb</a></strong>: A living orb of color for voice input; it swells and ripples with Level.</li>
+<li><strong><a href="docs/effects/voicewave.html">Voice wave</a></strong>: Glowing waves that swell with Level, for voice input.</li>
+<li><strong><a href="docs/effects/lightleaks.html">Light leaks</a></strong>: Warm film light drifting in over the edges, breathing in and out.</li>
+<li><strong><a href="docs/effects/lightrays.html">Light rays</a></strong>: Shafts of light falling across from a source just outside, shimmering slowly.</li>
+<li><strong><a href="docs/effects/beam.html">Beam</a></strong>: Light traveling along a curve between two points or two controls, like data flowing.</li>
+</ul>
+<h3 id="surface">Surface</h3>
+<ul>
+<li><strong><a href="docs/effects/shimmer.html">Shimmer</a></strong>: A sheen sweeping across the shape, for skeleton loaders and busy states.</li>
+<li><strong><a href="docs/effects/grain.html">Grain</a></strong>: Film grain inside the shape, static or animated at a set frame rate.</li>
+<li><strong><a href="docs/effects/aurora.html">Aurora</a></strong>: Three light curtains drifting across the shape, with bright hems and noise rays.</li>
+</ul>
+<h3 id="materials">Materials</h3>
+<ul>
+<li><strong><a href="docs/effects/liquidmetal.html">Liquid metal</a></strong>: Polished metal reflecting a studio, with a rolled rim and a slowly flowing surface. Chrome, gold, rose or gunmetal.</li>
+<li><strong><a href="docs/effects/plastic.html">Plastic</a></strong>: A lit plastic slab, glossy or matte, domed or dished like a keycap.</li>
+<li><strong><a href="docs/effects/holofoil.html">Holo foil</a></strong>: Holographic foil: an iridescent sheen that shifts with the pointer, with etched lines, glitter and glare.</li>
+<li><strong><a href="docs/effects/silk.html">Silk</a></strong>: Soft satin folds that flow slowly, with a sheen along their ridges.</li>
+</ul>
+<h3 id="gradients">Gradients</h3>
+<ul>
+<li><strong><a href="docs/effects/meshgradient.html">Mesh gradient</a></strong>: Up to six colors on slowly drifting points, blended in OKLab.</li>
+<li><strong><a href="docs/effects/graingradient.html">Grain gradient</a></strong>: A gradient whose colors stipple into each other through film grain.</li>
+<li><strong><a href="docs/effects/swirl.html">Swirl</a></strong>: Colors stirred into a slow swirl: ink in water, or marble.</li>
+<li><strong><a href="docs/effects/waves.html">Waves</a></strong>: Layered bands with rolling crests, like a sea or dunes.</li>
+</ul>
+<h3 id="patterns">Patterns</h3>
+<ul>
+<li><strong><a href="docs/effects/voronoi.html">Voronoi</a></strong>: Cells around slowly orbiting points, with seams: tiles or stained glass.</li>
+<li><strong><a href="docs/effects/metaballs.html">Metaballs</a></strong>: Glossy blobs that drift and merge, like a lava lamp.</li>
+<li><strong><a href="docs/effects/dither.html">Dither</a></strong>: A tone quantized into a few colors in square pixels: Bayer, blue noise or white noise.</li>
+<li><strong><a href="docs/effects/halftone.html">Halftone</a></strong>: Print-style dots on a rotated screen, sized by a tone.</li>
+<li><strong><a href="docs/effects/ascii.html">ASCII</a></strong>: Redraws what is behind it as text characters, by brightness.</li>
+</ul>
+<h3 id="color">Color</h3>
+<ul>
+<li><strong><a href="docs/effects/colorfilter.html">Color filter</a></strong>: Grayscale, sepia, saturation, hue, brightness, contrast, tint, duotone, invert: CSS filters, live.</li>
+</ul>
+<h3 id="shape">Shape</h3>
+<ul>
+<li><strong><a href="docs/effects/outline.html">Outline</a></strong>: A stroke of an exact width around the content's own shape: text, icons, stickers.</li>
+<li><strong><a href="docs/effects/innershadow.html">Inner shadow</a></strong>: Light and shade inside the content's own shape: inset, emboss or letterpress.</li>
+</ul>
+<h3 id="glass">Glass</h3>
+<ul>
+<li><strong><a href="docs/effects/glass.html">Glass</a></strong>: A pane of liquid glass: a refracting beveled rim, frost, a specular edge and a soft shadow.</li>
+<li><strong><a href="docs/effects/flutedglass.html">Fluted glass</a></strong>: Reeded glass: parallel ribs that squeeze and flip what is behind them.</li>
+<li><strong><a href="docs/effects/magnifier.html">Magnifier</a></strong>: A glass loupe that follows the pointer and magnifies what is under it.</li>
+<li><strong><a href="docs/effects/progressiveblur.html">Progressive blur</a></strong>: What is behind goes from sharp to fully blurred toward one edge, like a header over a scrolling list.</li>
+<li><strong><a href="docs/effects/frost.html">Frost</a></strong>: Ice creeps in from the edges in crystal branches, frosting what is under it; it melts around the pointer.</li>
+<li><strong><a href="docs/effects/rainglass.html">Rain glass</a></strong>: Rain on glass: drops bead and slide down a misted pane, each a small lens bending what is behind.</li>
+<li><strong><a href="docs/effects/water.html">Water</a></strong>: The content under a water surface: the pointer drags ripples across it and a press makes a splash.</li>
+</ul>
+<h3 id="distort">Distort</h3>
+<ul>
+<li><strong><a href="docs/effects/heathaze.html">Heat haze</a></strong>: Hot air that makes what is behind it wobble: above a flame, or over the whole shape.</li>
+<li><strong><a href="docs/effects/shockwave.html">Shockwave</a></strong>: A ring that bends what is behind it as it spreads from a tap. Shots overlap.</li>
+<li><strong><a href="docs/effects/crt.html">CRT</a></strong>: An old tube: bulge, scanlines, color split, grille, glow, a rolling bar and a vignette.</li>
+<li><strong><a href="docs/effects/chromasplit.html">Chroma split</a></strong>: Red and blue pulled apart from green, with optional glitch slices.</li>
+<li><strong><a href="docs/effects/glitch.html">Glitch</a></strong>: Bands of the content tear sideways, colors split and rows flash: a burst on demand, or now and then.</li>
+<li><strong><a href="docs/effects/oldfilm.html">Old film</a></strong>: Sepia, grain, flicker, scratches and dust over what is behind it.</li>
+<li><strong><a href="docs/effects/jelly.html">Jelly</a></strong>: Pressed, the element squashes and wobbles like jelly before settling.</li>
+</ul>
+<h3 id="moments">Moments</h3>
+<ul>
+<li><strong><a href="docs/effects/confetti.html">Confetti</a></strong>: Paper pieces that fly, tumble and fall: a burst, two cannons or a gentle fall.</li>
+<li><strong><a href="docs/effects/fireworks.html">Fireworks</a></strong>: Rockets that climb and burst into streaking, falling, crackling sparks.</li>
+<li><strong><a href="docs/effects/liquidprogress.html">Liquid progress</a></strong>: A liquid filling the shape to a level, with waves and bubbles; a change of level sloshes.</li>
+<li><strong><a href="docs/effects/reveal.html">Reveal</a></strong>: Shows or hides the content: dissolve, burn, pixelate, iris, wipe, melt, clock, diamonds, swirl, halftone or generate.</li>
+<li><strong><a href="docs/effects/spoiler.html">Spoiler</a></strong>: Hides content under shimmering dust, a mosaic or a solid cover until it is tapped.</li>
+<li><strong><a href="docs/effects/motionblur.html">Motion blur</a></strong>: A smear of the content along its motion, behind it, while the host moves.</li>
+<li><strong><a href="docs/effects/shatter.html">Shatter</a></strong>: The content breaks into glass shards or blows away as dust, and comes back together to show.</li>
+<li><strong><a href="docs/effects/genie.html">Genie</a></strong>: The content is pulled into a point, like a window minimizing into the dock, and pours back out.</li>
+<li><strong><a href="docs/effects/pagepeel.html">Page peel</a></strong>: Hovered, a corner curls up and shows the back, like a sticker or a page.</li>
+</ul>
+<h3 id="depth">Depth</h3>
+<ul>
+<li><strong><a href="docs/effects/tilt.html">Tilt</a></strong>: The content leans toward the pointer in 3D, with a glare that follows it.</li>
+<li><strong><a href="docs/effects/pointershadow.html">Pointer shadow</a></strong>: The pointer is a light: the content casts a soft shadow away from it.</li>
+</ul>
+<h3 id="backgrounds">Backgrounds</h3>
+<ul>
+<li><strong><a href="docs/effects/retrogrid.html">Retro grid</a></strong>: A synthwave floor of glowing lines running to a horizon, under a gradient sky and a striped sun.</li>
+<li><strong><a href="docs/effects/starfield.html">Starfield</a></strong>: Twinkling stars in three depths, shooting stars, or warp streaks rushing from the center.</li>
+<li><strong><a href="docs/effects/dotgrid.html">Dot grid</a></strong>: A grid of dots that flicker at random, light up around the pointer and ripple when pressed.</li>
+<li><strong><a href="docs/effects/weather.html">Weather</a></strong>: Rain streaks or snowflakes falling in three depths, slanted by the wind.</li>
+<li><strong><a href="docs/effects/caustics.html">Caustics</a></strong>: The shifting web of light water throws on a pool floor, with an optional color split.</li>
+<li><strong><a href="docs/effects/bokeh.html">Bokeh</a></strong>: Soft out-of-focus lights drifting at three depths, with brighter rims like a real lens.</li>
+<li><strong><a href="docs/effects/coderain.html">Code rain</a></strong>: Columns of glyphs rain down a terminal-style background, bright at the head.</li>
+<li><strong><a href="docs/effects/particlenetwork.html">Particle network</a></strong>: Drifting dots joined by lines when close; the pointer joins in.</li>
+<li><strong><a href="docs/effects/topography.html">Topography</a></strong>: Contour lines of a slowly shifting landscape, like a map.</li>
+<li><strong><a href="docs/effects/fog.html">Fog</a></strong>: Banks of mist drifting across, thickest at the bottom.</li>
+<li><strong><a href="docs/effects/beams.html">Beams</a></strong>: Shafts of light drifting slowly sideways, with light falling down them.</li>
+</ul>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>Avalonia 12.1.5 or later in the Avalonia 12 release line, with the Skia renderer, which is the default.</li>
+<li>.NET 8 or later.</li>
+<li>The desktop, or the browser through WebAssembly, where the layers draw with WebGL.</li>
+</ul>
+<p>On another rendering backend, layers draw nothing rather than fail.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/index.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

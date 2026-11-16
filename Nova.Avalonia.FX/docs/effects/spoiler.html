@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Spoiler | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Spoiler | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="Hides content under shimmering dust, a mosaic or a solid cover until it is tapped, and can cover it again after a while.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/spoiler.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="spoiler">Spoiler</h1>
+
+<p>Spoiler hides the host's content until it is revealed, as messaging apps hide spoilers: shimmering dust over a heavy blur, a mosaic, or a solid cover. A tap opens it in a soft circle from the tap point. Use it for spoilers, answers to a quiz, sensitive values such as a balance or a code, or redaction in screenshots and demos. It draws over the content.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/spoiler-light.png" alt="Spoiler on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/spoiler-dark.png" alt="Spoiler on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-a-spoiler">Add a spoiler</h2>
+<p>Wrap the text, or any element, in a host with the layer. A tap reveals it; here it covers itself again after four seconds:</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;fx:FXHost CornerRadius=&quot;6&quot; Cursor=&quot;Hand&quot; HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot;&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:Spoiler HideAfter=&quot;4&quot; /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;TextBlock Text=&quot;It was the gardener all along.&quot; FontSize=&quot;15&quot; FontWeight=&quot;SemiBold&quot; /&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<h2 id="styles">Styles</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Dust</code> (default)</td>
+<td>Shimmering dust over a heavy blur of the content.</td>
+</tr>
+<tr>
+<td><code>Pixelate</code></td>
+<td>A mosaic of the content: redaction for screenshots and demos.</td>
+</tr>
+<tr>
+<td><code>Solid</code></td>
+<td>Dust over a solid cover color (no copy of what is behind).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="reveal-and-cover-from-code">Reveal and cover from code</h2>
+<p><code>IsRevealed</code> is false by default and binds both ways, so a tap, <code>Reveal()</code> and <code>Hide()</code> also update a bound view-model property. <code>Reveal(from)</code> opens the circle from a point in the host's coordinates, or from the center without one. <code>Hide()</code> fades the cover back in.</p>
+<pre><code class="lang-xaml">&lt;fx:Spoiler x:Name=&quot;AnswerSpoiler&quot; IsRevealed=&quot;{Binding IsAnswerShown}&quot; /&gt;
+</code></pre>
+<pre><code class="lang-csharp">private void OnShowAnswerClick(object? sender, RoutedEventArgs e) =&gt; AnswerSpoiler.Reveal();
+
+private void OnNextQuestionClick(object? sender, RoutedEventArgs e) =&gt; AnswerSpoiler.Hide();
+</code></pre>
+<p><code>Duration</code> is how long the reveal takes to open, and the cover to fade back in (0.7 seconds by default). The layer's <code>Speed</code> paces the dust, not the reveal. Set <code>RevealOnPress=&quot;False&quot;</code> when only your code should reveal it.</p>
+<h2 id="cover-it-again-after-a-while">Cover it again after a while</h2>
+<p><code>HideAfter</code> covers the content again that many seconds after a reveal has finished opening. At 0, the default, or <code>Infinity</code>, it stays revealed. For a one-time code or a balance:</p>
+<pre><code class="lang-xaml">&lt;fx:Spoiler Style=&quot;Pixelate&quot; CellSize=&quot;10&quot; HideAfter=&quot;8&quot; /&gt;
+</code></pre>
+<h2 id="redact-or-cover">Redact or cover</h2>
+<p><code>Pixelate</code> turns the content into a mosaic of <code>CellSize</code> cells, without dust: redaction for screenshots and demos. <code>Solid</code> lays a <code>CoverColor</code> with dust over it instead of a copy of what is behind; set it to the surface behind the content. The dust is set by <code>Density</code>, <code>DustSize</code>, <code>DustSpeed</code> and <code>DustColor</code>; a transparent <code>DustColor</code>, the default, contrasts with whatever it covers.</p>
+<pre><code class="lang-xaml">&lt;fx:Spoiler Style=&quot;Solid&quot; CoverColor=&quot;#2a2d34&quot; Density=&quot;0.4&quot; /&gt;
+</code></pre>
+<h2 id="methods">Methods</h2>
+<p>Call <code>Reveal</code> and <code>Hide</code> to open and cover from code.</p>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Reveal(Point? from = null)</code></td>
+<td>Reveals the content, opening from <code>from</code> (host coordinates) or the center.</td>
+</tr>
+<tr>
+<td><code>Hide()</code></td>
+<td>Covers the content again.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Style</code></td>
+<td><code>SpoilerStyle</code></td>
+<td><code>Dust</code></td>
+<td>How the content is hidden: dust over a blur, a mosaic, or dust over a solid cover. Values: <code>Dust</code>, <code>Pixelate</code>, <code>Solid</code>.</td>
+</tr>
+<tr>
+<td><code>IsRevealed</code></td>
+<td><code>bool</code></td>
+<td><code>false</code></td>
+<td>Whether the content is revealed: true opens the cover in a soft circle, false covers it again. Binds both ways, so a tap updates it.</td>
+</tr>
+<tr>
+<td><code>RevealOnPress</code></td>
+<td><code>bool</code></td>
+<td><code>true</code></td>
+<td>Reveals where the pointer is pressed on the host.</td>
+</tr>
+<tr>
+<td><code>HideAfter</code></td>
+<td><code>double</code></td>
+<td><code>0</code></td>
+<td>Seconds the content stays revealed, counted from when the opening finishes, before it is covered again (0 or Infinity: it stays revealed). Range 0–60.</td>
+</tr>
+<tr>
+<td><code>Duration</code></td>
+<td><code>double</code></td>
+<td><code>0.7</code></td>
+<td>How long the cover takes to open on a reveal, and to fade back in on a hide. Range 0–3 seconds.</td>
+</tr>
+<tr>
+<td><code>DustColor</code></td>
+<td><code>Color</code></td>
+<td><code>#00FFFFFF</code></td>
+<td>The dust's color. Transparent: contrasts with what it covers. Applies to the <code>Dust</code> and <code>Solid</code> styles.</td>
+</tr>
+<tr>
+<td><code>CoverColor</code></td>
+<td><code>Color</code></td>
+<td><code>#2A2D34</code></td>
+<td>The cover for the Solid style (match the surface behind the content). Applies to the <code>Solid</code> style.</td>
+</tr>
+<tr>
+<td><code>Density</code></td>
+<td><code>double</code></td>
+<td><code>0.3</code></td>
+<td>How much dust there is: the share of places holding a speck (0: none). Range 0–1 (0–100%). Applies to the <code>Dust</code> and <code>Solid</code> styles.</td>
+</tr>
+<tr>
+<td><code>DustSize</code></td>
+<td><code>double</code></td>
+<td><code>1.6</code></td>
+<td>Size of a dust speck, in DIPs. Range 0.3–4. Applies to the <code>Dust</code> and <code>Solid</code> styles.</td>
+</tr>
+<tr>
+<td><code>DustSpeed</code></td>
+<td><code>double</code></td>
+<td><code>1</code></td>
+<td>How fast the dust swirls and twinkles, a multiple (0: still). Range 0–4. Applies to the <code>Dust</code> and <code>Solid</code> styles.</td>
+</tr>
+<tr>
+<td><code>Blur</code></td>
+<td><code>double</code></td>
+<td><code>6</code></td>
+<td>Blur under the dust. Range 1–20 DIPs. Applies to the <code>Dust</code> style.</td>
+</tr>
+<tr>
+<td><code>CellSize</code></td>
+<td><code>double</code></td>
+<td><code>8</code></td>
+<td>Mosaic cell for the Pixelate style. Range 2–40 DIPs. Applies to the <code>Pixelate</code> style.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>:
+<code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>Pixels only.</strong> The spoiler covers what is drawn. The content itself is still there: screen readers read it, and it takes focus and input as before.</li>
+<li><strong>Reads the backdrop.</strong> <code>Dust</code> and <code>Pixelate</code> copy what is behind them, which holds the content. Keep ancestors opaque, or use <code>Solid</code>, which needs no copy. See <a href="../concepts/layers.html#layers-that-read-the-backdrop">Layers that read the backdrop</a>.</li>
+<li><strong>Reduced motion.</strong> Revealing and covering switch at once, and the dust holds still. See <a href="../concepts/reduced-motion.html#the-poses">the poses</a>.</li>
+<li><strong>Cost.</strong> The dust over a blur takes about 0.32 ms of GPU time a frame on a card, 0.92 ms on a 700×500 panel. Once revealed, it draws nothing. See <a href="../concepts/performance.html#what-a-layer-costs">What a layer costs</a>.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.Spoiler.html">Spoiler</a> API reference</li>
+<li><a href="reveal.html">Reveal</a>, which shows and hides content with a transition</li>
+<li><a href="progressiveblur.html">Progressive blur</a> and <a href="frost.html">Frost</a>, other ways to obscure what is behind</li>
+<li><a href="../concepts/one-shots-and-pointer.html#show-and-hide-transitions">Show and hide transitions</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/spoiler.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

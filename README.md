@@ -6,6 +6,7 @@ Documentation sites and galleries for my projects, served from GitHub Pages.
 | --- | --- | --- | --- |
 | Nova.Avalonia.AIKit | [Docs](https://jsuarezruiz.github.io/Nova.Avalonia.AIKit/) | [Gallery](https://jsuarezruiz.github.io/Nova.Avalonia.AIKit/gallery/) | Private |
 | Nova.Avalonia.Animations | [Docs](https://jsuarezruiz.github.io/Nova.Avalonia.Animations/) | [Gallery](https://jsuarezruiz.github.io/Nova.Avalonia.Animations/gallery/) | Private |
+| Nova.Avalonia.FX | [Docs](https://jsuarezruiz.github.io/Nova.Avalonia.FX/) | [Gallery](https://jsuarezruiz.github.io/Nova.Avalonia.FX/gallery/) | Private |
 
 ## Layout
 

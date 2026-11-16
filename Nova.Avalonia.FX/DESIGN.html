@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Design: rune audit and the Avalonia port | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Design: rune audit and the Avalonia port | Nova.Avalonia.FX ">
+      
+      
+      <link rel="icon" href="favicon.ico">
+      <link rel="stylesheet" href="public/docfx.min.css">
+      <link rel="stylesheet" href="public/main.css">
+      <meta name="docfx:navrel" content="toc.html">
+      <meta name="docfx:tocrel" content="docs/toc.html">
+      
+      <meta name="docfx:rel" content="">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/DESIGN.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="index.html">
+            <img id="logo" class="svg" src="logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="design-rune-audit-and-the-avalonia-port">Design: rune audit and the Avalonia port</h1>
+
+<p>This is the design log: how rune-fx was audited and ported to Avalonia, the layers built beyond
+it, and what was measured, found wrong and changed along the way. To use the library, start with
+the <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/README.md">README</a>.</p>
+<h2 id="1-what-rune-is">1. What rune is</h2>
+<p><a href="https://github.com/anomalyco/rune">rune</a> (Anomaly, MIT, pre-release) is a Rust UI framework with
+its own wgpu renderer, text, layout and springs, built to run headless so an app can render to
+PNG and be driven by scripts. Its effects live in two crates:</p>
+<ul>
+<li><strong>rune-fx</strong>: effect layers (glow, pulse, electricity, fire, motion blur, distortion, shimmer,
+sparkles, aurora, grain) and fills (liquid metal, plastic, mesh gradient, dither, grain gradient,
+fluted glass, metaballs, swirl, voronoi, waves, halftone). About 19k lines including tests and
+examples; the shaders are about 2k lines of WGSL in 11 files.</li>
+<li><strong>rune-light</strong>: real-time lighting over the UI. It covers soft shadows, bevel normals and
+specular highlights, radiance-cascade GI and refractive glass. It works because every rune
+element is an analytic rounded rect, so the frame is already an exact 2D distance field.</li>
+</ul>
+<h2 id="2-how-rune-fx-works">2. How rune-fx works</h2>
+<p><strong>The contract.</strong> A layer is effect params, a node shape (rounded rect, capsule or circle, in
+points), a time on rune's clock, a seed, a placement (under or over the node) and an opacity.
+Every pixel is a pure function of those. There is no hidden state and no RNG. That one rule is
+what makes golden images, headless rendering, slow motion, pause and stepping all work.</p>
+<pre><code class="lang-rust">Fx::glow(GlowParams { style: GlowStyle::Neon, color: rgb(0x22d3ee), ..Default::default() })
+    .on(card).over().at(t)
+</code></pre>
+<p><strong>Rendering.</strong></p>
+<ul>
+<li>Each layer is one instanced quad covering the shape plus its reach.</li>
+<li>Every effect family packs into the same instance struct (rect, shape, bounds, <code>c0..c2</code>,
+<code>p0..p3</code>, <code>t</code>, <code>aux</code>), plus a storage buffer of per-frame CPU tables.</li>
+<li>A family's shader is <code>clip.wgsl + common.wgsl + &lt;family&gt;.wgsl</code>. Each module defines <code>shade()</code>.
+The common <code>fs()</code> applies clip, layer opacity, blend modes and the sRGB encode.</li>
+<li>A pipeline is built per (family, blend, format) the first time a frame draws it, in parallel
+when several are needed at once. A cold Metal shader cache costs 20 to 150 ms per pipeline.</li>
+</ul>
+<p><strong>Cost is explicit.</strong></p>
+<ul>
+<li><code>prepare()</code> culls before anything is uploaded. Silent layers get no instance, no tables and no
+draw: intensity 0, a fully cooled light, a one-shot outside its window, a layer off screen.</li>
+<li><code>is_animating()</code> tells the frame loop whether to keep ticking.</li>
+<li>Every effect declares a static <code>cost()</code> (texture taps and noise evaluations per pixel), and the
+README carries a measured timing table per effect.</li>
+<li>1D functions of (time, seed) are evaluated once per frame on the CPU: bolt paths, embers,
+sparkles, aurora curtains, mesh points. They use the same integer hash as the GPU. That cut
+electricity from 9.6 ms to 0.5–1 ms on a full quad.</li>
+</ul>
+<p><strong>Animation craft.</strong></p>
+<ul>
+<li><code>Phase</code> keeps the phase continuous when a speed changes, so the animation never jumps.</li>
+<li><code>Heat</code> gives a light attack and exponential cooling. Lights cool (shrink, deepen, dim) instead
+of cutting off.</li>
+<li><code>OneShots&lt;T&gt;</code> lets ripples, pings and zaps overlap. The pool is bounded, and when it is full
+the oldest instance fades out over 0.16 s.</li>
+<li>Every effect has a calm reduced-motion pose with no travel.</li>
+</ul>
+<p><strong>Quality rules.</strong></p>
+<ul>
+<li>Math runs in linear light. Output is premultiplied, and light may exceed alpha, so it adds
+like a screen blend.</li>
+<li>TPDF dither of ±1 LSB, static per pixel and gated to where there is signal.</li>
+<li>Every light falls off analytically and is windowed inside its bounds, so no quad edge shows.</li>
+<li>The integer PCG hash keeps output deterministic across GPUs.</li>
+</ul>
+<p><strong>Tooling.</strong> <code>fill_styles()</code> describes every fill: params with kind, range, step and unit, plus
+named presets. It also offers get and set by id, and <code>to_rust()</code>, which writes the call as the
+nearest preset plus the changes. Tests cover the contract: idle culling, one-shot pools, lazy
+pipelines, bind-group reuse and blend modes.</p>
+<h3 id="why-it-reads-as-solid">Why it reads as solid</h3>
+<ol>
+<li><strong>One small contract</strong> (a pure function of pixel, params, time and seed). Determinism,
+goldens, headless runs and serializable params all follow from it.</li>
+<li><strong>Cost is a design input</strong>, not an afterthought: static declarations, measured tables, and
+culling built into <code>prepare</code>.</li>
+<li><strong>Motion details most effect libraries skip</strong>: continuous phase, cooling lights, overlapping
+one-shots, and a reduced-motion pose for every effect.</li>
+<li><strong>A shared prelude and instance layout</strong>, so each effect family is a small file.</li>
+<li><strong>A catalog</strong> that drives inspectors and code output.</li>
+</ol>
+<h3 id="caveats">Caveats</h3>
+<ul>
+<li>Pre-release, and the project does not take pull requests. Treat it as a source of ideas and
+math, not a runtime dependency.</li>
+<li>Tightly coupled to rune's own renderer. Effect slots, <code>EffectSite</code>, clip words and the backdrop
+copy that splits the render pass have no direct equivalent in Avalonia.</li>
+<li>Its README lists its own gaps: bind groups are rebuilt every frame, fire is heavy (8 noise
+evaluations per pixel), the shaders have no CPU reference, and mask glow needs the caller to
+build a mip pyramid.</li>
+<li>Additive premultiplied output (<code>rgb &gt; a</code>) relies on the blend stage not clamping. Skia's paint
+pipeline expects valid premultiplied color, so this does not port directly.</li>
+<li>rune-light assumes every element is an analytic rounded rect. Avalonia's general geometry
+(paths, text, images) breaks that, so it is a separate, much larger project.</li>
+</ul>
+<h2 id="3-mapping-onto-avalonia-12">3. Mapping onto Avalonia 12</h2>
+<p>Avalonia 12.1 has no public way to plug a custom shader into <code>IEffect</code>; only <code>BlurEffect</code> and
+<code>DropShadowEffect</code> exist. The extension point that does exist is the composition custom visual.
+It runs on the render thread, can ask for animation frames, and can lease the Skia canvas, where
+SkiaSharp 3.119 exposes <code>SKRuntimeEffect</code> (SkSL).</p>
+<table>
+<thead>
+<tr>
+<th>rune-fx</th>
+<th>Nova.Avalonia.FX</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>wgpu instanced quad + WGSL</td>
+<td><code>SKRuntimeEffect</code> shader on a paint, one <code>DrawRect</code> per layer</td>
+</tr>
+<tr>
+<td>effect slot in the painter stream (<code>El::effect</code>)</td>
+<td><code>FXHost</code>: a presenter under the child and one over it, each owning a <code>CompositionCustomVisual</code></td>
+</tr>
+<tr>
+<td><code>is_animating()</code> keeps the frame loop alive</td>
+<td><code>RegisterForNextAnimationFrameUpdate()</code> only while a layer moves, on the render thread with no UI-thread invalidation</td>
+</tr>
+<tr>
+<td>rune clock</td>
+<td><code>CompositionNow</code>, or <code>FXSettings.Clock</code> for goldens and stepping</td>
+</tr>
+<tr>
+<td>packed <code>Inst</code> (<code>c0..c2</code>, <code>p0..p3</code>, <code>aux</code>)</td>
+<td>shared uniforms <code>uC0..uC2</code>, <code>uP0..uP2</code>, <code>uAux</code></td>
+</tr>
+<tr>
+<td>CPU tables in a storage buffer</td>
+<td>two paths: a <code>uTab</code> uniform array (12 float4s, 64 for sparkles) for data read with loop counters, and an <code>FXDataTable</code> raw image (a <code>uData</code> child shader) for data read at pixel-dependent positions (bolt paths, aurora curtains); both filled per frame on the render thread by <code>FXLayerState</code></td>
+</tr>
+<tr>
+<td>one layer drawn per one-shot instance</td>
+<td>one layer draws several instances per frame (<code>Instances</code> / <code>PrepareInstance</code>): the continuous effect plus each live zap, each with its own seed and table</td>
+</tr>
+<tr>
+<td><code>Phase</code>, <code>Heat</code>, <code>OneShots&lt;T&gt;</code></td>
+<td><code>FXLayerState.LayerTime</code>, <code>GlowState</code>, <code>OneShotState</code>, plus the burst and zap pools in <code>SparklesState</code> and <code>ElectricState</code></td>
+</tr>
+<tr>
+<td>node shape (analytic rounded rect)</td>
+<td>child bounds plus <code>FXHost.CornerRadius</code>, or the child's own corner radius</td>
+</tr>
+<tr>
+<td>params structs, <code>Default</code>, presets</td>
+<td>styled properties (styles, bindings, dynamic resources and transitions for free); <code>Preset</code> enums applied at template priority, so local values and class or pseudo-class styles win</td>
+</tr>
+<tr>
+<td><code>fill_styles()</code>, <code>to_rust()</code></td>
+<td><code>FXCatalog</code> from <code>[FXRange]</code> and <code>[FXAppliesWhen]</code> attributes; <code>ToXaml()</code> writes the preset plus the differences</td>
+</tr>
+<tr>
+<td><code>FxBlend</code> with backdrop sampling</td>
+<td><code>SKBlendMode</code>: Multiply, Screen, Overlay and SoftLight are native to Skia, plus Plus</td>
+</tr>
+<tr>
+<td>isolated-layer opacity</td>
+<td>multiplied by the lease's <code>CurrentOpacity</code></td>
+</tr>
+<tr>
+<td>lazy pipelines, <code>warm_all()</code></td>
+<td><code>FXShaderCache</code>: lazy compile per kernel, <code>FXSettings.WarmUpAsync()</code>. The compiled effect is shared and never disposed by a layer: renderers keep their own uniform and child sets, because <code>SKRuntimeShaderBuilder.Dispose</code> disposes its effect</td>
+</tr>
+<tr>
+<td><code>effect_backdrop</code> slot (what lies beneath the layer)</td>
+<td><code>FXBackdrop</code>: the layer's region copied from <code>lease.SkSurface</code> just before it draws, bound as an image-shader child (<code>uBackdrop</code>), plus a blurred copy (<code>uBackdropBlur</code>) for frost</td>
+</tr>
+<tr>
+<td>headless goldens</td>
+<td>Avalonia.Headless with real Skia drawing (<code>CaptureRenderedFrame</code>); the gallery's <code>--snap</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="deliberate-divergences">Deliberate divergences</h3>
+<ol>
+<li><strong>Float hash.</strong> SkSL runtime effects are a GLSL ES 1.0 class language with no unsigned
+integers or bit operations, so rune's PCG hash becomes Hoskins' sin-free float hash in the
+shaders. Output is still deterministic per position, but not bit-identical across GPUs.
+Seeds are wrapped to 0..1023 and grain frames to 1024 so the float hash keeps its quality.
+The CPU tables use rune's PCG exactly.</li>
+<li><strong>Valid premultiplied output.</strong> <code>finish()</code> encodes light as rune does: the covering color
+straight × alpha, plus the light above it as over black. Alpha is then raised to the
+brightest encoded channel. Over dark UI this is rune's output exactly. For pure additive
+light, set <code>BlendMode=&quot;Plus&quot;</code> or <code>&quot;Screen&quot;</code>.
+<strong>Light surfaces.</strong> rune targets dark UI. Over white, its encoding turned faint light into a
+heavy wash (a radar's rings merged into a thick band) and white-hot cores vanished (stars
+looked hollow). So light layers (glow, pulse, sparkles, lightning) on a light surface draw as
+tinted haze: the light's color with its white taken out (pure white takes the layer's own
+color; the white is the smallest channel, taken with a smooth minimum so a blend that passes
+pure blue has no seam), and coverage <code>1 − (1 − α)·e^(−3E)</code>, which matches rune's at mid and high energy and
+keeps faint light faint. The radar also turns its edge glow and the wash between rings down
+to 0.3 there, so the rings carry it. Lightning goes further: its white-hot core, tinted to the
+glow's own color, blurred into the glow, so on a light surface the bolt is a crisp line in a
+deep shade of the color over a pale tint of its glow. <code>FXHost.Surface</code> picks the surface (Auto follows the
+host's theme).</li>
+<li><strong><code>ss()</code> for reversed smoothstep.</strong> GLSL leaves <code>smoothstep(e0, e1, x)</code> undefined when
+<code>e0 &gt; e1</code>, and rune uses that form often.</li>
+<li><strong>Clocks.</strong> A layer's time starts when it first renders; fills use one shared clock instead,
+so window-anchored fills on different hosts move in step. Shaders get that time wrapped
+forward every 4096 s (<code>FXMath.WrapTime</code>), so fp32 keeps it to half a millisecond after any
+uptime; the states step on the unwrapped clock in doubles, and the start of a ripple or a
+trail point is written relative to the wrapped time, so its age is exact across the wrap.
+<code>FXSettings.Clock</code> makes time absolute for snapshots. Under reduced motion, fills hold rune's
+<code>CALM_T</code> pose.</li>
+<li><strong>Tables.</strong>
+<ul>
+<li>Uniform arrays can be indexed only by loop counters in SkSL. So bolt paths and aurora
+curtains travel as a raw RGBA8 image: one value per texel, 24-bit fixed point over ±range,
+sampled with <code>ToRawShader</code> (no color or alpha conversion).</li>
+<li>8-bit channels decode exactly even where children evaluate in half precision.</li>
+<li>The image is re-uploaded only when its bytes change.</li>
+</ul>
+</li>
+<li><strong>One-shot instances.</strong> Rune draws one layer per one-shot. Here a layer keeps a pool and
+draws each live one-shot as its own instance, over the continuous effect: up to 4 zaps, 3
+bursts (merged into the 32 star slots) and 8 ripple slots (4 live plus fading).</li>
+<li><strong>Fill tables.</strong> rune keeps color stops and metaball paths in a storage buffer. Here the
+stops ride in <code>uTab</code> (linear rgb, then OKLab) and a stop chosen per pixel is found by a loop,
+since SkSL indexes uniform arrays only with loop counters. Metaball blobs follow the stops in
+<code>uTab</code>, and the blue-noise tile is a data table (as bolts and curtains are).</li>
+<li><strong>Integer math in fills.</strong> Bayer thresholds come from floor and mod instead of bit
+interleaving (the same matrix; a test checks a flat mid tone dithers to exactly half light
+pixels with every pattern). Grain gradient and white-noise dither draw their random numbers
+from the float hash.</li>
+<li><strong>Mask pyramid.</strong> rune renders the mask into a GPU mip chain and samples fractional levels.
+Avalonia has no way to draw another visual's composition tree from a custom visual, so the
+host captures its child with <code>RenderTargetBitmap</code> (on the UI thread, when the child's size or
+one of its properties changes, or on <code>RefreshMask()</code>), keeps the alpha with room for the
+glow's reach, and builds six halving, slightly blurred levels on the CPU, once per change.
+Each level is an image shader mapped back to host coordinates; the shader blends the two
+nearest levels with four-tap tents, so an animated radius still never steps.</li>
+<li><strong>Ripple wash.</strong> rune washes the inside of a ripple at 0.05; here it is 0.025. Through the
+light encoding above, 0.05 tinted a white card about 25%, enough to hide text under it; 0.025
+is about 12%, like a state layer. The ring is unchanged.</li>
+<li><strong>Backdrop from the surface.</strong> rune copies the render target up to the layer into a backdrop
+texture. Here a backdrop layer snapshots its own region (its bounds, bleed and a 24-DIP margin,
+clipped to what the compositor is drawing this frame) from the surface it draws into, maps it
+back to host coordinates with the inverse of the canvas matrix, and binds it as an image
+shader. Frost blurs that copy once per frame with Skia's blur, on the GPU when there is one.
+The cost is one region copy per backdrop layer per frame. Inside an offscreen layer the
+snapshot reads the surface below it, which lacks that layer's content so far. Dither and
+halftone read the backdrop's tone from the blurred copy (half a cell or a dot pitch), so a
+cell or dot takes the average of what it covers, and only copy it on the backdrop input.</li>
+<li><strong>Trimmed quads.</strong> rune sizes an instance quad by its bleed. Here a layer may also give
+per-side extents (flames and heat haze only rise, glass casts its shadow down), a one-shot
+state may bound a frame to its live shots (a shockwave's rings), and a backdrop layer copies
+only the margin it samples. Only the area changes; a test checks that trimmed and full quads
+produce identical frames.</li>
+<li><strong>Render scale.</strong> <code>RenderScale</code> below 1 shades into an offscreen target at that fraction of
+device resolution, in the platform's pixel format and with source-over, so the GPU reuses the
+pipelines of full-resolution draws, and draws it scaled up with the layer's blend mode.</li>
+<li><strong>Aura colors.</strong> A short join between neighboring aura colors shows as a seam along a
+straight edge. Here the colors blend in
+OKLCh (the hue turns the short way, chroma pulled in to fit the screen instead of clipped),
+and each pair gets a share of the loop by how different the two look, so the color moves at
+an even pace all around.</li>
+<li><strong>Intensity everywhere.</strong> In rune, intensity is a strength only some layers read. Here it
+is the strength of light layers (up to 3), the coverage of fills (up to 1), and a dimmer on
+every other layer (it multiplies the layer's opacity), so a transition on <code>Intensity</code> fades
+any layer. The catalog gives each layer the range that does something.</li>
+<li><strong>Liquid metal anchor.</strong> The reflection moves with the element by default. <code>Anchor=&quot;Window&quot;</code>
+(rune's behavior) pins it to the window, which also makes it slide over a shape as it
+scrolls.</li>
+</ol>
+<h2 id="4-what-is-ported">4. What is ported</h2>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>rune source</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Glow</code> (Soft, Neon, Aura, Mask)</td>
+<td><code>glow.wgsl</code>, <code>Heat</code>, <code>MaskPyramid</code></td>
+<td><code>IsLit</code> + <code>Attack</code>/<code>Cool</code> reproduce cooling; mask glow blends three pyramid levels around the radius</td>
+</tr>
+<tr>
+<td><code>Pulse</code> (Radar, Breathe, Heartbeat, Ripple, Ping)</td>
+<td><code>pulse.wgsl</code>, <code>OneShots</code></td>
+<td>overlapping ripples and pings fade when the pool is full; <code>TriggerOnPress</code>; a ping leaves the shape's edge toward a point or element, or repeats on a beat of the clock</td>
+</tr>
+<tr>
+<td><code>Sparkles</code></td>
+<td><code>extras.wgsl</code>, <code>cpu::sparkles</code></td>
+<td>continuous stars plus seeded, overlapping bursts</td>
+</tr>
+<tr>
+<td><code>Electric</code> (Arc, Border, Charged)</td>
+<td><code>electric.wgsl</code>, <code>cpu::electric</code></td>
+<td>strikes, return strokes, afterimages, cooling forks, crawl; seeded overlapping zaps; press zaps on an arc strike from the nearer node</td>
+</tr>
+<tr>
+<td><code>Fire</code> (Top, Heat, Plasma, Embers, Simulated, Smoke)</td>
+<td><code>fire.wgsl</code>, <code>cpu::embers</code>, <code>firesim.wgsl</code></td>
+<td>procedural flames with flicker and smoke veil, plasma filaments, up to 40 embers on CPU paths; Simulated and Smoke step a small fluid grid on the CPU (see Beyond rune-fx)</td>
+</tr>
+<tr>
+<td><code>Shimmer</code></td>
+<td><code>extras.wgsl</code></td>
+<td>shape or mask mode (<code>UseMask</code>); breathes under reduced motion</td>
+</tr>
+<tr>
+<td><code>Grain</code></td>
+<td><code>extras.wgsl</code></td>
+<td>per device pixel, static or at a frame rate</td>
+</tr>
+<tr>
+<td><code>Aurora</code></td>
+<td><code>extras.wgsl</code>, <code>cpu::aurora</code></td>
+<td>curtains as a data table, rays in the shader</td>
+</tr>
+<tr>
+<td><code>LiquidMetal</code></td>
+<td><code>fill.wgsl</code></td>
+<td>presets chrome, gold, rose, gunmetal; border tube; window or element anchor</td>
+</tr>
+<tr>
+<td><code>Plastic</code></td>
+<td><code>fill.wgsl</code></td>
+<td>presets glossy, matte, dished</td>
+</tr>
+<tr>
+<td><code>MeshGradient</code></td>
+<td><code>fill.wgsl</code>, <code>cpu.rs</code></td>
+<td>OKLab, Shepard weights, drifting points on the CPU</td>
+</tr>
+<tr>
+<td><code>Swirl</code> (Ink, Marble)</td>
+<td><code>fill.wgsl</code></td>
+<td>center twist over twice domain-warped noise, through an OKLab ramp</td>
+</tr>
+<tr>
+<td><code>Waves</code> (Sea, Dunes)</td>
+<td><code>fill.wgsl</code></td>
+<td>one band per color with two-sine crests; front bands shade the one behind</td>
+</tr>
+<tr>
+<td><code>GrainGradient</code> (Ember, Halo, Sweep)</td>
+<td><code>fill.wgsl</code></td>
+<td>linear, radial or looping conic ramp; triangular grain scatters the ramp and brightness</td>
+</tr>
+<tr>
+<td><code>Voronoi</code> (Cells, Stained)</td>
+<td><code>fill.wgsl</code></td>
+<td>orbiting seed points, exact seam distance to the bisectors, rim shading</td>
+</tr>
+<tr>
+<td><code>Metaballs</code> (Lava, Mint)</td>
+<td><code>fill.wgsl</code>, <code>cpu::metaballs</code></td>
+<td>blobs on CPU paths summed as a field, slope-based anti-aliased edge, glossy rim</td>
+</tr>
+<tr>
+<td><code>Dither</code> (Bayer, Handheld, Grain, Backdrop)</td>
+<td><code>fill.wgsl</code>, <code>cpu::blue_noise</code></td>
+<td>Bayer 2/4/8, the 32×32 void-and-cluster tile, white noise; linear, radial, noise or backdrop tone</td>
+</tr>
+<tr>
+<td><code>Halftone</code></td>
+<td><code>fill.wgsl</code></td>
+<td>round dots on a rotated screen; the four nearest dots merge; linear, radial, noise or backdrop tone; dots under a pixel ink by their size</td>
+</tr>
+<tr>
+<td><code>Glass</code></td>
+<td><code>distort.wgsl</code> (lens)</td>
+<td>superellipse bevel with thin-surface refraction, dispersion, magnification, rim softening; frost with the material transfer and grain; sheen, specular rim, drop and contact shadow</td>
+</tr>
+<tr>
+<td><code>FlutedGlass</code> (Reeded, Fine, Frosted, Wide)</td>
+<td><code>fill.wgsl</code></td>
+<td>each rib a cylindrical lens: squeezed, flipped strip, dispersion to the edges, sheen, groove and lip</td>
+</tr>
+<tr>
+<td><code>HeatHaze</code></td>
+<td><code>distort.wgsl</code></td>
+<td>rising fbm offsets in a column above the shape, or over the whole shape</td>
+</tr>
+<tr>
+<td><code>Shockwave</code></td>
+<td><code>distort.wgsl</code>, <code>OneShots</code></td>
+<td>overlapping rings, chroma at the front, highlight only where there is content</td>
+</tr>
+<tr>
+<td><code>Crt</code></td>
+<td><code>distort.wgsl</code></td>
+<td>barrel bulge, scanlines, chroma, aperture grille, 4-tap glow, rolling bar, vignette</td>
+</tr>
+<tr>
+<td><code>ChromaSplit</code></td>
+<td><code>distort.wgsl</code></td>
+<td>channel offsets and seeded glitch slices at 12 Hz</td>
+</tr>
+</tbody>
+</table>
+<h3 id="beyond-rune-fx">Beyond rune-fx</h3>
+<p>Forty-six layers aren't in rune-fx (motion blur stands in for rune's own version), and Fire's
+<code>Simulated</code> and <code>Smoke</code> styles stand in for rune's simulated fire. They keep its contract: a pure
+function of time, free while idle, a reduced-motion pose. They needed these additions:</p>
+<ul>
+<li><strong>Pointer following.</strong> A layer with <code>PointerRange</code> makes its host listen to the window's
+pointer. The host forwards positions while the pointer is within reach, and null once it leaves.
+<code>PointerState</code> eases toward the pointer on the render thread, independent of frame rate, and
+fades in and out. Spotlight and holographic foil use it, and both offer <code>PointAt</code> for keyboard
+focus or a tour. Each spotlight frame draws only around the light.</li>
+<li><strong>Direct drawing.</strong> Confetti pieces are small rotated rectangles and dots. Skia draws them as
+shapes (<code>FXLayerState.DrawDirect</code>); a full-quad shader looping over every piece per pixel would
+cost far more. Each piece is still a pure function of the time since its burst. Pieces fly far
+past the shape, so each drawn piece reports its bounds (<code>Drew</code>); the visual's render bounds take
+them in with a margin, and the old bounds are repainted when they shrink, so no shard or spark
+is left behind on screen.</li>
+<li><strong>Content in color.</strong> The mask capture can keep color (<code>UsesColorMask</code>), so the ambient glow
+blurs the content's own colors down the same pyramid the mask glow uses.</li>
+<li><strong>Standing in for the content.</strong> <code>Reveal</code> captures the content, holds it invisible with an
+animation-priority <code>Opacity</code> of 0 (the element's own value is left alone) and plays the
+transition on the capture. When it ends, the element takes over again in the same UI tick as
+the layer stops drawing, so no frame shows both or neither. <code>Spoiler</code> reads the backdrop, which
+already holds the content, so it needs no capture.</li>
+<li><strong>Motion.</strong> Each frame carries the host's window position from its own transform. Motion blur
+turns that into a velocity (eased over a few frames) and draws the captured content along it,
+behind the host: a wake rather than rune's blur of the subtree rendered at rest, which
+Avalonia can't do from a custom visual. It counts any movement, scrolling included. The handler
+now also checks after each frame whether a layer needs more frames, so a smear fades out once
+the host stops even if nothing else asks for a frame.</li>
+<li><strong>A stateful simulation.</strong> Fire's <code>Simulated</code> and <code>Smoke</code> styles step a small stable-fluids grid (after Stam: advection,
+buoyancy, vorticity confinement, a 16-iteration pressure solve) on the render thread at 60 Hz,
+at most three steps a frame. The heat and smoke fields reach the shader as a data table. A
+58×32 grid takes about 0.15 ms a frame (Release). rune runs its simulation on the GPU with
+ping-pong targets; a CPU grid this small costs less than the round trips would. Unlike every
+other layer it isn't a pure function of time. On a light surface it draws the flames as color
+over the smoke rather than as added light, which turned their red edges pink over white, and it
+fades out before the top and sides of the simulated box. Switching a fire between its
+procedural and simulated styles changes its kernel and its state, so the host gives it a new
+renderer; the snapshot carries the state factory, picked on the UI thread, because the render
+thread can't read the layer's properties. The inspector shows only the settings the current
+style uses (<code>[FXAppliesWhen]</code>).</li>
+<li><strong>Pointer paths and bursts.</strong> The trail keeps the pointer's last 32 positions with their times.
+Fireworks, like confetti, are drawn as Skia shapes: each spark is a pure function of the time
+since its shot.</li>
+<li><strong>Blur levels.</strong> A progressive blur crossfades five copies of what is behind it: sharp, then
+blurred by 1/8, 1/4, 1/2 and all of <code>Blur</code> (<code>BackdropLevels</code>, bound as <code>uLevel1..3</code> beside the
+sharp and blurred copies), one octave apart, so every point sees a real blur rather than a mix
+of sharp and blurred. Each copy has its own offscreen target (reusing one made the GPU copy it
+before each draw), and wide blurs are made on a half- or quarter-size copy, which looks the same.</li>
+<li><strong>Plain color output.</strong> <code>emit()</code> writes color with coverage, never the light-surface haze,
+for layers that show what is behind them or an image (blur, frost, rain, water, glitch, the
+orb). Frost reads the surface flag itself and draws its crystals darker over light content.</li>
+<li><strong>Standing in for the content, again.</strong> Shatter, Jelly and Page peel share <code>FXStandIn</code>: capture
+the content, hide it at animation priority, draw the capture, hand it back in the same tick as
+the layer stops. A capture asked for before the first layout (a peel held from XAML) waits for
+it. The shatter's shards are a Voronoi cut around the break point, drawn as Skia paths; the
+jelly is a damped spring plus a bulge spreading from the press; the peel rolls the corner around
+a cylinder and takes, per pixel, the highest surface that lands on the page.</li>
+<li><strong>Into a point and out again.</strong> The genie works in a frame where the point lies below the
+content: the sides bend in along a smooth curve that narrows to the neck at the point, then the
+content slides down that funnel and is cut off where it reaches it. Each pixel maps back to the
+one content pixel that lands on it, so it is a single shader pass over the capture; the quad
+grows only toward the point (<code>ExtentFor</code>).</li>
+<li><strong>Dust.</strong> Shatter's dust style cuts the capture into a grid of grains (at most 12,000; larger
+content gets larger grains). A grain that has not left yet sits exactly in its cell, so what is
+left is the content itself; the rest drift, curl, rise, gray and fade. All of them go in one
+<code>DrawVertices</code> call that reads the capture through texture coordinates, rather than a path per
+grain.</li>
+<li><strong>A lean on the UI thread.</strong> Tilt is the one layer that moves its host: a perspective
+<code>RenderTransform</code> (at animation priority, so the host's own value comes back) eased on the
+UI thread's animation frames while it moves, and dropped once it settles flat. It reads the
+pointer against the host as laid out, not as leaned, so the lean never chases itself. The glare
+is an ordinary pointer-following shader on the render thread with the same time constant.</li>
+<li><strong>A shadow from the content.</strong> The pointer shadow samples the host's mask pyramid (the content's
+own pixels) shifted away from a light at the pointer: by distance × elevation / (light height −
+elevation), eased into <code>MaxOffset</code>, and blurred more as it moves out. With no pointer the light
+rests above the content and the shadow falls just below.</li>
+<li><strong>Text without a font.</strong> ASCII picks, per cell, a character from a ramp of ten 5×7 dot glyphs
+(&quot; .-:+=%*#@&quot;, ordered by how many dots they ink) packed into the shader as bit fields, by the
+brightness of the blurred backdrop at the cell's center.</li>
+<li><strong>Contours at an even width.</strong> Topography's lines are where a noise landscape crosses a level;
+the distance to the level is divided by the slope (finite differences, since SkSL has no
+derivatives), so a line is as wide in DIPs on a cliff as on a plain, and lines closer than a
+pixel fade instead of filling in.</li>
+<li><strong>A projector's clock.</strong> Old film steps its weave, flicker, scratches, dust and grain at 18
+frames a second, whatever the display runs at; scratches stay for a few of those frames.</li>
+<li><strong>Melting.</strong> Reveal's melt slides each column down at its own pace (slow noise plus a few
+narrow quick drips) and stretches it, so the top sags into drips and the bottom runs past the
+content's edge in fingers that fade; the quad grows downward for it.</li>
+<li><strong>More ways in and out.</strong> The radial wipe measures each pixel's angle around the point,
+clockwise from <code>Angle</code>. Diamonds and halftone dots give each cell its own start by where the
+cell sits along the sweep, so each grows over half the transition and they come in as a wave;
+a cell is covered once its diamond or dot reaches the cell's corners. The dots sit on a screen
+turned 45 degrees, as printed halftones do. The swirl turns each pixel around the point by an
+angle that falls off from the middle, and samples further out as it hides, so the content
+shrinks into the twist as it fades. Generate halves its blocks step by step (powers of two of
+the cell) under colored grain that changes fifteen times a second and settles; each block is
+the mean of nine samples, since a single sample can miss a thin line altogether (a dark bar
+vanished at one step), and the blocks are centered on the shape and clipped to its box, since
+blocks laid from the corner hung off the far edges half empty.</li>
+<li><strong>Letting go when a host leaves.</strong> A presenter that leaves the visual tree drops its custom
+visual, but the visual's handler lives on in the compositor: with an animating layer it kept
+asking for frames, and kept its renderers and their GPU copies, for good. Swapping effects in
+and out (the gallery's pages, an app's routes) piled these up until the frame rate fell from
+120 to about 10 over a full benchmark run. The presenter now sends the handler an empty layer
+list as it leaves, which disposes the renderers and lets it go quiet; it keeps the last list and
+sends it again if it is attached again.</li>
+<li><strong>A second simulation.</strong> The water surface is the two-buffer ripple scheme on a grid of
+<code>CellSize</code>-sized cells, stepped at 60 Hz; the pointer's path pushes the water down and a press
+splashes. Once the surface is flat it clears and stops, so calm water costs nothing.</li>
+<li><strong>Shader pitfalls found on the way.</strong> <code>flat</code> is reserved in SkSL; <code>pow</code> of a negative base is
+undefined (the jelly's bulge used it and blanked rows of pixels; frost's ridges could hit it),
+so those square or clamp first.</li>
+<li><strong>Fills on the child's own pixels.</strong> Every fill has <code>UseMask</code>. Rather than a masked variant of
+each kernel (as Shimmer's), the renderer wraps whatever the kernel draws in a <code>DstIn</code> blend
+with the mask's sharp level, so any layer that sets <code>ClipsToMask</code> is multiplied by the child's
+coverage: gradient text, a metal logo. A layer clipped to the mask goes over the child unless
+its placement says otherwise. The color filter uses the same path.</li>
+<li><strong>A color filter that reads, not captures.</strong> <code>ColorFilter</code> reads what is under it (the
+backdrop copy the glass layers use) rather than a captured image of the child, so it stays live
+with whatever the child does: over the child it is CSS <code>filter</code> (the child and what shows
+through it), under it <code>backdrop-filter</code>. Brightness, contrast, saturate, hue-rotate, grayscale
+and sepia are CSS's own matrices, on sRGB values as browsers apply them, in CSS's order; then
+temperature, tint, duotone and invert. A filter at rest is silent (no copy, no draw). It starts
+as grayscale, so it shows something with no settings; <code>Preset=&quot;None&quot;</code> puts it at rest.</li>
+<li><strong>A grid that answers the pointer.</strong> The dot grid eases a pointer and keeps up to four ripples
+on the render thread (<code>DotGridState</code>) and hands them to the shader in its table; each dot is lit
+by the nearer of the two and grows a little. A ring lives until it has crossed the shape.</li>
+<li><strong>States step on a clock that runs forward.</strong> Fills share a clock folded every 1024 s (it runs
+backward for the next 1024) so float noise keeps its precision. (Since replaced: see below.) The states of those layers
+were given the folded time too, while the pointer and presses they hear about carry the
+unfolded one. The holographic foil and the liquid progress opt out of the shared clock for this
+reason; the dot grid, a fill with a pointer and ripples, met it: past 17 minutes of uptime a
+ripple's age went negative and it never showed. The states now get the unfolded clock and only
+the shader the folded one (the mesh and metaball states fold their own time), so a fill can keep
+the shared clock and still ease a pointer. A test fires a ripple at 1500 s and fails without
+the fix.</li>
+<li><strong>The distance to the content's edge.</strong> Outline and inner shadow need to know how far each
+pixel is from the edge of the child's own shape, on both sides, and the mask's blurred levels
+can't tell them: a blurred alpha falls off with how thick the shape is. So a layer can ask for
+a distance field (<code>UsesDistanceMask</code>), and the host's capture then runs an exact Euclidean
+distance transform on the coverage, once to the nearest inside pixel and once to the nearest
+outside one, less half a pixel; pixels on the antialiased edge are placed by their coverage
+instead. It is one byte a pixel, a quarter of a DIP a step, from 16 DIPs inside to 47.75
+outside (<code>sdist()</code> in <code>dist.sksl</code>), sampled with linear filtering. The first version,
+Felzenszwalb and Huttenlocher's transform on floats with a pass down each column, took 25 ms
+for a padded 340×190 card at scale 2. Meijster's integer version, with the column pass done
+as two sweeps over whole rows, takes 4 ms for that frame, 2.4 ms with an ordinary pad, and
+13 ms for a 700×500 panel; rows that are all outside (the padding) skip half the work.
+It runs only when the host captures, never per frame, but a capture follows any change to the
+child's properties (a hover, say). In the browser without AOT the card took 30 ms, nearly two
+frames: the row pass called two small helpers per step, and calls are what the interpreter
+pays most for. Written out inline, with the squared column distances computed once, it takes
+14 ms (text, 2 ms). Column distances stop just past the field's range, which keeps the
+results within the range exact and the squares small; before, a frame more than about 46,000
+pixels across overflowed them and crashed. Inside is at least half the content's own
+strongest alpha, not half of opaque: a review found that text in a translucent color, or a
+child at Opacity 0.4, had no inside at all (no outline, no inner shadow), and that a mostly
+opaque but not solid interior read as all edge. Only pixels next to one on the other side now
+take their distance from their coverage.</li>
+<li><strong>Outline.</strong> Coverage straight from the distance: up to <code>Width</code> outside the edge, or <code>Width</code>
+centered on it; outside goes under the child, centered over it. The sticker is a thicker
+outline with a drop shadow read from the same field, offset and softened.</li>
+<li><strong>Inner shadow.</strong> A pixel near an edge facing the light finds the outside a step of <code>Depth</code>
+toward the light; one near the far edges, a step away from it. The first version shaded the
+sides too, since a step toward the light along a side also ends near the edge. Weighting each
+side by how much of the step went toward the edge (the distance it gained over the step)
+keeps the sides clean. Emboss lights the near edges and shades the far ones; letterpress adds
+a highlight just outside the far edges, where the page's lip would catch the light.</li>
+<li><strong>Beam.</strong> A quadratic Bézier from one end to the other, bowed sideways by <code>Curvature</code>; each
+pixel finds its distance to it and where along it it is from Inigo Quilez's closed form (a
+cubic), so a dash or a pulse moves along the curve, not across the box. The curve's length
+comes from its sagitta, so dashes keep their length in DIPs as it bows. Pulses live on the
+render thread (<code>BeamState</code>): those that leave every <code>Interval</code> seconds and those sent with
+<code>Send()</code>, up to eight heads in the table. With <code>FromElement</code> and <code>ToElement</code> the layer finds
+the controls' centers in the host after every layout pass and sends a new snapshot when one
+moved. The quad covers only the curve's hull and its glow. A review found the glow still at
+8 to 17 per cent at the quad's edge, a straight cut along a wide beam: the margin is now where
+the glow has faded out (<code>Beam.GlowReach</code>) and the shader fades it to nothing there. With more
+pulses on the path than the eight the shader takes (a short <code>Interval</code>), the newest are kept,
+not the oldest, so a pulse sent by hand always shows. Below a curvature of about 0.003 the
+closed form's cube roots cancel in 32-bit floats and the path jittered; it is drawn straight.</li>
+<li><strong>Ink.</strong> A stable-fluids grid of its own (<code>InkState</code>), stepped at 60 Hz like the simulated
+fire's: the pointer's path pushes the fluid and drops ink, a press throws a ring of drops, the
+flow curls (vorticity confinement), is kept divergence-free by a pressure solve, and carries
+three dye fields (red, green and blue) that fade. Two things went wrong first. A push narrower
+than the distance the fluid moves in a step was lost at once, because semi-Lagrangian
+advection looks back along the flow and finds still fluid there; pushes are now at least four
+cells wide while the drops of ink keep their size. And a splash that pushed every drop
+straight out added up to pure expansion, which the pressure solve takes out again, so the ink
+sat still; the drops now sit apart and lean sideways a little, and the splash spins out like a
+pinwheel. With no ink left the grid clears and the layer asks for no frames.</li>
+<li><strong>Silk</strong> is a height field of three warped sine folds lit by one soft light, its slope from
+two nearby samples; the first sheen was a sharp white highlight and read as brushed metal, so
+it is now broad and only a paler shade of the color. <strong>Beams</strong> spaces its shafts evenly across
+the shape (leaning by <code>Angle</code>), so a pixel only looks at the five nearest; each drifts around
+its place and carries light falling down it, a long tail above a head that softens out. The
+falling light rides the core only: on the wide glow its end showed as a shelf. Many wide
+shafts packed close (48 across 300 DIPs) reached past the five nearest and left cuts where
+the sum stopped, under a wash: a shaft is now no wider than two thirds of the spacing and
+fades out by two spacings, so they stay separate.</li>
+<li><strong>A clock that only runs forward, for the shaders too.</strong> The fold above (rune's: a triangle
+wave over 1024 s, which never jumps) suits noise that looks the same either way, but every
+fill that moves one way ran backward for 512 s out of every 1024 of uptime: rain and snow
+rose, code rain climbed, meteors flew tail first, the retro grid flowed away. Shader time now
+wraps forward every 4096 s instead (half a millisecond of float precision at the top; one
+jump every 68 minutes), and the mesh and metaball states, which work in doubles, take the
+clock as it is. Checking this turned up a second fault: the weather shader laid its drops out
+in a frame moving up, so rain and snow rose even on a clock running forward. Tests now check
+that rain, snow, code rain and beams fall at 20, 700 and 3000 s.</li>
+<li><strong>Tests on Linux.</strong> In a Linux container the suite first could not load Skia at all (its
+library needs fontconfig; the CI workflow installs it), and then, once in every run, one test
+failed to set up Avalonia (&quot;a different thread owns it&quot;): xunit ran test classes in parallel,
+and two of them started the headless session on two threads at once. It never happened on
+macOS. Test classes now run one at a time; the headless tests share one dispatcher thread
+anyway, so the suite takes as long as before (43 s), and two Linux runs in a row pass. On
+Windows 11 on ARM (in a virtual machine, .NET SDK 10.0.114) the CI job passes as it is: both
+builds with warnings as errors, all 302 tests and the panel audit.</li>
+<li><strong>Settings in a drawer on a narrow page.</strong> Below 760 DIPs the stage would shrink to a strip
+beside the 316-DIP settings, so the settings fold into a drawer over the stage's right side,
+opened from a sliders button at the right of the page header. Done, Escape (wherever the focus
+is) or a press anywhere outside it closes it; that press goes no further, so it doesn't also
+fire the stage's one-shot. The panel audit checks all of this on a narrow window.</li>
+<li><strong>The same pace at any refresh rate.</strong> Ink and water stepped once more whenever input arrived
+on a frame with no step due, which on a 120 Hz display is every other frame: the fluid ran
+about twice as fast while the pointer moved. Input now shows in the frame it lands in without
+a step. Input that arrives while no frame takes it (a silent layer) merges into the last
+stroke instead of piling up, and the last of the ink fades out instead of vanishing at the
+level where the simulation stops.</li>
+<li><strong>An audit before the first release.</strong> The code was read for repeats, names, bugs and cost
+before it went public; what changed:
+<ul>
+<li><em>Names.</em> One meaning per property name across the layers: <code>Speed</code> is the clock multiplier
+every layer has (seven layers had a <code>FlowSpeed</code> that did the same), a <code>…Speed</code> is DIPs a
+second, a <code>…Rate</code> is events a second; <code>Duration</code> is one transition, <code>Period</code> one loop,
+<code>Life</code> one particle, <code>Interval</code> the wait between repeats; color settings end in <code>Color</code>
+(<code>Background</code> was a color where Avalonia expects a brush), booleans start with <code>Is</code>, and
+an enum's default is its first member. XAML gets a namespace URL
+(<code>https://github.com/jsuarezruiz/Nova.Avalonia.FX</code>, prefix <code>fx</code>).</li>
+<li><em>Clocks.</em> The shared fill clock never worked: the first thing to read a layer's time (the
+check whether it animates) fixed its origin before the draw asked for the shared clock, so
+fills on hosts made at different times were out of step. Only fills wrapped their time;
+now every shader does (see Clocks above).</li>
+<li><em>Show and hide.</em> Reveal, Genie and Shatter share one base class, and the hand-back timer
+lives in <code>FXStandIn</code> (Jelly, Page peel and Spoiler use it too). Layers written before the
+content in XAML, the usual order, attached while the host had no child, so a layer that
+started hidden or peeled did nothing; the host now tells its layers when its child changes.
+The transitions run on the render clock, not the layer's speed, so <code>Speed</code> can no longer
+put the timer and the animation out of step, and the reduced-motion duration is decided
+once, when a transition starts. Shatter no longer throws when its content collapses below
+1 DIP, and cuts its shards once per break instead of on every resize.</li>
+<li><em>Masks.</em> Any property change on the child recaptured its pixels and rebuilt the distance
+field, hover included. Changes that can't change pixels are ignored now, a burst of changes
+captures at most every 100 ms and builds the distance field once it settles, a capture is
+capped at 4096 px a side and 8 M pixels (by lowering its scale), a failed capture logs and
+leaves the layer without a mask instead of throwing, and masks are released when the render
+thread lets go of them.</li>
+<li><em>Frames.</em> A setting change re-snapshotted every layer on the host at once; now the changed
+layer is marked and one sync goes out per frame. Hidden hosts and hosts scrolled well out of
+view stop asking for frames. A layer that only draws around the pointer repaints only
+around it, and the border-only layers (border beam, the electric border) shade a ring mesh
+instead of the whole interior: <code>drawDRRect</code> still runs the shader on the hole on GPU
+backends.</li>
+<li><em>Simulations.</em> Fire, ink and water rebuilt their grid, and the fire re-ran its 90 warm-up
+steps, whenever the host moved: a host moving every frame cost 29 ms a frame. A move now
+keeps the grid, a resize resamples it, and the fire warms up only the first time (0.4 ms).
+The three share one solver. The particle network finds close pairs through a grid instead
+of testing every pair, and it and the electric bolts no longer allocate per frame.</li>
+<li><em>Shaders.</em> Helpers written several times moved into shared parts (<code>inside</code>, <code>fill_mask</code>,
+<code>fbm</code>, <code>breathe</code>, <code>dat_bilerp</code>, the flame ramp, the sheen); loop limits are filled in from
+the C# constants instead of copied by hand; a glow at radius 0, an aura of gray, reversed
+smoothstep edges and <code>pow</code> of slightly negative noise could all produce NaN on some GPUs.</li>
+<li><em>Gallery.</em> The home page's 80 tiles are one control, the per-layer switches on the effect
+page are one table, and <code>--sweep</code> renders every effect on every target in both themes so
+each demo can be checked by eye.</li>
+<li><em>Every demo on every target.</em> Two rounds of that sweep, looked at cell by cell, found that
+most of what read badly was the staging, not the effect: a field over a fill kept the
+theme's placeholder color (which Fluent also fades to half), pictures only reached a card,
+a fill on bare text painted the text's whole box, a panel had no room for a glow or a
+flame, and one ink was chosen per effect wherever its label sat. Each effect now offers
+only the targets it suits, follows the letters on bare text where it can (a fill's mask, a
+mask glow), picks its ink where the label sits, and the pointer layers move on their own
+until the pointer arrives. The effects that needed it changed too: liquid metal's horizon
+no longer breaks into blotches, an inner shadow is soft and shows a lit lip on dark, the
+foil, fire, electric bolts, fireworks and a dissolve know a dark surface from a light one,
+and fog, aurora, metaballs, starfield and the particle network scale with the shape.</li>
+<li><em>Measured again after it.</em> On the same machine, GPU costs held or dropped (Electric, CRT,
+chroma split, glitch and water most), a 700×500 panel costs about half what was noted
+before, and in Chrome every effect holds 57–60 fps with the CPU four times slower except
+the interpreted simulated fire (44). Three readings looked like slowdowns and weren't.
+Confetti's CPU time (0.11 then 0.36 ms) and the browser's compiled .NET time swing two to
+three times from run to run with the same code. First frames read 20–200 ms in any run
+where the system's Metal shader cache had dropped the layers' pipelines (after the restart,
+and again the next morning) and 2–10 ms in the run after: <code>WarmUpAsync</code> compiles the SkSL,
+not those pipelines. The bench's compare now times a layer that looks slower up to
+twice more and keeps its best run, and every measure starts from a fresh layer: Fire timed
+again after <code>fire:Simulated</code> had kept the simulated style and read a third of its cost.
+It also keeps its window on top and deaf to the real pointer, and exits with 2 when
+layers ran far under the others' frame rate or drew nothing, as a covered window or one
+on another desktop does on macOS.</li>
+<li><em>Paces that carry on.</em> Only <code>Speed</code> changed smoothly. The 23 settings that set a pace of
+their own (flow, drift, fall and wave speeds, and the flicker, meteor and glyph rates) were
+multiplied by the clock in the kernel or the CPU state, so a change while the layer ran
+moved the pattern to where the new pace would have put it from the start. Each is now a
+phase on the layer clock, kept continuous the way the clock is (<code>FXPhase</code>). A kernel reads
+it from a slot the renderer fills each frame (<code>FXUniformBlock.Phase</code>), and a CPU state
+reads the same phase by index, so aurora's curtains and rays, and the mesh gradient's
+points and warp, stay together. A phase wraps at 4096 s × the top of its setting's range,
+so at full pace it keeps the clock's precision and wraps as rarely. A test changes each
+one mid-run and checks that the next frame matches the last; run against the old
+behavior, all 23 fail, with 129 to 24,302 pixels jumping. Electric moved with <code>StrikeRate</code>
+in three places: the charged beads in the kernel, and the charged hairline and the border
+bolt's crawl on the CPU. All three read its phase now, and the charged style is a 24th case
+of the test. Left as they were: rates of events (the strikes themselves, <code>GlitchRate</code>, a
+glitch's <code>Frequency</code>), where a change can add or drop one strike or burst, and the speed
+of something already under way (a ripple's <code>RippleSpeed</code>, a jelly's <code>Frequency</code>).</li>
+<li><em>Dead and repeated code.</em> A pass with the compiler's own symbol lookup (every declaration
+in the library and the samples against every reference in every project, tests included)
+found nine internal members that nothing used, among them a distance lookup &quot;for tests&quot;
+that no test called; it also kept a second copy of every mask's distance field in memory.
+They are gone. Halftone and liquid progress no longer compile <code>fill.sksl</code>, which neither
+calls. Every other shader module, function and style branch is used. The repeats worth a
+shared helper were folded: the glow kernels' breathing and cooling (<code>glow_light</code>),
+Electric's fork light in the kernel and its halo cache and border setup on the CPU, and
+the tests' window helpers. Left as they are: the styled-property declarations every layer
+needs, and a few short repeats where a helper would cost more to read than it saves.
+<code>FXHost.RefreshMask</code> and <code>Pulse.PingTo</code>, documented but called nowhere, have tests now.</li>
+<li><em>Quadratic work and leaks.</em> Every nested loop in the library whose bounds both grow with
+the data was read. All are linear in what they cover (pixels, grid cells, live pieces),
+with one exception: Shatter cuts each piece's cell against every other piece, once per
+break. That takes no longer at its 120-piece maximum than at 24 (the break's frame is
+3.5–4 ms either way, most of it capturing the content), so it stays. Every event a host or
+a layer hooks (the window's pointer, the static settings event, layout) is let go on
+detach, every timer stops, every cache is bounded, and every native Skia object is
+disposed or replaced in place. A test now proves it: every layer is shown, hovered,
+pressed and drawn, then removed from a window that stays open, or left in one that
+closes, and the host and the layer must both be collected. A planted leak (the host
+keeping its settings handler) fails it for every layer. Avalonia keeps a window it just
+closed after a press for a moment (a plain window with nothing of ours in it too), so the
+test lets the dispatcher run its timers before it collects.</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-review-of-the-port">5. Review of the port</h2>
+<p>Three independent line-by-line reviews compared every shader and CPU builder with rune's WGSL
+and Rust. They found no transcription errors. They did find these, all now fixed:</p>
+<ul>
+<li><strong><code>finish()</code> encoding.</strong> It treated linear light as sRGB-space coverage, so faint glows,
+rings and sheens were up to about 10× too dim. It now encodes as rune does.</li>
+<li><strong>Shader lifetime (crash).</strong> Disposing a layer's <code>SKRuntimeShaderBuilder</code> disposed the
+shared, cached effect. Removing a layer, or moving it between hosts, freed the shader under
+every other layer of that kernel.</li>
+<li><strong>One-shots.</strong> A full ripple pool cut its oldest ripple instead of fading it. Zaps and bursts
+replaced the continuous effect, all looked identical, and re-triggering cut the live one.</li>
+<li><strong>Clocks.</strong> Fills used per-host clocks (seams between window-anchored neighbors), unfolded
+time, and time 0 instead of <code>CALM_T</code> under reduced motion. Shimmer froze instead of breathing
+under reduced motion. A layer at speed 0 kept ticking.</li>
+<li><strong>Bounds and robustness.</strong>
+<ul>
+<li>Fills had no anti-aliasing bleed.</li>
+<li>Pulse breathe's bleed was too short.</li>
+<li>Electric stopped animating with no strikes.</li>
+<li>NaN parameters blacked a layer out.</li>
+<li>The data image was re-uploaded every frame.</li>
+</ul>
+</li>
+</ul>
+<p>Building the spotlight found one more, now fixed: on a light surface, a white or gray light
+came out black, because the haze takes its hue from the layer's color and white has none. It
+now stays white.</p>
+<p>A report of jitter while scrolling led to one more change. The host used to send its window
+position (for window-anchored fills) from the UI thread after each layout pass, so a scroll or
+animation that moves a host without one left the position stale. The render thread now reads it
+from each frame's transform. A test checks that a host scrolled into place draws exactly as one
+laid out there. On this machine, the gallery's <code>--scroll-demo</code>, which scrolls Home a few DIPs
+every frame, holds 120 fps (median 8.3 ms, nothing over 20 ms) with either version. With real
+mouse-wheel input (each tick moves the page 10 DIPs in one frame), a recording of the shimmer,
+aurora and liquid metal tiles shows the frame caught mid-scroll matching the settled frame as
+closely as two still frames do: nothing is drawn a frame late. Trackpad momentum scrolling
+hasn't been recorded.</p>
+<p>Two findings are left open:</p>
+<ul>
+<li><strong>Preset priority.</strong> Presets apply at template priority, which Avalonia ranks above a plain
+type-selector style. Treating presets as control themes would fix that.</li>
+<li><strong>Mesh rest points.</strong> <code>MeshGradient</code>'s rest points aren't exposed yet (rune has <code>points</code>).</li>
+</ul>
+<h2 id="6-roadmap">6. Roadmap</h2>
+<p><strong>Next. These fit the current architecture.</strong></p>
+<ul>
+<li>Dither and halftone over an image (rune's <code>Image</code> input). The backdrop input is done; an image
+would bind the same way, as an image shader in place of the backdrop copy.</li>
+<li>Simulated fire and smoke on the GPU. Fire's simulated styles run a small grid on the CPU now; rune's
+<code>firesim.wgsl</code> steps a finer one on the GPU with ping-pong targets.</li>
+<li>Fire in two passes. It is the heaviest kernel per pixel (eight noise evaluations).
+<code>RenderScale</code> already quarters its cost, but it softens the embers along with the flames.
+Shading the flames at half resolution and the embers at full would keep them sharp.</li>
+</ul>
+<p><strong>Done: effects that read the backdrop.</strong> Glass, fluted glass, heat haze, shockwave, CRT and
+chroma split read what was drawn beneath them through <code>lease.SkSurface.Snapshot(bounds)</code>
+(divergence 11). Two other routes were weighed: <code>SKCanvas.SaveLayer</code> with a backdrop filter is
+limited to Skia's built-in filters (SkiaSharp 3.119 has no runtime-shader image filter), and
+support in Avalonia itself (below) would also cover offscreen layers.</p>
+<p>Motion blur draws a wake from the content's capture. A true blur of the content itself still
+needs the moving subtree rendered at rest.</p>
+<p><strong>Out of scope for now.</strong> rune-light-style lighting (an SDF field, soft shadows, GI) is a
+different scale of project and would be its own package.</p>
+<h2 id="7-what-avalonia-itself-could-add">7. What Avalonia itself could add</h2>
+<p>These would remove the host wrapper and make the backdrop family exact:</p>
+<ul>
+<li>An extensible <code>IEffect</code> backed by a runtime shader with uniforms, applied per <code>Visual</code>, so
+<code>Effect=&quot;{fx:Glow ...}&quot;</code> works on any control.</li>
+<li>Backdrop access for composition custom visuals: an image of what lies beneath the visual's
+bounds, the equivalent of rune's <code>effect_backdrop</code> slot. The surface snapshot used now is right
+on the window's surface but not inside offscreen layers.</li>
+<li>A way to render an element's content to an image on the render thread, for mask glow and
+motion blur.</li>
+<li>A platform reduced-motion preference for <code>FXSettings.ReducedMotion</code> to follow.</li>
+</ul>
+<h2 id="8-verification">8. Verification</h2>
+<p><code>dotnet test</code> runs 178 tests on headless Avalonia with real Skia rendering:</p>
+<ul>
+<li><strong>Shaders:</strong> every kernel compiles, and every kernel declares the shared uniforms.</li>
+<li><strong>Contracts:</strong>
+<ul>
+<li>idle layers are silent, and still layers never animate;</li>
+<li>reduced motion stops continuous animation;</li>
+<li>changing speed never makes the clock jump, and a frozen clock never ticks; changing a
+layer's own pace (24 flow, drift, fall, wave, flicker, meteor, glyph and strike speeds)
+never makes its pattern jump; a host and its layers are collected once they leave the
+window, whether the window stays open or closes;</li>
+<li>lights cool exponentially and are culled once cold.</li>
+</ul>
+</li>
+<li><strong>One-shots:</strong> ripple pools fade their oldest; zaps overlap and each strikes its own bolt;
+a zap carries its press point; bursts add to the continuous stars; a ping flies from the
+shape's edge to its destination, and a repeating ping fires on a beat of the clock; embers rise
+off the top edge and stop under reduced motion.</li>
+<li><strong>Surfaces:</strong> the surface follows the theme unless set; over white, a light-surface glow is a
+saturated blue at the edge and fainter than rune's encoding far out.</li>
+<li><strong>Masks:</strong> the mask holds the child's pixels with room for the glow; a mask glow lights around a
+glyph but not the far edge of its text box, where a box glow would; and when the text changes,
+the glow follows the new glyphs.</li>
+<li><strong>Fills:</strong> a flat mid tone dithers to exactly half light pixels with Bayer 2×2, 4×4, 8×8 and
+blue noise; the blue-noise tile ranks every pixel once; palette fills fall back to their
+preset's palette, and presets yield to local values.</li>
+<li><strong>Backdrop:</strong> over red and blue stripes, glass, fluted glass, heat haze, CRT and chroma split
+each change the stripes inside their reach and leave them untouched far away; glass that neither
+bends, magnifies, lights nor shades leaves every stripe exactly where it was (the copy maps back
+to the right place); chroma split turns one edge of a white bar red and the other blue; a
+shockwave bends the stripes only while it travels.</li>
+<li><strong>Backdrop tone:</strong> over a half-black, half-white backdrop, a one-bit dither is all dark over
+black and all light over white, and a halftone inks the dark side and leaves the white side
+without a single faint dot; over mid gray, a dither lights the share of pixels its tone says;
+only a dither or halftone on the backdrop input copies the backdrop.</li>
+<li><strong>Beyond rune-fx:</strong>
+<ul>
+<li>a spotlight lights near the pointer and not far away, lights the border near it, and fades
+once the pointer leaves;</li>
+<li>a border beam lights only a stretch of the border, moves, leaves the inside dark, and holds
+still under reduced motion;</li>
+<li>holographic foil shifts with the pointer, settles back, and requests no frames at rest;</li>
+<li>liquid fills to its level and eases to a new one without jumping, vertically and from the
+left;</li>
+<li>confetti flies above the shape and is gone after its duration;</li>
+<li>an ambient glow spills red to the left of a red half and blue to the right of a blue half;</li>
+<li>every spoiler style hides a crisp edge, opens from the tap, and ends identical to the plain
+content;</li>
+<li>every reveal style hides and shows the content and hands it back exactly, and a wipe hides
+from the side it runs toward;</li>
+<li>each background draws;</li>
+<li>a magnifier shows the stripes under it at about twice the size and leaves the rest alone;</li>
+<li>a trail lights along its points, not beside them, and is gone after its life;</li>
+<li>a firework's rocket climbs from the bottom edge, bursts around its point and is gone;</li>
+<li>motion blur draws a red wake behind a red card moving right, nothing ahead of it, and nothing
+once it stops (this caught the missing frame request after a stop);</li>
+<li>simulated fire burns above the edge and not below it, moves, and steps in well under 4 ms a
+frame;</li>
+<li>a fire switched to its simulated style while shown, and back, draws each style correctly;</li>
+<li>every setting the panel offers changes what is drawn (the property audit: 1,286 settings
+over every layer and style, each drawn at its default and at a clearly different value with
+one-shots fired, pointers aimed and simulations stepped alike; the 67 that leave a still frame
+alone are listed with why, such as &quot;acts on a press&quot; or &quot;the content is hidden while it
+plays&quot;), and every editor in the panel changes its setting (the panel audit: 1,210 editors).
+The first pass found 400 silent settings. Most were settings shown for styles that don't use
+them (now hidden), a dimmer-less <code>Intensity</code>, <code>Seed</code> and <code>Speed</code> on layers without randomness
+or motion, and blend modes ignored by layers drawn as shapes; all fixed. It also caught the
+panel showing the shared settings unfiltered;</li>
+<li>a progressive blur leaves the stripes sharp at one end and blurs them at the other;</li>
+<li>a voice orb lights its middle, swells with its level, and the level rises fast and falls slower;</li>
+<li>a glitch burst tears the content and then draws nothing; the constant style glitches about as
+often as asked;</li>
+<li>a shatter breaks the content into moving shards, is gone, lands again and hands the content
+back; jelly squashes wider and shorter and hands back; a page peel lifts its corner, shows its
+back, leaves the rest of the page as it was and settles back;</li>
+<li>shatter's dust leaves the downwind side first while the rest stays whole, drifts past the
+edge, is gone, and lands back whole; a genie bends the bottom corners in first, pours down
+toward the point and never past it, is gone, and comes back identical before handing back;</li>
+<li>a host taken out of the window disposes its layers' renderers (none stay alive), and draws
+as before when it is put back;</li>
+<li>light rays are brighter near their source than far from it and shift over time; a voice wave
+lies flat when quiet, swells with the level and stays pinched at the ends; a particle
+network draws inside the shape only, drifts, and gathers lines at the pointer; topography
+draws lines, not a fill, and shifts; fog is thick below and clear above and drifts; ASCII
+turns the bright gradient into dense characters and the black bar into blanks; old film
+tones red and blue into warm browns and changes frame to frame; a melt has run down from
+the top and past the bottom edge mid-way, is gone, and comes back identical;</li>
+<li>tilt leans the side under the pointer toward the eye (and away at negative angles), glares
+while pointed at and settles flat with its transform removed; a pointer shadow falls below at
+rest, to the right of a light on the left, and up from a light below;</li>
+<li>frost covers the edges first, nothing at <code>Amount</code> 0, and melts around a point;</li>
+<li>rain on glass bends the stripes and moves; calm water draws nothing, ripples after a splash
+and stops again; bokeh and code rain fill the shape and move; light leaks light the edges more
+than the middle;</li>
+<li>a host scrolled into place draws a window-anchored fill exactly as one laid out there;</li>
+<li>the distance field measures to the content's edge: whole pixels away, the middle, along a
+diagonal, and zero on an antialiased edge; an outline strokes the content at its exact
+width and leaves the rest alone, and a sticker has a thick border with a shadow below; an
+inner shadow shades the inside on the light's side, not the far side or the outside; a beam
+sends a pulse along its path over a faint track, bows with its curvature, follows two
+controls, and its dashes march;</li>
+<li>every reveal style hides, shows and hands the content back; a clock wipe hides clockwise from
+the top; generate's grain moves early and is still once it has settled; silk covers the shape
+with lit folds and creases and flows; beams draw separate shafts that move; ink follows the
+pointer's path and not far from it, a splash brings more than one color, and once the ink
+has faded nothing is drawn;</li>
+<li>from the review: the distance field reads translucent content as its shape; a beam with more
+pulses than it can show keeps the newest; a wide beam's glow thins out with no cut where the
+drawn area ends; forty-eight beams across 300 DIPs stay separate shafts with dark gaps. The
+last two fail on the code before the fixes.</li>
+</ul>
+</li>
+<li><strong>Performance changes:</strong> trimmed quads (fire, heat haze, glass, shockwave) draw the same
+frame as the full bleed (a shockwave within one level, from the smaller copy's sampling
+grid); a soft fill at half render scale matches full resolution; diagnostics record only while
+enabled.</li>
+<li><strong>Data texture:</strong> values round-trip exactly, and the upload is reused while the bytes are
+unchanged.</li>
+<li><strong>Properties, catalog and tree:</strong>
+<ul>
+<li>presets yield to local values;</li>
+<li>the catalog describes every layer, and <code>ToXaml</code> writes the differences;</li>
+<li>layers join the logical tree;</li>
+<li>styles reach layers, both at load and when added at runtime.</li>
+</ul>
+</li>
+<li><strong>Rendered frames:</strong>
+<ul>
+<li>glow lights outside the shape and is gone far away;</li>
+<li>silent layers draw nothing;</li>
+<li>switching a light off cools it;</li>
+<li>liquid metal stays inside its shape;</li>
+<li>every layer draws something;</li>
+<li>a host added after the first frame draws its bleed;</li>
+<li>a layer moved between hosts keeps drawing (the crash regression).</li>
+</ul>
+</li>
+</ul>
+<p>Frames are written to <code>tests/.../bin/.../artifacts/snapshots</code>. The <code>docs/*.png</code> images come
+from the gallery's <code>--snap</code>.</p>
+<p><strong>Not yet verified:</strong></p>
+<ul>
+<li>GPU backends other than Metal;</li>
+<li>browser (WebAssembly) and mobile;</li>
+<li>per-layer GPU timings.</li>
+</ul>
+<p>The headless runs use Skia's CPU raster backend.</p>
+<h3 id="live-check">Live check</h3>
+<p>The gallery was also driven as a real macOS app (Metal), page by page, in both themes, and each
+page was recorded and watched (<code>scripts/macos/record-window.sh</code> records one window only).
+Every layer and variant animated as intended. The pass found and fixed:</p>
+<ul>
+<li>color editors wrote their starting value back as a local value, so a later preset could not
+change it (Plastic &quot;Matte&quot; stayed cream; Mesh gradient pinned its palette);</li>
+<li>changing Style or Preset rebuilt the panel and dropped keyboard focus;</li>
+<li>a tap on an Electric arc ignored where it landed (now <code>Zap(point)</code>);</li>
+<li>on light UI, pale stars and a white sheen did not show, text on painted fills was unreadable,
+and the ripple wash covered text (divergence 10);</li>
+<li>stepping presets with the arrow keys sometimes lost focus to the window's first control, because
+the settings panel was rebuilt while the dropdown was still handling the key (the rebuild now
+waits for it).</li>
+</ul>
+<p>A later sweep (<code>scripts/macos/verify-shot.sh</code>) captured all 40 presets and styles of the 17 layers
+live and checked that each one moves, or holds still, as designed.</p>
+<p>The seven fills ported later were checked the same way: each page recorded live on Metal and
+watched, and through <code>--snap --frames</code>, which renders a numbered frame sequence headless. Swirl,
+waves, voronoi and metaballs change every frame; grain gradient re-rolls at its 12 fps (every
+other frame at 24 fps); dither and halftone hold still unless their tone is noise; and under
+reduced motion every fill holds one pose.</p>
+<p>The six backdrop layers were checked live on Metal in the light theme over the gallery's drifting
+scene: glass bends the scene at its rim, with highlight and shadow, and frosts it when <code>Frost</code> is
+raised; fluted glass squeezes and flips the scene per rib, clear and frosted; presses fire
+overlapping shockwaves that bend the card and the scene around it; CRT, chroma split and heat
+haze draw over their targets as in the headless frames. The pass moved the scene's line of type
+below the target, where it no longer sits under the target's own label.</p>
+<p>Dither and halftone over the backdrop were checked live on Metal on the gallery's home tile: they
+re-tone the drifting scene as it moves. The backdrop preset adds contrast 1.4, because UI behind
+a panel is mostly mid-tones.</p>
+<h3 id="performance">Performance</h3>
+<p><code>--bench</code> in the gallery times every layer in a real window on the GPU the app uses. It shows each
+layer's page over the drifting scene, so every layer redraws every frame, and fires one-shots on a
+beat. GPU time is differential: one draw and then a batch of five, each followed by a wait for the
+GPU. The difference is the extra draws alone, without the fixed round trip, which costs more than
+most layers. On an Apple M4 Max (Metal, 2×), on the 340×190 card:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>before</th>
+<th>after</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fire</td>
+<td>0.58 ms, 0.93 Mpx</td>
+<td>0.39–0.42 ms, 0.20 Mpx</td>
+</tr>
+<tr>
+<td>Shockwave</td>
+<td>0.44 ms, 1.77 Mpx</td>
+<td>0.29–0.31 ms, 0.84 Mpx (average over a ring's life)</td>
+</tr>
+<tr>
+<td>Heat haze</td>
+<td>0.23 ms, 0.47 Mpx</td>
+<td>0.15–0.18 ms, 0.06 Mpx</td>
+</tr>
+<tr>
+<td>Chroma split</td>
+<td>0.13 ms</td>
+<td>0.09–0.15 ms</td>
+</tr>
+<tr>
+<td>Glass</td>
+<td>0.24 ms</td>
+<td>0.19–0.25 ms</td>
+</tr>
+</tbody>
+</table>
+<p>&quot;Before&quot; is the same build with <code>--full-quads</code>, which also restores the full backdrop margin.
+The ember guard in the fire shader (no ember loop below the top edge) is in both columns. Runs
+vary by about ±0.03 ms. Every other layer stays under 0.1 ms, except Voronoi, Liquid metal and
+Swirl at 0.25–0.31 ms. CPU is 5–50 µs per layer per frame.</p>
+<p>On a 700×500 panel (1.4 Mpx), <code>RenderScale=&quot;0.5&quot;</code> cut Swirl from 1.47 to 0.59 ms, Liquid metal
+from 1.23 to 0.53, Voronoi from 1.18 to 0.49 and Aurora from 0.72 to 0.31. Cheap layers get
+slower (Grain from 0.05 to 0.12) because of the scale-up pass. Before the offscreen target
+matched the platform's pixel format, its first frame compiled new pipelines (13–122 ms); now it
+takes 2–10 ms, like a full-resolution draw.</p>
+<p>The third set of layers beyond rune-fx, on the same card: Code rain 0.08 ms, Jelly 0.05, Page
+peel 0.06, Water 0.20, Glitch 0.22, Light leaks 0.22, Bokeh 0.44, Rain on glass 0.56, Frost 0.63,
+the voice orb 0.68 (its glow covers 0.8 Mpx) and Progressive blur 1.0 ms (five copies of what is
+behind it). Giving each blurred copy its own target and blurring wide ones at half or quarter
+size took those from 1.20, 0.76 and 0.69 ms.</p>
+<p>The newest layers, on the same card (GPU ms per frame unless noted): Genie 0.01, Tilt 0.01,
+Voice wave 0.04, Light rays 0.08, Melt 0.10, Old film 0.13, Pointer shadow 0.17, Fog 0.25,
+ASCII 0.33, Topography 0.38; dust and the particle network about 0.2 ms of CPU each. Three of
+them were made cheaper after the first timing: dust draws at most 6,000 grains (from 12,000) and
+skips grains that have faded; the network's lines go in ten draws by strength instead of one draw
+per line; topography's broad swell and fog's warp are one octave instead of three.</p>
+<p>That first timing also found the leak described above: over a full run the bench's window fell
+from 120 to about 10 fps after 45–50 pages, and every number measured after that was off (code
+rain 1.3 ms instead of 0.05). With the fix the whole run holds 120 fps.</p>
+<p><code>bench/baseline.csv</code> keeps a full run, and <code>--compare</code> checks a new run against it. Two runs of
+the same build put 62 of 66 rows within noise; the other four (Glass, Chroma split, Frost, Bokeh)
+moved by 0.1–0.5 ms between runs, as the GPU's clock changes with load. So a row that looks slower
+is timed again, and only a row slower both times counts.</p>
+<p>Not measured: GPUs other than this one (slower GPUs scale every number up), and Windows, Linux
+and mobile backends. The browser is timed separately (see &quot;Timing in the browser&quot; below).</p>
+<h3 id="in-the-browser">In the browser</h3>
+<p>The gallery also runs in the browser (<code>samples/Nova.Avalonia.FX.Gallery.Browser</code>), set up like
+Nova.Avalonia.UI's: a shared gallery library, a desktop app and a WebAssembly app that shows the
+shell as a single view. SkiaSharp's WebAssembly build includes the runtime-effect compiler, so the
+SkSL kernels run on WebGL as they are: a <code>?check</code> start compiles all of them in about 1.4 s with no
+failures; a <code>?verify</code> run opens all 117 effect and style combinations, fires each one-shot and
+finds every one drawing (counted by <code>FXDiagnostics</code>, waiting for the first draw, since a browser
+tab in the background paints only a few frames a second); and a <code>?tour</code> through every page (firing each one-shot) showed every effect drawing as
+on the desktop, including the backdrop copies and their blurs, the mask pyramid, the captures
+(shatter, reveal, genie) and the pointer layers. Nothing in the library needed changing: the
+browser runs .NET on one thread, so the compositor's work and the UI share it, and
+<code>FXSettings.WarmUpAsync</code> simply compiles on that thread. Two notes from setting it up: the
+repository now pins the .NET 10 SDK (10.0.100 or a later 10.0 feature band, never a preview), as
+Nova.Avalonia.UI does (with the .NET 11 preview's WebAssembly tools, a Debug build left
+SkiaSharp's native code out); and the desktop-only tools
+moved with <code>Program</code> into the desktop app.</p>
+<h3 id="timing-in-the-browser">Timing in the browser</h3>
+<p><code>?bench</code> runs the desktop bench's measurement (<code>BenchProbe</code>, now in the shared gallery) in the
+browser: each effect over the drifting scene for 2 s, firing its one-shot every 0.35 s, counting
+the frames painted and the 95th-percentile frame time, with each draw's CPU time from
+<code>FXDiagnostics</code>. Three things shaped it:</p>
+<ul>
+<li><strong>A hidden page paints a frame a second.</strong> The browser pane, a background tab or a covered
+window throttles <code>requestAnimationFrame</code>, and the page may still report itself visible. The
+bench measures the browser's own frame rate with the app hidden (so a slow effect is not
+mistaken for a hidden page) before and after each effect, waits while it is under 20 fps, and
+times an effect again when the page was hidden by its end. <code>scripts/browser-bench.mjs</code> runs it in
+a headless Chrome, which paints at 60 Hz on the real GPU (ANGLE on Metal here) whatever is on
+screen, and drives Chrome's CPU throttling through the DevTools protocol.</li>
+<li><strong>There is no GPU time in WebGL.</strong> A synchronous flush returns without the GPU having finished
+(every layer read about 0 ms), so the frame rate is the measure.</li>
+<li><strong>The first run's slowest effects were the gallery's.</strong> Liquid progress (11 fps), Shatter,
+Page peel, Reveal, Spoiler and Genie (22–39 fps) cost little per draw but had 100–300 ms
+frames: each show, hide or level change rebuilt the gallery's settings panel to show the new
+value, which takes a frame or more interpreted. The page now updates only that editor (and
+rebuilds when the change shows or hides other settings); all six went back to 59–60 fps.</li>
+</ul>
+<p>What was left is .NET code: the browser interprets it unless the app is compiled ahead of time.
+The first numbers came from <code>dotnet run</code>, whose Release build still had debugger support on
+(<code>debugLevel</code> -1 in its boot config), which turns off the runtime's optimization of interpreted
+code (the jiterpreter): there, on the M4 Max, the simulated fire ran at 20 fps, Dust at 22 (6.6
+ms a frame for its 6,000 grains) and Electric at 51 (3.8 ms a bolt), and with the CPU throttled
+4× the whole gallery fell to 40–50 fps. The gallery now builds Release with <code>WasmDebugLevel</code> 0,
+as a publish does. Published and interpreted, every effect ran at 59–60 fps (Dust 2.5 ms,
+Electric 1.0, the fire 0.8); with the CPU throttled 4×, 60 of the 66 stayed at 52–60 fps and the
+layers that work in .NET code dropped: the simulated fire to 9 fps, Electric 22, Dust 33,
+Fireworks 43, Shatter's shards 51 and Melt 52. Compiled ahead of time, those cost 0.14, 0.10 and
+0.35 ms (fire, Electric, Dust), and with the CPU throttled 4× every effect stayed at 54–60 fps
+(Fireworks the lowest, 1.7 ms of CPU for its sparks). The cost is the download: 9.2 MB
+Brotli-compressed instead of 5.8 MB. The browser gallery compiles ahead of time on a Release
+publish, and the README recommends it for apps that use those layers on slower machines.</p>
+<h4 id="the-cpu-layers-written-for-the-interpreter">The CPU layers, written for the interpreter</h4>
+<p>Timed piece by piece in the browser (with the CPU throttled 4×, interpreted), the cost was in a
+few loops, and the fix in each was to do the same arithmetic with fewer calls or less often:</p>
+<ul>
+<li><strong>The fire simulation</strong> took 12 ms a step, up to three steps a frame (9 fps), and 1 s for its
+90-step warm-up when it first shows. Every cell read its neighbors through <code>I(x, y)</code>, a method
+call the interpreter can't fold away: the 16-iteration pressure solve alone made 275,000 calls a
+step. The loops now index the arrays directly, with the arrays in locals and the clamps inline:
+5.4 ms a step, 43 fps. The warm-up still runs on first show (half a second at 4×, interpreted).</li>
+<li><strong>The data tables</strong> (Electric, the fire, Water, Aurora) are encoded into texel bytes every
+frame; the loop called <code>Math.Round</code>, <code>Math.Clamp</code>, <code>Math.Abs</code> and <code>Math.Max</code> per value. It now
+rounds half to even inline, writes each texel as one word, and a table nobody wrote to since its
+last upload (the same table drawn again) isn't encoded at all. A table that keeps changing stops
+being compared with its last upload after a run of changes (the comparison only saves an upload
+that would carry the same bytes) and is checked again every 30 frames.</li>
+<li><strong>Electric</strong> built every bolt every frame: midpoint displacement into new lists through
+delegates, a resample with a <code>Tanh</code> per sample, a three-pass blur calling a closure per sample,
+and a crawl taking gradient noise per sample, each noise call 12 hashes and 4 sines and cosines.
+Bolts and their halos are now cached per strike (a strike holds its shape for several frames,
+a zap for its life), the blur wraps its indices inline, and the crawl and the charged hairline
+take their noise along a row with <code>FXMath.GNoiseRow</code>, which works each lattice column's
+gradients out once. Building went from 7.8 ms to 1.0 ms a bolt: 22 to 38–49 fps.</li>
+<li><strong>Dust</strong> wrote 24,000 vertices a frame through <code>SKPoint</code> and <code>SKColor</code> constructors, with
+<code>Math.Clamp</code>, <code>Math.Round</code> and a <code>Smooth</code> call per grain, and cut its 6,000 grains on every break
+with seven hashes each through nested calls. The vertices are now written as raw floats and
+color words, the clamps and rounding are inline, and the cut reuses its arrays and the grid's
+corners when the content's size hasn't changed, with the hash written out: 8 ms to 3.3 ms a
+frame, 43 ms to 13 ms a cut, 33 to 57 fps.</li>
+<li><strong>Fireworks</strong> drew each spark as two antialiased round-capped stroked lines (halo and core),
+several hundred Skia path draws a frame. Batching them by color and width saved nothing, since
+Skia still strokes every line, and was undone. On the GPU the sparks are now soft round-ended
+strips: three quads each (half a disc, a sliver of its middle stretched along the streak, the
+other half), textured with one antialiased, mipmapped 64-pixel disc, the color in the vertices,
+all in one <code>DrawVertices</code> a frame. Halos and cores keep their widths and alphas, and GPU
+screenshots in Chrome, old and new side by side, look the same. CPU time per frame went from
+about 0.9 to 0.35 ms in Safari and from 0.29 to 0.09 ms on the desktop; in Chrome with the CPU
+4× slower, from 26–37 to 35–44 fps. Two things keep the strips off Skia's CPU renderer: it drops
+triangles with no area in the texture (the strip's middle was first a single texel column, and
+only the caps drew), and it doesn't blend a texture's mip levels, so a disc shrunk to a few
+pixels comes out jagged. Without a GPU the sparks stay stroked lines, exactly as before, which
+is also how the tests render them.</li>
+</ul>
+<p>Every change to the loops above kept the output exact: a probe rendered fire, Electric (all three
+styles), Dust, the shards, Fireworks, Water, Aurora, Confetti and the particle network frame by
+frame and the pixel hashes matched before and after (Fireworks before its sparks became strips;
+without a GPU it still draws exactly as before). Three tests keep it so: the row noise against
+<code>GNoise</code>, the table encoding against <code>Math.Round</code>, and Electric's tables with and without the bolt
+cache. On the desktop the bench finds all of them within noise of the baseline (Electric's and the
+fire's CPU time went down: 0.022 to 0.009 ms, 0.025 to 0.007 ms).</p>
+<h4 id="safari">Safari</h4>
+<p>Safari 27 on the same Mac runs everything: <code>?verify</code> finds all 117 effect and style combinations
+drawing, with no errors or warnings, and a tour through the pages most likely to differ (glass,
+fluted glass, frost, progressive blur, heat haze, liquid metal, holographic foil, Voronoi, aurora,
+fire, topography, ASCII, halftone, old film, ambient glow) shows them as in Chrome: no banding from
+lower precision, refraction and blur intact. Timed with <code>?bench</code>, 64 of the 66 ran at 59–60 fps
+in a full run; the other two, Shatter's shards (56) and Fireworks (52), hold 60 when timed on
+their own, with the old stroked sparks and the new strips alike, so that run's dips came from
+something else on the machine. The strips still cut Fireworks' CPU time per frame there from
+about 0.9 to 0.35 ms. Shader warm-up takes 67 ms (229 ms in headless Chrome).</p>
+<p>Safari has no command-line or DevTools hook like Chrome's, so <code>scripts/browser-bench.mjs --safari</code>
+opens the page in a new Safari tab with <code>?report=http://127.0.0.1:port/</code>: main.js, set up before
+the runtime loads, posts every console line there (only to a loopback address), and the script
+prints them. The same hook shows the results on the page.</p>
+<p>One trap from the measuring: publishing ahead of time and then without it into the same <code>obj</code>
+folder produced a build that failed at start in the Mono interpreter (an assertion while loading
+the runtime). Separate <code>--artifacts-path</code> folders for each kind of publish avoid it.</p>
+<p>The twelve layers beyond rune-fx, measured the same way (GPU ms per frame; the bench sweeps the
+pointer layers across the target, flips reveals and spoilers, and changes the liquid's level):</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>340×190 card</th>
+<th>700×500 panel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Border beam, Retro grid, Dot grid, Liquid progress, Holo foil, Spotlight</td>
+<td>0.01–0.09</td>
+<td>0.04–0.37</td>
+</tr>
+<tr>
+<td>Weather, Starfield, Reveal, Ambient glow</td>
+<td>0.07–0.13</td>
+<td>0.26–0.65</td>
+</tr>
+<tr>
+<td>Spoiler (dust over a blur)</td>
+<td>0.32</td>
+<td>0.92</td>
+</tr>
+<tr>
+<td>Confetti (Skia shapes)</td>
+<td>0.15 ms of CPU</td>
+<td>0.15 ms of CPU</td>
+</tr>
+</tbody>
+</table>
+<p>A reveal captures the content on the UI thread each time it starts. On the panel, toggling three
+times a second dropped the app to 52 fps, because the capture built the six blurred levels the
+mask layers use. A reveal only needs the content as it is, so it now captures one level, and the
+same test holds 58–60 fps. The rest of the cost is rendering the content once into an image.</p>
+<p>The live check on Metal (light theme) found and fixed four gallery issues:</p>
+<ul>
+<li>the ambient glow page's colorful card lost its colors to the theme brush;</li>
+<li>the card's title in the liquid page was white over the empty part of the card;</li>
+<li>rain was too pale on a white card (the gallery now uses a deeper blue on light);</li>
+<li>the settings panel didn't follow show, hide, reveal and level changes made by buttons and taps.</li>
+</ul>
+<p>It also lowered the foil's default strength (0.32 to 0.24), which was loud on a white card. The
+rest behaved as designed: the spotlight follows the pointer, the foil shifts with it, confetti
+fires from the press, the liquid sloshes on a change, a tap opens the spoiler, the reveal plays
+both ways, and the backgrounds animate.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/DESIGN.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

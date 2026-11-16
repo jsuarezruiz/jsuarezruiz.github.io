@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Performance | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Performance | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="What the layers cost on the CPU and GPU, how to lower it with RenderScale, how to warm up the shaders, the browser, and how to measure.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/concepts/performance.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="performance">Performance</h1>
+
+<p>The layers are built to cost little and to cost nothing at rest. This page lists what they cost, the settings that change it, and how to measure it in your own app.</p>
+<h2 id="what-a-layer-costs">What a layer costs</h2>
+<p>The numbers below were measured with the gallery's <code>--bench</code> on an Apple M4 Max (Metal, Retina 2×). Each layer sits on a 340×190 card over a moving scene, so it redraws every frame. GPU times leave out the fixed cost of waiting for the GPU, which only the benchmark pays.</p>
+<ul>
+<li><strong>Idle:</strong> nothing. A layer that isn't moving requests no frames.</li>
+<li><strong>CPU (render thread):</strong> 2–50 µs per layer per frame; progressive blur costs the most. A few layers do per-frame work of their own before they draw: electric 0.06 ms, aurora 0.08 ms, ink's fluid 0.22 ms and the simulated fire 0.39 ms.</li>
+<li><strong>First frame of an effect:</strong> 2–10 ms, which includes compiling its shader (see <a href="#warm-up-the-shaders">Warm up the shaders</a>). When the system's shader cache doesn't hold the effect's GPU pipeline, it takes 20–60 ms, at times up to about 200.</li>
+</ul>
+<p>GPU time per frame on the card:</p>
+<table>
+<thead>
+<tr>
+<th>GPU time</th>
+<th>Layers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Under 0.1 ms</td>
+<td>Nearly half the layers, including glow, shimmer, outline, inner shadow, jelly, tilt and the voice orb.</td>
+</tr>
+<tr>
+<td>0.1–0.2 ms</td>
+<td>Pulse, reveal and its melt, mesh gradient, aurora, starfield, CRT, chroma split, glitch, color filter, light leaks, water, old film, sparkles, trail and heat haze. Ambient glow, motion blur and pointer shadow cover 0.75–1 Mpx and still take 0.14–0.16 ms.</td>
+</tr>
+<tr>
+<td>0.2–0.3 ms</td>
+<td>Glass, fire, fog, shockwave, voronoi, and ASCII, plus a blurred copy of what is behind.</td>
+</tr>
+<tr>
+<td>0.3–0.45 ms</td>
+<td>Swirl, liquid metal, spoiler, topography (it takes the height three times a pixel for the slope), caustics and bokeh.</td>
+</tr>
+<tr>
+<td>Over 0.5 ms</td>
+<td>Rain on glass 0.51 ms; frost 0.62 ms; progressive blur 1.0 ms, the most, for its five copies of what is behind.</td>
+</tr>
+</tbody>
+</table>
+<p>Progressive blur and frost don't animate, so they only redraw when what is behind them changes.</p>
+<p>A few layers are drawn as Skia shapes instead of a shader, so their cost is on the CPU, with almost no GPU time. That time swings up to four times from run to run: fireworks 0.04–0.18 ms, confetti 0.1–0.5 ms, the particle network 0.09–0.32 ms, shatter's shards 0.1–0.4 ms while they fly, and shatter's dust 0.13–0.6 ms while it blows.</p>
+<p>Slower GPUs scale these numbers up, but the ranking holds.</p>
+<h2 id="cost-grows-with-the-area">Cost grows with the area</h2>
+<p>A layer's GPU cost grows with the area it shades. A 700×500 panel of swirl takes about 0.77 ms per frame.</p>
+<p>Layers only shade where they can draw. Flames and heat haze cover the area above the shape, not around it; a shockwave covers only its live rings; layers that only draw around the pointer repaint only around it; and the border-only layers (the border beam and the electric border) skip the interior. Layers that read the backdrop copy only the margin they sample.</p>
+<h2 id="render-scale">Render scale</h2>
+<p><code>RenderScale</code> shades a layer at a fraction of the display's resolution and scales the result up. At <code>0.5</code> it shades a quarter of the pixels:</p>
+<pre><code class="lang-xml">&lt;fx:Swirl Preset=&quot;Marble&quot; RenderScale=&quot;0.5&quot; /&gt;
+</code></pre>
+<p>On a 700×500 panel, <code>RenderScale=&quot;0.5&quot;</code> takes:</p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Full resolution</th>
+<th><code>RenderScale=&quot;0.5&quot;</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Swirl</td>
+<td>0.77 ms</td>
+<td>0.56 ms</td>
+</tr>
+<tr>
+<td>Liquid metal</td>
+<td>0.73 ms</td>
+<td>0.47 ms</td>
+</tr>
+<tr>
+<td>Voronoi</td>
+<td>0.76 ms</td>
+<td>0.40 ms</td>
+</tr>
+<tr>
+<td>Aurora</td>
+<td>0.62 ms</td>
+<td>0.28 ms</td>
+</tr>
+</tbody>
+</table>
+<p>Use it for large, soft, heavy layers, such as a window-sized aurora or swirl. Edges and grain soften. On cheap layers it costs more than it saves, because the scale-up pass takes about 0.1 ms: grain went from about 0.07 ms to 0.10–0.19 ms. Layers drawn as shapes (confetti, fireworks, shatter, particle network) don't use it.</p>
+<h2 id="warm-up-the-shaders">Warm up the shaders</h2>
+<p>The first frame of an effect waits for its shader to compile. <a class="xref" href="../../api/Nova.Avalonia.FX.FXSettings.html#Nova_Avalonia_FX_FXSettings_WarmUpAsync">FXSettings.WarmUpAsync</a> compiles every shader up front, in about 60 ms on the machine above. Start it early, for example when the app starts:</p>
+<pre><code class="lang-csharp">public override void OnFrameworkInitializationCompleted()
+{
+    // Set up the main window or view here.
+
+    _ = FXSettings.WarmUpAsync();
+    base.OnFrameworkInitializationCompleted();
+}
+</code></pre>
+<p>On the desktop the shaders compile in parallel on the thread pool, off the UI and render threads. In the browser there is one thread, so they compile one at a time, and the task yields to the browser between them so input and rendering go on; each compile still holds the UI thread for its own few milliseconds. The warm-up compiles the shaders but not the GPU pipelines, which are built on each effect's first draw. The system caches those from one launch to the next. On the first launch on a machine, or once the system has dropped them from its cache, an effect's first frame takes 20–60 ms, at times up to about 200.</p>
+<h2 id="content-masks">Content masks</h2>
+<p>Layers that follow the content's own pixels capture the child on the UI thread when it changes, not per frame. The distance field that <code>Outline</code> and <code>InnerShadow</code> need costs a few milliseconds per capture on the desktop. <a href="content-masks.html#cost">Content masks</a> has the numbers.</p>
+<h2 id="in-the-browser">In the browser</h2>
+<p>The browser runs .NET on one thread, so the app, the compositor and the effects share it, and the GPU work goes through WebGL. The shaders run as fast as on the desktop. What costs more is .NET code, which the browser interprets unless the app is compiled ahead of time (<code>RunAOTCompilation</code>).</p>
+<p>Measured with <code>?bench</code> on published builds, in Chrome on the Apple M4 Max at 60 Hz:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Interpreted</th>
+<th>Compiled ahead of time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>As it is</td>
+<td>All 70 at 59–60 fps</td>
+<td>All 70 at 59–60 fps</td>
+</tr>
+<tr>
+<td>CPU 4× slower (a mid-range laptop)</td>
+<td>All 70 at 58–60 fps; the simulated fire 44</td>
+<td>All 70 at 57–60 fps</td>
+</tr>
+<tr>
+<td>Download (Brotli)</td>
+<td>5.9 MB</td>
+<td>9.4 MB</td>
+</tr>
+</tbody>
+</table>
+<p>In Safari 27 on the same machine (interpreted; Safari can't slow the CPU down), 64 of the 66 ran at 59–60 fps in a full run; the other two, shatter's shards (56) and fireworks (52), hold 60 when timed on their own. Safari compiles all the shaders in 67 ms. The effects added since (the color filter, dot grid, outline, inner shadow, beam, the five newer reveals, ink, silk and beams) all hold 60 fps there too, with 0.03–0.28 ms of .NET work a frame.</p>
+<p>The layers that do their work in .NET code are the ones that slow down:</p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Interpreted</th>
+<th>Compiled ahead of time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shatter's dust</td>
+<td>0.9–1.1 ms a frame</td>
+<td>0.25–0.5 ms</td>
+</tr>
+<tr>
+<td>Electric's bolts</td>
+<td>0.45–0.6 ms</td>
+<td>0.12–0.3 ms</td>
+</tr>
+<tr>
+<td>Simulated fire</td>
+<td>0.4–0.45 ms, plus 1.4–1.5 ms for its simulation steps</td>
+<td>0.18–0.4 ms, plus 0.35–0.8 ms</td>
+</tr>
+</tbody>
+</table>
+<p>Compiled ahead of time, these timings swing about two times from run to run.</p>
+<p>If your app leans on the simulated fire, shatter's dust or electric and has to run well on slower machines, compile it ahead of time. Otherwise the interpreted build is enough. The browser gallery compiles ahead of time on a Release publish, with these properties in its project:</p>
+<pre><code class="lang-xml">&lt;PropertyGroup&gt;
+    &lt;RunAOTCompilation Condition=&quot;'$(Configuration)' == 'Release'&quot;&gt;true&lt;/RunAOTCompilation&gt;
+    &lt;WasmDebugLevel Condition=&quot;'$(Configuration)' == 'Release'&quot;&gt;0&lt;/WasmDebugLevel&gt;
+&lt;/PropertyGroup&gt;
+</code></pre>
+<p><code>WasmDebugLevel</code> 0 turns off debugger support in Release. With debugger support on, the runtime also stops optimizing interpreted code: shatter's dust took 6.6 ms a frame and ran at 22 fps even on the M4 Max.</p>
+<p>WebGL can't make Skia wait for the GPU, so there is no GPU time in the browser: the frame rate is the measure.</p>
+<h2 id="measure-in-your-own-app">Measure in your own app</h2>
+<p><a class="xref" href="../../api/Nova.Avalonia.FX.FXDiagnostics.html">FXDiagnostics</a> times draws per layer type in your own app. It is off by default and free while off. Turn on <code>IsEnabled</code>, and <code>MeasureGpu</code> for GPU times, then read <code>Collect()</code>:</p>
+<pre><code class="lang-csharp">FXDiagnostics.IsEnabled = true;
+FXDiagnostics.MeasureGpu = true; // waits for the GPU on every draw: for measuring only
+
+// Later, after the screen you want to measure has run for a few seconds:
+foreach (var stats in FXDiagnostics.Collect())
+{
+    Console.WriteLine(
+        $&quot;{stats.Layer}: {stats.Draws} draws, {stats.CpuMsPerDraw:0.000} ms CPU, &quot; +
+        $&quot;{stats.GpuMsPerDraw:0.000} ms GPU, {stats.MegapixelsPerDraw:0.00} Mpx a draw&quot;);
+}
+</code></pre>
+<p><code>MeasureGpu</code> makes every draw wait for the GPU, which slows frames down: use it to compare layers, not in a shipping app. <code>FXDiagnostics.Backend</code> tells you which GPU backend the measured draws ran on.</p>
+<h3 id="the-gallerys-bench">The gallery's bench</h3>
+<p>The desktop gallery times every layer in a real window on the GPU the app uses:</p>
+<pre><code class="lang-bash">dotnet run -c Release --project samples/Nova.Avalonia.FX.Gallery.Desktop -- --bench bench.csv
+</code></pre>
+<p>Add <code>--target 6</code> for the full-stage panel, <code>--set RenderScale=0.5</code>, <code>--only fire,swirl</code> (or a style, <code>--only shatter:Dust</code>), <code>--full-quads</code> to measure without trimming, or <code>--cold</code> to skip the warm-up. Besides every layer, a full run times shatter's dust, reveal's melt and the simulated fire on their own.</p>
+<p><code>bench/baseline.csv</code> is a full run on the machine above. To see whether a change made anything slower, run the bench again on the same machine and compare:</p>
+<pre><code class="lang-bash">dotnet run -c Release --project samples/Nova.Avalonia.FX.Gallery.Desktop -- --bench bench/run.csv --compare bench/baseline.csv
+</code></pre>
+<p>It lists the layers that got slower or faster by more than run-to-run noise (25% and 0.04 ms on the GPU, 50% and 0.02 ms on the CPU), and exits with 1 when any got slower. A layer that looks slower is timed again first, up to twice, and keeps its best run: GPU clocks change with load, and the CPU time of the layers drawn as shapes swings up to four times from run to run. Timings only compare on the same machine and setup (the first line of the CSV records it). After a deliberate change, copy the new run over the baseline. Close other busy apps while it runs. First frames read 20–200 ms in a run where the system's shader cache didn't hold the layers' pipelines, and 2–10 ms in the run after; the compare leaves them out. The bench keeps its window on top while it runs and ignores the real pointer, which would take over from the scripted one. It exits with 2 when layers ran far under the frame rate of the others or drew nothing, as when the window was covered, on another desktop, or the display slept: their timings don't compare, so run it again.</p>
+<h3 id="timing-in-the-browser">Timing in the browser</h3>
+<p><code>?bench</code> times every effect in the browser gallery (<code>?bench=glow,fire:Simulated</code> for some, <code>&amp;seconds=3</code> each): the frames painted a second, the 95th-percentile frame time and each draw's CPU time, printed in the console. A page in a hidden tab or window paints a frame a second or none, so <code>scripts/browser-bench.mjs</code> runs it in a headless Chrome, which also lets it slow the CPU down. It needs Node 22 or later and Chrome:</p>
+<pre><code class="lang-bash">node scripts/browser-bench.mjs                    # against the gallery on http://localhost:5240
+node scripts/browser-bench.mjs --cpu 4            # with the CPU 4 times slower
+node scripts/browser-bench.mjs --url http://localhost:8080/ --only electric,shatter:Dust
+node scripts/browser-bench.mjs --verify           # ?verify instead
+node scripts/browser-bench.mjs --safari           # in Safari (a new tab; keep it in view)
+</code></pre>
+<p>Not measured yet: Firefox, phones, and slower GPUs.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/concepts/performance.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Glass | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Glass | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="A pane of liquid glass over what is behind it: a refracting beveled rim, frost, a specular edge and a soft shadow.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/glass.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="glass">Glass</h1>
+
+<p><code>Glass</code> turns the host into a pane of liquid glass: a beveled rim that bends what is behind it and splits it into color, a slight magnification, an optional frost, a specular rim facing the light and a soft drop shadow. Use it for floating toolbars, a now-playing card, or buttons over a picture or a moving scene. It draws under the child and shows what is drawn behind the host, so it needs something behind it and a see-through child.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/glass-light.png" alt="Glass on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/glass-dark.png" alt="Glass on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-a-glass-pane">Add a glass pane</h2>
+<p>Put the host over the content it should bend, here a photo in the same <code>Grid</code>, and give it a child without a background:</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;Grid&gt;
+        &lt;Image Source=&quot;/Assets/photo.jpg&quot; Stretch=&quot;UniformToFill&quot; /&gt;
+        &lt;fx:FXHost HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot; CornerRadius=&quot;22&quot;&gt;
+            &lt;fx:FXHost.Layers&gt;
+                &lt;fx:Glass /&gt;
+            &lt;/fx:FXHost.Layers&gt;
+            &lt;Border Width=&quot;210&quot; Height=&quot;96&quot;&gt;
+                &lt;TextBlock Text=&quot;Now playing&quot; FontWeight=&quot;SemiBold&quot;
+                           HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot; /&gt;
+            &lt;/Border&gt;
+        &lt;/fx:FXHost&gt;
+    &lt;/Grid&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<h2 id="give-it-something-to-bend">Give it something to bend</h2>
+<p>Glass copies the region of the window behind the host just before it draws (see <a href="../concepts/layers.html#layers-that-read-the-backdrop">Layers that read the backdrop</a>). In practice:</p>
+<ul>
+<li><strong>Something must be behind it.</strong> It bends what was drawn there first: the page's background, earlier siblings in a <code>Grid</code>, a list scrolling under it. Over a flat color there is nothing to bend, and only the rim light and the shadow show. It is at its best over a picture, text or moving content, and follows anything that moves there.</li>
+<li><strong>Keep the child see-through.</strong> The glass draws under the child, so a <code>Background</code> on the child hides it. Put the label in a <code>Border</code> without a background, or a faintly translucent one.</li>
+<li><strong>Keep ancestors opaque.</strong> Inside an offscreen layer (an ancestor with <code>Opacity</code> below 1, an effect, or a clip that needs a layer) the copy can't see that ancestor's content.</li>
+<li><strong>Controls drawn after the host aren't bent.</strong> They sit in front of the glass.</li>
+</ul>
+<h2 id="frost-and-tint-it">Frost and tint it</h2>
+<p><code>Frost</code> goes from clear (0) to frosted (1). <code>Tint</code> and <code>TintAmount</code> color the pane; a dark tint suits a dark theme:</p>
+<pre><code class="lang-xaml">&lt;fx:Glass Frost=&quot;0.6&quot; Tint=&quot;#1B1D22&quot; TintAmount=&quot;0.3&quot; /&gt;
+</code></pre>
+<p><code>LightAngle</code> sets where the light that catches the rim comes from (-120 by default, above and to the left), and <code>Rim</code> how strong it is.</p>
+<h2 id="bring-the-glass-in-and-out">Bring the glass in and out</h2>
+<p><code>Presence</code> makes the glass materialize by lensing: refraction, rim and shadow come in together. Animate it with a transition, here when a host with the <code>toolbar</code> class (<code>&lt;fx:FXHost x:Name=&quot;ToolbarHost&quot; Classes=&quot;toolbar&quot;&gt;</code>) also gets <code>shown</code>:</p>
+<pre><code class="lang-xaml">&lt;Style Selector=&quot;fx|FXHost.toolbar fx|Glass&quot;&gt;
+    &lt;Setter Property=&quot;Presence&quot; Value=&quot;0&quot; /&gt;
+    &lt;Setter Property=&quot;Transitions&quot;&gt;
+        &lt;Transitions&gt;
+            &lt;DoubleTransition Property=&quot;Presence&quot; Duration=&quot;0:0:0.4&quot; /&gt;
+        &lt;/Transitions&gt;
+    &lt;/Setter&gt;
+&lt;/Style&gt;
+&lt;Style Selector=&quot;fx|FXHost.toolbar.shown fx|Glass&quot;&gt;
+    &lt;Setter Property=&quot;Presence&quot; Value=&quot;1&quot; /&gt;
+&lt;/Style&gt;
+</code></pre>
+<pre><code class="lang-csharp">ToolbarHost.Classes.Set(&quot;shown&quot;, true);
+</code></pre>
+<p>At a <code>Presence</code> of 0 the glass draws nothing and copies nothing.</p>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Bevel</code></td>
+<td><code>double</code></td>
+<td><code>14</code></td>
+<td>Width of the beveled rim. Range 0.5–48 DIPs.</td>
+</tr>
+<tr>
+<td><code>Depth</code></td>
+<td><code>double</code></td>
+<td><code>16</code></td>
+<td>How far the rim bends what is behind it, DIPs. Range 0–48.</td>
+</tr>
+<tr>
+<td><code>Dispersion</code></td>
+<td><code>double</code></td>
+<td><code>0.14</code></td>
+<td>Color split at the rim. Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>Magnification</code></td>
+<td><code>double</code></td>
+<td><code>1.04</code></td>
+<td>How much the glass enlarges what is behind it: 1 not at all, above 1 larger, below 1 smaller. Range 0.8–1.6.</td>
+</tr>
+<tr>
+<td><code>Presence</code></td>
+<td><code>double</code></td>
+<td><code>1</code></td>
+<td>0..1: the glass materializes by lensing (refraction, rim and shadow together). Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>Frost</code></td>
+<td><code>double</code></td>
+<td><code>0</code></td>
+<td>0: clear; 1: frosted. Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>Shadow</code></td>
+<td><code>double</code></td>
+<td><code>0.35</code></td>
+<td>How dark the soft drop shadow under the glass is (0: none). Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>Rim</code></td>
+<td><code>double</code></td>
+<td><code>1.6</code></td>
+<td>Strength of the rim light. Range 0–3.</td>
+</tr>
+<tr>
+<td><code>LightAngle</code></td>
+<td><code>double</code></td>
+<td><code>-120</code></td>
+<td>Where the light that catches the rim is, degrees: 0 to the right, -90 above; positive turns clockwise. Range -180 to 180.</td>
+</tr>
+<tr>
+<td><code>Tint</code></td>
+<td><code>Color</code></td>
+<td><code>#FFFFFF</code></td>
+<td>A color the glass multiplies what is behind it by, as much as <code>TintAmount</code> says.</td>
+</tr>
+<tr>
+<td><code>TintAmount</code></td>
+<td><code>double</code></td>
+<td><code>0</code></td>
+<td>How much <code>Tint</code> colors the glass (0: clear). Range 0–1 (0–100%).</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>: <code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>. Glass is still, so <code>Speed</code> and <code>Seed</code> don't apply.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>It draws past the shape.</strong> The shadow falls about 5 DIPs down and fades out about 25 DIPs from the shape. A clipping ancestor cuts it: leave room around the host.</li>
+<li><strong>Light and dark surfaces:</strong> it draws the same on both. Pick a <code>Tint</code> per theme with a theme resource (see <a href="../concepts/light-and-dark.html">Light and dark surfaces</a>).</li>
+<li><strong>Reduced motion:</strong> glass has no motion of its own, so nothing changes.</li>
+<li><strong>Cost:</strong> about 0.15–0.25 ms of GPU time a frame on the benchmark card, plus one copy of the region behind it. It doesn't animate: it redraws when what is behind it changes. See <a href="../concepts/performance.html#what-a-layer-costs">Performance</a>.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.Glass.html">Glass</a> API reference</li>
+<li><a href="flutedglass.html">Fluted glass</a>, <a href="progressiveblur.html">Progressive blur</a>, <a href="frost.html">Frost</a> and <a href="magnifier.html">Magnifier</a></li>
+<li><a href="../concepts/layers.html#layers-that-read-the-backdrop">Layers that read the backdrop</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/glass.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

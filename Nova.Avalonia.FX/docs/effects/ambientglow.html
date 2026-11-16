@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Ambient glow | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Ambient glow | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="A glow in the content&#39;s own colors, blurred and spread out behind it.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/ambientglow.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="ambient-glow">Ambient glow</h1>
+
+<p>Ambient glow lights the space behind the host's child with the child's own colors, like a screen's ambient light on the wall behind it. The host captures the child's pixels in color, and the layer blurs them, spreads them out from the center and draws them under the child. Use it behind album art, a video frame, a photo or a colorful card, so the color spills softly onto the page.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/ambientglow-light.png" alt="Ambient glow on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/ambientglow-dark.png" alt="Ambient glow on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-an-ambient-glow">Add an ambient glow</h2>
+<p>Give it something colorful to take its colors from. It has no color of its own.</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;fx:FXHost Margin=&quot;60&quot;&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:AmbientGlow /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Image Source=&quot;/Assets/album-cover.jpg&quot; Width=&quot;200&quot; Height=&quot;200&quot; /&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<h2 id="shape-the-light">Shape the light</h2>
+<p><code>Radius</code> sets how soft the blur is. <code>Spread</code> scales the colors up from the content's center, so they reach further past its edge. <code>Saturation</code> and <code>Brightness</code> make the light more or less vivid.</p>
+<pre><code class="lang-xaml">&lt;fx:AmbientGlow Radius=&quot;48&quot; Spread=&quot;1.25&quot; Saturation=&quot;1.6&quot; Brightness=&quot;1.1&quot; /&gt;
+</code></pre>
+<p>A larger <code>Spread</code> reaches further on a larger child, since it scales the content's own size.</p>
+<h2 id="follow-content-that-changes">Follow content that changes</h2>
+<p>The host captures the child again when its size or one of its own properties changes, such as an <code>Image</code>'s <code>Source</code>. It doesn't watch the child's descendants: after changing something deeper inside, call <code>RefreshMask()</code> on the host. Behind a video, call it as the frames change.</p>
+<pre><code class="lang-csharp">// PlayerHost is the FXHost around the video surface.
+private void OnFrameRendered(object? sender, EventArgs e)
+{
+    PlayerHost.RefreshMask();
+}
+</code></pre>
+<p>While changes keep coming, captures are spaced about 100 ms apart, with one more once they stop. See <a href="../concepts/content-masks.html#layers-that-follow-the-content">Content masks</a>.</p>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Radius</code></td>
+<td><code>double</code></td>
+<td><code>36</code></td>
+<td>How far the colors blur, in DIPs; larger is softer and reaches further. Range 4–120.</td>
+</tr>
+<tr>
+<td><code>Spread</code></td>
+<td><code>double</code></td>
+<td><code>1.12</code></td>
+<td>How far the colors spread past the content, as a scale from its center. Range 1–1.6.</td>
+</tr>
+<tr>
+<td><code>Saturation</code></td>
+<td><code>double</code></td>
+<td><code>1.35</code></td>
+<td>How vivid the colors are: 0 gray, 1 the content's own, above 1 richer. Range 0–2.5.</td>
+</tr>
+<tr>
+<td><code>Brightness</code></td>
+<td><code>double</code></td>
+<td><code>0.9</code></td>
+<td>How bright the glow is: 0 none, 1 the content's own brightness. Range 0–2.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>:
+<code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>. On an ambient glow, <code>Intensity</code> dims the layer; <code>Speed</code> and <code>Seed</code> don't apply, since nothing moves.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>Light and dark surfaces.</strong> On a dark surface the colors add light. On a light surface they draw as tinted haze. See <a href="../concepts/light-and-dark.html#how-light-layers-draw-on-each-surface">Light and dark surfaces</a>.</li>
+<li><strong>Reduced motion.</strong> Nothing changes: the glow is still.</li>
+<li><strong>Cost.</strong> The layer is still, so it draws when the content or a setting changes and asks for no frames in between. A redraw takes about 0.14 ms of GPU time on the bench's 340×190 card. Each capture renders the child to a bitmap on the UI thread. See <a href="../concepts/performance.html#what-a-layer-costs">Performance</a>.</li>
+<li><strong>Room around the host.</strong> The light reaches past the content by about 2.5 × <code>Radius</code>, plus what <code>Spread</code> adds. A clipping ancestor cuts it off: leave room around the host.</li>
+<li><strong>Limits.</strong> Very large content is captured at a lower scale and gets a softer mask. If the child can't be captured, the host logs a warning and the layer draws nothing. See <a href="../concepts/content-masks.html">Content masks</a>.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.AmbientGlow.html">AmbientGlow</a> API reference</li>
+<li><a href="glow.html">Glow</a>, a glow in a color you choose</li>
+<li><a href="pointershadow.html">Pointer shadow</a>, a shadow in the shape of the content</li>
+<li><a href="../concepts/content-masks.html">Content masks</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/ambientglow.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

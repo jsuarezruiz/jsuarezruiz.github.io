@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Fog | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Fog | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="Banks of mist drifting across, thickest at the bottom.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/fog.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="fog">Fog</h1>
+
+<p><code>Fog</code> draws banks of mist drifting sideways across the shape, thickest at the bottom and thinning out toward the top of the bank. Use it for mood: a game's title screen, a weather card, a night scene. By default it goes over the child and hangs in front of the content; under a see-through panel, it's a background.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/fog-light.png" alt="Fog on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/fog-dark.png" alt="Fog on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-fog">Add fog</h2>
+<p>Put the host around a card. The mist drifts over it, clipped to its rounded shape:</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;fx:FXHost&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:Fog Height=&quot;0.7&quot; Scale=&quot;90&quot; /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Border Width=&quot;236&quot; Height=&quot;128&quot; CornerRadius=&quot;14&quot; Padding=&quot;16&quot;&gt;
+            &lt;Border.Background&gt;
+                &lt;LinearGradientBrush StartPoint=&quot;0%,0%&quot; EndPoint=&quot;100%,100%&quot;&gt;
+                    &lt;GradientStop Color=&quot;#1F2937&quot; Offset=&quot;0&quot; /&gt;
+                    &lt;GradientStop Color=&quot;#334155&quot; Offset=&quot;0.6&quot; /&gt;
+                    &lt;GradientStop Color=&quot;#0F172A&quot; Offset=&quot;1&quot; /&gt;
+                &lt;/LinearGradientBrush&gt;
+            &lt;/Border.Background&gt;
+            &lt;TextBlock Text=&quot;Morning mist&quot; Foreground=&quot;White&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;18&quot; /&gt;
+        &lt;/Border&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<h2 id="shape-the-bank">Shape the bank</h2>
+<p><code>Height</code> is how far up the shape the bank reaches, as a share of its height (0.6 by default; 1 covers it all). <code>Density</code> is how thick the mist is, <code>Scale</code> the size of the wisps in DIPs, and <code>Color</code> the mist's color.</p>
+<pre><code class="lang-xaml">&lt;fx:Fog Height=&quot;1&quot; Density=&quot;0.5&quot; Scale=&quot;200&quot; Color=&quot;#CBD5E1&quot; /&gt;
+</code></pre>
+<p>The bank adapts to the shape, so the same settings work on a button and on a page. A short shape (under about 200 DIPs tall) gets a bank up to 1.6 times higher and a denser mist, so it still shows fog. And past 0.9 of the shape's height (0.6 on a short shape, and at least 24 DIPs), <code>Scale</code> counts only a quarter, so a small shape still shows separate banks.</p>
+<h2 id="set-the-drift">Set the drift</h2>
+<p><code>DriftSpeed</code> is how fast the mist drifts sideways, in DIPs a second: positive drifts right, negative left (18 by default). At 0 the banks stay in place but still churn slowly.</p>
+<pre><code class="lang-xaml">&lt;fx:Fog DriftSpeed=&quot;-40&quot; /&gt;
+</code></pre>
+<p><code>Speed</code> multiplies the whole clock, the drift and the churn, and <code>DriftSpeed</code> sets the drift alone; changing either never makes the animation jump. Unlike the fills, fog's clock starts when it first draws, so fog on different hosts doesn't move in step.</p>
+<h2 id="put-the-fog-behind-the-content">Put the fog behind the content</h2>
+<p>With <code>Placement=&quot;Under&quot;</code>, the mist sits behind the child instead. Leave the child without a background so the mist shows through it, and put the color on a container around the host:</p>
+<pre><code class="lang-xaml">&lt;Border Background=&quot;#0F172A&quot; CornerRadius=&quot;14&quot;&gt;
+    &lt;fx:FXHost CornerRadius=&quot;14&quot;&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:Fog Placement=&quot;Under&quot; /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Grid Height=&quot;220&quot;&gt;
+            &lt;TextBlock Text=&quot;Night trail&quot; Foreground=&quot;White&quot; FontSize=&quot;24&quot; FontWeight=&quot;Bold&quot;
+                       HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Bottom&quot; Margin=&quot;0,0,0,24&quot; /&gt;
+        &lt;/Grid&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/Border&gt;
+</code></pre>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Color</code></td>
+<td><code>Color</code></td>
+<td><code>#E8EDF2</code></td>
+<td>The mist's color.</td>
+</tr>
+<tr>
+<td><code>Density</code></td>
+<td><code>double</code></td>
+<td><code>0.75</code></td>
+<td>How thick the mist is; at 1 its densest wisps are opaque. Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>Height</code></td>
+<td><code>double</code></td>
+<td><code>0.6</code></td>
+<td>How far up the shape the bank reaches (1: all of it). A short shape (under about 200 DIPs) gets up to 1.6 times this, and a denser mist, so a button still shows fog. Range 0.05–1 (5–100%).</td>
+</tr>
+<tr>
+<td><code>Scale</code></td>
+<td><code>double</code></td>
+<td><code>120</code></td>
+<td>The size of the wisps. Past 0.9 of the shape's height (0.6 on a shape under about 200 DIPs; at least 24 DIPs) it counts only a quarter, so a small shape still shows banks. Range 20–600.</td>
+</tr>
+<tr>
+<td><code>DriftSpeed</code></td>
+<td><code>double</code></td>
+<td><code>18</code></td>
+<td>How fast it drifts sideways, DIPs a second; positive drifts right, negative left. Range -120 to 120 DIPs per second.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>: <code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>. <code>Seed</code> picks the shape of the banks.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>Not a fill:</strong> fog has no <code>BorderWidth</code> or <code>UseMask</code>, and it runs on its own clock.</li>
+<li><strong>Light and dark surfaces:</strong> the mist is drawn in <code>Color</code> on any surface. The default, a pale gray, shows best over dark or moody content and barely shows over white; over light content, pick a deeper color. See <a href="../concepts/light-and-dark.html#how-light-layers-draw-on-each-surface">Light and dark surfaces</a>.</li>
+<li><strong>Reduced motion:</strong> the mist holds still. See <a href="../concepts/reduced-motion.html#the-poses">Reduced motion</a>.</li>
+<li><strong>Cost:</strong> about 0.25 ms of GPU time a frame on the benchmark's 340×190 card. The cost grows with the area; the mist is soft, so on a large panel <code>RenderScale=&quot;0.5&quot;</code> suits it. See <a href="../concepts/performance.html#render-scale">Performance</a>.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.Fog.html">Fog</a> API reference</li>
+<li><a href="weather.html">Weather</a>, rain or snow over the content</li>
+<li><a href="rainglass.html">Rain on glass</a>, a misted pane with drops</li>
+<li><a href="lightrays.html">Light rays</a> and <a href="topography.html">Topography</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/fog.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Mesh gradient | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Mesh gradient | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="Up to six colors on slowly drifting points, blended smoothly in OKLab.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/meshgradient.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="mesh-gradient">Mesh gradient</h1>
+
+<p>A soft, living gradient: up to six colors, each pinned to its own point, blended smoothly into each other as the points drift slowly. The colors blend in OKLab, so the mixes between them stay clean instead of going muddy. Use it for hero cards, avatars, app backgrounds and gradient text. It is a fill: it paints the host's shape and goes under the child, or paints the child's own pixels with <code>UseMask</code>.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/meshgradient-light.png" alt="Mesh gradient on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/meshgradient-dark.png" alt="Mesh gradient on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-a-mesh-gradient">Add a mesh gradient</h2>
+<p>The fill goes under the child, so leave the child without a background:</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;fx:FXHost&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:MeshGradient Preset=&quot;Dusk&quot; /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Border Width=&quot;260&quot; Height=&quot;116&quot; CornerRadius=&quot;16&quot; Padding=&quot;16&quot;&gt;
+            &lt;TextBlock Text=&quot;Dusk&quot; FontSize=&quot;19&quot; FontWeight=&quot;Bold&quot; Foreground=&quot;White&quot;
+                       VerticalAlignment=&quot;Bottom&quot; /&gt;
+        &lt;/Border&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<h2 id="presets">Presets</h2>
+<p>Each preset brings a palette and sets <code>Sharpness</code>, <code>Drift</code> and <code>Warp</code>. Set any of them yourself to adjust a preset.</p>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Dusk</code> (default)</td>
+<td>Deep indigo and violet with pink, orange and gold, like a sunset sky.</td>
+</tr>
+<tr>
+<td><code>Lagoon</code></td>
+<td>Deep blue, teal and pale aqua, like shallow tropical water.</td>
+</tr>
+<tr>
+<td><code>Orchid</code></td>
+<td>Six soft pinks, mauves, peach and slate blue, with crisper blends.</td>
+</tr>
+<tr>
+<td><code>Graphite</code></td>
+<td>Near-black and slate grays that drift less.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="use-your-own-colors">Use your own colors</h2>
+<p><code>Colors</code> takes up to six colors, separated by commas, semicolons or spaces. Set, it replaces the preset's palette:</p>
+<pre><code class="lang-xaml">&lt;fx:MeshGradient Colors=&quot;#0B3D5C, #2EC4B6, #CBF3F0, #1B6CA8&quot; /&gt;
+</code></pre>
+<p>Each color has a place in the shape, which its point drifts around: the first near the top-left corner, the second near the top-right, the third in the middle, the fourth near the bottom-left, the fifth near the bottom-right, and the sixth above and right of the middle. The points sit at fractions of the shape, so the gradient stretches with the host.</p>
+<p>From code, set an <code>FXColorList</code>:</p>
+<pre><code class="lang-csharp">// Hero is the MeshGradient (x:Name=&quot;Hero&quot;). Set Colors to null to go back to the preset's palette.
+Hero.Colors = FXColorList.Parse(&quot;#7c3aed, #ec4899, #f59e0b&quot;);
+</code></pre>
+<h2 id="make-gradient-text">Make gradient text</h2>
+<p>With <code>UseMask</code>, the gradient paints only the letters and goes over them. Choose colors that stand out from the background behind the text:</p>
+<pre><code class="lang-xaml">&lt;fx:FXHost&gt;
+    &lt;fx:FXHost.Layers&gt;
+        &lt;fx:MeshGradient UseMask=&quot;True&quot; Colors=&quot;#7C3AED, #EC4899, #F59E0B, #22D3EE&quot; /&gt;
+    &lt;/fx:FXHost.Layers&gt;
+    &lt;TextBlock Text=&quot;Aurora&quot; FontSize=&quot;46&quot; FontWeight=&quot;Black&quot; Foreground=&quot;White&quot; /&gt;
+&lt;/fx:FXHost&gt;
+</code></pre>
+<p>After changing something deeper inside the child, call <code>FXHost.RefreshMask()</code>; see <a href="../concepts/content-masks.html#layers-that-follow-the-content">Content masks</a>.</p>
+<h2 id="make-avatars-and-borders">Make avatars and borders</h2>
+<p>A <code>CornerRadius</code> of 999 on the host makes a circle. <code>BorderWidth</code> paints only a band inside the edge, for a gradient ring or border:</p>
+<pre><code class="lang-xaml">&lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;14&quot;&gt;
+    &lt;fx:FXHost CornerRadius=&quot;999&quot;&gt;
+        &lt;fx:FXHost.Layers&gt;&lt;fx:MeshGradient Preset=&quot;Lagoon&quot; /&gt;&lt;/fx:FXHost.Layers&gt;
+        &lt;Border Width=&quot;80&quot; Height=&quot;80&quot; /&gt;
+    &lt;/fx:FXHost&gt;
+    &lt;fx:FXHost CornerRadius=&quot;999&quot;&gt;
+        &lt;fx:FXHost.Layers&gt;&lt;fx:MeshGradient Preset=&quot;Orchid&quot; BorderWidth=&quot;4&quot; /&gt;&lt;/fx:FXHost.Layers&gt;
+        &lt;Border Width=&quot;80&quot; Height=&quot;80&quot; /&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/StackPanel&gt;
+</code></pre>
+<h2 id="shape-the-blend">Shape the blend</h2>
+<p><code>Drift</code> sets how far the points wander from their places, as a share of the shape, and <code>FlowSpeed</code> how fast. <code>Sharpness</code> goes from wide, soft blends (1) to colors that keep to their own regions (higher). <code>Warp</code> bends the whole field gently with noise:</p>
+<pre><code class="lang-xaml">&lt;fx:MeshGradient Preset=&quot;Orchid&quot; Drift=&quot;0.2&quot; FlowSpeed=&quot;0.1&quot; Sharpness=&quot;3&quot; Warp=&quot;0.8&quot; /&gt;
+</code></pre>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Preset</code></td>
+<td><code>MeshGradientPreset</code></td>
+<td><code>Dusk</code></td>
+<td>The palette used while <code>Colors</code> is unset, with matching <code>Sharpness</code>, <code>Drift</code> and <code>Warp</code>. Local values win. Values: <code>Dusk</code>, <code>Lagoon</code>, <code>Orchid</code>, <code>Graphite</code>.</td>
+</tr>
+<tr>
+<td><code>Colors</code></td>
+<td><code>FXColorList</code></td>
+<td>Unset</td>
+<td>The colors (up to six). Unset: the preset's palette.</td>
+</tr>
+<tr>
+<td><code>Drift</code></td>
+<td><code>double</code></td>
+<td><code>0.12</code></td>
+<td>How far the points wander from rest, as a fraction of the rect. Range 0–0.5 (0–50%).</td>
+</tr>
+<tr>
+<td><code>FlowSpeed</code></td>
+<td><code>double</code></td>
+<td><code>0.25</code></td>
+<td>How fast the points drift and the warp moves (0: still). Range 0–2 per second.</td>
+</tr>
+<tr>
+<td><code>Sharpness</code></td>
+<td><code>double</code></td>
+<td><code>1.6</code></td>
+<td>1: wide soft blends; higher keeps each color to its own region. Range 0.5–6.</td>
+</tr>
+<tr>
+<td><code>Warp</code></td>
+<td><code>double</code></td>
+<td><code>0.35</code></td>
+<td>A gentle noise warp of the whole field. Range 0–2.</td>
+</tr>
+<tr>
+<td><code>BorderWidth</code></td>
+<td><code>double</code></td>
+<td><code>0</code></td>
+<td>Width of a band inside the edge, DIPs. 0: the whole shape. Range 0–48.</td>
+</tr>
+<tr>
+<td><code>UseMask</code></td>
+<td><code>bool</code></td>
+<td><code>false</code></td>
+<td>Paints only the child's own pixels (text, icons, a logo) instead of the shape: gradient text, a liquid-metal logo, holographic icons. It then goes over the child unless <code>Placement</code> says otherwise. The host captures the child to know its pixels: call <code>RefreshMask</code> after changing something deep inside it.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>:
+<code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>Intensity</strong> is the fill's coverage, from 0 to 1, so a transition on it fades the gradient in and out. <code>Seed</code> changes how the points wander.</li>
+<li><strong>Still gradients:</strong> with <code>FlowSpeed</code> at 0, or both <code>Drift</code> and <code>Warp</code> at 0, the gradient holds still and requests no frames.</li>
+<li><strong>Light and dark surfaces:</strong> the gradient draws the same on both. Pick the text color by the color nearest the text.</li>
+<li><strong>Reduced motion:</strong> the gradient holds one pose. See <a href="../concepts/reduced-motion.html#the-poses">Reduced motion</a>.</li>
+<li><strong>Cost:</strong> 0.103 ms of GPU time per frame on a 340×190 card in the gallery's bench. See <a href="../concepts/performance.html#what-a-layer-costs">Performance</a>.</li>
+<li>Fills share one clock, so equal gradients on different hosts move in step.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.MeshGradient.html">MeshGradient</a> API reference</li>
+<li><a href="graingradient.html">Grain gradient</a>, <a href="swirl.html">Swirl</a> and <a href="waves.html">Waves</a></li>
+<li><a href="grain.html">Grain</a>, to add texture over the gradient</li>
+<li><a href="../concepts/content-masks.html">Content masks</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/meshgradient.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

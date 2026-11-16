@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Liquid metal | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Liquid metal | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="Polished metal reflecting a studio, with a rolled rim and a slowly flowing surface, in chrome, gold, rose or gunmetal.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/liquidmetal.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="liquid-metal">Liquid metal</h1>
+
+<p>A slab of polished metal that reflects a photo studio: a bright sky above a soft horizon, strip lights and a dark floor, seen in a domed face with a rolled rim. The surface ripples and flows slowly. Use it for a premium button, a badge, an avatar, a metal border around a card, or a chrome logo. It is a fill: it paints the host's shape and goes under the child, or paints the child's own pixels with <code>UseMask</code>.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/liquidmetal-light.png" alt="Liquid metal on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/liquidmetal-dark.png" alt="Liquid metal on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-liquid-metal">Add liquid metal</h2>
+<p>The fill goes under the child, so leave the child without a background:</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;fx:FXHost&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:LiquidMetal Preset=&quot;Gold&quot; /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Border Width=&quot;200&quot; Height=&quot;48&quot; CornerRadius=&quot;24&quot; /&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<h2 id="presets">Presets</h2>
+<p>Each preset sets <code>Tint</code>, <code>LightColor</code>, <code>Iridescence</code> and <code>Contrast</code>. Set any of them yourself to adjust a preset; your value wins.</p>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Chrome</code> (default)</td>
+<td>Bright, cool silver with a faint rainbow sheen.</td>
+</tr>
+<tr>
+<td><code>Gold</code></td>
+<td>Warm yellow gold under warm light, with no rainbow sheen.</td>
+</tr>
+<tr>
+<td><code>Rose</code></td>
+<td>Pink rose gold under soft, warm light.</td>
+</tr>
+<tr>
+<td><code>Gunmetal</code></td>
+<td>Dark blue-gray steel with deeper shadows, sharper highlights and a hint of rainbow sheen.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="make-a-chrome-border">Make a chrome border</h2>
+<p><code>BorderWidth</code> paints only a band inside the edge, shaded as a round tube, and leaves the middle clear for the content:</p>
+<pre><code class="lang-xaml">&lt;fx:FXHost&gt;
+    &lt;fx:FXHost.Layers&gt;
+        &lt;fx:LiquidMetal Preset=&quot;Chrome&quot; BorderWidth=&quot;5&quot; /&gt;
+    &lt;/fx:FXHost.Layers&gt;
+    &lt;Border Width=&quot;200&quot; Height=&quot;48&quot; CornerRadius=&quot;12&quot;&gt;
+        &lt;TextBlock Text=&quot;Chrome tube border&quot; HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot; /&gt;
+    &lt;/Border&gt;
+&lt;/fx:FXHost&gt;
+</code></pre>
+<h2 id="turn-text-or-a-logo-into-metal">Turn text or a logo into metal</h2>
+<p>With <code>UseMask</code>, the metal paints the child's own pixels instead of its box, and goes over the child:</p>
+<pre><code class="lang-xaml">&lt;fx:FXHost&gt;
+    &lt;fx:FXHost.Layers&gt;
+        &lt;fx:LiquidMetal UseMask=&quot;True&quot; /&gt;
+    &lt;/fx:FXHost.Layers&gt;
+    &lt;TextBlock Text=&quot;CHROME&quot; FontSize=&quot;30&quot; FontWeight=&quot;Black&quot; Foreground=&quot;White&quot; /&gt;
+&lt;/fx:FXHost&gt;
+</code></pre>
+<p>The host captures the child to find its pixels. After changing something deeper inside the child, call <code>FXHost.RefreshMask()</code>; see <a href="../concepts/content-masks.html#layers-that-follow-the-content">Content masks</a>.</p>
+<h2 id="pin-the-reflection-to-the-window">Pin the reflection to the window</h2>
+<p>By default the reflection moves with the element, so every shape of the same size shows the same picture. With <code>Anchor=&quot;Window&quot;</code>, it is pinned to the window like a fixed studio light: neighboring shapes show one continuous surface, and the reflection slides over them as they scroll.</p>
+<pre><code class="lang-xaml">&lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;8&quot;&gt;
+    &lt;fx:FXHost&gt;
+        &lt;fx:FXHost.Layers&gt;&lt;fx:LiquidMetal Anchor=&quot;Window&quot; /&gt;&lt;/fx:FXHost.Layers&gt;
+        &lt;Border Width=&quot;56&quot; Height=&quot;56&quot; CornerRadius=&quot;12&quot; /&gt;
+    &lt;/fx:FXHost&gt;
+    &lt;fx:FXHost&gt;
+        &lt;fx:FXHost.Layers&gt;&lt;fx:LiquidMetal Anchor=&quot;Window&quot; /&gt;&lt;/fx:FXHost.Layers&gt;
+        &lt;Border Width=&quot;56&quot; Height=&quot;56&quot; CornerRadius=&quot;12&quot; /&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/StackPanel&gt;
+</code></pre>
+<h2 id="shape-the-metal">Shape the metal</h2>
+<p><code>Tint</code> is the metal's own color and <code>LightColor</code> the studio's. <code>Flow</code> sets how far the surface ripples, <code>Scale</code> the ripple size and <code>FlowSpeed</code> how fast they move. <code>Bevel</code> is the width of the rolled rim, <code>Dome</code> how curved the face is, and <code>LightAngle</code> turns the studio around. A still copper slab:</p>
+<pre><code class="lang-xaml">&lt;fx:LiquidMetal Tint=&quot;#D9915F&quot; LightColor=&quot;#FFE8D6&quot; Flow=&quot;0&quot; Dome=&quot;0.3&quot; /&gt;
+</code></pre>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Preset</code></td>
+<td><code>LiquidMetalPreset</code></td>
+<td><code>Chrome</code></td>
+<td>The metal: sets <code>Tint</code>, <code>LightColor</code>, <code>Iridescence</code> and <code>Contrast</code>. Local values win. Values: <code>Chrome</code>, <code>Gold</code>, <code>Rose</code>, <code>Gunmetal</code>.</td>
+</tr>
+<tr>
+<td><code>Tint</code></td>
+<td><code>Color</code></td>
+<td><code>#E9ECF0</code></td>
+<td>Reflectance at normal incidence: near white for chrome, warm for gold.</td>
+</tr>
+<tr>
+<td><code>LightColor</code></td>
+<td><code>Color</code></td>
+<td><code>#FFFFFF</code></td>
+<td>The studio lights' color.</td>
+</tr>
+<tr>
+<td><code>Flow</code></td>
+<td><code>double</code></td>
+<td><code>0.3</code></td>
+<td>How far the surface ripples (0: a still, polished slab). Range 0–2.</td>
+</tr>
+<tr>
+<td><code>Scale</code></td>
+<td><code>double</code></td>
+<td><code>150</code></td>
+<td>Ripple size. Range 10–400 DIPs.</td>
+</tr>
+<tr>
+<td><code>FlowSpeed</code></td>
+<td><code>double</code></td>
+<td><code>0.35</code></td>
+<td>How fast the ripples flow (0: frozen). Range 0–2 per second.</td>
+</tr>
+<tr>
+<td><code>Bevel</code></td>
+<td><code>double</code></td>
+<td><code>14</code></td>
+<td>Width of the rolled rim. Range 0–48 DIPs.</td>
+</tr>
+<tr>
+<td><code>Dome</code></td>
+<td><code>double</code></td>
+<td><code>0.55</code></td>
+<td>How domed the face is: 0 flat, 1 strongly curved; negative dishes it inward, like a keycap. Range -1 to 1.5.</td>
+</tr>
+<tr>
+<td><code>LightAngle</code></td>
+<td><code>double</code></td>
+<td><code>-7</code></td>
+<td>Tilt of the studio around the view axis, degrees: 0 upright, its lights above; positive turns it counterclockwise. Range -180 to 180.</td>
+</tr>
+<tr>
+<td><code>Iridescence</code></td>
+<td><code>double</code></td>
+<td><code>0.08</code></td>
+<td>Rainbow thin-film color where the surface bends hardest (0: none). Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>Contrast</code></td>
+<td><code>double</code></td>
+<td><code>1</code></td>
+<td>1: studio as lit; higher deepens the floor and sharpens the lights. Range 0.5–2.5.</td>
+</tr>
+<tr>
+<td><code>Anchor</code></td>
+<td><code>FXAnchor</code></td>
+<td><code>Element</code></td>
+<td>Element (the default): the reflection moves with the element. Window: it is pinned to the window, so neighboring shapes show one continuous surface and it slides over them as they scroll, like a fixed studio light. Values: <code>Element</code>, <code>Window</code>.</td>
+</tr>
+<tr>
+<td><code>BorderWidth</code></td>
+<td><code>double</code></td>
+<td><code>0</code></td>
+<td>Width of a band inside the edge, DIPs. 0: the whole shape. Range 0–48.</td>
+</tr>
+<tr>
+<td><code>UseMask</code></td>
+<td><code>bool</code></td>
+<td><code>false</code></td>
+<td>Paints only the child's own pixels (text, icons, a logo) instead of the shape: gradient text, a liquid-metal logo, holographic icons. It then goes over the child unless <code>Placement</code> says otherwise. The host captures the child to know its pixels: call <code>RefreshMask</code> after changing something deep inside it.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>:
+<code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>Intensity</strong> is the fill's coverage, from 0 to 1, so a transition on it fades the metal in and out.</li>
+<li><strong>Text on the metal:</strong> the upper part reflects the studio's bright sky, and the middle sits on the horizon's dark reflections. With a light tint (chrome, gold, rose), dark text reads near the top, such as a card's title; centered labels read best in white.</li>
+<li><strong>Light and dark surfaces:</strong> the metal draws the same on both.</li>
+<li><strong>Reduced motion:</strong> the surface holds one pose. With <code>Flow</code> or <code>FlowSpeed</code> at 0 it is still anyway, and requests no frames.</li>
+<li><strong>Cost:</strong> 0.312 ms of GPU time per frame on a 340×190 card in the gallery's bench, among the heavier fills. On a 700×500 panel it takes 0.73 ms, and 0.47 ms with <code>RenderScale=&quot;0.5&quot;</code>. See <a href="../concepts/performance.html#render-scale">Render scale</a>.</li>
+<li>Fills share one clock, so equal fills on different hosts move in step.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.LiquidMetal.html">LiquidMetal</a> API reference</li>
+<li><a href="plastic.html">Plastic</a>, <a href="holofoil.html">Holo foil</a> and <a href="silk.html">Silk</a></li>
+<li><a href="../concepts/content-masks.html">Content masks</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/liquidmetal.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

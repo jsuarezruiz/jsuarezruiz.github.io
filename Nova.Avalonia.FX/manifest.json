@@ -1,0 +1,4133 @@
+{
+  "docfx_version": "2.81.0+ba844df625370a6bd7c1ecab0d0ec4d1d9128ac4",
+  "source_base_path": "/home/runner/work/Nova.Avalonia.FX/Nova.Avalonia.FX/docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "DESIGN.md",
+      "output": {
+        ".html": {
+          "relative_path": "DESIGN.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.AmbientGlow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.AmbientGlow.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.AmbientGlow",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.AmbientGlow.yml\" sourcestartlinenumber=\"1\">A glow in the content's own colors: the child (album art, a video frame, a photo, an\nillustration) blurred, spread out and lit behind itself, like a screen's ambient light on the\nwall. The host captures the child's pixels when it changes; call\n<xref href=\"Nova.Avalonia.FX.FXHost.RefreshMask\" data-throw-if-not-resolved=\"false\"></xref> after changing something deep inside it, or every frame for\na video.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Ascii.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Ascii.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Ascii",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Ascii.yml\" sourcestartlinenumber=\"1\">Redraws what is behind it (the host's content, and anything under the host) as text: each cell\nshows the character whose ink matches the brightness there, from &quot; .-:+=%*#@&quot;. The glyphs are\nsmall dot shapes made in the shader, not a font. With <xref href=\"Nova.Avalonia.FX.Ascii.IsColored\" data-throw-if-not-resolved=\"false\"></xref>, each character\ntakes the content's own color. Fade it in and out with Intensity.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Aurora.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Aurora.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Aurora",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Aurora.yml\" sourcestartlinenumber=\"1\">Three light curtains drifting across the shape, each with a bright lower hem and noise rays,\nfeathered inside the shape's edge. Under reduced motion they hold one pose.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Beam.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Beam.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Beam",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Beam.yml\" sourcestartlinenumber=\"1\">Light traveling along a curve between two points, over a faint track: data flowing from one\ncontrol to another in a diagram, an integration page or a pipeline. The ends are\n<xref href=\"Nova.Avalonia.FX.Beam.From\" data-throw-if-not-resolved=\"false\"></xref> and <xref href=\"Nova.Avalonia.FX.Beam.To\" data-throw-if-not-resolved=\"false\"></xref>, shares of the host's shape, or the centers of\n<xref href=\"Nova.Avalonia.FX.Beam.FromElement\" data-throw-if-not-resolved=\"false\"></xref> and <xref href=\"Nova.Avalonia.FX.Beam.ToElement\" data-throw-if-not-resolved=\"false\"></xref>, which it follows as the layout changes;\n<xref href=\"Nova.Avalonia.FX.Beam.Curvature\" data-throw-if-not-resolved=\"false\"></xref> bows the path. Put the host around the panel that holds both controls,\nso the beam runs under them. Under reduced motion it holds a still gradient.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.BeamStyle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.BeamStyle.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.BeamStyle",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Beams.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Beams.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Beams",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Beams.yml\" sourcestartlinenumber=\"1\">A background of shafts of light that drift slowly sideways, with light falling down them: a\nquiet, cinematic backdrop for a hero section or a dark landing page. The shafts can lean with\n<xref href=\"Nova.Avalonia.FX.Beams.Angle\" data-throw-if-not-resolved=\"false\"></xref>; as a fill it paints the shape under the child.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Bokeh.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Bokeh.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Bokeh",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Bokeh.yml\" sourcestartlinenumber=\"1\">Soft out-of-focus lights drifting at three depths over a background, as a lens renders lights\nit isn't focused on: discs with brighter rims, bigger and faster in front. A background fill,\ndrawn under the child; to lay the lights over the content, set <xref href=\"Nova.Avalonia.FX.Bokeh.BackgroundColor\" data-throw-if-not-resolved=\"false\"></xref>'s\nalpha to 0 and <xref href=\"Nova.Avalonia.FX.FXLayer.Placement\" data-throw-if-not-resolved=\"false\"></xref> to <xref href=\"Nova.Avalonia.FX.FXPlacement.Over\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.BokehPreset.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.BokehPreset.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.BokehPreset",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.BorderBeam.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.BorderBeam.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.BorderBeam",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.BorderBeam.yml\" sourcestartlinenumber=\"1\">Streaks of light running around the border, fading from a bright head to the tail color, with\na glow either side: for a &quot;new&quot; badge, a chat input or a card that is working. Under reduced\nmotion the streaks hold still.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Catalog.FXCatalog.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Catalog.FXCatalog.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Catalog.FXCatalog",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Catalog.FXCatalog.yml\" sourcestartlinenumber=\"1\">Every layer type with its parameters (ranges, units, choices). A tool builds its layer list,\ninspector and code output from this instead of keeping its own schema.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Catalog.FXLayerInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Catalog.FXLayerInfo.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Catalog.FXLayerInfo",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Catalog.FXLayerInfo.yml\" sourcestartlinenumber=\"1\">A layer type as a catalog entry.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Catalog.FXParamInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Catalog.FXParamInfo.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Catalog.FXParamInfo",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Catalog.FXParamInfo.yml\" sourcestartlinenumber=\"1\">A tunable layer property. It applies only while the property named by\n<xref href=\"Nova.Avalonia.FX.Catalog.FXParamInfo.AppliesWhenOn\" data-throw-if-not-resolved=\"false\"></xref> (<code>Style</code>, or another choice or toggle) has one of the values in\n<xref href=\"Nova.Avalonia.FX.Catalog.FXParamInfo.AppliesWhen\" data-throw-if-not-resolved=\"false\"></xref>; with none listed it always applies.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Catalog.FXParamKind.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Catalog.FXParamKind.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Catalog.FXParamKind",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Catalog.FXUnit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Catalog.FXUnit.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Catalog.FXUnit",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Catalog.FXUnit.yml\" sourcestartlinenumber=\"1\">How a number reads in an inspector.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Catalog.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Catalog.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Catalog",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Caustics.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Caustics.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Caustics",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Caustics.yml\" sourcestartlinenumber=\"1\">Caustics: the shifting web of light that water throws on the floor of a pool, over a water\ncolor. With a transparent <xref href=\"Nova.Avalonia.FX.Caustics.WaterColor\" data-throw-if-not-resolved=\"false\"></xref>, Placement Over and BlendMode Screen it lays\npool light over the host's content instead.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.ChromaSplit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.ChromaSplit.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.ChromaSplit",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.ChromaSplit.yml\" sourcestartlinenumber=\"1\">Red and blue pulled apart from green over what is behind (and the host's child), with optional\nglitch: now and then a thin slice jumps sideways.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.CodeRain.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.CodeRain.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.CodeRain",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.CodeRain.yml\" sourcestartlinenumber=\"1\">Columns of glyphs raining down a terminal-style background: each stream has a bright head and\na fading trail, and the glyphs flip as it passes. The glyphs are dot-matrix shapes made up per\ncell (no font involved), so it looks the same everywhere. A background fill, drawn under the\nchild; to rain over the content, set <xref href=\"Nova.Avalonia.FX.CodeRain.BackgroundColor\" data-throw-if-not-resolved=\"false\"></xref>'s alpha to 0 and\n<xref href=\"Nova.Avalonia.FX.FXLayer.Placement\" data-throw-if-not-resolved=\"false\"></xref> to <xref href=\"Nova.Avalonia.FX.FXPlacement.Over\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.ColorFilter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.ColorFilter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.ColorFilter",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.ColorFilter.yml\" sourcestartlinenumber=\"1\">CSS-style color filters, live, within the shape: over the child (the default) they recolor the\nchild and whatever shows through it, as CSS <code>filter</code> does; under it\n(<xref href=\"Nova.Avalonia.FX.FXLayer.Placement\" data-throw-if-not-resolved=\"false\"></xref> Under) they recolor what is behind the host, as\n<code>backdrop-filter</code> does. With <xref href=\"Nova.Avalonia.FX.ColorFilter.UseMask\" data-throw-if-not-resolved=\"false\"></xref> only the child's own pixels change (an\nicon, not the card around it). Brightness, contrast, saturation, hue, grayscale and sepia use\nCSS's formulas; Intensity is how much of the filter shows. Disabled states, &quot;grayscale until\nhover&quot;, styled photos, images dimmed in dark mode. It starts as grayscale (<xref href=\"Nova.Avalonia.FX.ColorFilter.Preset\" data-throw-if-not-resolved=\"false\"></xref>).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.ColorFilterPreset.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.ColorFilterPreset.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.ColorFilterPreset",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Confetti.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Confetti.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Confetti",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Confetti.yml\" sourcestartlinenumber=\"1\">A burst of confetti that flies, tumbles, flutters and falls: for a success or a milestone.\nEvery piece is a pure function of the time since its burst, and bursts overlap. Under reduced\nmotion the pieces appear in place and fade without flying.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.ConfettiShape.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.ConfettiShape.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.ConfettiShape",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.ConfettiStyle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.ConfettiStyle.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.ConfettiStyle",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Crt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Crt.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Crt",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Crt.yml\" sourcestartlinenumber=\"1\">An old CRT over what is behind (and the host's child): barrel bulge, scanlines, a color split,\nan aperture grille, a soft glow, a rolling bar and a vignette.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Dither.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Dither.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Dither",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Dither.yml\" sourcestartlinenumber=\"1\">Ordered dithering of a tone into a palette (dark to light), in square pixels anchored to the\nshape. Two colors is one-bit; more is a palette.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.DitherPattern.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.DitherPattern.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.DitherPattern",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.DitherPreset.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.DitherPreset.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.DitherPreset",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.DotGrid.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.DotGrid.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.DotGrid",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.DotGrid.yml\" sourcestartlinenumber=\"1\">A grid of dots or squares that flicker at random: a quiet, technical background. Dots near the\npointer light up and grow, and a press (or <xref href=\"Nova.Avalonia.FX.DotGrid.Ripple(System.Nullable%7bAvalonia.Point%7d)\" data-throw-if-not-resolved=\"false\"></xref>) sends a ring out across the grid.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Electric.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Electric.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Electric",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Electric.yml\" sourcestartlinenumber=\"1\">Lightning: a fractal bolt that strikes with a flash, holds, sometimes return-strokes, and\nre-strikes, mostly down the same channel. The previous strikes linger as afterimages, and\nforks shoot out at each strike, cooling from white through the tint to violet.\n<xref href=\"Nova.Avalonia.FX.Electric.Zap(System.Nullable%7bAvalonia.Point%7d)\" data-throw-if-not-resolved=\"false\"></xref> fires a single strike.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.ElectricStyle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.ElectricStyle.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.ElectricStyle",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.FXAnchor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.FXAnchor.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.FXAnchor",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.FXAnchor.yml\" sourcestartlinenumber=\"1\">Where a fill's pattern is pinned.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.FXBlendMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.FXBlendMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.FXBlendMode",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.FXBlendMode.yml\" sourcestartlinenumber=\"1\">How a layer composites onto what is beneath it.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.FXColorList.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.FXColorList.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.FXColorList",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.FXColorList.yml\" sourcestartlinenumber=\"1\">An ordered list of colors. In XAML: <code>Colors=&quot;#2b1b5a, #ff6f91, #ffc46b&quot;</code>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.FXColorListConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.FXColorListConverter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.FXColorListConverter",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.FXCorner.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.FXCorner.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.FXCorner",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.FXCorner.yml\" sourcestartlinenumber=\"1\">A corner of the shape, in Avalonia's order (as <xref href=\"Avalonia.CornerRadius\" data-throw-if-not-resolved=\"false\"></xref>).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.FXDiagnostics.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.FXDiagnostics.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.FXDiagnostics",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.FXDiagnostics.yml\" sourcestartlinenumber=\"1\">Opt-in timing of layer draws, for benchmarks and profiling. Off by default, and free while off.\nWith <xref href=\"Nova.Avalonia.FX.FXDiagnostics.MeasureGpu\" data-throw-if-not-resolved=\"false\"></xref> on, every draw also waits for the GPU to finish it, which slows\nframes down: use it to compare layers, not in a shipping app.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.FXDrawStats.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.FXDrawStats.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.FXDrawStats",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.FXDrawStats.yml\" sourcestartlinenumber=\"1\">Totals for one layer type since the last reset.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.FXEdge.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.FXEdge.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.FXEdge",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.FXEdge.yml\" sourcestartlinenumber=\"1\">A side of the shape.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.FXFill.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.FXFill.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.FXFill",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.FXFill.yml\" sourcestartlinenumber=\"1\">A fill paints the shape (or, with <xref href=\"Nova.Avalonia.FX.FXFill.BorderWidth\" data-throw-if-not-resolved=\"false\"></xref>, a band inside its edge) and goes\nunder the child as its background. Under reduced motion every fill holds one fixed pose.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.FXHost.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.FXHost.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.FXHost",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.FXHost.yml\" sourcestartlinenumber=\"1\">Hosts one child and draws FX layers around it: under the child (glows, pulses, fills) and\nover it (sheens, grain, ripples). The layers follow the child's shape: its bounds and corner\nradius, taken from <xref href=\"Nova.Avalonia.FX.FXHost.CornerRadius\" data-throw-if-not-resolved=\"false\"></xref> or, when that is unset, from the child itself.\nLayers render on the compositor thread and only tick while something moves, and while the host\ncan be seen: a hidden host, or one scrolled out of view, asks for no frames.</p>\n<p>Light that spills past the child (a glow's reach) is drawn outside the host's bounds, so\nit is cut by any clipping ancestor: a ScrollViewer, a Border with ClipToBounds, and Fluent's\nContentControl, which clips by default. Leave room around the host inside such containers, or\nset ClipToBounds=\"False\" where that is safe.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.FXLayer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.FXLayer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.FXLayer",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.FXLayer.yml\" sourcestartlinenumber=\"1\">Base class of every layer. A layer is a pure function of (position, parameters, time, seed):\nno hidden state and no randomness, so a given time always renders the same frame.\nLayers are styled elements: they take part in styles, bindings and transitions, so a style\nsetter on <code>Intensity</code> with a <code>DoubleTransition</code> animates a glow smoothly on hover.\nA layer is in one <xref href=\"Nova.Avalonia.FX.FXHost\" data-throw-if-not-resolved=\"false\"></xref> at a time: adding it to a second host's\n<xref href=\"Nova.Avalonia.FX.FXHost.Layers\" data-throw-if-not-resolved=\"false\"></xref> throws until it is removed from the first.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.FXLayerCollection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.FXLayerCollection.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.FXLayerCollection",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.FXLayerCollection.yml\" sourcestartlinenumber=\"1\">The layers of an <xref href=\"Nova.Avalonia.FX.FXHost\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.FXPaletteFill.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.FXPaletteFill.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.FXPaletteFill",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.FXPaletteFill.yml\" sourcestartlinenumber=\"1\">A fill painted from a list of colors (up to six): mesh gradient, swirl, waves, grain gradient,\nvoronoi, metaballs, dither and bokeh. Unset <xref href=\"Nova.Avalonia.FX.FXPaletteFill.Colors\" data-throw-if-not-resolved=\"false\"></xref> uses the preset's palette.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.FXPlacement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.FXPlacement.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.FXPlacement",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.FXPlacement.yml\" sourcestartlinenumber=\"1\">Where a layer draws relative to the host's child.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.FXSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.FXSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.FXSettings",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.FXSettings.yml\" sourcestartlinenumber=\"1\">Global switches shared by every layer.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.FXSurface.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.FXSurface.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.FXSurface",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.FXSurface.yml\" sourcestartlinenumber=\"1\">What a host sits on, for light layers (glows, pulses, sparkles, lightning).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.FXToneInput.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.FXToneInput.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.FXToneInput",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.FXToneInput.yml\" sourcestartlinenumber=\"1\">What a re-toning fill (dither, halftone) reads as its tone.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.FXTransitionLayer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.FXTransitionLayer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.FXTransitionLayer",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.FXTransitionLayer.yml\" sourcestartlinenumber=\"1\">A layer that shows and hides its host's content with a transition (<xref href=\"Nova.Avalonia.FX.Reveal\" data-throw-if-not-resolved=\"false\"></xref>,\n<xref href=\"Nova.Avalonia.FX.Genie\" data-throw-if-not-resolved=\"false\"></xref>, <xref href=\"Nova.Avalonia.FX.Shatter\" data-throw-if-not-resolved=\"false\"></xref>). Set <code>IsShown</code>, or call <xref href=\"Nova.Avalonia.FX.FXTransitionLayer.Show(System.Nullable%7bAvalonia.Point%7d)\" data-throw-if-not-resolved=\"false\"></xref> or\n<xref href=\"Nova.Avalonia.FX.FXTransitionLayer.Hide(System.Nullable%7bAvalonia.Point%7d)\" data-throw-if-not-resolved=\"false\"></xref>: the layer captures the content as it looks, hides the real element and\nplays the transition on the capture, then hands back to the element once shown. While hidden\nthe element is invisible but keeps its place in the layout. With nothing to capture (no\ncontent, invisible, or not laid out yet), or while inactive, it switches at once.\n<code>Duration</code> sets the pace; the layer's <code>Speed</code> doesn't apply.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Fire.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Fire.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Fire",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Fire.yml\" sourcestartlinenumber=\"1\">Fire off the top edge: domain-warped turbulence whose warp grows with height, so tongues curl,\nnarrow and tear; a flicker per column; a temperature ramp from a white-yellow base to red tips\nand a faint veil of smoke. Embers are flung up, slow under drag to a buoyant drift, sway and\ncool. Plasma is a thin breathing band of filaments around the border.</p>\n<p>\n<xref href=\"Nova.Avalonia.FX.FireStyle.Simulated\" data-throw-if-not-resolved=\"false\"></xref> and <xref href=\"Nova.Avalonia.FX.FireStyle.Smoke\" data-throw-if-not-resolved=\"false\"></xref> run a small fluid\nsimulation instead: heat rises, curls, drifts with <xref href=\"Nova.Avalonia.FX.Fire.Wind\" data-throw-if-not-resolved=\"false\"></xref>, cools and turns to smoke.\nIt steps a small grid on the render thread every frame (well under a millisecond);\n<xref href=\"Nova.Avalonia.FX.FXLayer.Intensity\" data-throw-if-not-resolved=\"false\"></xref> is how much heat is fed in.\n</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.FireStyle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.FireStyle.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.FireStyle",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Fireworks.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Fireworks.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Fireworks",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Fireworks.yml\" sourcestartlinenumber=\"1\">Fireworks over the host: a rocket climbs from the bottom edge and bursts into a sphere of\nstreaking sparks that slow, fall, crackle and fade. <xref href=\"Nova.Avalonia.FX.Fireworks.Fire(System.Nullable%7bAvalonia.Point%7d)\" data-throw-if-not-resolved=\"false\"></xref> sends one to a point (or\na spot of its own), <xref href=\"Nova.Avalonia.FX.Fireworks.FireOnPress\" data-throw-if-not-resolved=\"false\"></xref> fires where you press, and <xref href=\"Nova.Avalonia.FX.Fireworks.Interval\" data-throw-if-not-resolved=\"false\"></xref>\nkeeps a show going. Shots overlap. Light adds on dark surfaces, color shows on light ones.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.FlutedGlass.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.FlutedGlass.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.FlutedGlass",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.FlutedGlass.yml\" sourcestartlinenumber=\"1\">Reeded glass over what is behind the host: parallel convex ribs, each a cylindrical lens that\nshows a squeezed, flipped strip of the backdrop, with a color split toward its edges, a sheen\nand a shaded groove.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.FlutedGlassPreset.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.FlutedGlassPreset.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.FlutedGlassPreset",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Fog.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Fog.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Fog",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Fog.yml\" sourcestartlinenumber=\"1\">Banks of mist drifting across the shape at <xref href=\"Nova.Avalonia.FX.Fog.DriftSpeed\" data-throw-if-not-resolved=\"false\"></xref>, thickest at the bottom and\nthinning out toward <xref href=\"Nova.Avalonia.FX.Fog.Height\" data-throw-if-not-resolved=\"false\"></xref>. Over the content it hangs in front of it; under a\nsee-through panel it is a background. Under reduced motion it holds still.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Frost.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Frost.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Frost",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Frost.yml\" sourcestartlinenumber=\"1\">Ice that creeps in from the shape's edges in feathery crystal branches, frosting what is under\nit (the content, for an Over layer): blurred, whitened toward <xref href=\"Nova.Avalonia.FX.Frost.Tint\" data-throw-if-not-resolved=\"false\"></xref>, with glints.\n<xref href=\"Nova.Avalonia.FX.Frost.Amount\" data-throw-if-not-resolved=\"false\"></xref> is how far it has crept in; animate it with a transition to freeze or thaw.\nIt melts in a ragged circle around the pointer and freezes back when the pointer leaves.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Genie.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Genie.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Genie",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Genie.yml\" sourcestartlinenumber=\"1\">Hides the content by pulling it into a point, like a window minimizing into the dock, and\npours it back out to show it. The sides bend in toward the point first, then the content\nslides down the funnel into it. The point is the center of <xref href=\"Nova.Avalonia.FX.Genie.Target\" data-throw-if-not-resolved=\"false\"></xref> (a dock icon,\na button), the point given to <xref href=\"Nova.Avalonia.FX.FXTransitionLayer.Hide(System.Nullable%7bAvalonia.Point%7d)\" data-throw-if-not-resolved=\"false\"></xref> or\n<xref href=\"Nova.Avalonia.FX.FXTransitionLayer.Show(System.Nullable%7bAvalonia.Point%7d)\" data-throw-if-not-resolved=\"false\"></xref>, or the bottom center of the content. The content is\ncaptured and hidden while it plays, and handed back once shown. Under reduced motion it fades.</p>\n<p>The funnel draws outside the host on its way to the point, so it is cut by any clipping\nancestor between the content and the target.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Glass.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Glass.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Glass",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Glass.yml\" sourcestartlinenumber=\"1\">A pane of liquid glass over what is behind the host: a beveled rim that refracts and splits\nthe backdrop, a little magnification, an optional frost, a specular rim facing the light and a\nsoft drop shadow. It reads what is drawn behind it, so it follows anything that moves there.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Glitch.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Glitch.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Glitch",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Glitch.yml\" sourcestartlinenumber=\"1\">A digital glitch over the content: bands of it tear sideways, blocks jump, the color channels\nsplit, a few rows flash in the glitch colors and scanlines show. It changes in steps (about\n20 a second), as a broken signal does. It draws nothing between glitches, so a burst layer\ncosts nothing until it fires: a short burst on <xref href=\"Nova.Avalonia.FX.Glitch.Trigger\" data-throw-if-not-resolved=\"false\"></xref> or a press (an error, a\ndenied action), or, with <xref href=\"Nova.Avalonia.FX.Glitch.IsContinuous\" data-throw-if-not-resolved=\"false\"></xref>, now and then on its own. Under reduced\nmotion a burst is a short, mild color split and a continuous glitch stays still.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Glow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Glow.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Glow",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Glow.yml\" sourcestartlinenumber=\"1\">Bloom around the shape. The light is a tight Gaussian plus a wide one through a soft knee, so\na tinted glow keeps its hue instead of clipping to white. Switching <xref href=\"Nova.Avalonia.FX.Glow.IsLit\" data-throw-if-not-resolved=\"false\"></xref> off\ncools the light (it shrinks, deepens and dims) instead of cutting it.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.GlowStyle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.GlowStyle.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.GlowStyle",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.GradientKind.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.GradientKind.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.GradientKind",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Grain.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Grain.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Grain",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Grain.yml\" sourcestartlinenumber=\"1\">Film grain inside the shape, per device pixel. Static by default, so it never shimmers.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.GrainGradient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.GrainGradient.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.GrainGradient",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.GrainGradient.yml\" sourcestartlinenumber=\"1\">A linear, radial or conic gradient whose colors scatter into film grain: triangular noise\nscatters the ramp position, so colors stipple into each other, plus brightness grain.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.GrainGradientPreset.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.GrainGradientPreset.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.GrainGradientPreset",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Halftone.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Halftone.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Halftone",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Halftone.yml\" sourcestartlinenumber=\"1\">Print-style round dots on a rotated screen, sized by a tone; neighboring dots merge where the\ntone is dark.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.HeatHaze.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.HeatHaze.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.HeatHaze",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.HeatHaze.yml\" sourcestartlinenumber=\"1\">Shimmering hot air: what is behind wobbles in rising, turbulent noise. By default it rises\nabove the shape, strongest a little up the column (pair it with <xref href=\"Nova.Avalonia.FX.Fire\" data-throw-if-not-resolved=\"false\"></xref>); with\n<xref href=\"Nova.Avalonia.FX.HeatHaze.WholeShape\" data-throw-if-not-resolved=\"false\"></xref> it fills the shape.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.HoloFoil.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.HoloFoil.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.HoloFoil",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.HoloFoil.yml\" sourcestartlinenumber=\"1\">Holographic foil over the shape: an iridescent rainbow sheen whose bands shift as the pointer\nmoves over it, fine etched lines, glitter that flares as the angle passes each facet, and a\nsoft glare under the pointer. Still when the pointer is away (unless it drifts), so idle it\ncosts nothing.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Ink.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Ink.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Ink",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Ink.yml\" sourcestartlinenumber=\"1\">Colored ink in a fluid over the content: moving the pointer pushes the fluid and leaves ink\nin a color that changes as it goes, a press throws a splash of every color, and the ink swirls,\nspreads and fades. A small fluid simulation runs on the render thread only while there is ink;\nwith none it draws nothing and costs nothing. Under reduced motion the ink stays where it\nlands and fades.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.InnerShadow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.InnerShadow.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.InnerShadow",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.InnerShadow.yml\" sourcestartlinenumber=\"1\">Light and shade inside the child's own shape, its text or icons: a pressed-in (inset), raised\n(emboss) or letterpress look, lit from <xref href=\"Nova.Avalonia.FX.InnerShadow.LightAngle\" data-throw-if-not-resolved=\"false\"></xref>. It follows the shape exactly\n(from the distance to its edge, which the host measures when it captures the child), so it\nworks on glyphs, not just boxes. After changing something deep inside the child, call\n<xref href=\"Nova.Avalonia.FX.FXHost.RefreshMask\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.InnerShadowStyle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.InnerShadowStyle.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.InnerShadowStyle",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Jelly.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Jelly.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Jelly",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Jelly.yml\" sourcestartlinenumber=\"1\">Pressed, the element squashes and wobbles like jelly before it settles: a damped spring that\nsquashes it down and out, then overshoots, plus a bulge that spreads from the press point.\nWhile it wobbles the layer draws a capture of the content (the real content is hidden and\nstill takes input), and hands back to it once settled. Under reduced motion the wobble is a\nsmall, quick squash.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.LightLeaks.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.LightLeaks.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.LightLeaks",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.LightLeaks.yml\" sourcestartlinenumber=\"1\">Warm film light leaking in over the shape's edges: four long, soft glows that drift along the\nframe and breathe in and out, whitening where they are hottest. Added as light over the\ncontent (a photo, a hero card); over light content it draws as tinted haze.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.LightRays.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.LightRays.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.LightRays",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.LightRays.yml\" sourcestartlinenumber=\"1\">Shafts of light falling across the shape from a source just outside it, like sun through a\nwindow: a fan of rays that shimmer and shift slowly, bright where they come in and fading\nwith distance. Added light, as tinted haze on a light surface. Under reduced motion the rays\nhold still.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.LiquidMetal.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.LiquidMetal.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.LiquidMetal",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.LiquidMetal.yml\" sourcestartlinenumber=\"1\">A polished metal slab reflecting a photo studio: a rolled rim, a domed face and a flowing,\ndomain-warped surface, with conductor Fresnel and optional thin-film color. As a border it is\na round tube.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.LiquidMetalPreset.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.LiquidMetalPreset.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.LiquidMetalPreset",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.LiquidProgress.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.LiquidProgress.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.LiquidProgress",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.LiquidProgress.yml\" sourcestartlinenumber=\"1\">A liquid filling the shape to <xref href=\"Nova.Avalonia.FX.LiquidProgress.Level\" data-throw-if-not-resolved=\"false\"></xref>: for progress bars, gauges and battery or\nstorage levels. The surface waves, bubbles rise, and a change of level eases in with a little\novershoot and sloshes the surface. Bind <xref href=\"Nova.Avalonia.FX.LiquidProgress.Level\" data-throw-if-not-resolved=\"false\"></xref> to a progress value (0..1).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Magnifier.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Magnifier.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Magnifier",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Magnifier.yml\" sourcestartlinenumber=\"1\">A glass loupe that follows the pointer over the host and magnifies what is under it: the\ncontent and what is behind it. It grows in when the pointer arrives and fades when it leaves;\n<xref href=\"Nova.Avalonia.FX.Magnifier.PointAt(System.Nullable%7bAvalonia.Point%7d)\" data-throw-if-not-resolved=\"false\"></xref> aims it from code (a tour, keyboard focus).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.MeshGradient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.MeshGradient.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.MeshGradient",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.MeshGradient.yml\" sourcestartlinenumber=\"1\">Up to six colors pinned to points that drift slowly, blended smoothly in OKLab (so blends\nnever go muddy) with Shepard weights: each color owns its point, blends fall off smoothly.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.MeshGradientPreset.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.MeshGradientPreset.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.MeshGradientPreset",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Metaballs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Metaballs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Metaballs",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Metaballs.yml\" sourcestartlinenumber=\"1\">Glossy blobs that drift on slow paths and merge, over a base color. Each blob takes one of the\ncolors in turn.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.MetaballsPreset.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.MetaballsPreset.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.MetaballsPreset",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.MotionBlur.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.MotionBlur.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.MotionBlur",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.MotionBlur.yml\" sourcestartlinenumber=\"1\">A smear of the content along its motion, behind it, while the host moves: a slide-in, a drag,\na fling, a transform animation. It reads how the host moves in its window every frame, so any\nmovement counts (scrolling too). Still, it draws nothing. The host captures the content when it\nchanges; call <xref href=\"Nova.Avalonia.FX.FXHost.RefreshMask\" data-throw-if-not-resolved=\"false\"></xref> after changing something deep inside it.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.OldFilm.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.OldFilm.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.OldFilm",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.OldFilm.yml\" sourcestartlinenumber=\"1\">What is behind it as an old print running through a projector: toned toward sepia, darker at\nthe corners and grained, weaving a little in the gate and flickering at 18 frames a second,\nwith scratches that run down it for a few frames and specks of dust that come and go. Under\nreduced motion it holds one frame.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Outline.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Outline.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Outline",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Outline.yml\" sourcestartlinenumber=\"1\">A stroke around the child's own shape, its text, icons or a cut-out picture, at an exact width\nwhatever the shape (from the distance to its edge, which the host measures when it captures the\nchild). <xref href=\"Nova.Avalonia.FX.OutlineStyle.Sticker\" data-throw-if-not-resolved=\"false\"></xref> adds a soft shadow under a thick border. Outside\nstrokes go under the child, centered ones over it. After changing something deep inside the\nchild, call <xref href=\"Nova.Avalonia.FX.FXHost.RefreshMask\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.OutlinePosition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.OutlinePosition.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.OutlinePosition",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.OutlineStyle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.OutlineStyle.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.OutlineStyle",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.PagePeel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.PagePeel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.PagePeel",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.PagePeel.yml\" sourcestartlinenumber=\"1\">Hovered, a corner of the element curls up like a sticker or a page and shows its back, with a\nshadow under the curl; it peels further as the pointer nears the corner and settles back when\nthe pointer leaves. <xref href=\"Nova.Avalonia.FX.PagePeel.IsPeeled\" data-throw-if-not-resolved=\"false\"></xref> holds it peeled from code. While peeled the layer\ndraws a capture of the content (the real content is hidden and still takes input).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.ParticleNetwork.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.ParticleNetwork.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.ParticleNetwork",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.ParticleNetwork.yml\" sourcestartlinenumber=\"1\">Dots drifting across the shape, joined by fine lines whenever two come close: the closer, the\nstronger the line. The pointer joins in as one more point that draws the nearby dots toward it.\nDrawn with Skia directly; each dot's path is a function of time, so a given time always draws\nthe same frame. Under reduced motion the dots hold still.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Plastic.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Plastic.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Plastic",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Plastic.yml\" sourcestartlinenumber=\"1\">A plastic slab under one soft light: a diffuse base that keeps its color, a GGX highlight\nwidened by the light's size, and a faint sky at grazing angles. Still, so it costs nothing per\nframe once drawn.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.PlasticPreset.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.PlasticPreset.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.PlasticPreset",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.PointerShadow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.PointerShadow.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.PointerShadow",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.PointerShadow.yml\" sourcestartlinenumber=\"1\">The pointer is a light over the page and the content casts a soft shadow away from it, in the\nshape of the content's own pixels: further and softer the further the light is, up to\n<xref href=\"Nova.Avalonia.FX.PointerShadow.MaxOffset\" data-throw-if-not-resolved=\"false\"></xref>. Within <xref href=\"Nova.Avalonia.FX.PointerShadow.PointerReach\" data-throw-if-not-resolved=\"false\"></xref> of the content the light follows the\npointer across the whole window, so every card on a page casts its shadow away from it; beyond\nthat, or with no pointer, the light rests above the content and the shadow falls just below it.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.ProgressiveBlur.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.ProgressiveBlur.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.ProgressiveBlur",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.ProgressiveBlur.yml\" sourcestartlinenumber=\"1\">What is behind the shape goes from sharp to fully blurred toward one <xref href=\"Nova.Avalonia.FX.ProgressiveBlur.Edge\" data-throw-if-not-resolved=\"false\"></xref>: a\nheader or a tab bar over a scrolling list, where content fades into the bar instead of\nmeeting a hard line. The ramp crossfades five copies of the backdrop (sharp, then blurred by an\neighth, a quarter, a half and all of <xref href=\"Nova.Avalonia.FX.ProgressiveBlur.Blur\" data-throw-if-not-resolved=\"false\"></xref>), so every point sees a real blur, not\na mix of sharp and blurred. <xref href=\"Nova.Avalonia.FX.ProgressiveBlur.Tint\" data-throw-if-not-resolved=\"false\"></xref> fades toward the bar's own color.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Pulse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Pulse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Pulse",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Pulse.yml\" sourcestartlinenumber=\"1\">Rings and halos that follow the shape's outline, tap ripples, and pings that fly to a destination.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.PulseStyle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.PulseStyle.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.PulseStyle",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.RainGlass.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.RainGlass.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.RainGlass",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.RainGlass.yml\" sourcestartlinenumber=\"1\">Rain on a misted pane over what is under it: beads that come and go, fine droplets, and drops\nthat slide down in fits and starts, leaving a clear wet trail dotted with droplets. Each drop\nis a small lens showing what is behind it upside down. <xref href=\"Nova.Avalonia.FX.RainGlass.Fog\" data-throw-if-not-resolved=\"false\"></xref> mists the glass\nbetween them. Under reduced motion the drops hold still.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.RetroGrid.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.RetroGrid.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.RetroGrid",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.RetroGrid.yml\" sourcestartlinenumber=\"1\">A synthwave floor: glowing grid lines running toward a horizon under a gradient sky, with a\nstriped sun. For hero sections and splash screens; as a fill it paints the shape under the child.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Reveal.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Reveal.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Reveal",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Reveal.yml\" sourcestartlinenumber=\"1\">Shows or hides the host's content with a dissolve, a burn, a pixelate, an iris, a wipe, a melt,\na clock wipe, a grid of diamonds, a swirl, halftone dots, or noise resolving into it.\nSet <xref href=\"Nova.Avalonia.FX.Reveal.IsShown\" data-throw-if-not-resolved=\"false\"></xref> (or call <xref href=\"Nova.Avalonia.FX.FXTransitionLayer.Show(System.Nullable%7bAvalonia.Point%7d)\" data-throw-if-not-resolved=\"false\"></xref> and\n<xref href=\"Nova.Avalonia.FX.FXTransitionLayer.Hide(System.Nullable%7bAvalonia.Point%7d)\" data-throw-if-not-resolved=\"false\"></xref>): the layer captures the content as it looks, hides the\nreal element and plays the transition on the capture, then hands back to the element. While\nhidden the element is invisible but keeps its place in the layout. With nothing to capture yet\n(invisible, or not laid out) it switches at once. Under reduced motion it fades.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.RevealStyle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.RevealStyle.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.RevealStyle",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Shatter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Shatter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Shatter",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Shatter.yml\" sourcestartlinenumber=\"1\">Breaks the content into glass shards that fly apart and fall, or turns it to dust that blows\naway (hide), and brings it back together (show): for delete, dismiss and undo. Set\n<xref href=\"Nova.Avalonia.FX.Shatter.IsShown\" data-throw-if-not-resolved=\"false\"></xref>, or call <xref href=\"Nova.Avalonia.FX.FXTransitionLayer.Hide(System.Nullable%7bAvalonia.Point%7d)\" data-throw-if-not-resolved=\"false\"></xref> and\n<xref href=\"Nova.Avalonia.FX.FXTransitionLayer.Show(System.Nullable%7bAvalonia.Point%7d)\" data-throw-if-not-resolved=\"false\"></xref> with the point the break starts from. Shards are cut\naround that point, smaller near it; dust leaves from that point outward or, with no point,\nfrom the side the wind blows toward. The pieces are drawn with Skia directly from a capture\nof the content, which is hidden while they fly. Under reduced motion it is a short fade.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.ShatterStyle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.ShatterStyle.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.ShatterStyle",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Shimmer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Shimmer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Shimmer",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Shimmer.yml\" sourcestartlinenumber=\"1\">A sheen band sweeping across the shape: skeleton loaders and &quot;Thinking…&quot; surfaces. The band\nstarts and ends off the shape, so it never cuts. Under reduced motion the surface breathes.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Shockwave.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Shockwave.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Shockwave",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Shockwave.yml\" sourcestartlinenumber=\"1\">A one-shot ring of compressed air that bends what is behind it as it spreads from a point, with\na color split at the front, a highlight where there is content to catch it, and a faint rim so\nit still reads over a plain backdrop. Shots overlap.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Silk.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Silk.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Silk",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Silk.yml\" sourcestartlinenumber=\"1\">A background of soft satin folds that flow slowly: a few warped folds lit by one soft light,\nshading into their creases with a broad sheen along the ridges. For hero sections, sign-in\npages and cards; as a fill it paints the shape under the child.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.SilkPreset.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.SilkPreset.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.SilkPreset",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Sparkles.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Sparkles.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Sparkles",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Sparkles.yml\" sourcestartlinenumber=\"1\">Crisp four-point stars around the shape, each with its own size (mostly small, a few large),\ntwinkle rate and spin. Continuous stars rest between appearances so only a few are lit at\nonce. <xref href=\"Nova.Avalonia.FX.Sparkles.Burst\" data-throw-if-not-resolved=\"false\"></xref> pops every star once and flings it out a little.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Spoiler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Spoiler.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Spoiler",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Spoiler.yml\" sourcestartlinenumber=\"1\">Hides the host's content until it is revealed, as messaging apps hide spoilers: shimmering dust\nover a heavy blur, a mosaic, or a solid cover. A tap opens it in a soft circle from the tap\npoint; <xref href=\"Nova.Avalonia.FX.Spoiler.IsRevealed\" data-throw-if-not-resolved=\"false\"></xref> binds both ways, and <xref href=\"Nova.Avalonia.FX.Spoiler.HideAfter\" data-throw-if-not-resolved=\"false\"></xref> covers it again.\nWrap a TextBlock (or any element) in an <xref href=\"Nova.Avalonia.FX.FXHost\" data-throw-if-not-resolved=\"false\"></xref> with this layer.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.SpoilerStyle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.SpoilerStyle.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.SpoilerStyle",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Spotlight.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Spotlight.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Spotlight",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Spotlight.yml\" sourcestartlinenumber=\"1\">A soft light that follows the pointer across the shape and lights the border nearest to it,\nfading in when the pointer arrives and out when it leaves. It also reacts to a pointer just\noutside the shape (within <xref href=\"Nova.Avalonia.FX.Spotlight.PointerReach\" data-throw-if-not-resolved=\"false\"></xref>), so the border lights up as the pointer\napproaches. Idle, it draws nothing and costs nothing.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Starfield.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Starfield.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Starfield",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Starfield.yml\" sourcestartlinenumber=\"1\">A night sky: twinkling stars in three depths, shooting stars, or warp streaks.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.StarfieldStyle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.StarfieldStyle.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.StarfieldStyle",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Swirl.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Swirl.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Swirl",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Swirl.yml\" sourcestartlinenumber=\"1\">Colors stirred into a slow swirl: a twist around the center over twice domain-warped noise,\nthrough the color ramp (blended in OKLab).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.SwirlPreset.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.SwirlPreset.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.SwirlPreset",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Tilt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Tilt.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Tilt",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Tilt.yml\" sourcestartlinenumber=\"1\">The host leans toward the pointer in 3D and grows a little, and a glare slides across it with\nthe pointer, like a card turned under a light. The lean is a perspective render transform on\nthe host, so the host's other layers (a glow, a shadow) lean with it; it eases on every frame\nwhile it moves and is removed once the host settles flat. While it leans it takes the place of\na render transform set on the host itself. Under reduced motion the host stays flat and only\nthe glare follows the pointer.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Topography.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Topography.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Topography",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Topography.yml\" sourcestartlinenumber=\"1\">The contour lines of a slowly changing landscape, like a topographic map: thin lines of even\nwidth wherever the slope is, every fifth one bolder. A calm background for a hero or an empty\nstate. Under reduced motion it holds still.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Trail.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Trail.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Trail",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Trail.yml\" sourcestartlinenumber=\"1\">A trail behind the pointer as it moves over the host: a glowing ribbon or a stream of sparks,\nhead color to tail color. A still pointer leaves nothing, so idle it costs nothing; under\nreduced motion there is no trail.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.TrailStyle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.TrailStyle.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.TrailStyle",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.VoiceOrb.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.VoiceOrb.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.VoiceOrb",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.VoiceOrb.yml\" sourcestartlinenumber=\"1\">A living orb of color for voice input: three soft lights drift inside a glassy sphere, their\ncolors meeting smoothly, with a glow around it. Bind <xref href=\"Nova.Avalonia.FX.VoiceOrb.Level\" data-throw-if-not-resolved=\"false\"></xref> to the microphone\nlevel: the orb swells, its edge rolls and the lights drift faster as it rises. Level changes\nare eased (quick to rise, slower to fall), so a raw meter reading looks smooth.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.VoiceWave.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.VoiceWave.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.VoiceWave",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.VoiceWave.yml\" sourcestartlinenumber=\"1\">Glowing waves across the shape that swell with the voice: three colors crossing each other\nunder an envelope that pinches them to nothing at the ends, lying almost flat and drifting\nslowly when quiet. Bind <xref href=\"Nova.Avalonia.FX.VoiceWave.Level\" data-throw-if-not-resolved=\"false\"></xref> to the microphone level; changes are eased (quick\nto rise, slower to fall), and the waves drift faster as it rises, without jumping. Pairs with\n<xref href=\"Nova.Avalonia.FX.VoiceOrb\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Voronoi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Voronoi.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Voronoi",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Voronoi.yml\" sourcestartlinenumber=\"1\">Cells around seed points that orbit slowly, with exact seams and cells shaded toward their rim.\nEach cell takes one of the colors.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.VoronoiPreset.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.VoronoiPreset.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.VoronoiPreset",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Water.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Water.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Water",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Water.yml\" sourcestartlinenumber=\"1\">The content under a sheet of water: moving the pointer over it drags ripples across the\nsurface, a press drops a splash, and <xref href=\"Nova.Avalonia.FX.Water.Rain\" data-throw-if-not-resolved=\"false\"></xref> lets drops fall on their own. The waves\nbend what is under them and catch the light. A small wave simulation runs on the render\nthread only while the water moves; calm water draws nothing and costs nothing.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Waves.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Waves.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Waves",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Waves.yml\" sourcestartlinenumber=\"1\">Layered bands of color, one per color from back to front, with rolling, swaying crests; each\nfront band shades the one behind it.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.WavesPreset.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.WavesPreset.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.WavesPreset",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.Weather.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.Weather.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.Weather",
+      "Summary": "<p sourcefile=\"api/Nova.Avalonia.FX.Weather.yml\" sourcestartlinenumber=\"1\">Rain streaks or snowflakes falling in three depths, slanted by the wind, over the shape.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.WeatherStyle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.WeatherStyle.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX.WeatherStyle",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nova.Avalonia.FX.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nova.Avalonia.FX.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Nova.Avalonia.FX",
+      "Summary": null
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".json": {
+          "relative_path": "api/toc.json"
+        },
+        ".html": {
+          "relative_path": "api/toc.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "beam.gif",
+      "output": {
+        "resource": {
+          "relative_path": "beam.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "beams.gif",
+      "output": {
+        "resource": {
+          "relative_path": "beams.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/concepts/content-masks.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/concepts/content-masks.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/concepts/layers.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/concepts/layers.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/concepts/light-and-dark.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/concepts/light-and-dark.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/concepts/one-shots-and-pointer.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/concepts/one-shots-and-pointer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/concepts/performance.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/concepts/performance.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/concepts/reduced-motion.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/concepts/reduced-motion.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/ambientglow.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/ambientglow.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/ascii.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/ascii.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/aurora.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/aurora.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/beam.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/beam.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/beams.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/beams.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/bokeh.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/bokeh.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/borderbeam.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/borderbeam.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/caustics.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/caustics.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/chromasplit.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/chromasplit.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/coderain.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/coderain.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/colorfilter.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/colorfilter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/confetti.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/confetti.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/crt.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/crt.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/dither.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/dither.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/dotgrid.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/dotgrid.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/electric.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/electric.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/fire.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/fire.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/fireworks.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/fireworks.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/flutedglass.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/flutedglass.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/fog.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/fog.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/frost.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/frost.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/genie.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/genie.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/glass.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/glass.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/glitch.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/glitch.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/glow.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/glow.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/grain.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/grain.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/graingradient.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/graingradient.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/halftone.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/halftone.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/heathaze.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/heathaze.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/holofoil.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/holofoil.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/ink.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/ink.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/innershadow.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/innershadow.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/jelly.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/jelly.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/lightleaks.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/lightleaks.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/lightrays.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/lightrays.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/liquidmetal.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/liquidmetal.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/liquidprogress.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/liquidprogress.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/magnifier.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/magnifier.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/meshgradient.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/meshgradient.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/metaballs.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/metaballs.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/motionblur.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/motionblur.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/oldfilm.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/oldfilm.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/outline.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/outline.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/pagepeel.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/pagepeel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/particlenetwork.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/particlenetwork.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/plastic.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/plastic.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/pointershadow.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/pointershadow.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/progressiveblur.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/progressiveblur.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/pulse.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/pulse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/rainglass.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/rainglass.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/retrogrid.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/retrogrid.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/reveal.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/reveal.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/shatter.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/shatter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/shimmer.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/shimmer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/shockwave.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/shockwave.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/silk.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/silk.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/sparkles.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/sparkles.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/spoiler.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/spoiler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/spotlight.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/spotlight.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/starfield.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/starfield.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/swirl.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/swirl.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/tilt.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/tilt.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/topography.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/topography.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/trail.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/trail.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/voiceorb.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/voiceorb.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/voicewave.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/voicewave.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/voronoi.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/voronoi.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/water.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/water.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/waves.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/waves.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/effects/weather.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/effects/weather.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/gallery.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/gallery.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/getting-started.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/getting-started.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/introduction.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/introduction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "docs/toc.yml",
+      "output": {
+        ".json": {
+          "relative_path": "docs/toc.json"
+        },
+        ".html": {
+          "relative_path": "docs/toc.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "effect-page.png",
+      "output": {
+        "resource": {
+          "relative_path": "effect-page.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "favicon.ico",
+      "output": {
+        "resource": {
+          "relative_path": "favicon.ico"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "gallery-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "gallery-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "gallery.png",
+      "output": {
+        "resource": {
+          "relative_path": "gallery.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "glass-page.png",
+      "output": {
+        "resource": {
+          "relative_path": "glass-page.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/ambientglow-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/ambientglow-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/ambientglow-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/ambientglow-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/ascii-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/ascii-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/ascii-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/ascii-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/aurora-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/aurora-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/aurora-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/aurora-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/beam-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/beam-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/beam-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/beam-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/beams-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/beams-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/beams-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/beams-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/bokeh-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/bokeh-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/bokeh-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/bokeh-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/borderbeam-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/borderbeam-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/borderbeam-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/borderbeam-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/caustics-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/caustics-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/caustics-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/caustics-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/chromasplit-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/chromasplit-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/chromasplit-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/chromasplit-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/coderain-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/coderain-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/coderain-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/coderain-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/colorfilter-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/colorfilter-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/colorfilter-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/colorfilter-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/confetti-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/confetti-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/confetti-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/confetti-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/crt-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/crt-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/crt-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/crt-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/dither-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/dither-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/dither-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/dither-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/dotgrid-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/dotgrid-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/dotgrid-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/dotgrid-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/electric-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/electric-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/electric-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/electric-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/fire-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/fire-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/fire-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/fire-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/fireworks-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/fireworks-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/fireworks-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/fireworks-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/flutedglass-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/flutedglass-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/flutedglass-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/flutedglass-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/fog-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/fog-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/fog-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/fog-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/frost-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/frost-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/frost-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/frost-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/genie-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/genie-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/genie-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/genie-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/glass-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/glass-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/glass-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/glass-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/glitch-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/glitch-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/glitch-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/glitch-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/glow-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/glow-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/glow-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/glow-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/grain-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/grain-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/grain-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/grain-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/graingradient-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/graingradient-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/graingradient-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/graingradient-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/halftone-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/halftone-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/halftone-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/halftone-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/heathaze-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/heathaze-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/heathaze-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/heathaze-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/holofoil-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/holofoil-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/holofoil-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/holofoil-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/ink-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/ink-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/ink-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/ink-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/innershadow-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/innershadow-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/innershadow-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/innershadow-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/jelly-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/jelly-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/jelly-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/jelly-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/lightleaks-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/lightleaks-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/lightleaks-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/lightleaks-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/lightrays-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/lightrays-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/lightrays-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/lightrays-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/liquidmetal-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/liquidmetal-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/liquidmetal-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/liquidmetal-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/liquidprogress-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/liquidprogress-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/liquidprogress-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/liquidprogress-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/magnifier-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/magnifier-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/magnifier-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/magnifier-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/meshgradient-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/meshgradient-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/meshgradient-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/meshgradient-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/metaballs-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/metaballs-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/metaballs-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/metaballs-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/motionblur-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/motionblur-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/motionblur-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/motionblur-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/oldfilm-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/oldfilm-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/oldfilm-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/oldfilm-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/outline-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/outline-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/outline-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/outline-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/pagepeel-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/pagepeel-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/pagepeel-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/pagepeel-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/particlenetwork-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/particlenetwork-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/particlenetwork-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/particlenetwork-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/plastic-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/plastic-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/plastic-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/plastic-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/pointershadow-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/pointershadow-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/pointershadow-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/pointershadow-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/progressiveblur-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/progressiveblur-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/progressiveblur-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/progressiveblur-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/pulse-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/pulse-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/pulse-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/pulse-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/rainglass-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/rainglass-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/rainglass-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/rainglass-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/retrogrid-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/retrogrid-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/retrogrid-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/retrogrid-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/reveal-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/reveal-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/reveal-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/reveal-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/shatter-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/shatter-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/shatter-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/shatter-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/shimmer-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/shimmer-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/shimmer-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/shimmer-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/shockwave-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/shockwave-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/shockwave-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/shockwave-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/silk-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/silk-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/silk-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/silk-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/sparkles-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/sparkles-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/sparkles-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/sparkles-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/spoiler-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/spoiler-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/spoiler-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/spoiler-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/spotlight-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/spotlight-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/spotlight-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/spotlight-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/starfield-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/starfield-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/starfield-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/starfield-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/swirl-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/swirl-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/swirl-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/swirl-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/tilt-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/tilt-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/tilt-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/tilt-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/topography-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/topography-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/topography-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/topography-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/trail-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/trail-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/trail-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/trail-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/voiceorb-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/voiceorb-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/voiceorb-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/voiceorb-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/voicewave-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/voicewave-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/voicewave-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/voicewave-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/voronoi-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/voronoi-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/voronoi-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/voronoi-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/water-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/water-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/water-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/water-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/waves-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/waves-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/waves-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/waves-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/weather-dark.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/weather-dark.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/effects/weather-light.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/effects/weather-light.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "ink.gif",
+      "output": {
+        "resource": {
+          "relative_path": "ink.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "logo.png",
+      "output": {
+        "resource": {
+          "relative_path": "logo.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "reveal-generate.gif",
+      "output": {
+        "resource": {
+          "relative_path": "reveal-generate.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".json": {
+          "relative_path": "toc.json"
+        },
+        ".html": {
+          "relative_path": "toc.html"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Dither | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Dither | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="A tone quantized into a few colors in square pixels, with Bayer, blue-noise or white-noise patterns.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/dither.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="dither">Dither</h1>
+
+<p>Retro, one-bit graphics: a tone (a ramp, a radial glow, drifting noise, or what is drawn behind the layer) is quantized into a few colors in square pixels, with an ordered pattern that turns shades into checkers and dots. Two colors give one-bit art; more give a small palette, like an old handheld's four greens. Use it for retro and game interfaces, posters and textured panels. It is a fill: it paints the host's shape and goes under the child.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/dither-light.png" alt="Dither on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/dither-dark.png" alt="Dither on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-a-dither">Add a dither</h2>
+<p>The fill goes under the child, so leave the child without a background:</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;fx:FXHost CornerRadius=&quot;16&quot;&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:Dither /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Border Width=&quot;340&quot; Height=&quot;190&quot; /&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<p>The default <code>Bayer</code> preset dithers a diagonal ramp into two colors.</p>
+<h2 id="presets-and-inputs">Presets and inputs</h2>
+<p>Each preset brings a palette and sets <code>Pattern</code>, <code>Input</code>, <code>PixelSize</code> and <code>Contrast</code>. Set any of them yourself to adjust a preset. <code>Input</code> picks the tone that is dithered.</p>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<h3 id="preset">Preset</h3>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Bayer</code> (default)</td>
+<td>One-bit Bayer 4×4 over a diagonal ramp.</td>
+</tr>
+<tr>
+<td><code>Handheld</code></td>
+<td>Four greens, Bayer 8×8, over drifting noise.</td>
+</tr>
+<tr>
+<td><code>Grain</code></td>
+<td>One-bit blue noise over a radial ramp.</td>
+</tr>
+<tr>
+<td><code>Backdrop</code></td>
+<td>One-bit Bayer 4×4 over what is drawn behind it.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="input">Input</h3>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Linear</code> (default)</td>
+<td>A ramp across the shape along the angle.</td>
+</tr>
+<tr>
+<td><code>Radial</code></td>
+<td>Light at the center, dark at the rim.</td>
+</tr>
+<tr>
+<td><code>Noise</code></td>
+<td>Slowly drifting noise.</td>
+</tr>
+<tr>
+<td><code>Backdrop</code></td>
+<td>What is drawn behind the layer, by luminance: re-tones the content under the shape.</td>
+</tr>
+</tbody>
+</table>
+
+<p><code>Handheld</code> drifts slowly in four greens. A label in the darkest green sits well on it:</p>
+<pre><code class="lang-xaml">&lt;fx:FXHost CornerRadius=&quot;16&quot;&gt;
+    &lt;fx:FXHost.Layers&gt;
+        &lt;fx:Dither Preset=&quot;Handheld&quot; /&gt;
+    &lt;/fx:FXHost.Layers&gt;
+    &lt;Border Width=&quot;120&quot; Height=&quot;116&quot; Padding=&quot;12&quot;&gt;
+        &lt;TextBlock Text=&quot;Handheld&quot; FontSize=&quot;13&quot; FontWeight=&quot;SemiBold&quot; Foreground=&quot;#0F380F&quot;
+                   VerticalAlignment=&quot;Bottom&quot; /&gt;
+    &lt;/Border&gt;
+&lt;/fx:FXHost&gt;
+</code></pre>
+<h2 id="use-your-own-colors">Use your own colors</h2>
+<p>List the colors in <code>Colors</code> from dark to light, up to six. The darkest tones take the first color, the lightest the last:</p>
+<pre><code class="lang-xaml">&lt;fx:Dither Colors=&quot;#1B1530, #6D597A, #E56B6F, #FFD7A8&quot; /&gt;
+</code></pre>
+<h2 id="choose-the-pattern-and-the-tone">Choose the pattern and the tone</h2>
+<p><code>Pattern</code> sets how the shades break into pixels: <code>Bayer2</code>, <code>Bayer4</code> and <code>Bayer8</code> are ordered grids of 2×2, 4×4 and 8×8 thresholds, with more steps of shade as the grid grows; <code>BlueNoise</code> spreads the pixels evenly with no visible grid; <code>WhiteNoise</code> picks each pixel at random. <code>PixelSize</code> is the size of one dither pixel, in DIPs.</p>
+<p>The tone comes from <code>Input</code>: a <code>Linear</code> ramp along <code>RampAngle</code>, a <code>Radial</code> one (light in the center, dark at the rim), or drifting <code>Noise</code> sized by <code>NoiseScale</code> and moving at <code>FlowSpeed</code>. <code>Bias</code> shifts the tone lighter or darker before it is quantized, and <code>Contrast</code> spreads it:</p>
+<pre><code class="lang-xaml">&lt;fx:Dither Pattern=&quot;BlueNoise&quot; Input=&quot;Noise&quot; PixelSize=&quot;3&quot; NoiseScale=&quot;140&quot; Bias=&quot;0.1&quot; /&gt;
+</code></pre>
+<h2 id="re-tone-what-is-behind">Re-tone what is behind</h2>
+<p>With <code>Input=&quot;Backdrop&quot;</code> (or <code>Preset=&quot;Backdrop&quot;</code>), the dither reads what is drawn behind it and redraws it in its colors, like a one-bit screen. Under the child (the default) it re-tones what is behind the host; with <code>Placement=&quot;Over&quot;</code>, it re-tones the child as well:</p>
+<pre><code class="lang-xaml">&lt;fx:FXHost CornerRadius=&quot;14&quot;&gt;
+    &lt;fx:FXHost.Layers&gt;
+        &lt;fx:Dither Preset=&quot;Backdrop&quot; /&gt;
+    &lt;/fx:FXHost.Layers&gt;
+    &lt;Border Width=&quot;120&quot; Height=&quot;120&quot; /&gt;
+&lt;/fx:FXHost&gt;
+</code></pre>
+<p>Each dither pixel takes the average of what it covers. See <a href="../concepts/layers.html#layers-that-read-the-backdrop">Layers that read the backdrop</a> for the limits.</p>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Preset</code></td>
+<td><code>DitherPreset</code></td>
+<td><code>Bayer</code></td>
+<td>A ready-made look: sets <code>Pattern</code>, <code>Input</code>, <code>PixelSize</code> and <code>Contrast</code>, and the palette used while <code>Colors</code> is unset. Local values win. Values: <code>Bayer</code>, <code>Handheld</code>, <code>Grain</code>, <code>Backdrop</code>.</td>
+</tr>
+<tr>
+<td><code>Colors</code></td>
+<td><code>FXColorList</code></td>
+<td>Unset</td>
+<td>The colors (up to six). Unset: the preset's palette.</td>
+</tr>
+<tr>
+<td><code>Pattern</code></td>
+<td><code>DitherPattern</code></td>
+<td><code>Bayer4</code></td>
+<td>The threshold pattern that spreads in-between tones over the pixels: an ordered Bayer grid, blue noise or white noise. Values: <code>Bayer4</code>, <code>Bayer2</code>, <code>Bayer8</code>, <code>BlueNoise</code>, <code>WhiteNoise</code>.</td>
+</tr>
+<tr>
+<td><code>Input</code></td>
+<td><code>FXToneInput</code></td>
+<td><code>Linear</code></td>
+<td>The tone that is dithered: a linear or radial ramp, drifting noise, or what is drawn behind the layer. Values: <code>Linear</code>, <code>Radial</code>, <code>Noise</code>, <code>Backdrop</code>.</td>
+</tr>
+<tr>
+<td><code>PixelSize</code></td>
+<td><code>double</code></td>
+<td><code>2</code></td>
+<td>Size of one dither pixel. Range 0.5–16 DIPs.</td>
+</tr>
+<tr>
+<td><code>RampAngle</code></td>
+<td><code>double</code></td>
+<td><code>34</code></td>
+<td>Linear input: the way the ramp runs from dark to light, degrees: 0 left to right; positive turns clockwise. Range -180 to 180. Applies to the <code>Linear</code> input.</td>
+</tr>
+<tr>
+<td><code>NoiseScale</code></td>
+<td><code>double</code></td>
+<td><code>90</code></td>
+<td>Noise input: feature size. Range 8–400 DIPs. Applies to the <code>Noise</code> input.</td>
+</tr>
+<tr>
+<td><code>FlowSpeed</code></td>
+<td><code>double</code></td>
+<td><code>0.2</code></td>
+<td>Noise input: drift speed. Range 0–2 per second. Applies to the <code>Noise</code> input.</td>
+</tr>
+<tr>
+<td><code>Bias</code></td>
+<td><code>double</code></td>
+<td><code>0</code></td>
+<td>Shifts the tone before quantizing. Range -1 to 1.</td>
+</tr>
+<tr>
+<td><code>Contrast</code></td>
+<td><code>double</code></td>
+<td><code>1</code></td>
+<td>How far the tone is stretched around its middle before quantizing: above 1 pushes it toward the darkest and lightest colors, below 1 toward the middle ones. Range 0.2–4.</td>
+</tr>
+<tr>
+<td><code>BorderWidth</code></td>
+<td><code>double</code></td>
+<td><code>0</code></td>
+<td>Width of a band inside the edge, DIPs. 0: the whole shape. Range 0–48.</td>
+</tr>
+<tr>
+<td><code>UseMask</code></td>
+<td><code>bool</code></td>
+<td><code>false</code></td>
+<td>Paints only the child's own pixels (text, icons, a logo) instead of the shape: gradient text, a liquid-metal logo, holographic icons. It then goes over the child unless <code>Placement</code> says otherwise. The host captures the child to know its pixels: call <code>RefreshMask</code> after changing something deep inside it.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>:
+<code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>Intensity</strong> is the fill's coverage, from 0 to 1. <code>Seed</code> and <code>Speed</code> only matter with the <code>Noise</code> input.</li>
+<li><strong>Still unless it is noise:</strong> only the <code>Noise</code> input moves. The others hold still and request no frames, unless what is behind a <code>Backdrop</code> dither changes.</li>
+<li><strong>Text on a dither</strong> is hardest to read over the middle of the ramp, where the pattern is busiest. Put labels over its darkest or lightest part.</li>
+<li><strong>Light and dark surfaces:</strong> the dither draws the same on both.</li>
+<li><strong>Reduced motion:</strong> the noise holds one pose. See <a href="../concepts/reduced-motion.html#the-poses">Reduced motion</a>.</li>
+<li><strong>Cost:</strong> 0.040 ms of GPU time per frame on a 340×190 card in the gallery's bench. On the <code>Backdrop</code> input it also copies what is behind it. Leave <code>RenderScale</code> at 1, or the pixels soften.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.Dither.html">Dither</a> API reference</li>
+<li><a href="halftone.html">Halftone</a>, the same tones as print dots</li>
+<li><a href="ascii.html">ASCII</a>, <a href="crt.html">CRT</a> and <a href="graingradient.html">Grain gradient</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/dither.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

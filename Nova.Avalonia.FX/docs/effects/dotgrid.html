@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Dot grid | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Dot grid | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="A grid of dots that flicker at random, light up around the pointer and ripple when pressed.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/dotgrid.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="dot-grid">Dot grid</h1>
+
+<p><code>DotGrid</code> draws a grid of small squares or dots that flicker at random, each fading between levels: a quiet, technical background for a dashboard, an empty state or a sign-in page. Dots near the pointer light up and grow, and a press sends a ring out across the grid. It's a fill that draws only the dots, under the child, so whatever is behind the host shows between them.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/dotgrid-light.png" alt="Dot grid on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/dotgrid-dark.png" alt="Dot grid on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-a-dot-grid">Add a dot grid</h2>
+<p>Put the host around the panel. A <code>Transparent</code> background on the panel lets the dots show through and makes the whole panel take presses, so a press anywhere sends a ripple.</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;fx:FXHost x:Name=&quot;DotsHost&quot; CornerRadius=&quot;12&quot;&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:DotGrid x:Name=&quot;Dots&quot; Spacing=&quot;12&quot; /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Border Height=&quot;220&quot; Background=&quot;Transparent&quot;&gt;
+            &lt;TextBlock Text=&quot;No projects yet&quot; HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot; /&gt;
+        &lt;/Border&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<p>To give the panel a color of its own, put that background on a container around the host.</p>
+<h2 id="shape-the-dots">Shape the dots</h2>
+<p>The dots are squares by default; <code>IsRound=&quot;True&quot;</code> makes them round. <code>Spacing</code> is the distance between dot centers and <code>DotSize</code> their size, both in DIPs. <code>MaxOpacity</code> is how strong the brightest dots get at rest, and <code>Floor</code> the dimmest they get, as a share of the brightest. Lit dots go most of the way to full strength, whatever <code>MaxOpacity</code> is. <code>FlickerRate</code> is how often each dot changes level a second; at 0 the grid is still and asks for frames only while the pointer moves over it or a ring runs.</p>
+<pre><code class="lang-xaml">&lt;fx:DotGrid IsRound=&quot;True&quot; Spacing=&quot;16&quot; DotSize=&quot;2.5&quot; Color=&quot;#94A3B8&quot;
+            MaxOpacity=&quot;0.35&quot; FlickerRate=&quot;0&quot; /&gt;
+</code></pre>
+<h2 id="light-up-around-the-pointer">Light up around the pointer</h2>
+<p>Dots within <code>HoverRadius</code> DIPs of the pointer (90 by default) light up and grow, and they ease after it as it moves. The host listens to the window's pointer, so this works over any part of the panel. Set <code>HoverRadius=&quot;0&quot;</code> to turn it off.</p>
+<p><code>PointAt</code> lights the dots from code, as if the pointer were there, for example around a field with keyboard focus. Pass <code>null</code> to let them go:</p>
+<pre><code class="lang-csharp">EmailBox.GotFocus += (_, _) =&gt;
+{
+    var center = new Point(EmailBox.Bounds.Width / 2, EmailBox.Bounds.Height / 2);
+    Dots.PointAt(EmailBox.TranslatePoint(center, DotsHost));
+};
+EmailBox.LostFocus += (_, _) =&gt; Dots.PointAt(null);
+</code></pre>
+<h2 id="send-ripples">Send ripples</h2>
+<p>With <code>RippleOnPress</code> on (the default), a press sends a ring out from where it lands; the dots it passes light up. <code>RippleSpeed</code> is how fast the ring travels, in DIPs a second, and <code>RippleWidth</code> how wide it is. A ring fades once it has crossed the shape, and up to four run at once: a fifth replaces the oldest.</p>
+<p><code>Ripple</code> sends one from code, from a point in the host's coordinates or, without one, from the center:</p>
+<pre><code class="lang-csharp">// New results arrived: ripple from the middle of the grid.
+Dots.Ripple();
+</code></pre>
+<h2 id="methods">Methods</h2>
+<p>Call these to light the grid or send a ring from code: for keyboard focus, a guided tour, or an event in your app.</p>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ripple(Point? at = null)</code></td>
+<td>Sends a ring out across the grid from <code>at</code> (host coordinates), or from the center.</td>
+</tr>
+<tr>
+<td><code>PointAt(Point? at)</code></td>
+<td>Lights the dots around <code>at</code> (host coordinates) as if the pointer were there; null lets them go.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Color</code></td>
+<td><code>Color</code></td>
+<td><code>#7C8CFF</code></td>
+<td>The dots' color.</td>
+</tr>
+<tr>
+<td><code>Spacing</code></td>
+<td><code>double</code></td>
+<td><code>10</code></td>
+<td>Distance between dot centers, in DIPs. Range 3–60.</td>
+</tr>
+<tr>
+<td><code>DotSize</code></td>
+<td><code>double</code></td>
+<td><code>3</code></td>
+<td>Width of a dot, in DIPs; dots near the pointer or a ripple grow up to 1.8 times as wide. Range 0.5–30.</td>
+</tr>
+<tr>
+<td><code>FlickerRate</code></td>
+<td><code>double</code></td>
+<td><code>0.8</code></td>
+<td>Changes of each dot's level per second (0: still). Range 0–6.</td>
+</tr>
+<tr>
+<td><code>MaxOpacity</code></td>
+<td><code>double</code></td>
+<td><code>0.5</code></td>
+<td>How opaque the brightest dots are; dots near the pointer or a ripple go most of the way to full. Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>Floor</code></td>
+<td><code>double</code></td>
+<td><code>0.15</code></td>
+<td>The dimmest a dot gets, as a share of the brightest. Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>IsRound</code></td>
+<td><code>bool</code></td>
+<td><code>false</code></td>
+<td>Draws round dots instead of squares.</td>
+</tr>
+<tr>
+<td><code>HoverRadius</code></td>
+<td><code>double</code></td>
+<td><code>90</code></td>
+<td>How far from the pointer dots light up and grow, DIPs. 0: they don't follow it. Range 0–400.</td>
+</tr>
+<tr>
+<td><code>RippleOnPress</code></td>
+<td><code>bool</code></td>
+<td><code>true</code></td>
+<td>Whether a press sends a ripple out from where it lands.</td>
+</tr>
+<tr>
+<td><code>RippleSpeed</code></td>
+<td><code>double</code></td>
+<td><code>420</code></td>
+<td>How fast a ripple's ring travels, DIPs a second. Range 60–2000 DIPs per second.</td>
+</tr>
+<tr>
+<td><code>RippleWidth</code></td>
+<td><code>double</code></td>
+<td><code>26</code></td>
+<td>How wide a ripple's ring is. Range 4–120 DIPs.</td>
+</tr>
+<tr>
+<td><code>BorderWidth</code></td>
+<td><code>double</code></td>
+<td><code>0</code></td>
+<td>Width of a band inside the edge, DIPs. 0: the whole shape. Range 0–48.</td>
+</tr>
+<tr>
+<td><code>UseMask</code></td>
+<td><code>bool</code></td>
+<td><code>false</code></td>
+<td>Paints only the child's own pixels (text, icons, a logo) instead of the shape: gradient text, a liquid-metal logo, holographic icons. It then goes over the child unless <code>Placement</code> says otherwise. The host captures the child to know its pixels: call <code>RefreshMask</code> after changing something deep inside it.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>: <code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>. On a fill, <code>Intensity</code> is its coverage, up to 1.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>Light and dark surfaces:</strong> the dots are drawn in <code>Color</code> on any surface. The default blue reads on both; for other colors, pick one per theme. See <a href="../concepts/light-and-dark.html#how-light-layers-draw-on-each-surface">Light and dark surfaces</a>.</li>
+<li><strong>Reduced motion:</strong> each dot holds one level, the lit dots jump to the pointer instead of easing, and presses send no ripples. See <a href="../concepts/reduced-motion.html#the-poses">Reduced motion</a>.</li>
+<li><strong>Cost:</strong> about 0.05 ms of GPU time a frame on the benchmark's 340×190 card, among the cheapest layers. See <a href="../concepts/performance.html#what-a-layer-costs">Performance</a>.</li>
+<li><strong>Shared clock:</strong> fills run on one shared clock, so dot grids on different hosts, with the same settings, flicker in step.</li>
+<li><strong>Pointer and presses:</strong> see <a href="../concepts/one-shots-and-pointer.html#one-shots">One-shots and the pointer</a> for how presses and the pointer reach a layer.</li>
+<li><strong>Bands and masks:</strong> like every fill, it has <code>BorderWidth</code>, which paints only a band inside the edge, and <code>UseMask</code>, which paints only the child's own pixels, such as large text. See <a href="../concepts/content-masks.html#layers-that-follow-the-content">Content masks</a>.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.DotGrid.html">DotGrid</a> API reference</li>
+<li><a href="particlenetwork.html">Particle network</a> and <a href="topography.html">Topography</a>, other quiet backgrounds</li>
+<li><a href="spotlight.html">Spotlight</a>, which also follows the pointer</li>
+<li><a href="../concepts/one-shots-and-pointer.html#layers-that-follow-the-pointer">Layers that follow the pointer</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/dotgrid.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

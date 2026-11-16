@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Voice orb | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Voice orb | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="A living orb of color for voice input; it swells and ripples with Level.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/voiceorb.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="voice-orb">Voice orb</h1>
+
+<p>Voice orb draws a living sphere of color: three soft lights drift inside a glassy orb, their colors meeting smoothly, with a glow around it. Bind <code>Level</code> to the microphone and the orb swells, its edge rolls and the lights drift faster as the voice rises. Use it as the face of a voice feature, a dictation button or a call screen. The orb is centered on the host's shape and draws under the child, so an icon or initials can sit on top.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/voiceorb-light.png" alt="Voice orb on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/voiceorb-dark.png" alt="Voice orb on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-a-voice-orb">Add a voice orb</h2>
+<p>Give the host a square child; the orb's radius is a share of its smaller half-size (<code>Size</code>). Here a microphone icon sits on the orb.</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;fx:FXHost CornerRadius=&quot;56&quot; Margin=&quot;40&quot;&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:VoiceOrb Level=&quot;{Binding MicLevel}&quot; /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Border Width=&quot;112&quot; Height=&quot;112&quot;&gt;
+            &lt;Path Data=&quot;M12,3 A3,3 0 0 0 9,6 L9,12 A3,3 0 0 0 15,12 L15,6 A3,3 0 0 0 12,3 Z M18,12 A6,6 0 0 1 6,12 M12,18 L12,21&quot;
+                  Stroke=&quot;White&quot; StrokeThickness=&quot;2&quot; StrokeLineCap=&quot;Round&quot;
+                  Width=&quot;26&quot; Height=&quot;26&quot; Stretch=&quot;Uniform&quot; /&gt;
+        &lt;/Border&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<h2 id="follow-the-voice">Follow the voice</h2>
+<p><code>Level</code> runs from 0 (quiet) to 1 (loud). Set it from your microphone meter as often as you get readings; the layer eases changes, rising quickly and falling more slowly, so a jumpy reading looks like a smooth swell.</p>
+<pre><code class="lang-csharp">// Orb is the VoiceOrb layer; called whenever the audio meter reports a new peak (0..1).
+private void OnMeterLevel(double peak)
+{
+    Dispatcher.UIThread.Post(() =&gt; Orb.Level = peak);
+}
+</code></pre>
+<h2 id="color-and-shape">Color and shape</h2>
+<p><code>Color</code>, <code>SecondColor</code> and <code>ThirdColor</code> are the three lights; they blend through their own middle rather than through gray. <code>Size</code> sets the orb at rest, <code>Glow</code> the light around it (0 for none), and <code>Turbulence</code> how much the lights bend as they drift.</p>
+<pre><code class="lang-xaml">&lt;fx:VoiceOrb Color=&quot;#34D399&quot; SecondColor=&quot;#22D3EE&quot; ThirdColor=&quot;#A78BFA&quot;
+             Size=&quot;0.7&quot; Glow=&quot;1.4&quot; Turbulence=&quot;0.6&quot; /&gt;
+</code></pre>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Level</code></td>
+<td><code>double</code></td>
+<td><code>0</code></td>
+<td>How loud, 0..1: bind it to the microphone level. Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>Color</code></td>
+<td><code>Color</code></td>
+<td><code>#7C5CFF</code></td>
+<td>The first light's color.</td>
+</tr>
+<tr>
+<td><code>SecondColor</code></td>
+<td><code>Color</code></td>
+<td><code>#22D3EE</code></td>
+<td>The second light's color.</td>
+</tr>
+<tr>
+<td><code>ThirdColor</code></td>
+<td><code>Color</code></td>
+<td><code>#EC4899</code></td>
+<td>The third light's color.</td>
+</tr>
+<tr>
+<td><code>Size</code></td>
+<td><code>double</code></td>
+<td><code>0.8</code></td>
+<td>The orb's radius at rest, as a share of the shape's smaller half-size. Range 0.3–1 (30–100%).</td>
+</tr>
+<tr>
+<td><code>Glow</code></td>
+<td><code>double</code></td>
+<td><code>1</code></td>
+<td>The glow around the orb, a multiple: 1 is the default, 0 none. Range 0–2.</td>
+</tr>
+<tr>
+<td><code>Turbulence</code></td>
+<td><code>double</code></td>
+<td><code>1</code></td>
+<td>How much the lights bend as they drift. Range 0–2.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>:
+<code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>. On the orb, <code>Intensity</code> dims the layer, and <code>Seed</code> sets where each light starts its orbit, so two orbs never move in step.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>Light and dark surfaces.</strong> The orb looks much the same on both; its glassy rim is fainter on a light surface. See <a href="../concepts/light-and-dark.html#how-light-layers-draw-on-each-surface">Light and dark surfaces</a>.</li>
+<li><strong>Reduced motion.</strong> The colors hold still, and the orb still swells with <code>Level</code>. See <a href="../concepts/reduced-motion.html#the-poses">Reduced motion</a>.</li>
+<li><strong>Cost.</strong> The orb moves all the time, even at a <code>Level</code> of 0, so it redraws every frame while it is active. Its glow covers more area than most layers (about 0.8 Mpx on the bench's 340×190 card), and the cost grows with the area. Set <code>IsActive</code> to <code>False</code> while the app isn't listening. See <a href="../concepts/performance.html#what-a-layer-costs">Performance</a>.</li>
+<li><strong>Room around the host.</strong> The glow reaches past the shape by about the orb's radius. A clipping ancestor cuts it off: leave room around the host.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.VoiceOrb.html">VoiceOrb</a> API reference</li>
+<li><a href="voicewave.html">Voice wave</a>, glowing waves that swell with the same level</li>
+<li><a href="pulse.html">Pulse</a>, a breathing halo for a simpler listening state</li>
+<li><a href="glow.html">Glow</a>, light around a shape</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/voiceorb.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

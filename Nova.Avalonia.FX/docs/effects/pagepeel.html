@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Page peel | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Page peel | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="When hovered, a corner of the element curls up like a sticker or a page and shows its back, peeling further as the pointer nears it.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/pagepeel.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="page-peel">Page peel</h1>
+
+<p>Page peel curls a corner of the element up when it is hovered, like a sticker or a page, showing its back with a shadow under the curl. It peels further as the pointer nears the corner and settles back when the pointer leaves. Use it on stickers, notes and cards, or as a hint that there is more underneath. While peeled, the layer draws a capture of the content over it.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/pagepeel-light.png" alt="Page peel on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/pagepeel-dark.png" alt="Page peel on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-a-page-peel">Add a page peel</h2>
+<p>Add the layer to a host around the element; hover it to peel:</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;fx:FXHost CornerRadius=&quot;16&quot; HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot;&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:PagePeel Amount=&quot;0.22&quot; /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Border Width=&quot;200&quot; Height=&quot;120&quot; CornerRadius=&quot;16&quot; Background=&quot;#f97316&quot;&gt;
+            &lt;TextBlock Text=&quot;Sticker&quot; Foreground=&quot;White&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;18&quot;
+                       HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot; /&gt;
+        &lt;/Border&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<h2 id="hold-it-peeled">Hold it peeled</h2>
+<p><code>IsPeeled</code> holds the corner peeled without a hover, for example while a card has notes on its back:</p>
+<pre><code class="lang-xaml">&lt;fx:PagePeel x:Name=&quot;CardPeel&quot; IsPeeled=&quot;{Binding HasNotes}&quot; /&gt;
+</code></pre>
+<pre><code class="lang-csharp">private void OnTogglePeel(object? sender, RoutedEventArgs e) =&gt; CardPeel.IsPeeled = !CardPeel.IsPeeled;
+</code></pre>
+<p>A peel set in XAML before the content is laid out waits for the first layout pass, then peels. Hovering still peels while <code>IsPeeled</code> is false; the corner settles back when neither holds it.</p>
+<h2 id="pick-the-corner-and-the-curl">Pick the corner and the curl</h2>
+<p><code>Corner</code> picks the corner that curls (<code>BottomRight</code> by default). <code>Amount</code> is how far it peels on hover, as a share of the shape's diagonal, and <code>CurlRadius</code> the largest radius of the curl. <code>BackColor</code> colors the back, and <code>Shadow</code> sets the strength of the shadow the curl casts.</p>
+<pre><code class="lang-xaml">&lt;fx:PagePeel Corner=&quot;TopRight&quot; Amount=&quot;0.3&quot; CurlRadius=&quot;14&quot; BackColor=&quot;#f4f1ea&quot; Shadow=&quot;0.5&quot; /&gt;
+</code></pre>
+<p>On a round shape, such as an avatar, the corner lies mostly outside the circle: raise <code>Amount</code> so the peel reaches the edge. <code>BackColor</code> is a plain color; for a back that follows the theme, bind it to a <code>DynamicResource</code> color.</p>
+<h2 id="follow-the-pointer-or-not">Follow the pointer, or not</h2>
+<p>With <code>FollowPointer</code> on (the default), the corner peels further as the pointer nears it. Turn it off for a fixed peel of <code>Amount</code> while hovered. <code>Duration</code> is how long the corner takes to peel or settle back (0.28 seconds by default); the layer's <code>Speed</code> doesn't apply.</p>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Corner</code></td>
+<td><code>FXCorner</code></td>
+<td><code>BottomRight</code></td>
+<td>The corner that curls up (default: the bottom right). Values: <code>TopLeft</code>, <code>TopRight</code>, <code>BottomRight</code>, <code>BottomLeft</code>.</td>
+</tr>
+<tr>
+<td><code>Amount</code></td>
+<td><code>double</code></td>
+<td><code>0.16</code></td>
+<td>How far it peels on hover, as a share of the shape's diagonal. Range 0.02–0.6 (2–60%).</td>
+</tr>
+<tr>
+<td><code>CurlRadius</code></td>
+<td><code>double</code></td>
+<td><code>10</code></td>
+<td>Radius of the curl, at most: a short peel rolls tighter, so a flap always shows. Range 2–60 DIPs.</td>
+</tr>
+<tr>
+<td><code>BackColor</code></td>
+<td><code>Color</code></td>
+<td><code>#F4F1EA</code></td>
+<td>The color of the back.</td>
+</tr>
+<tr>
+<td><code>Shadow</code></td>
+<td><code>double</code></td>
+<td><code>0.35</code></td>
+<td>How dark the shadow under the curl is (0: none). Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>Duration</code></td>
+<td><code>double</code></td>
+<td><code>0.28</code></td>
+<td>How long it takes to peel or settle back. Range 0.05–1 seconds.</td>
+</tr>
+<tr>
+<td><code>FollowPointer</code></td>
+<td><code>bool</code></td>
+<td><code>true</code></td>
+<td>Peels further as the pointer nears the corner.</td>
+</tr>
+<tr>
+<td><code>IsPeeled</code></td>
+<td><code>bool</code></td>
+<td><code>false</code></td>
+<td>Holds it peeled without a hover.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>:
+<code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>. Page peel has no randomness and no clock of its own, so <code>Seed</code> and <code>Speed</code> do nothing. While <code>IsActive</code> is off, it doesn't peel.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>A capture while peeled.</strong> The capture is taken when the peel begins, and the real content is hidden under it but still takes input. Changes to the content show once the corner has settled back.</li>
+<li><strong>Light and dark.</strong> The page draws the same on both surfaces; pick a <code>BackColor</code> that suits your theme.</li>
+<li><strong>Reduced motion.</strong> A quick peel. See <a href="../concepts/reduced-motion.html#the-poses">the poses</a>.</li>
+<li><strong>Cost.</strong> Under 0.1 ms of GPU time a frame on a card while it peels; flat and not hovered, it draws nothing. See <a href="../concepts/performance.html#what-a-layer-costs">What a layer costs</a>.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.PagePeel.html">PagePeel</a> API reference</li>
+<li><a href="../concepts/one-shots-and-pointer.html#layers-that-follow-the-pointer">Layers that follow the pointer</a></li>
+<li><a href="jelly.html">Jelly</a>, which also stands in for the content while it plays</li>
+<li><a href="tilt.html">Tilt</a> and <a href="holofoil.html">Holo foil</a>, for cards that answer the pointer</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/pagepeel.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

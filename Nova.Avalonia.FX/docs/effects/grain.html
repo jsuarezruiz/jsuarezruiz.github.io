@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Grain | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Grain | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="Film grain inside the shape, static or animated at a set frame rate.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/grain.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="grain">Grain</h1>
+
+<p>Fine film grain inside the shape: specks a little lighter and a little darker than what is beneath them, one device pixel each. It adds texture to gradients, pictures and flat fills, and breaks up banding in soft color ramps. It draws over the host's child, and it is static by default, so it never shimmers and costs nothing after its first frame.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/grain-light.png" alt="Grain on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/grain-dark.png" alt="Grain on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-grain">Add grain</h2>
+<p>Put a <code>Grain</code> over a card with a picture or a gradient:</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;fx:FXHost&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:Grain Amount=&quot;0.09&quot; /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Border Width=&quot;340&quot; Height=&quot;190&quot; CornerRadius=&quot;16&quot;&gt;
+            &lt;Border.Background&gt;
+                &lt;LinearGradientBrush StartPoint=&quot;0%,0%&quot; EndPoint=&quot;100%,100%&quot;&gt;
+                    &lt;GradientStop Color=&quot;#7C3AED&quot; Offset=&quot;0&quot; /&gt;
+                    &lt;GradientStop Color=&quot;#EC4899&quot; Offset=&quot;0.55&quot; /&gt;
+                    &lt;GradientStop Color=&quot;#F59E0B&quot; Offset=&quot;1&quot; /&gt;
+                &lt;/LinearGradientBrush&gt;
+            &lt;/Border.Background&gt;
+        &lt;/Border&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<p>The default <code>Amount</code> of 0.03 is subtle on purpose. Raise it for a stronger, more visible texture.</p>
+<h2 id="add-grain-to-a-fill">Add grain to a fill</h2>
+<p>Grain goes over the child and fills go under it, so a fill and a grain in the same host sandwich the content. This gives a mesh gradient a printed, analog look:</p>
+<pre><code class="lang-xaml">&lt;fx:FXHost&gt;
+    &lt;fx:FXHost.Layers&gt;
+        &lt;fx:MeshGradient Preset=&quot;Dusk&quot; /&gt;
+        &lt;fx:Grain Amount=&quot;0.05&quot; /&gt;
+    &lt;/fx:FXHost.Layers&gt;
+    &lt;Border Width=&quot;260&quot; Height=&quot;116&quot; CornerRadius=&quot;16&quot; Padding=&quot;16&quot;&gt;
+        &lt;TextBlock Text=&quot;Dusk&quot; FontSize=&quot;19&quot; FontWeight=&quot;Bold&quot; Foreground=&quot;White&quot;
+                   VerticalAlignment=&quot;Bottom&quot; /&gt;
+    &lt;/Border&gt;
+&lt;/fx:FXHost&gt;
+</code></pre>
+<h2 id="animate-the-grain">Animate the grain</h2>
+<p><code>Fps</code> draws new grain that many times a second, like film running through a projector. At 0 (the default) the grain holds still:</p>
+<pre><code class="lang-xaml">&lt;fx:Grain Amount=&quot;0.08&quot; Fps=&quot;24&quot; /&gt;
+</code></pre>
+<p><code>Feather</code> fades the grain in from the shape's edge, in DIPs.</p>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Amount</code></td>
+<td><code>double</code></td>
+<td><code>0.03</code></td>
+<td>How strong the grain is: how far each pixel is lightened or darkened. Range 0–0.3 (0–30%).</td>
+</tr>
+<tr>
+<td><code>Fps</code></td>
+<td><code>double</code></td>
+<td><code>0</code></td>
+<td>New grain per second. 0: static. Range 0–60.</td>
+</tr>
+<tr>
+<td><code>Feather</code></td>
+<td><code>double</code></td>
+<td><code>0</code></td>
+<td>How far inside the shape's edge the grain fades in, in DIPs (0: a crisp edge). Range 0–24.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>:
+<code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>Intensity</strong> multiplies <code>Amount</code>, up to 3. <code>Seed</code> picks a different grain pattern.</li>
+<li><strong>Light and dark surfaces:</strong> grain draws the same on both. It reads best over a picture or a gradient; on a plain white card it all but vanishes.</li>
+<li><strong>Reduced motion:</strong> animated grain holds still. See <a href="../concepts/reduced-motion.html#the-poses">Reduced motion</a>.</li>
+<li><strong>Cost:</strong> among the cheapest layers, 0.019 ms of GPU time per frame on a 340×190 card in the gallery's bench, and nothing at all while static. Leave <code>RenderScale</code> at 1: the scale-up pass made grain slower (from about 0.07 ms to 0.10–0.19 ms on a 700×500 panel) and would soften it. See <a href="../concepts/performance.html#render-scale">Render scale</a>.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.Grain.html">Grain</a> API reference</li>
+<li><a href="graingradient.html">Grain gradient</a>, a gradient whose colors stipple into each other through grain</li>
+<li><a href="meshgradient.html">Mesh gradient</a>, <a href="dither.html">Dither</a> and <a href="oldfilm.html">Old film</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/grain.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

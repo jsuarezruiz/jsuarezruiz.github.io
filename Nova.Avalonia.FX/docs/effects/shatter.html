@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Shatter | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Shatter | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="Breaks the content into glass shards that fly apart and fall, or blows it away as dust, and brings it back together to show it.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/shatter.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="shatter">Shatter</h1>
+
+<p>Shatter breaks the host's content into glass shards that fly apart and fall, or turns it to dust that blows away, and brings it back together to show it. It suits delete, dismiss and undo. Like <a href="reveal.html">Reveal</a>, it captures the content, hides the real element while the pieces fly, and hands it back once shown. The pieces are drawn with Skia straight from the capture.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/shatter-light.png" alt="Shatter on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/shatter-dark.png" alt="Shatter on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-a-shatter">Add a shatter</h2>
+<p>Bind <code>IsShown</code>, or call <code>Hide()</code> and <code>Show()</code>. Here a switch breaks the card and puts it back together:</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;StackPanel Spacing=&quot;12&quot; HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot;&gt;
+        &lt;fx:FXHost CornerRadius=&quot;14&quot; ZIndex=&quot;1&quot;&gt;
+            &lt;fx:FXHost.Layers&gt;
+                &lt;fx:Shatter Pieces=&quot;30&quot; IsShown=&quot;{Binding #ShownSwitch.IsChecked}&quot; /&gt;
+            &lt;/fx:FXHost.Layers&gt;
+            &lt;Border Width=&quot;220&quot; Height=&quot;96&quot; CornerRadius=&quot;14&quot; Padding=&quot;16&quot; Background=&quot;#15171c&quot;&gt;
+                &lt;TextBlock Text=&quot;Old draft&quot; Foreground=&quot;White&quot; FontWeight=&quot;SemiBold&quot; /&gt;
+            &lt;/Border&gt;
+        &lt;/fx:FXHost&gt;
+        &lt;ToggleSwitch x:Name=&quot;ShownSwitch&quot; IsChecked=&quot;True&quot; OnContent=&quot;Whole&quot; OffContent=&quot;Broken&quot; /&gt;
+    &lt;/StackPanel&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<h2 id="styles">Styles</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Shards</code> (default)</td>
+<td>Glass shards that fly apart and fall.</td>
+</tr>
+<tr>
+<td><code>Dust</code></td>
+<td>Fine dust that blows away on the wind, from one side or from the point given.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="break-it-from-a-point">Break it from a point</h2>
+<p><code>Hide(toward)</code> takes the point the break starts from, in the host's coordinates. Shards are cut around it, smaller near it; dust leaves from it outward. <code>Show(from)</code> brings the pieces back toward it. With no point, shards break from the center, and dust leaves from the side the wind blows toward (<code>WindAngle</code>).</p>
+<pre><code class="lang-csharp">private void OnCardPressed(object? sender, PointerPressedEventArgs e)
+{
+    var at = e.GetPosition(CardHost);
+    if (CardShatter.IsShown) CardShatter.Hide(at);
+    else CardShatter.Show(at);
+}
+</code></pre>
+<p>The hidden element keeps its place in the layout and still takes presses and keyboard focus, so pressing where the card was brings it back here. Set <code>IsHitTestVisible</code> from the same state if it shouldn't.</p>
+<h2 id="delete-with-undo">Delete with undo</h2>
+<p><code>IsShown</code> is true by default and binds both ways, so <code>Hide()</code> and <code>Show()</code> also update a bound view-model property. Bind it to a property and change that:</p>
+<pre><code class="lang-csharp">// ViewModelBase is any base class that raises PropertyChanged.
+public class MessageViewModel : ViewModelBase
+{
+    private bool _isShown = true;
+
+    public bool IsShown
+    {
+        get =&gt; _isShown;
+        set =&gt; SetProperty(ref _isShown, value);
+    }
+
+    public void Delete() =&gt; IsShown = false;
+
+    public void Undo() =&gt; IsShown = true;
+}
+</code></pre>
+<pre><code class="lang-xaml">&lt;fx:Shatter Style=&quot;Dust&quot; IsShown=&quot;{Binding IsShown}&quot; /&gt;
+</code></pre>
+<p>Set <code>IsShown=&quot;False&quot;</code> in XAML to start hidden, with no transition. If the host shrinks while the pieces fly (a list row collapsing as it is removed), the pieces scale with it rather than being cut again.</p>
+<h2 id="set-the-pace">Set the pace</h2>
+<p><code>Duration</code> is the length of the break, or of the landing, in seconds (1.1 by default). The layer's <code>Speed</code> doesn't apply, and a change applies from the next transition. <code>Force</code> sets how hard the shards fly out and <code>Gravity</code> how fast they fall. For dust, <code>DustSize</code> sets the grain: larger grains keep large content quick.</p>
+<p>With nothing to capture (no child, a child that isn't visible or isn't laid out yet, or <code>IsActive</code> off) the layer switches at once. To play it as a view opens, start hidden and call <code>Show()</code> from the view's <code>Loaded</code> event; <a href="reveal.html#before-the-content-is-laid-out">Reveal</a> shows the pattern.</p>
+<h2 id="methods">Methods</h2>
+<p><code>Show</code> and <code>Hide</code> play the transition from code, from or toward a point.</p>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Show(Point? from = null)</code></td>
+<td>Shows the content, playing the layer's transition from <code>from</code> (host coordinates). Null: the layer's own point.</td>
+</tr>
+<tr>
+<td><code>Hide(Point? toward = null)</code></td>
+<td>Hides the content, playing the layer's transition toward <code>toward</code> (host coordinates). Null: the layer's own point.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Style</code></td>
+<td><code>ShatterStyle</code></td>
+<td><code>Shards</code></td>
+<td>Whether the content breaks into glass shards or blows away as dust. Values: <code>Shards</code>, <code>Dust</code>.</td>
+</tr>
+<tr>
+<td><code>IsShown</code></td>
+<td><code>bool</code></td>
+<td><code>true</code></td>
+<td>Whether the content is shown. Setting it false breaks the content apart; true brings it back together.</td>
+</tr>
+<tr>
+<td><code>Duration</code></td>
+<td><code>double</code></td>
+<td><code>1.1</code></td>
+<td>How long the transition takes, in seconds. Range 0.2–4.</td>
+</tr>
+<tr>
+<td><code>Pieces</code></td>
+<td><code>int</code></td>
+<td><code>36</code></td>
+<td>About how many shards. Range 6–120. Applies to the <code>Shards</code> style.</td>
+</tr>
+<tr>
+<td><code>Force</code></td>
+<td><code>double</code></td>
+<td><code>1</code></td>
+<td>How hard the pieces fly out: the shards' burst, or how hard the wind blows the dust away. Range 0–3.</td>
+</tr>
+<tr>
+<td><code>Gravity</code></td>
+<td><code>double</code></td>
+<td><code>1</code></td>
+<td>How strongly the pieces fall, a multiple of the default (dust falls only gently; 0: they don't fall). Range 0–3.</td>
+</tr>
+<tr>
+<td><code>EdgeHighlight</code></td>
+<td><code>double</code></td>
+<td><code>0.5</code></td>
+<td>The light catching each shard's edges. Range 0–1 (0–100%). Applies to the <code>Shards</code> style.</td>
+</tr>
+<tr>
+<td><code>DustSize</code></td>
+<td><code>double</code></td>
+<td><code>3</code></td>
+<td>The size of a grain of dust (larger grains for large content, to stay quick). Range 1–8 DIPs. Applies to the <code>Dust</code> style.</td>
+</tr>
+<tr>
+<td><code>WindAngle</code></td>
+<td><code>double</code></td>
+<td><code>-25</code></td>
+<td>The way the wind blows the dust, degrees: 0 to the right, -90 up; positive turns clockwise. Range -180 to 180. Applies to the <code>Dust</code> style.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>:
+<code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>. <code>Seed</code> changes how the shards are cut.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>Light and dark.</strong> On a dark surface the light catches each shard's edges in white. On a light one the edges are dark lines, and the shards cast a soft shadow on the page, so a white card's pieces still show. See <a href="../concepts/light-and-dark.html#how-light-layers-draw-on-each-surface">Light and dark surfaces</a>.</li>
+<li><strong>Reduced motion.</strong> It becomes a fade of at most a quarter of a second, with no flying. See <a href="../concepts/reduced-motion.html#the-poses">the poses</a>.</li>
+<li><strong>Cost.</strong> The shards are Skia paths: 0.1–0.4 ms of CPU time a frame while they fly. Dust takes 0.13–0.6 ms of CPU time while it blows. Both swing from run to run. At rest the layer draws nothing. <code>RenderScale</code> doesn't apply. See <a href="../concepts/performance.html#what-a-layer-costs">What a layer costs</a>.</li>
+<li><strong>Room to fly.</strong> Shards fly out and fall well past the host, and dust drifts past its edge. A clipping ancestor cuts them, and a later sibling covers them: leave room, and give the host a higher <code>ZIndex</code>.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.Shatter.html">Shatter</a> API reference</li>
+<li><a href="../concepts/one-shots-and-pointer.html#show-and-hide-transitions">Show and hide transitions</a></li>
+<li><a href="reveal.html">Reveal</a> and <a href="genie.html">Genie</a>, the other show and hide transitions</li>
+<li><a href="confetti.html">Confetti</a>, also drawn as Skia shapes</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/shatter.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

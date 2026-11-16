@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Halftone | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Halftone | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="Print-style dots on a rotated screen, sized by a tone.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/halftone.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="halftone">Halftone</h1>
+
+<p>The look of print: round dots of ink on paper, laid on a rotated screen and sized by a tone, so dots grow and merge where the tone is dark and shrink to specks where it is light. The tone can be a ramp, a radial glow, drifting noise, or what is drawn behind the layer. Use it for comic and editorial styles, posters, retro buttons and textured cards. It is a fill: it paints the host's shape and goes under the child.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/halftone-light.png" alt="Halftone on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/halftone-dark.png" alt="Halftone on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-a-halftone">Add a halftone</h2>
+<p>The fill goes under the child, so leave the child without a background:</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;fx:FXHost&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:Halftone /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Border Width=&quot;220&quot; Height=&quot;56&quot; CornerRadius=&quot;14&quot;&gt;
+            &lt;TextBlock Text=&quot;Generate&quot; FontWeight=&quot;SemiBold&quot; Foreground=&quot;#1B1B1F&quot;
+                       HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot; /&gt;
+        &lt;/Border&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<p>By default the tone is radial: light in the middle, where a centered label sits, and dark at the rim.</p>
+<h2 id="inputs">Inputs</h2>
+<p><code>Input</code> picks the tone the dots follow.</p>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Linear</code></td>
+<td>A ramp across the shape along the angle.</td>
+</tr>
+<tr>
+<td><code>Radial</code> (default)</td>
+<td>Light at the center, dark at the rim.</td>
+</tr>
+<tr>
+<td><code>Noise</code></td>
+<td>Slowly drifting noise.</td>
+</tr>
+<tr>
+<td><code>Backdrop</code></td>
+<td>What is drawn behind the layer, by luminance: re-tones the content under the shape.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="set-the-ink-and-the-paper">Set the ink and the paper</h2>
+<p><code>InkColor</code> is the dots' color and <code>BackgroundColor</code> the paper between them. <code>DotPitch</code> is the distance between dots, and <code>ScreenAngle</code> turns the screen; 0 puts the rows straight across, and the default is 45 degrees, as printed halftones are:</p>
+<pre><code class="lang-xaml">&lt;fx:Halftone InkColor=&quot;#1D4ED8&quot; BackgroundColor=&quot;#FEF3C7&quot; DotPitch=&quot;8&quot; ScreenAngle=&quot;15&quot; /&gt;
+</code></pre>
+<h2 id="shape-the-tone">Shape the tone</h2>
+<p>A <code>Linear</code> tone runs from dark to light along <code>RampAngle</code>; a <code>Noise</code> tone drifts, sized by <code>NoiseScale</code> and moving at <code>FlowSpeed</code>. <code>Contrast</code> spreads the tone, and <code>Bias</code> shifts it: a positive bias lightens it, which clears room for a label in the middle of a small button:</p>
+<pre><code class="lang-xaml">&lt;fx:Halftone Input=&quot;Linear&quot; RampAngle=&quot;90&quot; Bias=&quot;0.45&quot; Contrast=&quot;1.5&quot; /&gt;
+</code></pre>
+<h2 id="re-tone-what-is-behind">Re-tone what is behind</h2>
+<p>With <code>Input=&quot;Backdrop&quot;</code>, the dots follow the brightness of what is drawn behind the layer, each dot the average of its cell, like a newspaper photo. Under the child (the default) it re-tones what is behind the host; with <code>Placement=&quot;Over&quot;</code>, the child as well:</p>
+<pre><code class="lang-xaml">&lt;fx:FXHost CornerRadius=&quot;14&quot;&gt;
+    &lt;fx:FXHost.Layers&gt;
+        &lt;fx:Halftone Input=&quot;Backdrop&quot; InkColor=&quot;#111418&quot; BackgroundColor=&quot;#F4EFE6&quot; DotPitch=&quot;5&quot; /&gt;
+    &lt;/fx:FXHost.Layers&gt;
+    &lt;Border Width=&quot;120&quot; Height=&quot;120&quot; /&gt;
+&lt;/fx:FXHost&gt;
+</code></pre>
+<p>See <a href="../concepts/layers.html#layers-that-read-the-backdrop">Layers that read the backdrop</a> for the limits.</p>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Input</code></td>
+<td><code>FXToneInput</code></td>
+<td><code>Radial</code></td>
+<td>The tone that sizes the dots: a linear or radial ramp, drifting noise, or what is drawn behind the layer. Values: <code>Linear</code>, <code>Radial</code>, <code>Noise</code>, <code>Backdrop</code>.</td>
+</tr>
+<tr>
+<td><code>InkColor</code></td>
+<td><code>Color</code></td>
+<td><code>#1B1B1F</code></td>
+<td>The dots' color.</td>
+</tr>
+<tr>
+<td><code>BackgroundColor</code></td>
+<td><code>Color</code></td>
+<td><code>#F1ECE1</code></td>
+<td>The color between the dots.</td>
+</tr>
+<tr>
+<td><code>DotPitch</code></td>
+<td><code>double</code></td>
+<td><code>6</code></td>
+<td>Distance between dots. Range 2–32 DIPs.</td>
+</tr>
+<tr>
+<td><code>ScreenAngle</code></td>
+<td><code>double</code></td>
+<td><code>45</code></td>
+<td>The dot screen's rotation, degrees: 0 puts the rows straight across; positive turns it clockwise. Range -180 to 180.</td>
+</tr>
+<tr>
+<td><code>RampAngle</code></td>
+<td><code>double</code></td>
+<td><code>34</code></td>
+<td>Linear input: the way the ramp runs from dark to light, degrees: 0 left to right; positive turns clockwise. Range -180 to 180. Applies to the <code>Linear</code> input.</td>
+</tr>
+<tr>
+<td><code>NoiseScale</code></td>
+<td><code>double</code></td>
+<td><code>90</code></td>
+<td>Noise input: feature size. Range 8–400 DIPs. Applies to the <code>Noise</code> input.</td>
+</tr>
+<tr>
+<td><code>FlowSpeed</code></td>
+<td><code>double</code></td>
+<td><code>0.2</code></td>
+<td>Noise input: drift speed. Range 0–2 per second. Applies to the <code>Noise</code> input.</td>
+</tr>
+<tr>
+<td><code>Bias</code></td>
+<td><code>double</code></td>
+<td><code>0</code></td>
+<td>Shifts the tone before the dots are sized: positive lightens it (smaller dots), negative darkens it. Range -1 to 1.</td>
+</tr>
+<tr>
+<td><code>Contrast</code></td>
+<td><code>double</code></td>
+<td><code>1</code></td>
+<td>How far the tone is stretched around its middle before the dots are sized: above 1 pushes dots toward empty or solid. Range 0.2–4.</td>
+</tr>
+<tr>
+<td><code>BorderWidth</code></td>
+<td><code>double</code></td>
+<td><code>0</code></td>
+<td>Width of a band inside the edge, DIPs. 0: the whole shape. Range 0–48.</td>
+</tr>
+<tr>
+<td><code>UseMask</code></td>
+<td><code>bool</code></td>
+<td><code>false</code></td>
+<td>Paints only the child's own pixels (text, icons, a logo) instead of the shape: gradient text, a liquid-metal logo, holographic icons. It then goes over the child unless <code>Placement</code> says otherwise. The host captures the child to know its pixels: call <code>RefreshMask</code> after changing something deep inside it.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>:
+<code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>Intensity</strong> is the fill's coverage, from 0 to 1. <code>Seed</code> and <code>Speed</code> only matter with the <code>Noise</code> input.</li>
+<li><strong>Light and dark surfaces:</strong> on a dark surface the dots leave a margin of paper at the edge, so the shape's outline still shows. See <a href="../concepts/light-and-dark.html#how-light-layers-draw-on-each-surface">Light and dark surfaces</a>.</li>
+<li><strong>Text on a halftone:</strong> dots of either color can sit under a label, so give text a clear tone around it: ink-colored text where the tone is light, paper-colored text where it is dark.</li>
+<li><strong>Still unless it is noise:</strong> only the <code>Noise</code> input moves; the others hold still and request no frames. Under reduced motion the noise holds one pose.</li>
+<li><strong>Cost:</strong> 0.067 ms of GPU time per frame on a 340×190 card in the gallery's bench. On the <code>Backdrop</code> input it also copies what is behind it.</li>
+<li>Like every fill, a halftone can paint only the child's own pixels with <code>UseMask</code>, or a band inside the edge with <code>BorderWidth</code>.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.Halftone.html">Halftone</a> API reference</li>
+<li><a href="dither.html">Dither</a>, the same tones as square pixels</li>
+<li><a href="ascii.html">ASCII</a>, <a href="colorfilter.html">Color filter</a> and <a href="reveal.html">Reveal</a>, whose <code>Halftone</code> style brings content in as growing dots</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/halftone.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

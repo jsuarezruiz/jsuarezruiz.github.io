@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>CRT | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="CRT | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="An old tube over the content: bulge, scanlines, color split, grille, glow, a rolling bar and a vignette.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/crt.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="crt">CRT</h1>
+
+<p><code>Crt</code> shows the content as if on an old cathode-ray tube: a barrel bulge, scanlines, a color split, an aperture grille, a soft glow around bright parts, a bright bar rolling down the screen and a darker rim. Use it for a retro game screen, a terminal, a &quot;live feed&quot; card or a playful error page. It draws over the child and works on what is drawn there: the child, and whatever shows through it.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/crt-light.png" alt="CRT on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/crt-dark.png" alt="CRT on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-a-crt">Add a CRT</h2>
+<p>Wrap the content in a host. A picture or a dark screen with bright text suits it:</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;fx:FXHost CornerRadius=&quot;18&quot;&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:Crt Bulge=&quot;0.12&quot; /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Border Width=&quot;220&quot; Height=&quot;130&quot; Padding=&quot;16,12&quot; CornerRadius=&quot;18&quot; Background=&quot;#0B120E&quot;&gt;
+            &lt;TextBlock Text=&quot;CH 03&quot; FontSize=&quot;15&quot; FontWeight=&quot;Bold&quot; Foreground=&quot;#4ADE80&quot; /&gt;
+        &lt;/Border&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<h2 id="give-it-something-to-show">Give it something to show</h2>
+<p>The tube copies what is under it just before it draws (see <a href="../concepts/layers.html#layers-that-read-the-backdrop">Layers that read the backdrop</a>). Over the child, the default, that is the child and whatever shows through it. With a see-through child, the host becomes a screen over what is behind it, as on the gallery's home page, where a <code>Border</code> without a background shows a moving scene through the tube. Either way, something must be drawn there first: controls drawn after the host sit in front of it. Inside an offscreen layer (an ancestor with <code>Opacity</code> below 1, an effect, or a clip that needs a layer) the copy can't see that ancestor's content, so keep such ancestors opaque.</p>
+<h2 id="tune-the-tube">Tune the tube</h2>
+<p><code>Bulge</code> sets the barrel bulge, <code>Scanline</code> the scanline period and <code>ScanDepth</code> how dark the lines are. <code>Chroma</code> is how far the color channels split, <code>Glow</code> the soft glow around bright parts, <code>Vignette</code> the darker rim and <code>Roll</code> the rolling bar:</p>
+<pre><code class="lang-xaml">&lt;fx:Crt Bulge=&quot;0.2&quot; Scanline=&quot;2&quot; ScanDepth=&quot;0.4&quot; Chroma=&quot;1.5&quot; Vignette=&quot;0.8&quot; /&gt;
+</code></pre>
+<h2 id="keep-the-picture-still">Keep the picture still</h2>
+<p>The rolling bar is the only part that moves. With <code>Roll=&quot;0&quot;</code> nothing moves, so the layer draws once and asks for no frames until what is under it changes:</p>
+<pre><code class="lang-xaml">&lt;fx:Crt Roll=&quot;0&quot; /&gt;
+</code></pre>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Bulge</code></td>
+<td><code>double</code></td>
+<td><code>0.08</code></td>
+<td>How far the picture bulges like a curved tube: the middle swells and the corners curve away (0: flat). Range 0–0.4.</td>
+</tr>
+<tr>
+<td><code>Scanline</code></td>
+<td><code>double</code></td>
+<td><code>1.5</code></td>
+<td>Scanline period. Range 1–8 DIPs.</td>
+</tr>
+<tr>
+<td><code>ScanDepth</code></td>
+<td><code>double</code></td>
+<td><code>0.28</code></td>
+<td>How dark the scanlines are: 0 none, 1 black between the lines. Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>Chroma</code></td>
+<td><code>double</code></td>
+<td><code>0.8</code></td>
+<td>How far the color channels split, DIPs. Range 0–6.</td>
+</tr>
+<tr>
+<td><code>Vignette</code></td>
+<td><code>double</code></td>
+<td><code>0.6</code></td>
+<td>How much the corners darken (0: none). Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>Glow</code></td>
+<td><code>double</code></td>
+<td><code>0.35</code></td>
+<td>The soft glow around bright parts, as a share (0: none). Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>Roll</code></td>
+<td><code>double</code></td>
+<td><code>1</code></td>
+<td>The bright bar rolling down the screen (0: none). Range 0–2.</td>
+</tr>
+<tr>
+<td><code>Feather</code></td>
+<td><code>double</code></td>
+<td><code>2</code></td>
+<td>How soft the layer's edge is, in DIPs. Range 0–16.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>: <code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>. The tube has no randomness, so <code>Seed</code> doesn't apply; <code>Speed</code> sets the pace of the rolling bar.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>Light and dark surfaces:</strong> it draws the same on both.</li>
+<li><strong>Reduced motion:</strong> the bar stops rolling; the rest of the tube stays.</li>
+<li><strong>Cost:</strong> about 0.13 ms of GPU time a frame on the benchmark card. See <a href="../concepts/performance.html#what-a-layer-costs">Performance</a>.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.Crt.html">Crt</a> API reference</li>
+<li><a href="chromasplit.html">Chroma split</a>, <a href="glitch.html">Glitch</a>, <a href="oldfilm.html">Old film</a> and <a href="ascii.html">ASCII</a></li>
+<li><a href="../concepts/layers.html#layers-that-read-the-backdrop">Layers that read the backdrop</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/crt.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

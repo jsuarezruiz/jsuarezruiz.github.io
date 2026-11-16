@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Voice wave | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Voice wave | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="Glowing waves that swell with Level, for voice input.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/voicewave.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="voice-wave">Voice wave</h1>
+
+<p>Voice wave draws glowing waves across the host's shape in three colors, crossing each other under an envelope that pinches them to nothing at both ends. Quiet, they lie almost flat and drift slowly; bind <code>Level</code> to the microphone and they swell and drift faster as the voice rises. Use it under a dictation field, in a call bar or beside a <a href="voiceorb.html">voice orb</a>. The waves fill the shape from side to side and draw under the child.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/voicewave-light.png" alt="Voice wave on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/voicewave-dark.png" alt="Voice wave on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-a-voice-wave">Add a voice wave</h2>
+<p>The waves span the child's width and rise into its height, so give the child the size the waves should take. An empty <code>Border</code> is enough.</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;StackPanel Spacing=&quot;6&quot;&gt;
+        &lt;fx:FXHost CornerRadius=&quot;0&quot;&gt;
+            &lt;fx:FXHost.Layers&gt;
+                &lt;fx:VoiceWave Level=&quot;{Binding MicLevel}&quot; /&gt;
+            &lt;/fx:FXHost.Layers&gt;
+            &lt;Border Width=&quot;250&quot; Height=&quot;96&quot; /&gt;
+        &lt;/fx:FXHost&gt;
+        &lt;TextBlock Text=&quot;Listening…&quot; HorizontalAlignment=&quot;Center&quot; Opacity=&quot;0.6&quot; /&gt;
+    &lt;/StackPanel&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<h2 id="follow-the-voice">Follow the voice</h2>
+<p><code>Level</code> runs from 0 (quiet) to 1 (loud). Set it from the microphone meter as often as readings arrive; the layer eases changes, rising quickly and falling more slowly, and speeds up the drift without the waves jumping.</p>
+<pre><code class="lang-csharp">// Wave is the VoiceWave layer; called whenever the audio meter reports a new peak (0..1).
+private void OnMeterLevel(double peak)
+{
+    Dispatcher.UIThread.Post(() =&gt; Wave.Level = peak);
+}
+</code></pre>
+<p>To pair it with a voice orb, bind both to the same level.</p>
+<h2 id="color-and-size">Color and size</h2>
+<p><code>Color</code>, <code>SecondColor</code> and <code>ThirdColor</code> are the three waves. <code>Amplitude</code> is how high they rise at full level, as a share of the half height. <code>LineWidth</code> sets the thickness of each line and <code>Glow</code> the light around it (0 for none).</p>
+<pre><code class="lang-xaml">&lt;fx:VoiceWave Color=&quot;#F472B6&quot; SecondColor=&quot;#FBBF24&quot; ThirdColor=&quot;#34D399&quot;
+              Amplitude=&quot;0.6&quot; LineWidth=&quot;1.5&quot; Glow=&quot;1.3&quot; /&gt;
+</code></pre>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Level</code></td>
+<td><code>double</code></td>
+<td><code>0</code></td>
+<td>How loud, 0..1: bind it to the microphone level. Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>Color</code></td>
+<td><code>Color</code></td>
+<td><code>#7C5CFF</code></td>
+<td>The first wave's color.</td>
+</tr>
+<tr>
+<td><code>SecondColor</code></td>
+<td><code>Color</code></td>
+<td><code>#22D3EE</code></td>
+<td>The second wave's color.</td>
+</tr>
+<tr>
+<td><code>ThirdColor</code></td>
+<td><code>Color</code></td>
+<td><code>#EC4899</code></td>
+<td>The third wave's color.</td>
+</tr>
+<tr>
+<td><code>Amplitude</code></td>
+<td><code>double</code></td>
+<td><code>0.8</code></td>
+<td>How high the waves rise at full level, as a share of the half height. Range 0.1–1 (10–100%).</td>
+</tr>
+<tr>
+<td><code>LineWidth</code></td>
+<td><code>double</code></td>
+<td><code>2</code></td>
+<td>Width of each wave's line, in DIPs. Range 0.5–8.</td>
+</tr>
+<tr>
+<td><code>Glow</code></td>
+<td><code>double</code></td>
+<td><code>1</code></td>
+<td>The glow around the waves, a multiple: 1 is the default, 0 none. Range 0–2.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>:
+<code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>. On a voice wave, <code>Intensity</code> dims the layer and <code>Seed</code> doesn't apply.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>Light and dark surfaces.</strong> On a dark surface the waves add light. On a light surface they draw as tinted haze in their own colors. See <a href="../concepts/light-and-dark.html#how-light-layers-draw-on-each-surface">Light and dark surfaces</a>.</li>
+<li><strong>Reduced motion.</strong> The waves hold still, and they still swell with <code>Level</code>. See <a href="../concepts/reduced-motion.html#the-poses">Reduced motion</a>.</li>
+<li><strong>Cost.</strong> About 0.05 ms of GPU time a frame on the bench's 340×190 card. The waves drift even at a <code>Level</code> of 0, so the layer redraws every frame while it is active: set <code>IsActive</code> to <code>False</code> while the app isn't listening. See <a href="../concepts/performance.html#what-a-layer-costs">Performance</a>.</li>
+<li><strong>Inside the shape.</strong> The waves draw only within the shape, so they need no room around the host; <code>Amplitude</code> is a share of the shape's half height.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.VoiceWave.html">VoiceWave</a> API reference</li>
+<li><a href="voiceorb.html">Voice orb</a>, an orb that swells with the same level</li>
+<li><a href="pulse.html">Pulse</a>, a breathing halo for a simpler listening state</li>
+<li><a href="waves.html">Waves</a>, layered color bands as a background</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/voicewave.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Light rays | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Light rays | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="Shafts of light falling across from a source just outside, shimmering slowly.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/lightrays.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="light-rays">Light rays</h1>
+
+<p>Light rays sends shafts of light across the host's shape from a source just outside it, like sun through a window: a fan of rays that shimmer and shift slowly, bright where they come in and fading with distance. Use it on a hero, a welcome card or a dark backdrop that should feel lit. It draws over the child, inside the shape, as added light.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/lightrays-light.png" alt="Light rays on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/lightrays-dark.png" alt="Light rays on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-light-rays">Add light rays</h2>
+<p>Put the layer over a darker surface or picture, where the light has something to show against. The host here uses the dark surface, so the rays add light even in a light theme.</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;fx:FXHost CornerRadius=&quot;14&quot; Surface=&quot;Dark&quot;&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:LightRays Angle=&quot;50&quot; /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Border Width=&quot;236&quot; Height=&quot;128&quot; CornerRadius=&quot;14&quot; Padding=&quot;18&quot;&gt;
+            &lt;Border.Background&gt;
+                &lt;LinearGradientBrush StartPoint=&quot;0%,0%&quot; EndPoint=&quot;100%,100%&quot;&gt;
+                    &lt;GradientStop Color=&quot;#0B1220&quot; Offset=&quot;0&quot; /&gt;
+                    &lt;GradientStop Color=&quot;#1E293B&quot; Offset=&quot;1&quot; /&gt;
+                &lt;/LinearGradientBrush&gt;
+            &lt;/Border.Background&gt;
+            &lt;TextBlock Text=&quot;Good morning&quot; Foreground=&quot;White&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;20&quot;
+                       HorizontalAlignment=&quot;Right&quot; VerticalAlignment=&quot;Bottom&quot; /&gt;
+        &lt;/Border&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<h2 id="aim-the-light">Aim the light</h2>
+<p><code>Angle</code> is the way the light travels, in degrees: 0 to the right, 90 down, with positive angles turning clockwise. The source sits on the opposite side, outside the shape, by <code>Distance</code> (a share of the shape's diagonal). The default, 60, falls from the top left toward the bottom right.</p>
+<pre><code class="lang-xaml">&lt;!-- Light falling straight down from above the top edge. --&gt;
+&lt;fx:LightRays Angle=&quot;90&quot; Spread=&quot;40&quot; /&gt;
+
+&lt;!-- Light coming in from the top right. --&gt;
+&lt;fx:LightRays Angle=&quot;135&quot; /&gt;
+</code></pre>
+<h2 id="shape-the-fan">Shape the fan</h2>
+<p><code>Spread</code> is how wide the fan opens, in degrees, and <code>Rays</code> about how many rays cross it. <code>Length</code> is how far the light reaches, as a share of the shape's diagonal. <code>Color</code> tints the light and <code>Intensity</code> makes it stronger, up to 3.</p>
+<pre><code class="lang-xaml">&lt;fx:LightRays Color=&quot;#BAE6FD&quot; Spread=&quot;90&quot; Rays=&quot;16&quot; Length=&quot;1.2&quot; Intensity=&quot;1.5&quot; /&gt;
+</code></pre>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Color</code></td>
+<td><code>Color</code></td>
+<td><code>#FFF1D6</code></td>
+<td>The light's color.</td>
+</tr>
+<tr>
+<td><code>Angle</code></td>
+<td><code>double</code></td>
+<td><code>60</code></td>
+<td>The way the light travels, degrees: 0 to the right, 90 down; positive turns clockwise. Range -180 to 180.</td>
+</tr>
+<tr>
+<td><code>Spread</code></td>
+<td><code>double</code></td>
+<td><code>60</code></td>
+<td>How wide the fan of rays opens, degrees. Range 10–180.</td>
+</tr>
+<tr>
+<td><code>Rays</code></td>
+<td><code>double</code></td>
+<td><code>9</code></td>
+<td>About how many rays across the fan. Range 2–40.</td>
+</tr>
+<tr>
+<td><code>Length</code></td>
+<td><code>double</code></td>
+<td><code>0.75</code></td>
+<td>How far the light reaches, as a share of the shape's diagonal. Range 0.2–3.</td>
+</tr>
+<tr>
+<td><code>Distance</code></td>
+<td><code>double</code></td>
+<td><code>0.1</code></td>
+<td>How far outside the shape the source sits, as a share of the diagonal. Range 0–1 (0–100%).</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>:
+<code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>. On light rays, <code>Intensity</code> is the strength of the light, up to 3.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>Light and dark surfaces.</strong> On a dark surface the rays add light. On a light surface they draw as tinted haze, kept fainter because haze reads heavier. See <a href="../concepts/light-and-dark.html#how-light-layers-draw-on-each-surface">Light and dark surfaces</a>.</li>
+<li><strong>Reduced motion.</strong> The rays hold still. See <a href="../concepts/reduced-motion.html#the-poses">Reduced motion</a>.</li>
+<li><strong>Cost.</strong> About 0.08 ms of GPU time a frame on the bench's 340×190 card. The rays shimmer all the time, so the layer redraws every frame while it is active. See <a href="../concepts/performance.html#what-a-layer-costs">Performance</a>.</li>
+<li><strong>Inside the shape.</strong> The light draws only within the shape, even though its source sits outside it, so it needs no room around the host.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.LightRays.html">LightRays</a> API reference</li>
+<li><a href="lightleaks.html">Light leaks</a>, warm film light drifting in over the edges</li>
+<li><a href="beams.html">Beams</a>, shafts of light drifting sideways as a background</li>
+<li><a href="spotlight.html">Spotlight</a>, a light that follows the pointer</li>
+<li><a href="../concepts/light-and-dark.html">Light and dark surfaces</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/lightrays.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

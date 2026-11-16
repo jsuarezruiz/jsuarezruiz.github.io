@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Jelly | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Jelly | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="Pressed, the element squashes and wobbles like jelly before it settles.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/jelly.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="jelly">Jelly</h1>
+
+<p><code>Jelly</code> makes the element squash and wobble like jelly when pressed, then settle: a damped spring squashes it down and out and overshoots, while a bulge spreads from the press point. Use it for playful buttons, a &quot;like&quot; heart, toggles or game UI. While it wobbles, the layer draws a capture of the content in its place; the real content is hidden but still takes input, and it takes over again once the wobble settles.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/jelly-light.png" alt="Jelly on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/jelly-dark.png" alt="Jelly on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-jelly">Add jelly</h2>
+<p>Wrap the control in a host. A press wobbles it from the press point (<code>WobbleOnPress</code> is on), and the control still gets its own click:</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;fx:FXHost CornerRadius=&quot;26&quot;&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:Jelly /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Button Content=&quot;Press me&quot; Width=&quot;190&quot; Height=&quot;52&quot; CornerRadius=&quot;26&quot; /&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<h2 id="wobble-from-code">Wobble from code</h2>
+<p><code>Wobble(at)</code> wobbles from a point in the host's coordinates, or from the center with no point. Set <code>WobbleOnPress=&quot;False&quot;</code> to wobble only from code, for example when a new message arrives:</p>
+<pre><code class="lang-csharp">InboxJelly.Wobble();
+</code></pre>
+<h2 id="make-it-softer-or-stiffer">Make it softer or stiffer</h2>
+<p><code>Amount</code> is how far it squashes at first, <code>Frequency</code> how many wobbles a second, <code>Damping</code> how fast it settles (the wobble shrinks by a factor of e every 1/<code>Damping</code> seconds), and <code>Ripple</code> the bulge that spreads from the press point:</p>
+<pre><code class="lang-xaml">&lt;fx:Jelly Amount=&quot;0.3&quot; Frequency=&quot;3&quot; Damping=&quot;1.5&quot; Ripple=&quot;0.8&quot; /&gt;
+</code></pre>
+<h2 id="methods">Methods</h2>
+<p>Call <code>Wobble</code> to play the effect without a press. See <a href="../concepts/one-shots-and-pointer.html#one-shots">One-shots</a>.</p>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Wobble(Point? at = null)</code></td>
+<td>Wobbles now, from <code>at</code> (host coordinates) or the center.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Amount</code></td>
+<td><code>double</code></td>
+<td><code>0.18</code></td>
+<td>How far it squashes at first. Range 0–0.6 (0–60%).</td>
+</tr>
+<tr>
+<td><code>Frequency</code></td>
+<td><code>double</code></td>
+<td><code>4.5</code></td>
+<td>Wobbles a second. Range 1–12 per second.</td>
+</tr>
+<tr>
+<td><code>Damping</code></td>
+<td><code>double</code></td>
+<td><code>2.5</code></td>
+<td>How fast it settles: the wobble shrinks by e every 1/Damping seconds. Range 0.5–12.</td>
+</tr>
+<tr>
+<td><code>Ripple</code></td>
+<td><code>double</code></td>
+<td><code>0.5</code></td>
+<td>The bulge that spreads from the press point. Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>WobbleOnPress</code></td>
+<td><code>bool</code></td>
+<td><code>true</code></td>
+<td>Wobbles when the host is pressed.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>: <code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>. The wobble runs on its own spring, so <code>Speed</code> and <code>Seed</code> don't apply.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>It stands in for the content.</strong> When a wobble starts, the layer captures the content as it looks then and hides the real element, which keeps its place and still takes input. A change to the content during the wobble shows once it settles. With nothing to capture (no content, invisible, or not laid out yet), or while the layer isn't active, it doesn't wobble. The same stand-in is described for the transitions in <a href="../concepts/one-shots-and-pointer.html#show-and-hide-transitions">Show and hide transitions</a>.</li>
+<li><strong>It doesn't read the backdrop.</strong> It works from its own capture of the content, so it needs nothing behind the host.</li>
+<li><strong>It draws past the shape.</strong> The squash stretches the element sideways, by up to about 0.8 of <code>Amount</code> times half its larger side, and the bulge adds a few DIPs. A clipping ancestor cuts it: leave room around the host.</li>
+<li><strong>A press must land on the host's child.</strong> A child with no background in empty areas doesn't take presses: give it a <code>Background</code>, even <code>Transparent</code>.</li>
+<li><strong>Light and dark surfaces:</strong> it draws the same on both.</li>
+<li><strong>Reduced motion:</strong> a small, quick squash.</li>
+<li><strong>Cost:</strong> under 0.1 ms of GPU time a frame on the benchmark card while it wobbles, and nothing between wobbles. See <a href="../concepts/performance.html#what-a-layer-costs">Performance</a>.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.Jelly.html">Jelly</a> API reference</li>
+<li><a href="shockwave.html">Shockwave</a>, <a href="pulse.html">Pulse</a> and <a href="tilt.html">Tilt</a></li>
+<li><a href="pagepeel.html">Page peel</a> and <a href="shatter.html">Shatter</a>, which also stand in for the content</li>
+<li><a href="../concepts/one-shots-and-pointer.html#one-shots">One-shots</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/jelly.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

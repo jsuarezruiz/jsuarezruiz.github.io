@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Reduced motion | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Reduced motion | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="Switch every layer to its calm reduced-motion pose with FXSettings.ReducedMotion, and what each kind of layer does then.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/concepts/reduced-motion.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="reduced-motion">Reduced motion</h1>
+
+<p>Every layer has a reduced-motion pose: a calm version of the effect with no travel. One switch turns it on for the whole app.</p>
+<h2 id="turn-it-on">Turn it on</h2>
+<p>Set <a class="xref" href="../../api/Nova.Avalonia.FX.FXSettings.html#Nova_Avalonia_FX_FXSettings_ReducedMotion">FXSettings.ReducedMotion</a>:</p>
+<pre><code class="lang-csharp">using Nova.Avalonia.FX;
+
+FXSettings.ReducedMotion = true;
+</code></pre>
+<p>Every host updates its layers before the next frame. The setting can change at any time, from any thread; the hosts rebuild their layers on the UI thread.</p>
+<p>Avalonia doesn't report a system reduced-motion preference, so the app decides. Set it from your app's own setting, for example a switch on a settings page:</p>
+<pre><code class="lang-xml">&lt;ToggleSwitch x:Name=&quot;ReduceMotionSwitch&quot;
+              Content=&quot;Reduce motion&quot;
+              IsCheckedChanged=&quot;OnReduceMotionChanged&quot; /&gt;
+</code></pre>
+<pre><code class="lang-csharp">private void OnReduceMotionChanged(object? sender, RoutedEventArgs e)
+{
+    FXSettings.ReducedMotion = ReduceMotionSwitch.IsChecked == true;
+}
+</code></pre>
+<h2 id="the-poses">The poses</h2>
+<p>Under reduced motion, layers keep their look but stop traveling:</p>
+<table>
+<thead>
+<tr>
+<th>Layers</th>
+<th>Reduced-motion pose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Glow and other lights</td>
+<td>Lights still cool when switched off: a fade, not travel.</td>
+</tr>
+<tr>
+<td>Pulse</td>
+<td>The rings become a static halo.</td>
+</tr>
+<tr>
+<td>Fills: gradients, materials, patterns and backgrounds</td>
+<td>Each holds one fixed pose.</td>
+</tr>
+<tr>
+<td>Shimmer</td>
+<td>The surface breathes instead of sweeping.</td>
+</tr>
+<tr>
+<td>Aurora, grain, light leaks, light rays, fog, topography, particle network, rain on glass, border beam</td>
+<td>They hold still.</td>
+</tr>
+<tr>
+<td>Beam</td>
+<td>A still gradient along the path.</td>
+</tr>
+<tr>
+<td>Old film</td>
+<td>It holds one frame.</td>
+</tr>
+<tr>
+<td>Voice orb, voice wave</td>
+<td>The colors and waves hold still; they still swell with <code>Level</code>.</td>
+</tr>
+<tr>
+<td>Fire</td>
+<td>The flames hold one pose and the embers stop; the simulated styles hold their current state.</td>
+</tr>
+<tr>
+<td>Electric</td>
+<td>The continuous bolt holds one shape; a zap still strikes.</td>
+</tr>
+<tr>
+<td>Reveal, Genie, Shatter</td>
+<td>A short fade, at most a quarter of a second.</td>
+</tr>
+<tr>
+<td>Spoiler</td>
+<td>It switches at once.</td>
+</tr>
+<tr>
+<td>Confetti, fireworks</td>
+<td>The pieces appear in place and fade, without flying.</td>
+</tr>
+<tr>
+<td>Glitch</td>
+<td>A burst is a short, mild color split; a continuous glitch stays still.</td>
+</tr>
+<tr>
+<td>Jelly</td>
+<td>A small, quick squash.</td>
+</tr>
+<tr>
+<td>Page peel</td>
+<td>A quick peel.</td>
+</tr>
+<tr>
+<td>Tilt</td>
+<td>The host stays flat; only the glare follows the pointer.</td>
+</tr>
+<tr>
+<td>Trail</td>
+<td>No trail: it only exists as motion.</td>
+</tr>
+<tr>
+<td>Motion blur</td>
+<td>No smear: the host still moves, but nothing is drawn behind it.</td>
+</tr>
+<tr>
+<td>Ink</td>
+<td>The ink stays where it lands and fades.</td>
+</tr>
+<tr>
+<td>Water</td>
+<td>Gentler ripples and splashes, and no rain.</td>
+</tr>
+<tr>
+<td>Liquid progress</td>
+<td>The level jumps, and the surface stays calm.</td>
+</tr>
+<tr>
+<td>Dot grid</td>
+<td>The lit dots jump to the pointer, and presses send no ripples.</td>
+</tr>
+<tr>
+<td>Spotlight, magnifier and other pointer layers</td>
+<td>They jump to the pointer instead of easing, and appear and fade at once.</td>
+</tr>
+</tbody>
+</table>
+<p>A transition's length is decided when it starts, so switching reduced motion halfway through doesn't put it out of step.</p>
+<h2 id="check-the-poses">Check the poses</h2>
+<p>In the gallery, the settings flyout switches motion between full and reduced. The desktop gallery also renders the poses headless:</p>
+<pre><code class="lang-bash">dotnet run --project samples/Nova.Avalonia.FX.Gallery.Desktop -- --snap reduced.png --reduced --effect glow
+</code></pre>
+<h2 id="fixed-time">Fixed time</h2>
+<p>Separately from reduced motion, <a class="xref" href="../../api/Nova.Avalonia.FX.FXSettings.html#Nova_Avalonia_FX_FXSettings_Clock">FXSettings.Clock</a> replaces the compositor clock for every layer, in seconds. Every frame is a pure function of time, so the same time always draws the same frame. Use it for deterministic snapshots and for stepping through an effect:</p>
+<pre><code class="lang-csharp">FXSettings.Clock = () =&gt; 2.3;   // every layer draws as it looks 2.3 s in
+FXSettings.Clock = null;        // back to the compositor clock
+</code></pre>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/concepts/reduced-motion.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

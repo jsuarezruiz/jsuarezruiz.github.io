@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Tilt | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Tilt | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="The host leans toward the pointer in 3D and grows a little, with a glare that slides across it like a card turned under a light.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/tilt.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="tilt">Tilt</h1>
+
+<p>Tilt leans the host toward the pointer in 3D and grows it a little, while a glare slides across it with the pointer, like a card turned under a light. Use it on cards, passes, product tiles and album art. The lean is a perspective render transform on the host, so the host's other layers, such as a glow or a shadow, lean with it. The glare is drawn over the content.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/tilt-light.png" alt="Tilt on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/tilt-dark.png" alt="Tilt on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-a-tilt">Add a tilt</h2>
+<p>Add the layer to a host around the card, and leave a little room around it for the lean:</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;fx:FXHost CornerRadius=&quot;16&quot; Margin=&quot;24&quot; HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot;&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:Tilt MaxAngle=&quot;14&quot; Glare=&quot;0.45&quot; /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Border Width=&quot;196&quot; Height=&quot;120&quot; CornerRadius=&quot;16&quot; Padding=&quot;16&quot;&gt;
+            &lt;Border.Background&gt;
+                &lt;LinearGradientBrush StartPoint=&quot;0%,0%&quot; EndPoint=&quot;100%,100%&quot;&gt;
+                    &lt;GradientStop Color=&quot;#1e3a8a&quot; Offset=&quot;0&quot; /&gt;
+                    &lt;GradientStop Color=&quot;#7c3aed&quot; Offset=&quot;0.6&quot; /&gt;
+                    &lt;GradientStop Color=&quot;#db2777&quot; Offset=&quot;1&quot; /&gt;
+                &lt;/LinearGradientBrush&gt;
+            &lt;/Border.Background&gt;
+            &lt;TextBlock Text=&quot;NOVA PASS&quot; Foreground=&quot;White&quot; FontWeight=&quot;SemiBold&quot; /&gt;
+        &lt;/Border&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<h2 id="shape-the-lean">Shape the lean</h2>
+<p><code>MaxAngle</code> is the most the host leans, in degrees (0: it stays flat); a negative angle leans away from the pointer instead. <code>Lift</code> is how much it grows while pointed at (1: not at all), and <code>Perspective</code> how far the eye is: nearer looks deeper.</p>
+<pre><code class="lang-xaml">&lt;fx:Tilt MaxAngle=&quot;-8&quot; Lift=&quot;1.05&quot; Perspective=&quot;600&quot; /&gt;
+</code></pre>
+<p><code>Glare</code> sets the strength of the glare and <code>GlareColor</code> its color. On bare text, set <code>Glare</code> to 0: the glare would light up the text's whole box.</p>
+<h2 id="reach-and-pace">Reach and pace</h2>
+<p>The layer listens to the window's pointer, so buttons inside the card don't block it, and it reads the pointer against the host as laid out, so the lean never chases itself. <code>PointerReach</code> is how far outside the content the pointer still leans it (0 by default: only over it). <code>FollowTime</code> is how long the lean and the glare take to catch up with the pointer; once the pointer leaves, the host eases back flat.</p>
+<h2 id="aim-it-from-code">Aim it from code</h2>
+<p><code>PointAt(at)</code> leans the host toward a point in its own coordinates, as if the pointer were there: for keyboard focus, a tour or a demo. <code>PointAt(null)</code> lets it settle flat, and the pointer takes over again when it moves.</p>
+<pre><code class="lang-csharp">PassHost.GotFocus += (_, _) =&gt;
+{
+    // Lean toward the top right corner while the card has focus.
+    PassTilt.PointAt(new Point(PassHost.Bounds.Width, 0));
+};
+PassHost.LostFocus += (_, _) =&gt; PassTilt.PointAt(null);
+</code></pre>
+<h2 id="methods">Methods</h2>
+<p>Call <code>PointAt</code> to aim the lean from code.</p>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PointAt(Point? at)</code></td>
+<td>Leans toward <code>at</code> (host coordinates) as if the pointer were there: for keyboard focus or a demo. Null lets it settle flat. The pointer takes over when it moves.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>MaxAngle</code></td>
+<td><code>double</code></td>
+<td><code>10</code></td>
+<td>The most it leans, degrees (0: it stays flat). Negative leans away from the pointer instead. Range -30 to 30.</td>
+</tr>
+<tr>
+<td><code>Lift</code></td>
+<td><code>double</code></td>
+<td><code>1.03</code></td>
+<td>How much it grows while the pointer is over it (1: not at all). Range 1–1.15.</td>
+</tr>
+<tr>
+<td><code>Perspective</code></td>
+<td><code>double</code></td>
+<td><code>900</code></td>
+<td>How far the eye is from the content: nearer looks deeper. Range 200–3000 DIPs.</td>
+</tr>
+<tr>
+<td><code>Glare</code></td>
+<td><code>double</code></td>
+<td><code>0.35</code></td>
+<td>The glare's strength. Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>GlareColor</code></td>
+<td><code>Color</code></td>
+<td><code>#FFFFFF</code></td>
+<td>The glare's color.</td>
+</tr>
+<tr>
+<td><code>FollowTime</code></td>
+<td><code>double</code></td>
+<td><code>0.12</code></td>
+<td>How long the lean and the glare take to catch up with the pointer (a time constant). Range 0–0.6 seconds.</td>
+</tr>
+<tr>
+<td><code>PointerReach</code></td>
+<td><code>double</code></td>
+<td><code>0</code></td>
+<td>How far outside the content the pointer still leans it. Range 0–200 DIPs.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>:
+<code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>. Tilt follows the pointer, not a clock, so <code>Speed</code> and <code>Seed</code> do nothing.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>The host's own transform.</strong> While it leans, the tilt takes the place of a <code>RenderTransform</code> set on the host. The host's own value comes back once it settles flat. Don't animate the host's <code>RenderTransform</code> while it tilts.</li>
+<li><strong>Room around it.</strong> Leaning and lifting swing the corners past the host's bounds. Leave a margin, or a clipping ancestor cuts them.</li>
+<li><strong>Light and dark.</strong> The glare draws the same on both surfaces, in <code>GlareColor</code>.</li>
+<li><strong>Reduced motion.</strong> The host stays flat; only the glare follows the pointer. See <a href="../concepts/reduced-motion.html#the-poses">the poses</a>.</li>
+<li><strong>Cost.</strong> Under 0.05 ms of GPU time a frame on a card. The lean is eased on the UI thread's animation frames only while it moves, and the transform is removed once flat. See <a href="../concepts/performance.html#what-a-layer-costs">What a layer costs</a>.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.Tilt.html">Tilt</a> API reference</li>
+<li><a href="../concepts/one-shots-and-pointer.html#layers-that-follow-the-pointer">Layers that follow the pointer</a></li>
+<li><a href="holofoil.html">Holo foil</a>, a sheen that shifts with the pointer</li>
+<li><a href="pointershadow.html">Pointer shadow</a>, a shadow cast away from the pointer</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/tilt.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

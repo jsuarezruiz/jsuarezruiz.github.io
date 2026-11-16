@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Genie | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Genie | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="Pulls the content into a point, like a window minimizing into the dock, and pours it back out to show it.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/genie.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="genie">Genie</h1>
+
+<p>Genie hides the host's content by pulling it into a point, like a window minimizing into the dock, and pours it back out to show it. The sides bend in toward the point first, then the content slides down the funnel into it. Use it to send a panel to a dock icon, a file to the trash or a note into a folder. Like <a href="reveal.html">Reveal</a>, it captures the content, hides the real element while it plays, and hands it back once shown.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/genie-light.png" alt="Genie on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/genie-dark.png" alt="Genie on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-a-genie">Add a genie</h2>
+<p>Set <code>Target</code> to the control the content goes into, and bind <code>IsShown</code>. Here the dock icon minimizes the note and brings it back:</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;Grid RowDefinitions=&quot;*,Auto&quot;&gt;
+        &lt;fx:FXHost CornerRadius=&quot;12&quot; ZIndex=&quot;1&quot; HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot;&gt;
+            &lt;fx:FXHost.Layers&gt;
+                &lt;fx:Genie Target=&quot;{Binding #DockIcon}&quot; IsShown=&quot;{Binding #DockIcon.IsChecked}&quot; /&gt;
+            &lt;/fx:FXHost.Layers&gt;
+            &lt;Border Width=&quot;176&quot; Height=&quot;100&quot; CornerRadius=&quot;12&quot; Padding=&quot;12&quot; Background=&quot;#15171c&quot;&gt;
+                &lt;TextBlock Text=&quot;Notes&quot; Foreground=&quot;White&quot; FontWeight=&quot;SemiBold&quot; /&gt;
+            &lt;/Border&gt;
+        &lt;/fx:FXHost&gt;
+        &lt;ToggleButton x:Name=&quot;DockIcon&quot; Grid.Row=&quot;1&quot; IsChecked=&quot;True&quot; Width=&quot;32&quot; Height=&quot;32&quot;
+                      HorizontalAlignment=&quot;Center&quot; Margin=&quot;0,0,0,10&quot; /&gt;
+    &lt;/Grid&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<p>The funnel draws outside the host on its way to the point. <code>ZIndex=&quot;1&quot;</code> keeps the dock row, a later sibling, from covering it.</p>
+<h2 id="pull-it-into-a-control-or-a-point">Pull it into a control or a point</h2>
+<p>The content goes into, and pours out of, one point:</p>
+<ul>
+<li>the point given to <code>Hide(toward)</code> or <code>Show(from)</code>, in the host's coordinates;</li>
+<li>otherwise the center of <code>Target</code>, a control anywhere in the same window, such as a dock icon or a trash button;</li>
+<li>otherwise the bottom center of the content.</li>
+</ul>
+<p>With a <code>Target</code>, the funnel's neck is most of the target's width; without one it narrows to a small neck. For wide, short content, use a point well below it, so the funnel has room to bend. Genie works best on a card or a panel; bare text breaks into spikes.</p>
+<h2 id="show-and-hide-from-code">Show and hide from code</h2>
+<p><code>IsShown</code> is true by default and binds both ways, so <code>Show()</code> and <code>Hide()</code> also update a bound view-model property. Set <code>IsShown=&quot;False&quot;</code> in XAML to start hidden, with no transition.</p>
+<pre><code class="lang-csharp">private void OnDelete(object? sender, RoutedEventArgs e)
+{
+    // Pull the card into the middle of the trash button.
+    var center = new Point(TrashButton.Bounds.Width / 2, TrashButton.Bounds.Height / 2);
+    CardGenie.Hide(TrashButton.TranslatePoint(center, CardHost));
+}
+
+private void OnRestore(object? sender, RoutedEventArgs e) =&gt; CardGenie.Show();
+</code></pre>
+<p>From a view model, bind <code>IsShown</code> to a property, such as <code>IsNoteOpen</code>, and set it to false to minimize the note. While hidden, the element is transparent but keeps its place in the layout, and it still takes clicks and keyboard focus.</p>
+<p><code>Duration</code> is the length of one transition in seconds (0.6 by default); the layer's <code>Speed</code> doesn't apply, and a change applies from the next transition. With nothing to capture (no child, a child that isn't visible or isn't laid out yet, or <code>IsActive</code> off) the layer switches at once. To play it as a view opens, start hidden and call <code>Show()</code> from the view's <code>Loaded</code> event. <a href="reveal.html#before-the-content-is-laid-out">Reveal</a> shows the pattern.</p>
+<h2 id="methods">Methods</h2>
+<p><code>Show</code> and <code>Hide</code> play the transition from code, from or toward a point.</p>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Show(Point? from = null)</code></td>
+<td>Shows the content, playing the layer's transition from <code>from</code> (host coordinates). Null: the layer's own point.</td>
+</tr>
+<tr>
+<td><code>Hide(Point? toward = null)</code></td>
+<td>Hides the content, playing the layer's transition toward <code>toward</code> (host coordinates). Null: the layer's own point.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>IsShown</code></td>
+<td><code>bool</code></td>
+<td><code>true</code></td>
+<td>Whether the content is shown. Setting it false pulls the content into the point; true pours it back out.</td>
+</tr>
+<tr>
+<td><code>Duration</code></td>
+<td><code>double</code></td>
+<td><code>0.6</code></td>
+<td>How long the transition takes, in seconds. Range 0.15–3.</td>
+</tr>
+</tbody>
+</table>
+
+<p><code>Target</code> (<code>Control</code>, unset by default) is the element the content goes into, by its center, when no point is given.</p>
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>:
+<code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>. Genie has no randomness, so <code>Seed</code> does nothing.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>Light and dark.</strong> Genie draws the same on both surfaces: it shows the content as captured.</li>
+<li><strong>Reduced motion.</strong> It becomes a fade of at most a quarter of a second. See <a href="../concepts/reduced-motion.html#the-poses">the poses</a>.</li>
+<li><strong>Cost.</strong> Under 0.05 ms of GPU time a frame on a card while it plays, plus rendering the content once into an image when it starts. Otherwise it draws nothing. See <a href="../concepts/performance.html#what-a-layer-costs">What a layer costs</a>.</li>
+<li><strong>Clipping.</strong> The funnel reaches from the content to the point, outside the host, so a clipping ancestor between them cuts it: a <code>ScrollViewer</code>, or a <code>Border</code> with <code>ClipToBounds</code>.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.Genie.html">Genie</a> API reference</li>
+<li><a href="../concepts/one-shots-and-pointer.html#show-and-hide-transitions">Show and hide transitions</a></li>
+<li><a href="reveal.html">Reveal</a> and <a href="shatter.html">Shatter</a>, the other show and hide transitions</li>
+<li><a href="jelly.html">Jelly</a>, which squashes the content on a press</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/genie.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

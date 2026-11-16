@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Rain glass | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Rain glass | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="Rain on glass: drops bead and slide down a misted pane, each a small lens bending what is behind it.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/rainglass.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="rain-glass">Rain glass</h1>
+
+<p><code>RainGlass</code> puts rain on a misted pane over the content: beads that come and go, fine droplets, and drops that slide down in fits and starts, leaving a clear wet trail dotted with droplets. Each drop is a small lens that shows what is behind it upside down, and <code>Fog</code> mists the glass between them. Use it for a weather card, a cozy header or a lock screen. It draws over the child, so it rains on the child and whatever shows through it.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/rainglass-light.png" alt="Rain glass on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/rainglass-dark.png" alt="Rain glass on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-rain">Add rain</h2>
+<p>Wrap the content in a host. Points of light make the lensing easy to see:</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;fx:FXHost CornerRadius=&quot;14&quot;&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:RainGlass /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Border Width=&quot;260&quot; Height=&quot;150&quot; CornerRadius=&quot;14&quot; Background=&quot;#101830&quot; ClipToBounds=&quot;True&quot;&gt;
+            &lt;Canvas&gt;
+                &lt;Ellipse Canvas.Left=&quot;20&quot; Canvas.Top=&quot;30&quot; Width=&quot;26&quot; Height=&quot;26&quot; Fill=&quot;#FFB347&quot; /&gt;
+                &lt;Ellipse Canvas.Left=&quot;120&quot; Canvas.Top=&quot;24&quot; Width=&quot;30&quot; Height=&quot;30&quot; Fill=&quot;#7FD4FF&quot; /&gt;
+                &lt;Ellipse Canvas.Left=&quot;170&quot; Canvas.Top=&quot;80&quot; Width=&quot;22&quot; Height=&quot;22&quot; Fill=&quot;#FFD27F&quot; /&gt;
+                &lt;Ellipse Canvas.Left=&quot;40&quot; Canvas.Top=&quot;100&quot; Width=&quot;20&quot; Height=&quot;20&quot; Fill=&quot;#FFD43B&quot; /&gt;
+            &lt;/Canvas&gt;
+        &lt;/Border&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<h2 id="give-it-something-to-bend">Give it something to bend</h2>
+<p>The pane copies what is under it just before it draws (see <a href="../concepts/layers.html#layers-that-read-the-backdrop">Layers that read the backdrop</a>). Over the child, the default, that is the child and whatever shows through it. Each drop shows what lies about two of its radii away, mirrored, so the drops read best over detail: lights, a picture, text. Inside an offscreen layer (an ancestor with <code>Opacity</code> below 1, an effect, or a clip that needs a layer) the copy can't see that ancestor's content, so keep such ancestors opaque.</p>
+<h2 id="clear-or-mist-the-glass">Clear or mist the glass</h2>
+<p><code>Fog</code> is how misted the glass is between the drops, from 0 (clear) to 1. The mist blurs what is under it, labels included: the gallery lowers it to 0.3 over a picture so its titles stay readable:</p>
+<pre><code class="lang-xaml">&lt;fx:RainGlass Fog=&quot;0.3&quot; /&gt;
+</code></pre>
+<h2 id="change-the-rain">Change the rain</h2>
+<p><code>Density</code> sets how many drops there are, <code>DropSize</code> the radius of a typical drop, and <code>Refraction</code> how strongly the drops bend what is behind them (0 for none):</p>
+<pre><code class="lang-xaml">&lt;fx:RainGlass Density=&quot;1.6&quot; DropSize=&quot;9&quot; Refraction=&quot;1.4&quot; /&gt;
+</code></pre>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Density</code></td>
+<td><code>double</code></td>
+<td><code>1</code></td>
+<td>How many drops. Range 0–2.</td>
+</tr>
+<tr>
+<td><code>DropSize</code></td>
+<td><code>double</code></td>
+<td><code>6</code></td>
+<td>Radius of a typical drop. Range 2–16 DIPs.</td>
+</tr>
+<tr>
+<td><code>Fog</code></td>
+<td><code>double</code></td>
+<td><code>0.6</code></td>
+<td>How misted the glass is between the drops. Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>Refraction</code></td>
+<td><code>double</code></td>
+<td><code>1</code></td>
+<td>How strongly the drops bend what is behind them, a multiple: 1 shows what lies about two radii away, 0 none. Range 0–2.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>: <code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>. <code>Seed</code> changes where the drops fall, and <code>Speed</code> how fast the rain runs.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>Light and dark surfaces:</strong> it draws the same on both.</li>
+<li><strong>Reduced motion:</strong> the drops hold still.</li>
+<li><strong>Cost:</strong> about 0.51 ms of GPU time a frame on the benchmark card, including a blurred copy of what is under it. It animates, so it redraws every frame while it is visible. See <a href="../concepts/performance.html#what-a-layer-costs">Performance</a>.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.RainGlass.html">RainGlass</a> API reference</li>
+<li><a href="water.html">Water</a>, <a href="frost.html">Frost</a> and <a href="weather.html">Weather</a></li>
+<li><a href="../concepts/layers.html#layers-that-read-the-backdrop">Layers that read the backdrop</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/rainglass.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

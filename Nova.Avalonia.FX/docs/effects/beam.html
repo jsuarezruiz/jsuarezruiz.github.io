@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Beam | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Beam | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="Light traveling along a curve between two points or two controls, like data flowing.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/beam.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="beam">Beam</h1>
+
+<p>Beam sends light along a curve from one point to another, over a faint track: pulses with a tail, marching dashes, or a steady shimmer. Use it to show data flowing between controls in a diagram, an integrations page, a sync screen or a pipeline. Its ends are points of the host's shape, or the centers of two controls inside the host, which it follows as the layout changes. It draws under the child, so the controls it connects sit on top of it.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/beam-light.png" alt="Beam on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/beam-dark.png" alt="Beam on a dark surface"></p>
+</section>
+</div>
+<h2 id="connect-two-controls">Connect two controls</h2>
+<p>Put the host around the panel that holds both controls, and point <code>FromElement</code> and <code>ToElement</code> at them. The beam runs between their centers, under them, and moves with them when the layout changes.</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;fx:FXHost&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:Beam FromElement=&quot;{Binding #AppNode}&quot; ToElement=&quot;{Binding #ApiNode}&quot; Curvature=&quot;0.2&quot; /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Grid ColumnDefinitions=&quot;Auto,*,Auto&quot; Width=&quot;480&quot; Height=&quot;160&quot;&gt;
+            &lt;Border x:Name=&quot;AppNode&quot; Grid.Column=&quot;0&quot; Width=&quot;120&quot; Height=&quot;72&quot; CornerRadius=&quot;12&quot;
+                    Background=&quot;White&quot; BorderBrush=&quot;#E4E4E7&quot; BorderThickness=&quot;1&quot;&gt;
+                &lt;TextBlock Text=&quot;App&quot; FontWeight=&quot;SemiBold&quot; Margin=&quot;14,12&quot; /&gt;
+            &lt;/Border&gt;
+            &lt;Border x:Name=&quot;ApiNode&quot; Grid.Column=&quot;2&quot; Width=&quot;120&quot; Height=&quot;72&quot; CornerRadius=&quot;12&quot;
+                    Background=&quot;White&quot; BorderBrush=&quot;#E4E4E7&quot; BorderThickness=&quot;1&quot;&gt;
+                &lt;TextBlock Text=&quot;API&quot; FontWeight=&quot;SemiBold&quot; Margin=&quot;14,12&quot; /&gt;
+            &lt;/Border&gt;
+        &lt;/Grid&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<p>The controls must be inside the host. You can also set them from code: <code>SyncBeam.FromElement = AppNode;</code>.</p>
+<p>Without controls, <code>From</code> and <code>To</code> place the ends as shares of the shape, from <code>0,0</code> at the top left to <code>1,1</code> at the bottom right:</p>
+<pre><code class="lang-xaml">&lt;fx:Beam From=&quot;0.1,0.8&quot; To=&quot;0.9,0.2&quot; /&gt;
+</code></pre>
+<h2 id="styles">Styles</h2>
+<p><code>Duration</code> is the time a pulse, a dash or the shimmer takes to cross the path, in every style.</p>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Pulse</code> (default)</td>
+<td>Comets with a tail, leaving every <code>Interval</code> seconds or on <code>Send</code>.</td>
+</tr>
+<tr>
+<td><code>Dashes</code></td>
+<td>Dashes marching along the path.</td>
+</tr>
+<tr>
+<td><code>Flow</code></td>
+<td>A steady shimmer running along the path.</td>
+</tr>
+</tbody>
+</table>
+
+<pre><code class="lang-xaml">&lt;fx:Beam Style=&quot;Dashes&quot; DashLength=&quot;8&quot; Duration=&quot;1.5&quot; /&gt;
+</code></pre>
+<h2 id="send-a-pulse">Send a pulse</h2>
+<p>In the <code>Pulse</code> style, a pulse leaves every <code>Interval</code> seconds. Set <code>Interval</code> to 0 and call <code>Send()</code> to send one only when something happens, such as a request going out. <code>PulseLength</code> sets the tail, as a share of the path.</p>
+<pre><code class="lang-xaml">&lt;fx:Beam x:Name=&quot;RequestBeam&quot; Interval=&quot;0&quot; PulseLength=&quot;0.2&quot; /&gt;
+</code></pre>
+<pre><code class="lang-csharp">private void OnRequestSent(object? sender, EventArgs e)
+{
+    RequestBeam.Send();
+}
+</code></pre>
+<h2 id="bow-and-direction">Bow and direction</h2>
+<p><code>Curvature</code> bows the path to the side: 0 is straight, and at 1 the middle stands a quarter of the path's length off the straight line. Positive values bow to the left of the way the light travels (up, when it runs from left to right). <code>IsReversed</code> runs the light from <code>To</code> back to <code>From</code>. <code>Color</code> is a pulse's bright head and <code>TailColor</code> its tail; <code>TrackColor</code> and <code>Track</code> set the faint path under it.</p>
+<pre><code class="lang-xaml">&lt;fx:Beam Curvature=&quot;-0.4&quot; IsReversed=&quot;True&quot; Color=&quot;#34D399&quot; TailColor=&quot;#22D3EE&quot; Track=&quot;0.15&quot; /&gt;
+</code></pre>
+<h2 id="methods">Methods</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Send()</code></td>
+<td>Sends one pulse along the path now (the Pulse style).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Style</code></td>
+<td><code>BeamStyle</code></td>
+<td><code>Pulse</code></td>
+<td>How the light travels: comets with a tail, marching dashes, or a steady shimmer. Values: <code>Pulse</code>, <code>Dashes</code>, <code>Flow</code>.</td>
+</tr>
+<tr>
+<td><code>From</code></td>
+<td><code>Point</code></td>
+<td><code>0.08,0.5</code></td>
+<td>Where the beam starts, as a share of the shape (0..1 each way).</td>
+</tr>
+<tr>
+<td><code>To</code></td>
+<td><code>Point</code></td>
+<td><code>0.92,0.5</code></td>
+<td>Where the beam ends, as a share of the shape (0..1 each way).</td>
+</tr>
+<tr>
+<td><code>Curvature</code></td>
+<td><code>double</code></td>
+<td><code>0.25</code></td>
+<td>How far the path bows to the side: 0 straight; at 1 its middle stands a quarter of its length off the straight line. Positive bows to the left of the way it travels (up, from left to right), negative the other way. Range -1 to 1.</td>
+</tr>
+<tr>
+<td><code>Color</code></td>
+<td><code>Color</code></td>
+<td><code>#22D3EE</code></td>
+<td>A pulse's bright head, and the end of the path the light runs toward.</td>
+</tr>
+<tr>
+<td><code>TailColor</code></td>
+<td><code>Color</code></td>
+<td><code>#A78BFA</code></td>
+<td>A pulse's tail, and the end of the path the light leaves from.</td>
+</tr>
+<tr>
+<td><code>Width</code></td>
+<td><code>double</code></td>
+<td><code>2</code></td>
+<td>Thickness of the beam's line, in DIPs; the glow around it grows with it. Range 0.5–8.</td>
+</tr>
+<tr>
+<td><code>Glow</code></td>
+<td><code>double</code></td>
+<td><code>0.6</code></td>
+<td>The soft light around the beam, as a share (0: none). Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>TrackColor</code></td>
+<td><code>Color</code></td>
+<td><code>#9CA3AF</code></td>
+<td>The color of the faint path under the light; its alpha scales the path along with <code>Track</code>.</td>
+</tr>
+<tr>
+<td><code>Track</code></td>
+<td><code>double</code></td>
+<td><code>0.25</code></td>
+<td>How much the path itself shows when no light is on it. Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>Duration</code></td>
+<td><code>double</code></td>
+<td><code>2.5</code></td>
+<td>Seconds a pulse or a dash takes to cross the path; the shimmer moves one 80-DIP wave along it in this time. Range 0.3–10.</td>
+</tr>
+<tr>
+<td><code>Interval</code></td>
+<td><code>double</code></td>
+<td><code>2.5</code></td>
+<td>Seconds between pulses sent on their own; 0: only those sent with <code>Send</code>. Range 0–10. Applies to the <code>Pulse</code> style.</td>
+</tr>
+<tr>
+<td><code>PulseLength</code></td>
+<td><code>double</code></td>
+<td><code>0.3</code></td>
+<td>A pulse's tail, as a share of the path. Range 0.05–1 (5–100%). Applies to the <code>Pulse</code> style.</td>
+</tr>
+<tr>
+<td><code>DashLength</code></td>
+<td><code>double</code></td>
+<td><code>10</code></td>
+<td>Length of a dash, in DIPs; the gaps between dashes are as long. Range 2–60. Applies to the <code>Dashes</code> style.</td>
+</tr>
+<tr>
+<td><code>IsReversed</code></td>
+<td><code>bool</code></td>
+<td><code>false</code></td>
+<td>Runs from <code>To</code> back to <code>From</code>.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>:
+<code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>. On a beam, <code>Intensity</code> dims the layer and <code>Seed</code> doesn't apply.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>Light and dark surfaces.</strong> On a dark surface the light adds to what is beneath it. On a light surface it draws as tinted haze. See <a href="../concepts/light-and-dark.html#how-light-layers-draw-on-each-surface">Light and dark surfaces</a>.</li>
+<li><strong>Reduced motion.</strong> The beam holds a still gradient along the path. See <a href="../concepts/reduced-motion.html#the-poses">Reduced motion</a>.</li>
+<li><strong>Cost.</strong> About 0.02 ms of GPU time a frame on the bench. The layer only shades the curve and its glow, not the whole host. A <code>Pulse</code> beam with <code>Interval</code> at 0 asks for frames only while a pulse is on the path. See <a href="../concepts/performance.html#what-a-layer-costs">Performance</a>.</li>
+<li><strong>Many pulses.</strong> The path shows up to eight pulses at a time. With more (a short <code>Interval</code>), the newest are kept, so a pulse sent with <code>Send()</code> always shows.</li>
+<li><strong>Several beams.</strong> Put several <code>Beam</code> layers in one host to draw a diagram, one per connection.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.Beam.html">Beam</a> API reference</li>
+<li><a href="borderbeam.html">Border beam</a>, streaks running around a border</li>
+<li><a href="electric.html">Electric</a>, lightning between two points</li>
+<li><a href="pulse.html">Pulse</a>, whose <code>Ping</code> style flies from one control to another</li>
+<li><a href="../concepts/one-shots-and-pointer.html#one-shots">One-shots and the pointer</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/beam.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

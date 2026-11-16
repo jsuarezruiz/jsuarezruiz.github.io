@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Motion blur | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Motion blur | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="A smear of the content along its motion, drawn behind it while the host moves, and nothing while it is still.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/motionblur.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="motion-blur">Motion blur</h1>
+
+<p>Motion blur draws a smear of the host's content along its motion, behind it, while the host moves: a slide-in, a drag, a fling, a transform animation. It reads how the host moves in its window every frame, so any movement counts, whatever moves it. Still, it draws nothing. The content itself stays sharp; the smear trails behind it like a wake.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/motionblur-light.png" alt="Motion blur on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/motionblur-dark.png" alt="Motion blur on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-motion-blur">Add motion blur</h2>
+<p>Add the layer to a host that moves. Here an animation slides the host back and forth:</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;fx:FXHost CornerRadius=&quot;14&quot; HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot;&gt;
+        &lt;fx:FXHost.RenderTransform&gt;
+            &lt;TranslateTransform /&gt;
+        &lt;/fx:FXHost.RenderTransform&gt;
+        &lt;fx:FXHost.Styles&gt;
+            &lt;Style Selector=&quot;fx|FXHost&quot;&gt;
+                &lt;Style.Animations&gt;
+                    &lt;Animation Duration=&quot;0:0:1.2&quot; IterationCount=&quot;INFINITE&quot; PlaybackDirection=&quot;Alternate&quot; Easing=&quot;SineEaseInOut&quot;&gt;
+                        &lt;KeyFrame Cue=&quot;0%&quot;&gt;&lt;Setter Property=&quot;TranslateTransform.X&quot; Value=&quot;-80&quot; /&gt;&lt;/KeyFrame&gt;
+                        &lt;KeyFrame Cue=&quot;100%&quot;&gt;&lt;Setter Property=&quot;TranslateTransform.X&quot; Value=&quot;80&quot; /&gt;&lt;/KeyFrame&gt;
+                    &lt;/Animation&gt;
+                &lt;/Style.Animations&gt;
+            &lt;/Style&gt;
+        &lt;/fx:FXHost.Styles&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:MotionBlur Shutter=&quot;0.06&quot; /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Border Width=&quot;110&quot; Height=&quot;70&quot; CornerRadius=&quot;14&quot; Background=&quot;#3b82f6&quot;&gt;
+            &lt;TextBlock Text=&quot;Swoosh&quot; Foreground=&quot;White&quot; FontWeight=&quot;SemiBold&quot;
+                       HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot; /&gt;
+        &lt;/Border&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<h2 id="smear-a-slide-in">Smear a slide-in</h2>
+<p>Anything that moves the host works: a transition on its <code>RenderTransform</code>, a change of <code>Canvas.Left</code>, a drag, a layout change, or a parent that moves. This drawer slides in with a transition:</p>
+<pre><code class="lang-xaml">&lt;fx:FXHost x:Name=&quot;Drawer&quot; RenderTransform=&quot;translateX(-320px)&quot;&gt;
+    &lt;fx:FXHost.Transitions&gt;
+        &lt;Transitions&gt;
+            &lt;TransformOperationsTransition Property=&quot;RenderTransform&quot; Duration=&quot;0:0:0.35&quot; Easing=&quot;CubicEaseOut&quot; /&gt;
+        &lt;/Transitions&gt;
+    &lt;/fx:FXHost.Transitions&gt;
+    &lt;fx:FXHost.Layers&gt;
+        &lt;fx:MotionBlur /&gt;
+    &lt;/fx:FXHost.Layers&gt;
+    &lt;Border Width=&quot;300&quot; Height=&quot;400&quot; Background=&quot;#15171c&quot; /&gt;
+&lt;/fx:FXHost&gt;
+</code></pre>
+<pre><code class="lang-csharp">// using Avalonia.Media.Transformation;
+Drawer.RenderTransform = TransformOperations.Parse(&quot;translateX(0px)&quot;);
+</code></pre>
+<h2 id="tune-the-smear">Tune the smear</h2>
+<p><code>Shutter</code> is how long the virtual shutter stays open, in seconds: longer smears further. <code>MaxLength</code> caps the smear in DIPs, and <code>Strength</code> sets how strongly it shows.</p>
+<pre><code class="lang-xaml">&lt;fx:MotionBlur Shutter=&quot;0.08&quot; MaxLength=&quot;160&quot; Strength=&quot;0.6&quot; /&gt;
+</code></pre>
+<p>The smear is drawn from a capture of the content, which the host takes again when the content changes. After changing something deep inside it, call <code>RefreshMask()</code> on the host; see <a href="../concepts/content-masks.html#layers-that-follow-the-content">Content masks</a>.</p>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Shutter</code></td>
+<td><code>double</code></td>
+<td><code>0.05</code></td>
+<td>How long the virtual shutter stays open: longer smears further. Range 0.005–0.2 seconds.</td>
+</tr>
+<tr>
+<td><code>Strength</code></td>
+<td><code>double</code></td>
+<td><code>0.75</code></td>
+<td>How opaque the smear is (0: none). Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>MaxLength</code></td>
+<td><code>double</code></td>
+<td><code>120</code></td>
+<td>The longest smear. Range 4–400 DIPs.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>:
+<code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>. Motion blur follows the host, not a clock, so <code>Speed</code> and <code>Seed</code> do nothing.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>Scrolling counts.</strong> A host in a scrolling list smears while the list scrolls. Set <code>IsActive</code> to false where that isn't wanted.</li>
+<li><strong>Room behind it.</strong> The smear is drawn behind the content and reaches up to <code>MaxLength</code> past the host, so a clipping ancestor cuts it.</li>
+<li><strong>Light and dark.</strong> It draws the same on both surfaces, in the content's own colors.</li>
+<li><strong>Reduced motion.</strong> It draws nothing. See <a href="../concepts/reduced-motion.html#the-poses">Reduced motion</a>.</li>
+<li><strong>Cost.</strong> About 0.15 ms of GPU time a frame while the host moves, and nothing once it stops. See <a href="../concepts/performance.html#what-a-layer-costs">What a layer costs</a>.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.MotionBlur.html">MotionBlur</a> API reference</li>
+<li><a href="trail.html">Trail</a>, a ribbon or sparks behind the pointer</li>
+<li><a href="tilt.html">Tilt</a>, which moves its host toward the pointer</li>
+<li><a href="../concepts/content-masks.html">Content masks</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/motionblur.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

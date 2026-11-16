@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Namespace Nova.Avalonia.FX | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Namespace Nova.Avalonia.FX | Nova.Avalonia.FX ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Nova.Avalonia.FX">
+
+  <h1 id="Nova_Avalonia_FX" data-uid="Nova.Avalonia.FX" class="text-break">Namespace Nova.Avalonia.FX</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+
+    <h3 id="classes">
+Classes
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.AmbientGlow.html">AmbientGlow</a></dt>
+      <dd><p>A glow in the content's own colors: the child (album art, a video frame, a photo, an
+illustration) blurred, spread out and lit behind itself, like a screen's ambient light on the
+wall. The host captures the child's pixels when it changes; call
+<a class="xref" href="Nova.Avalonia.FX.FXHost.html#Nova_Avalonia_FX_FXHost_RefreshMask">RefreshMask()</a> after changing something deep inside it, or every frame for
+a video.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.Ascii.html">Ascii</a></dt>
+      <dd><p>Redraws what is behind it (the host's content, and anything under the host) as text: each cell
+shows the character whose ink matches the brightness there, from &quot; .-:+=%*#@&quot;. The glyphs are
+small dot shapes made in the shader, not a font. With <a class="xref" href="Nova.Avalonia.FX.Ascii.html#Nova_Avalonia_FX_Ascii_IsColored">IsColored</a>, each character
+takes the content's own color. Fade it in and out with Intensity.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.Aurora.html">Aurora</a></dt>
+      <dd><p>Three light curtains drifting across the shape, each with a bright lower hem and noise rays,
+feathered inside the shape's edge. Under reduced motion they hold one pose.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.Beam.html">Beam</a></dt>
+      <dd><p>Light traveling along a curve between two points, over a faint track: data flowing from one
+control to another in a diagram, an integration page or a pipeline. The ends are
+<a class="xref" href="Nova.Avalonia.FX.Beam.html#Nova_Avalonia_FX_Beam_From">From</a> and <a class="xref" href="Nova.Avalonia.FX.Beam.html#Nova_Avalonia_FX_Beam_To">To</a>, shares of the host's shape, or the centers of
+<a class="xref" href="Nova.Avalonia.FX.Beam.html#Nova_Avalonia_FX_Beam_FromElement">FromElement</a> and <a class="xref" href="Nova.Avalonia.FX.Beam.html#Nova_Avalonia_FX_Beam_ToElement">ToElement</a>, which it follows as the layout changes;
+<a class="xref" href="Nova.Avalonia.FX.Beam.html#Nova_Avalonia_FX_Beam_Curvature">Curvature</a> bows the path. Put the host around the panel that holds both controls,
+so the beam runs under them. Under reduced motion it holds a still gradient.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.Beams.html">Beams</a></dt>
+      <dd><p>A background of shafts of light that drift slowly sideways, with light falling down them: a
+quiet, cinematic backdrop for a hero section or a dark landing page. The shafts can lean with
+<a class="xref" href="Nova.Avalonia.FX.Beams.html#Nova_Avalonia_FX_Beams_Angle">Angle</a>; as a fill it paints the shape under the child.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.Bokeh.html">Bokeh</a></dt>
+      <dd><p>Soft out-of-focus lights drifting at three depths over a background, as a lens renders lights
+it isn't focused on: discs with brighter rims, bigger and faster in front. A background fill,
+drawn under the child; to lay the lights over the content, set <a class="xref" href="Nova.Avalonia.FX.Bokeh.html#Nova_Avalonia_FX_Bokeh_BackgroundColor">BackgroundColor</a>'s
+alpha to 0 and <a class="xref" href="Nova.Avalonia.FX.FXLayer.html#Nova_Avalonia_FX_FXLayer_Placement">Placement</a> to <a class="xref" href="Nova.Avalonia.FX.FXPlacement.html#Nova_Avalonia_FX_FXPlacement_Over">Over</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.BorderBeam.html">BorderBeam</a></dt>
+      <dd><p>Streaks of light running around the border, fading from a bright head to the tail color, with
+a glow either side: for a &quot;new&quot; badge, a chat input or a card that is working. Under reduced
+motion the streaks hold still.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.Caustics.html">Caustics</a></dt>
+      <dd><p>Caustics: the shifting web of light that water throws on the floor of a pool, over a water
+color. With a transparent <a class="xref" href="Nova.Avalonia.FX.Caustics.html#Nova_Avalonia_FX_Caustics_WaterColor">WaterColor</a>, Placement Over and BlendMode Screen it lays
+pool light over the host's content instead.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.ChromaSplit.html">ChromaSplit</a></dt>
+      <dd><p>Red and blue pulled apart from green over what is behind (and the host's child), with optional
+glitch: now and then a thin slice jumps sideways.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.CodeRain.html">CodeRain</a></dt>
+      <dd><p>Columns of glyphs raining down a terminal-style background: each stream has a bright head and
+a fading trail, and the glyphs flip as it passes. The glyphs are dot-matrix shapes made up per
+cell (no font involved), so it looks the same everywhere. A background fill, drawn under the
+child; to rain over the content, set <a class="xref" href="Nova.Avalonia.FX.CodeRain.html#Nova_Avalonia_FX_CodeRain_BackgroundColor">BackgroundColor</a>'s alpha to 0 and
+<a class="xref" href="Nova.Avalonia.FX.FXLayer.html#Nova_Avalonia_FX_FXLayer_Placement">Placement</a> to <a class="xref" href="Nova.Avalonia.FX.FXPlacement.html#Nova_Avalonia_FX_FXPlacement_Over">Over</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.ColorFilter.html">ColorFilter</a></dt>
+      <dd><p>CSS-style color filters, live, within the shape: over the child (the default) they recolor the
+child and whatever shows through it, as CSS <code>filter</code> does; under it
+(<a class="xref" href="Nova.Avalonia.FX.FXLayer.html#Nova_Avalonia_FX_FXLayer_Placement">Placement</a> Under) they recolor what is behind the host, as
+<code>backdrop-filter</code> does. With <a class="xref" href="Nova.Avalonia.FX.ColorFilter.html#Nova_Avalonia_FX_ColorFilter_UseMask">UseMask</a> only the child's own pixels change (an
+icon, not the card around it). Brightness, contrast, saturation, hue, grayscale and sepia use
+CSS's formulas; Intensity is how much of the filter shows. Disabled states, &quot;grayscale until
+hover&quot;, styled photos, images dimmed in dark mode. It starts as grayscale (<a class="xref" href="Nova.Avalonia.FX.ColorFilter.html#Nova_Avalonia_FX_ColorFilter_Preset">Preset</a>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.Confetti.html">Confetti</a></dt>
+      <dd><p>A burst of confetti that flies, tumbles, flutters and falls: for a success or a milestone.
+Every piece is a pure function of the time since its burst, and bursts overlap. Under reduced
+motion the pieces appear in place and fade without flying.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.Crt.html">Crt</a></dt>
+      <dd><p>An old CRT over what is behind (and the host's child): barrel bulge, scanlines, a color split,
+an aperture grille, a soft glow, a rolling bar and a vignette.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.Dither.html">Dither</a></dt>
+      <dd><p>Ordered dithering of a tone into a palette (dark to light), in square pixels anchored to the
+shape. Two colors is one-bit; more is a palette.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.DotGrid.html">DotGrid</a></dt>
+      <dd><p>A grid of dots or squares that flicker at random: a quiet, technical background. Dots near the
+pointer light up and grow, and a press (or <a class="xref" href="Nova.Avalonia.FX.DotGrid.html#Nova_Avalonia_FX_DotGrid_Ripple_System_Nullable_Avalonia_Point__">Ripple(Point?)</a>) sends a ring out across the grid.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.Electric.html">Electric</a></dt>
+      <dd><p>Lightning: a fractal bolt that strikes with a flash, holds, sometimes return-strokes, and
+re-strikes, mostly down the same channel. The previous strikes linger as afterimages, and
+forks shoot out at each strike, cooling from white through the tint to violet.
+<a class="xref" href="Nova.Avalonia.FX.Electric.html#Nova_Avalonia_FX_Electric_Zap_System_Nullable_Avalonia_Point__">Zap(Point?)</a> fires a single strike.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.FXColorList.html">FXColorList</a></dt>
+      <dd><p>An ordered list of colors. In XAML: <code>Colors=&quot;#2b1b5a, #ff6f91, #ffc46b&quot;</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.FXColorListConverter.html">FXColorListConverter</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.FXDiagnostics.html">FXDiagnostics</a></dt>
+      <dd><p>Opt-in timing of layer draws, for benchmarks and profiling. Off by default, and free while off.
+With <a class="xref" href="Nova.Avalonia.FX.FXDiagnostics.html#Nova_Avalonia_FX_FXDiagnostics_MeasureGpu">MeasureGpu</a> on, every draw also waits for the GPU to finish it, which slows
+frames down: use it to compare layers, not in a shipping app.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.FXFill.html">FXFill</a></dt>
+      <dd><p>A fill paints the shape (or, with <a class="xref" href="Nova.Avalonia.FX.FXFill.html#Nova_Avalonia_FX_FXFill_BorderWidth">BorderWidth</a>, a band inside its edge) and goes
+under the child as its background. Under reduced motion every fill holds one fixed pose.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.FXHost.html">FXHost</a></dt>
+      <dd><p>Hosts one child and draws FX layers around it: under the child (glows, pulses, fills) and
+over it (sheens, grain, ripples). The layers follow the child's shape: its bounds and corner
+radius, taken from <a class="xref" href="Nova.Avalonia.FX.FXHost.html#Nova_Avalonia_FX_FXHost_CornerRadius">CornerRadius</a> or, when that is unset, from the child itself.
+Layers render on the compositor thread and only tick while something moves, and while the host
+can be seen: a hidden host, or one scrolled out of view, asks for no frames.</p>
+<p>Light that spills past the child (a glow's reach) is drawn outside the host's bounds, so
+it is cut by any clipping ancestor: a ScrollViewer, a Border with ClipToBounds, and Fluent's
+ContentControl, which clips by default. Leave room around the host inside such containers, or
+set ClipToBounds="False" where that is safe.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.FXLayer.html">FXLayer</a></dt>
+      <dd><p>Base class of every layer. A layer is a pure function of (position, parameters, time, seed):
+no hidden state and no randomness, so a given time always renders the same frame.
+Layers are styled elements: they take part in styles, bindings and transitions, so a style
+setter on <code>Intensity</code> with a <code>DoubleTransition</code> animates a glow smoothly on hover.
+A layer is in one <a class="xref" href="Nova.Avalonia.FX.FXHost.html">FXHost</a> at a time: adding it to a second host's
+<a class="xref" href="Nova.Avalonia.FX.FXHost.html#Nova_Avalonia_FX_FXHost_Layers">Layers</a> throws until it is removed from the first.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.FXLayerCollection.html">FXLayerCollection</a></dt>
+      <dd><p>The layers of an <a class="xref" href="Nova.Avalonia.FX.FXHost.html">FXHost</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.FXPaletteFill.html">FXPaletteFill</a></dt>
+      <dd><p>A fill painted from a list of colors (up to six): mesh gradient, swirl, waves, grain gradient,
+voronoi, metaballs, dither and bokeh. Unset <a class="xref" href="Nova.Avalonia.FX.FXPaletteFill.html#Nova_Avalonia_FX_FXPaletteFill_Colors">Colors</a> uses the preset's palette.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.FXSettings.html">FXSettings</a></dt>
+      <dd><p>Global switches shared by every layer.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.FXTransitionLayer.html">FXTransitionLayer</a></dt>
+      <dd><p>A layer that shows and hides its host's content with a transition (<a class="xref" href="Nova.Avalonia.FX.Reveal.html">Reveal</a>,
+<a class="xref" href="Nova.Avalonia.FX.Genie.html">Genie</a>, <a class="xref" href="Nova.Avalonia.FX.Shatter.html">Shatter</a>). Set <code>IsShown</code>, or call <a class="xref" href="Nova.Avalonia.FX.FXTransitionLayer.html#Nova_Avalonia_FX_FXTransitionLayer_Show_System_Nullable_Avalonia_Point__">Show(Point?)</a> or
+<a class="xref" href="Nova.Avalonia.FX.FXTransitionLayer.html#Nova_Avalonia_FX_FXTransitionLayer_Hide_System_Nullable_Avalonia_Point__">Hide(Point?)</a>: the layer captures the content as it looks, hides the real element and
+plays the transition on the capture, then hands back to the element once shown. While hidden
+the element is invisible but keeps its place in the layout. With nothing to capture (no
+content, invisible, or not laid out yet), or while inactive, it switches at once.
+<code>Duration</code> sets the pace; the layer's <code>Speed</code> doesn't apply.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.Fire.html">Fire</a></dt>
+      <dd><p>Fire off the top edge: domain-warped turbulence whose warp grows with height, so tongues curl,
+narrow and tear; a flicker per column; a temperature ramp from a white-yellow base to red tips
+and a faint veil of smoke. Embers are flung up, slow under drag to a buoyant drift, sway and
+cool. Plasma is a thin breathing band of filaments around the border.</p>
+<p>
+<a class="xref" href="Nova.Avalonia.FX.FireStyle.html#Nova_Avalonia_FX_FireStyle_Simulated">Simulated</a> and <a class="xref" href="Nova.Avalonia.FX.FireStyle.html#Nova_Avalonia_FX_FireStyle_Smoke">Smoke</a> run a small fluid
+simulation instead: heat rises, curls, drifts with <a class="xref" href="Nova.Avalonia.FX.Fire.html#Nova_Avalonia_FX_Fire_Wind">Wind</a>, cools and turns to smoke.
+It steps a small grid on the render thread every frame (well under a millisecond);
+<a class="xref" href="Nova.Avalonia.FX.FXLayer.html#Nova_Avalonia_FX_FXLayer_Intensity">Intensity</a> is how much heat is fed in.
+</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.Fireworks.html">Fireworks</a></dt>
+      <dd><p>Fireworks over the host: a rocket climbs from the bottom edge and bursts into a sphere of
+streaking sparks that slow, fall, crackle and fade. <a class="xref" href="Nova.Avalonia.FX.Fireworks.html#Nova_Avalonia_FX_Fireworks_Fire_System_Nullable_Avalonia_Point__">Fire(Point?)</a> sends one to a point (or
+a spot of its own), <a class="xref" href="Nova.Avalonia.FX.Fireworks.html#Nova_Avalonia_FX_Fireworks_FireOnPress">FireOnPress</a> fires where you press, and <a class="xref" href="Nova.Avalonia.FX.Fireworks.html#Nova_Avalonia_FX_Fireworks_Interval">Interval</a>
+keeps a show going. Shots overlap. Light adds on dark surfaces, color shows on light ones.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.FlutedGlass.html">FlutedGlass</a></dt>
+      <dd><p>Reeded glass over what is behind the host: parallel convex ribs, each a cylindrical lens that
+shows a squeezed, flipped strip of the backdrop, with a color split toward its edges, a sheen
+and a shaded groove.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.Fog.html">Fog</a></dt>
+      <dd><p>Banks of mist drifting across the shape at <a class="xref" href="Nova.Avalonia.FX.Fog.html#Nova_Avalonia_FX_Fog_DriftSpeed">DriftSpeed</a>, thickest at the bottom and
+thinning out toward <a class="xref" href="Nova.Avalonia.FX.Fog.html#Nova_Avalonia_FX_Fog_Height">Height</a>. Over the content it hangs in front of it; under a
+see-through panel it is a background. Under reduced motion it holds still.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.Frost.html">Frost</a></dt>
+      <dd><p>Ice that creeps in from the shape's edges in feathery crystal branches, frosting what is under
+it (the content, for an Over layer): blurred, whitened toward <a class="xref" href="Nova.Avalonia.FX.Frost.html#Nova_Avalonia_FX_Frost_Tint">Tint</a>, with glints.
+<a class="xref" href="Nova.Avalonia.FX.Frost.html#Nova_Avalonia_FX_Frost_Amount">Amount</a> is how far it has crept in; animate it with a transition to freeze or thaw.
+It melts in a ragged circle around the pointer and freezes back when the pointer leaves.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.Genie.html">Genie</a></dt>
+      <dd><p>Hides the content by pulling it into a point, like a window minimizing into the dock, and
+pours it back out to show it. The sides bend in toward the point first, then the content
+slides down the funnel into it. The point is the center of <a class="xref" href="Nova.Avalonia.FX.Genie.html#Nova_Avalonia_FX_Genie_Target">Target</a> (a dock icon,
+a button), the point given to <a class="xref" href="Nova.Avalonia.FX.FXTransitionLayer.html#Nova_Avalonia_FX_FXTransitionLayer_Hide_System_Nullable_Avalonia_Point__">Hide(Point?)</a> or
+<a class="xref" href="Nova.Avalonia.FX.FXTransitionLayer.html#Nova_Avalonia_FX_FXTransitionLayer_Show_System_Nullable_Avalonia_Point__">Show(Point?)</a>, or the bottom center of the content. The content is
+captured and hidden while it plays, and handed back once shown. Under reduced motion it fades.</p>
+<p>The funnel draws outside the host on its way to the point, so it is cut by any clipping
+ancestor between the content and the target.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.Glass.html">Glass</a></dt>
+      <dd><p>A pane of liquid glass over what is behind the host: a beveled rim that refracts and splits
+the backdrop, a little magnification, an optional frost, a specular rim facing the light and a
+soft drop shadow. It reads what is drawn behind it, so it follows anything that moves there.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.Glitch.html">Glitch</a></dt>
+      <dd><p>A digital glitch over the content: bands of it tear sideways, blocks jump, the color channels
+split, a few rows flash in the glitch colors and scanlines show. It changes in steps (about
+20 a second), as a broken signal does. It draws nothing between glitches, so a burst layer
+costs nothing until it fires: a short burst on <a class="xref" href="Nova.Avalonia.FX.Glitch.html#Nova_Avalonia_FX_Glitch_Trigger">Trigger()</a> or a press (an error, a
+denied action), or, with <a class="xref" href="Nova.Avalonia.FX.Glitch.html#Nova_Avalonia_FX_Glitch_IsContinuous">IsContinuous</a>, now and then on its own. Under reduced
+motion a burst is a short, mild color split and a continuous glitch stays still.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.Glow.html">Glow</a></dt>
+      <dd><p>Bloom around the shape. The light is a tight Gaussian plus a wide one through a soft knee, so
+a tinted glow keeps its hue instead of clipping to white. Switching <a class="xref" href="Nova.Avalonia.FX.Glow.html#Nova_Avalonia_FX_Glow_IsLit">IsLit</a> off
+cools the light (it shrinks, deepens and dims) instead of cutting it.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.Grain.html">Grain</a></dt>
+      <dd><p>Film grain inside the shape, per device pixel. Static by default, so it never shimmers.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.GrainGradient.html">GrainGradient</a></dt>
+      <dd><p>A linear, radial or conic gradient whose colors scatter into film grain: triangular noise
+scatters the ramp position, so colors stipple into each other, plus brightness grain.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.Halftone.html">Halftone</a></dt>
+      <dd><p>Print-style round dots on a rotated screen, sized by a tone; neighboring dots merge where the
+tone is dark.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.HeatHaze.html">HeatHaze</a></dt>
+      <dd><p>Shimmering hot air: what is behind wobbles in rising, turbulent noise. By default it rises
+above the shape, strongest a little up the column (pair it with <a class="xref" href="Nova.Avalonia.FX.Fire.html">Fire</a>); with
+<a class="xref" href="Nova.Avalonia.FX.HeatHaze.html#Nova_Avalonia_FX_HeatHaze_WholeShape">WholeShape</a> it fills the shape.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.HoloFoil.html">HoloFoil</a></dt>
+      <dd><p>Holographic foil over the shape: an iridescent rainbow sheen whose bands shift as the pointer
+moves over it, fine etched lines, glitter that flares as the angle passes each facet, and a
+soft glare under the pointer. Still when the pointer is away (unless it drifts), so idle it
+costs nothing.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.Ink.html">Ink</a></dt>
+      <dd><p>Colored ink in a fluid over the content: moving the pointer pushes the fluid and leaves ink
+in a color that changes as it goes, a press throws a splash of every color, and the ink swirls,
+spreads and fades. A small fluid simulation runs on the render thread only while there is ink;
+with none it draws nothing and costs nothing. Under reduced motion the ink stays where it
+lands and fades.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.InnerShadow.html">InnerShadow</a></dt>
+      <dd><p>Light and shade inside the child's own shape, its text or icons: a pressed-in (inset), raised
+(emboss) or letterpress look, lit from <a class="xref" href="Nova.Avalonia.FX.InnerShadow.html#Nova_Avalonia_FX_InnerShadow_LightAngle">LightAngle</a>. It follows the shape exactly
+(from the distance to its edge, which the host measures when it captures the child), so it
+works on glyphs, not just boxes. After changing something deep inside the child, call
+<a class="xref" href="Nova.Avalonia.FX.FXHost.html#Nova_Avalonia_FX_FXHost_RefreshMask">RefreshMask()</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.Jelly.html">Jelly</a></dt>
+      <dd><p>Pressed, the element squashes and wobbles like jelly before it settles: a damped spring that
+squashes it down and out, then overshoots, plus a bulge that spreads from the press point.
+While it wobbles the layer draws a capture of the content (the real content is hidden and
+still takes input), and hands back to it once settled. Under reduced motion the wobble is a
+small, quick squash.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.LightLeaks.html">LightLeaks</a></dt>
+      <dd><p>Warm film light leaking in over the shape's edges: four long, soft glows that drift along the
+frame and breathe in and out, whitening where they are hottest. Added as light over the
+content (a photo, a hero card); over light content it draws as tinted haze.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.LightRays.html">LightRays</a></dt>
+      <dd><p>Shafts of light falling across the shape from a source just outside it, like sun through a
+window: a fan of rays that shimmer and shift slowly, bright where they come in and fading
+with distance. Added light, as tinted haze on a light surface. Under reduced motion the rays
+hold still.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.LiquidMetal.html">LiquidMetal</a></dt>
+      <dd><p>A polished metal slab reflecting a photo studio: a rolled rim, a domed face and a flowing,
+domain-warped surface, with conductor Fresnel and optional thin-film color. As a border it is
+a round tube.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.LiquidProgress.html">LiquidProgress</a></dt>
+      <dd><p>A liquid filling the shape to <a class="xref" href="Nova.Avalonia.FX.LiquidProgress.html#Nova_Avalonia_FX_LiquidProgress_Level">Level</a>: for progress bars, gauges and battery or
+storage levels. The surface waves, bubbles rise, and a change of level eases in with a little
+overshoot and sloshes the surface. Bind <a class="xref" href="Nova.Avalonia.FX.LiquidProgress.html#Nova_Avalonia_FX_LiquidProgress_Level">Level</a> to a progress value (0..1).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.Magnifier.html">Magnifier</a></dt>
+      <dd><p>A glass loupe that follows the pointer over the host and magnifies what is under it: the
+content and what is behind it. It grows in when the pointer arrives and fades when it leaves;
+<a class="xref" href="Nova.Avalonia.FX.Magnifier.html#Nova_Avalonia_FX_Magnifier_PointAt_System_Nullable_Avalonia_Point__">PointAt(Point?)</a> aims it from code (a tour, keyboard focus).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.MeshGradient.html">MeshGradient</a></dt>
+      <dd><p>Up to six colors pinned to points that drift slowly, blended smoothly in OKLab (so blends
+never go muddy) with Shepard weights: each color owns its point, blends fall off smoothly.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.Metaballs.html">Metaballs</a></dt>
+      <dd><p>Glossy blobs that drift on slow paths and merge, over a base color. Each blob takes one of the
+colors in turn.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.MotionBlur.html">MotionBlur</a></dt>
+      <dd><p>A smear of the content along its motion, behind it, while the host moves: a slide-in, a drag,
+a fling, a transform animation. It reads how the host moves in its window every frame, so any
+movement counts (scrolling too). Still, it draws nothing. The host captures the content when it
+changes; call <a class="xref" href="Nova.Avalonia.FX.FXHost.html#Nova_Avalonia_FX_FXHost_RefreshMask">RefreshMask()</a> after changing something deep inside it.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.OldFilm.html">OldFilm</a></dt>
+      <dd><p>What is behind it as an old print running through a projector: toned toward sepia, darker at
+the corners and grained, weaving a little in the gate and flickering at 18 frames a second,
+with scratches that run down it for a few frames and specks of dust that come and go. Under
+reduced motion it holds one frame.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.Outline.html">Outline</a></dt>
+      <dd><p>A stroke around the child's own shape, its text, icons or a cut-out picture, at an exact width
+whatever the shape (from the distance to its edge, which the host measures when it captures the
+child). <a class="xref" href="Nova.Avalonia.FX.OutlineStyle.html#Nova_Avalonia_FX_OutlineStyle_Sticker">Sticker</a> adds a soft shadow under a thick border. Outside
+strokes go under the child, centered ones over it. After changing something deep inside the
+child, call <a class="xref" href="Nova.Avalonia.FX.FXHost.html#Nova_Avalonia_FX_FXHost_RefreshMask">RefreshMask()</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.PagePeel.html">PagePeel</a></dt>
+      <dd><p>Hovered, a corner of the element curls up like a sticker or a page and shows its back, with a
+shadow under the curl; it peels further as the pointer nears the corner and settles back when
+the pointer leaves. <a class="xref" href="Nova.Avalonia.FX.PagePeel.html#Nova_Avalonia_FX_PagePeel_IsPeeled">IsPeeled</a> holds it peeled from code. While peeled the layer
+draws a capture of the content (the real content is hidden and still takes input).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.ParticleNetwork.html">ParticleNetwork</a></dt>
+      <dd><p>Dots drifting across the shape, joined by fine lines whenever two come close: the closer, the
+stronger the line. The pointer joins in as one more point that draws the nearby dots toward it.
+Drawn with Skia directly; each dot's path is a function of time, so a given time always draws
+the same frame. Under reduced motion the dots hold still.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.Plastic.html">Plastic</a></dt>
+      <dd><p>A plastic slab under one soft light: a diffuse base that keeps its color, a GGX highlight
+widened by the light's size, and a faint sky at grazing angles. Still, so it costs nothing per
+frame once drawn.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.PointerShadow.html">PointerShadow</a></dt>
+      <dd><p>The pointer is a light over the page and the content casts a soft shadow away from it, in the
+shape of the content's own pixels: further and softer the further the light is, up to
+<a class="xref" href="Nova.Avalonia.FX.PointerShadow.html#Nova_Avalonia_FX_PointerShadow_MaxOffset">MaxOffset</a>. Within <a class="xref" href="Nova.Avalonia.FX.PointerShadow.html#Nova_Avalonia_FX_PointerShadow_PointerReach">PointerReach</a> of the content the light follows the
+pointer across the whole window, so every card on a page casts its shadow away from it; beyond
+that, or with no pointer, the light rests above the content and the shadow falls just below it.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.ProgressiveBlur.html">ProgressiveBlur</a></dt>
+      <dd><p>What is behind the shape goes from sharp to fully blurred toward one <a class="xref" href="Nova.Avalonia.FX.ProgressiveBlur.html#Nova_Avalonia_FX_ProgressiveBlur_Edge">Edge</a>: a
+header or a tab bar over a scrolling list, where content fades into the bar instead of
+meeting a hard line. The ramp crossfades five copies of the backdrop (sharp, then blurred by an
+eighth, a quarter, a half and all of <a class="xref" href="Nova.Avalonia.FX.ProgressiveBlur.html#Nova_Avalonia_FX_ProgressiveBlur_Blur">Blur</a>), so every point sees a real blur, not
+a mix of sharp and blurred. <a class="xref" href="Nova.Avalonia.FX.ProgressiveBlur.html#Nova_Avalonia_FX_ProgressiveBlur_Tint">Tint</a> fades toward the bar's own color.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.Pulse.html">Pulse</a></dt>
+      <dd><p>Rings and halos that follow the shape's outline, tap ripples, and pings that fly to a destination.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.RainGlass.html">RainGlass</a></dt>
+      <dd><p>Rain on a misted pane over what is under it: beads that come and go, fine droplets, and drops
+that slide down in fits and starts, leaving a clear wet trail dotted with droplets. Each drop
+is a small lens showing what is behind it upside down. <a class="xref" href="Nova.Avalonia.FX.RainGlass.html#Nova_Avalonia_FX_RainGlass_Fog">Fog</a> mists the glass
+between them. Under reduced motion the drops hold still.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.RetroGrid.html">RetroGrid</a></dt>
+      <dd><p>A synthwave floor: glowing grid lines running toward a horizon under a gradient sky, with a
+striped sun. For hero sections and splash screens; as a fill it paints the shape under the child.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.Reveal.html">Reveal</a></dt>
+      <dd><p>Shows or hides the host's content with a dissolve, a burn, a pixelate, an iris, a wipe, a melt,
+a clock wipe, a grid of diamonds, a swirl, halftone dots, or noise resolving into it.
+Set <a class="xref" href="Nova.Avalonia.FX.Reveal.html#Nova_Avalonia_FX_Reveal_IsShown">IsShown</a> (or call <a class="xref" href="Nova.Avalonia.FX.FXTransitionLayer.html#Nova_Avalonia_FX_FXTransitionLayer_Show_System_Nullable_Avalonia_Point__">Show(Point?)</a> and
+<a class="xref" href="Nova.Avalonia.FX.FXTransitionLayer.html#Nova_Avalonia_FX_FXTransitionLayer_Hide_System_Nullable_Avalonia_Point__">Hide(Point?)</a>): the layer captures the content as it looks, hides the
+real element and plays the transition on the capture, then hands back to the element. While
+hidden the element is invisible but keeps its place in the layout. With nothing to capture yet
+(invisible, or not laid out) it switches at once. Under reduced motion it fades.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.Shatter.html">Shatter</a></dt>
+      <dd><p>Breaks the content into glass shards that fly apart and fall, or turns it to dust that blows
+away (hide), and brings it back together (show): for delete, dismiss and undo. Set
+<a class="xref" href="Nova.Avalonia.FX.Shatter.html#Nova_Avalonia_FX_Shatter_IsShown">IsShown</a>, or call <a class="xref" href="Nova.Avalonia.FX.FXTransitionLayer.html#Nova_Avalonia_FX_FXTransitionLayer_Hide_System_Nullable_Avalonia_Point__">Hide(Point?)</a> and
+<a class="xref" href="Nova.Avalonia.FX.FXTransitionLayer.html#Nova_Avalonia_FX_FXTransitionLayer_Show_System_Nullable_Avalonia_Point__">Show(Point?)</a> with the point the break starts from. Shards are cut
+around that point, smaller near it; dust leaves from that point outward or, with no point,
+from the side the wind blows toward. The pieces are drawn with Skia directly from a capture
+of the content, which is hidden while they fly. Under reduced motion it is a short fade.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.Shimmer.html">Shimmer</a></dt>
+      <dd><p>A sheen band sweeping across the shape: skeleton loaders and &quot;Thinking…&quot; surfaces. The band
+starts and ends off the shape, so it never cuts. Under reduced motion the surface breathes.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.Shockwave.html">Shockwave</a></dt>
+      <dd><p>A one-shot ring of compressed air that bends what is behind it as it spreads from a point, with
+a color split at the front, a highlight where there is content to catch it, and a faint rim so
+it still reads over a plain backdrop. Shots overlap.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.Silk.html">Silk</a></dt>
+      <dd><p>A background of soft satin folds that flow slowly: a few warped folds lit by one soft light,
+shading into their creases with a broad sheen along the ridges. For hero sections, sign-in
+pages and cards; as a fill it paints the shape under the child.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.Sparkles.html">Sparkles</a></dt>
+      <dd><p>Crisp four-point stars around the shape, each with its own size (mostly small, a few large),
+twinkle rate and spin. Continuous stars rest between appearances so only a few are lit at
+once. <a class="xref" href="Nova.Avalonia.FX.Sparkles.html#Nova_Avalonia_FX_Sparkles_Burst">Burst()</a> pops every star once and flings it out a little.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.Spoiler.html">Spoiler</a></dt>
+      <dd><p>Hides the host's content until it is revealed, as messaging apps hide spoilers: shimmering dust
+over a heavy blur, a mosaic, or a solid cover. A tap opens it in a soft circle from the tap
+point; <a class="xref" href="Nova.Avalonia.FX.Spoiler.html#Nova_Avalonia_FX_Spoiler_IsRevealed">IsRevealed</a> binds both ways, and <a class="xref" href="Nova.Avalonia.FX.Spoiler.html#Nova_Avalonia_FX_Spoiler_HideAfter">HideAfter</a> covers it again.
+Wrap a TextBlock (or any element) in an <a class="xref" href="Nova.Avalonia.FX.FXHost.html">FXHost</a> with this layer.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.Spotlight.html">Spotlight</a></dt>
+      <dd><p>A soft light that follows the pointer across the shape and lights the border nearest to it,
+fading in when the pointer arrives and out when it leaves. It also reacts to a pointer just
+outside the shape (within <a class="xref" href="Nova.Avalonia.FX.Spotlight.html#Nova_Avalonia_FX_Spotlight_PointerReach">PointerReach</a>), so the border lights up as the pointer
+approaches. Idle, it draws nothing and costs nothing.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.Starfield.html">Starfield</a></dt>
+      <dd><p>A night sky: twinkling stars in three depths, shooting stars, or warp streaks.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.Swirl.html">Swirl</a></dt>
+      <dd><p>Colors stirred into a slow swirl: a twist around the center over twice domain-warped noise,
+through the color ramp (blended in OKLab).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.Tilt.html">Tilt</a></dt>
+      <dd><p>The host leans toward the pointer in 3D and grows a little, and a glare slides across it with
+the pointer, like a card turned under a light. The lean is a perspective render transform on
+the host, so the host's other layers (a glow, a shadow) lean with it; it eases on every frame
+while it moves and is removed once the host settles flat. While it leans it takes the place of
+a render transform set on the host itself. Under reduced motion the host stays flat and only
+the glare follows the pointer.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.Topography.html">Topography</a></dt>
+      <dd><p>The contour lines of a slowly changing landscape, like a topographic map: thin lines of even
+width wherever the slope is, every fifth one bolder. A calm background for a hero or an empty
+state. Under reduced motion it holds still.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.Trail.html">Trail</a></dt>
+      <dd><p>A trail behind the pointer as it moves over the host: a glowing ribbon or a stream of sparks,
+head color to tail color. A still pointer leaves nothing, so idle it costs nothing; under
+reduced motion there is no trail.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.VoiceOrb.html">VoiceOrb</a></dt>
+      <dd><p>A living orb of color for voice input: three soft lights drift inside a glassy sphere, their
+colors meeting smoothly, with a glow around it. Bind <a class="xref" href="Nova.Avalonia.FX.VoiceOrb.html#Nova_Avalonia_FX_VoiceOrb_Level">Level</a> to the microphone
+level: the orb swells, its edge rolls and the lights drift faster as it rises. Level changes
+are eased (quick to rise, slower to fall), so a raw meter reading looks smooth.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.VoiceWave.html">VoiceWave</a></dt>
+      <dd><p>Glowing waves across the shape that swell with the voice: three colors crossing each other
+under an envelope that pinches them to nothing at the ends, lying almost flat and drifting
+slowly when quiet. Bind <a class="xref" href="Nova.Avalonia.FX.VoiceWave.html#Nova_Avalonia_FX_VoiceWave_Level">Level</a> to the microphone level; changes are eased (quick
+to rise, slower to fall), and the waves drift faster as it rises, without jumping. Pairs with
+<a class="xref" href="Nova.Avalonia.FX.VoiceOrb.html">VoiceOrb</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.Voronoi.html">Voronoi</a></dt>
+      <dd><p>Cells around seed points that orbit slowly, with exact seams and cells shaded toward their rim.
+Each cell takes one of the colors.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.Water.html">Water</a></dt>
+      <dd><p>The content under a sheet of water: moving the pointer over it drags ripples across the
+surface, a press drops a splash, and <a class="xref" href="Nova.Avalonia.FX.Water.html#Nova_Avalonia_FX_Water_Rain">Rain</a> lets drops fall on their own. The waves
+bend what is under them and catch the light. A small wave simulation runs on the render
+thread only while the water moves; calm water draws nothing and costs nothing.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.Waves.html">Waves</a></dt>
+      <dd><p>Layered bands of color, one per color from back to front, with rolling, swaying crests; each
+front band shades the one behind it.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.Weather.html">Weather</a></dt>
+      <dd><p>Rain streaks or snowflakes falling in three depths, slanted by the wind, over the shape.</p>
+</dd>
+    </dl>
+    <h3 id="structs">
+Structs
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.FXDrawStats.html">FXDrawStats</a></dt>
+      <dd><p>Totals for one layer type since the last reset.</p>
+</dd>
+    </dl>
+    <h3 id="enums">
+Enums
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.BeamStyle.html">BeamStyle</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.BokehPreset.html">BokehPreset</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.ColorFilterPreset.html">ColorFilterPreset</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.ConfettiShape.html">ConfettiShape</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.ConfettiStyle.html">ConfettiStyle</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.DitherPattern.html">DitherPattern</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.DitherPreset.html">DitherPreset</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.ElectricStyle.html">ElectricStyle</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.FXAnchor.html">FXAnchor</a></dt>
+      <dd><p>Where a fill's pattern is pinned.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.FXBlendMode.html">FXBlendMode</a></dt>
+      <dd><p>How a layer composites onto what is beneath it.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.FXCorner.html">FXCorner</a></dt>
+      <dd><p>A corner of the shape, in Avalonia's order (as <span class="xref">Avalonia.CornerRadius</span>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.FXEdge.html">FXEdge</a></dt>
+      <dd><p>A side of the shape.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.FXPlacement.html">FXPlacement</a></dt>
+      <dd><p>Where a layer draws relative to the host's child.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.FXSurface.html">FXSurface</a></dt>
+      <dd><p>What a host sits on, for light layers (glows, pulses, sparkles, lightning).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.FXToneInput.html">FXToneInput</a></dt>
+      <dd><p>What a re-toning fill (dither, halftone) reads as its tone.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.FireStyle.html">FireStyle</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.FlutedGlassPreset.html">FlutedGlassPreset</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.GlowStyle.html">GlowStyle</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.GradientKind.html">GradientKind</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.GrainGradientPreset.html">GrainGradientPreset</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.InnerShadowStyle.html">InnerShadowStyle</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.LiquidMetalPreset.html">LiquidMetalPreset</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.MeshGradientPreset.html">MeshGradientPreset</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.MetaballsPreset.html">MetaballsPreset</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.OutlinePosition.html">OutlinePosition</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.OutlineStyle.html">OutlineStyle</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.PlasticPreset.html">PlasticPreset</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.PulseStyle.html">PulseStyle</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.RevealStyle.html">RevealStyle</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.ShatterStyle.html">ShatterStyle</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.SilkPreset.html">SilkPreset</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.SpoilerStyle.html">SpoilerStyle</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.StarfieldStyle.html">StarfieldStyle</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.SwirlPreset.html">SwirlPreset</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.TrailStyle.html">TrailStyle</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.VoronoiPreset.html">VoronoiPreset</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.WavesPreset.html">WavesPreset</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Nova.Avalonia.FX.WeatherStyle.html">WeatherStyle</a></dt>
+      <dd></dd>
+    </dl>
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

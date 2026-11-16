@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Particle network | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Particle network | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="Drifting dots joined by lines when close; the pointer joins in.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/particlenetwork.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="particle-network">Particle network</h1>
+
+<p><code>ParticleNetwork</code> draws dots drifting across the shape, joined by fine lines whenever two come close: the closer they are, the stronger the line. The pointer joins in as one more point and draws the nearby dots toward it. Use it as a light, technical background for a landing page, a sign-in screen or a &quot;connected&quot; state. It's drawn with Skia shapes rather than a shader, clipped to the host's shape, and it has no background of its own.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/particlenetwork-light.png" alt="Particle network on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/particlenetwork-dark.png" alt="Particle network on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-a-particle-network">Add a particle network</h2>
+<p>The network draws under the child, so leave the panel without a background and put the color on a container around the host:</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;Border Background=&quot;#0B1220&quot; CornerRadius=&quot;14&quot;&gt;
+        &lt;fx:FXHost CornerRadius=&quot;14&quot;&gt;
+            &lt;fx:FXHost.Layers&gt;
+                &lt;fx:ParticleNetwork Color=&quot;#CBD5E1&quot; LineColor=&quot;#94A3B8&quot; /&gt;
+            &lt;/fx:FXHost.Layers&gt;
+            &lt;Grid Height=&quot;240&quot;&gt;
+                &lt;TextBlock Text=&quot;Connected&quot; Foreground=&quot;White&quot; FontSize=&quot;20&quot; FontWeight=&quot;SemiBold&quot;
+                           HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot; /&gt;
+            &lt;/Grid&gt;
+        &lt;/fx:FXHost&gt;
+    &lt;/Border&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<p>Or draw it over a card that has its own background, as the gallery does, with <code>Placement=&quot;Over&quot;</code>:</p>
+<pre><code class="lang-xaml">&lt;fx:FXHost CornerRadius=&quot;14&quot;&gt;
+    &lt;fx:FXHost.Layers&gt;
+        &lt;fx:ParticleNetwork Count=&quot;46&quot; LinkDistance=&quot;70&quot; Color=&quot;#CBD5E1&quot; LineColor=&quot;#94A3B8&quot; Placement=&quot;Over&quot; /&gt;
+    &lt;/fx:FXHost.Layers&gt;
+    &lt;Border Width=&quot;260&quot; Height=&quot;150&quot; CornerRadius=&quot;14&quot; Background=&quot;#0B1220&quot; /&gt;
+&lt;/fx:FXHost&gt;
+</code></pre>
+<h2 id="fit-it-to-the-shape">Fit it to the shape</h2>
+<p>Left unset, <code>Count</code> fits the shape: 60 dots, or fewer on a small shape, where the dots keep about 24 DIPs apart on average. <code>LinkDistance</code>, also left unset, is 100 DIPs, or less where the dots sit closer (at most 1.6 times their average spacing), so a small shape doesn't fill with lines. Set either one and it's drawn as set, however small the shape. The dots wander over the whole shape, whatever its size.</p>
+<p><code>DotSize</code> is the dots' size in DIPs, and <code>Drift</code> about how fast they drift, in DIPs a second; at 0 they hold still.</p>
+<pre><code class="lang-xaml">&lt;fx:ParticleNetwork Count=&quot;120&quot; LinkDistance=&quot;80&quot; DotSize=&quot;1.5&quot; Drift=&quot;20&quot; /&gt;
+</code></pre>
+<p><code>Speed</code> multiplies the clock and <code>Drift</code> sets the dots' own pace; changing either never makes the animation jump. Unlike the fills, the network's clock starts when it first draws, so networks on different hosts don't move in step.</p>
+<h2 id="follow-the-pointer">Follow the pointer</h2>
+<p>With <code>FollowPointer</code> on (the default), the pointer over the shape joins the network: it links to the dots within reach and draws them a little toward it, and it eases after the pointer as it moves. Set <code>FollowPointer=&quot;False&quot;</code> for a network that ignores the pointer.</p>
+<p><code>PointAt</code> joins the network from code, as if the pointer were there; <code>null</code> leaves:</p>
+<pre><code class="lang-csharp">Network.PointAt(new Point(120, 80));
+Network.PointAt(null);
+</code></pre>
+<h2 id="methods">Methods</h2>
+<p>Call <code>PointAt</code> to aim the network from code: for keyboard focus, a guided tour or a demo.</p>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PointAt(Point? at)</code></td>
+<td>Joins the network at <code>at</code> (host coordinates) as the pointer would; null leaves.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Count</code></td>
+<td><code>int</code></td>
+<td><code>60</code></td>
+<td>How many dots. Left unset, it fits the shape: 60, or fewer on a small shape, where the dots keep about 24 DIPs apart on average. Range 4–200.</td>
+</tr>
+<tr>
+<td><code>Color</code></td>
+<td><code>Color</code></td>
+<td><code>#94A3B8</code></td>
+<td>The dots' color.</td>
+</tr>
+<tr>
+<td><code>LineColor</code></td>
+<td><code>Color</code></td>
+<td><code>#94A3B8</code></td>
+<td>The lines' color; each line fades as its two dots move apart.</td>
+</tr>
+<tr>
+<td><code>LinkDistance</code></td>
+<td><code>double</code></td>
+<td><code>100</code></td>
+<td>How close two dots must be for a line between them. Left unset, it fits the shape: 100 DIPs, or less where the dots sit closer (at most 1.6 times their average spacing), so a small shape doesn't fill with lines. Range 20–300.</td>
+</tr>
+<tr>
+<td><code>DotSize</code></td>
+<td><code>double</code></td>
+<td><code>2</code></td>
+<td>Diameter of a dot, in DIPs. Range 0.5–6.</td>
+</tr>
+<tr>
+<td><code>Drift</code></td>
+<td><code>double</code></td>
+<td><code>14</code></td>
+<td>About how fast the dots drift, DIPs a second. Range 0–120 DIPs per second.</td>
+</tr>
+<tr>
+<td><code>FollowPointer</code></td>
+<td><code>bool</code></td>
+<td><code>true</code></td>
+<td>Whether the pointer joins the network over the shape.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>: <code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>. <code>Seed</code> picks the dots' paths. <code>RenderScale</code> doesn't apply, since the network is drawn as shapes.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>Not a fill:</strong> the network has no <code>BorderWidth</code> or <code>UseMask</code>, and it runs on its own clock.</li>
+<li><strong>Light and dark surfaces:</strong> the dots and lines are drawn in <code>Color</code> and <code>LineColor</code> on any surface. The default slate (#94A3B8) suits dark themes; the gallery uses a deeper slate (#64748B) on light ones. Pick a color for each theme with theme resources. See <a href="../concepts/light-and-dark.html#how-light-layers-draw-on-each-surface">Light and dark surfaces</a>.</li>
+<li><strong>Reduced motion:</strong> the dots hold still. See <a href="../concepts/reduced-motion.html#the-poses">Reduced motion</a>.</li>
+<li><strong>Cost:</strong> 0.09–0.32 ms of CPU time a frame on the benchmark's 340×190 card, and almost no GPU time. Close pairs are found through a grid rather than by testing every pair. See <a href="../concepts/performance.html#what-a-layer-costs">Performance</a>.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.ParticleNetwork.html">ParticleNetwork</a> API reference</li>
+<li><a href="dotgrid.html">Dot grid</a> and <a href="topography.html">Topography</a>, other quiet backgrounds</li>
+<li><a href="spotlight.html">Spotlight</a>, another layer that follows the pointer</li>
+<li><a href="../concepts/one-shots-and-pointer.html#layers-that-follow-the-pointer">Layers that follow the pointer</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/particlenetwork.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

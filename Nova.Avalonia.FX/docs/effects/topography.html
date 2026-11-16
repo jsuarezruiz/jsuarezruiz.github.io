@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Topography | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Topography | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="Contour lines of a slowly shifting landscape, like a map.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/topography.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="topography">Topography</h1>
+
+<p><code>Topography</code> draws the contour lines of a slowly shifting landscape, like a topographic map: thin lines of even width at any slope, with every fifth one bolder. It's a calm background for a hero, an empty state or an outdoors app. It draws under the child, and by default only the lines, so whatever is behind the host shows between them.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/topography-light.png" alt="Topography on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/topography-dark.png" alt="Topography on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-topography">Add topography</h2>
+<p>Put the host around the panel, and leave the panel without a background so the lines show through it. A small plate behind the label keeps it readable over the lines:</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;fx:FXHost CornerRadius=&quot;14&quot;&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:Topography Scale=&quot;110&quot; Levels=&quot;12&quot; /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Border Height=&quot;220&quot; CornerRadius=&quot;14&quot;&gt;
+            &lt;Border Background=&quot;#F1F5F9&quot; CornerRadius=&quot;10&quot; Padding=&quot;14,6&quot;
+                    HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot;&gt;
+                &lt;TextBlock Text=&quot;Trailheads&quot; Foreground=&quot;#0F172A&quot; FontWeight=&quot;SemiBold&quot; /&gt;
+            &lt;/Border&gt;
+        &lt;/Border&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<h2 id="set-the-lines">Set the lines</h2>
+<p><code>Levels</code> is how many levels the landscape is cut into: more levels give more, closer lines (14 by default). <code>Scale</code> is the size of the hills in DIPs (180 by default), and <code>LineWidth</code> the width of a line in DIPs; every fifth line, the index line, is drawn bolder. A line keeps its width on steep and gentle slopes alike, and where lines crowd closer than a pixel they fade instead of filling in.</p>
+<pre><code class="lang-xaml">&lt;fx:Topography Levels=&quot;20&quot; Scale=&quot;260&quot; LineWidth=&quot;0.75&quot; /&gt;
+</code></pre>
+<p>The landscape shifts slowly on its own. <code>Speed</code> multiplies its clock; at 0 it stops. Unlike the fills, its clock starts when it first draws, so topography on different hosts doesn't move in step.</p>
+<h2 id="color-it-for-each-theme">Color it for each theme</h2>
+<p><code>LineColor</code> colors the lines (#94A3B8 by default), and <code>BackgroundColor</code> fills behind them (transparent by default). Pale lines suit a dark theme; the gallery draws them in a deeper slate (#64748B) in light themes. Define a color for each theme in <code>ThemeDictionaries</code>, as on the <a href="weather.html#pick-a-color-for-each-theme">Weather</a> page, and the lines change color when the theme does:</p>
+<pre><code class="lang-xaml">&lt;fx:Topography LineColor=&quot;{DynamicResource ContourColor}&quot; /&gt;
+</code></pre>
+<p>A map on paper, with its own background:</p>
+<pre><code class="lang-xaml">&lt;fx:Topography LineColor=&quot;#8A6F4D&quot; BackgroundColor=&quot;#F5F0E6&quot; /&gt;
+</code></pre>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>LineColor</code></td>
+<td><code>Color</code></td>
+<td><code>#94A3B8</code></td>
+<td>The contour lines' color; its alpha is their opacity.</td>
+</tr>
+<tr>
+<td><code>BackgroundColor</code></td>
+<td><code>Color</code></td>
+<td><code>#00FFFFFF</code></td>
+<td>Behind the lines; transparent shows the content.</td>
+</tr>
+<tr>
+<td><code>Levels</code></td>
+<td><code>double</code></td>
+<td><code>14</code></td>
+<td>How many levels the landscape is cut into: more, closer lines. Range 3–40.</td>
+</tr>
+<tr>
+<td><code>Scale</code></td>
+<td><code>double</code></td>
+<td><code>180</code></td>
+<td>The size of the hills. Range 40–800 DIPs.</td>
+</tr>
+<tr>
+<td><code>LineWidth</code></td>
+<td><code>double</code></td>
+<td><code>1</code></td>
+<td>Width of a contour line, in DIPs; every fifth line is 1.8 times as wide. Range 0.25–4.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>: <code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>. <code>Seed</code> picks the landscape.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>Not a fill:</strong> topography has no <code>BorderWidth</code> or <code>UseMask</code>, and it runs on its own clock.</li>
+<li><strong>Light and dark surfaces:</strong> the lines are drawn in <code>LineColor</code> on any surface, so pick a color for each theme, as above. See <a href="../concepts/light-and-dark.html#how-light-layers-draw-on-each-surface">Light and dark surfaces</a>.</li>
+<li><strong>Reduced motion:</strong> the landscape holds still. See <a href="../concepts/reduced-motion.html#the-poses">Reduced motion</a>.</li>
+<li><strong>Cost:</strong> 0.36 ms of GPU time a frame on the benchmark's 340×190 card, among the heavier backgrounds: it works out the landscape's height three times a pixel to find the slope. The cost grows with the area. <code>RenderScale</code> lowers it, but softens the thin lines. See <a href="../concepts/performance.html#what-a-layer-costs">Performance</a>.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.Topography.html">Topography</a> API reference</li>
+<li><a href="fog.html">Fog</a>, <a href="particlenetwork.html">Particle network</a> and <a href="dotgrid.html">Dot grid</a>, other quiet backgrounds</li>
+<li><a href="waves.html">Waves</a>, bands of color back to front</li>
+<li><a href="../concepts/light-and-dark.html#how-light-layers-draw-on-each-surface">Light and dark surfaces</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/topography.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

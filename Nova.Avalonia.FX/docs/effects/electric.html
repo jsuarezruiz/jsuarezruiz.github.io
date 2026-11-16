@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Electric | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Electric | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="Lightning between two points or around the border, with forks and afterimages; or a calm charged hairline.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/electric.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="electric">Electric</h1>
+
+<p>Electric draws lightning: a jagged bolt that strikes with a flash, holds, and re-strikes, mostly down the same channel, while earlier strikes linger as afterimages and forks shoot out and cool. It can crawl around the host's border, jump between two points of the shape, or run as a calm charged hairline. Use it for an overcharged or boosted state, a connection between two nodes, or a zap when something is pressed. It draws over the child.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/electric-light.png" alt="Electric on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/electric-dark.png" alt="Electric on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-lightning">Add lightning</h2>
+<p>The default style, <code>Border</code>, runs lightning around the shape just outside its edge.</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;fx:FXHost&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:Electric Style=&quot;Border&quot; Color=&quot;#4F8DFF&quot; /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Border Width=&quot;210&quot; Height=&quot;50&quot; CornerRadius=&quot;12&quot; Background=&quot;#15171C&quot;&gt;
+            &lt;TextBlock Text=&quot;Overcharged&quot; Foreground=&quot;White&quot; FontWeight=&quot;SemiBold&quot;
+                       HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot; /&gt;
+        &lt;/Border&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<p><code>Amplitude</code> sets how far the bolt strays sideways, <code>JagDensity</code> how jagged it is, and <code>StrikeRate</code> how often it re-strikes. <code>Gap</code> moves a border bolt further out from the edge, or inside it with a negative value.</p>
+<h2 id="styles">Styles</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Border</code> (default)</td>
+<td>Lightning crawling around the border.</td>
+</tr>
+<tr>
+<td><code>Arc</code></td>
+<td>Lightning between two points of the shape (<code>From</code>, <code>To</code>).</td>
+</tr>
+<tr>
+<td><code>Charged</code></td>
+<td>A calm, continuously crawling hairline with beads of charge: the UI variant.</td>
+</tr>
+</tbody>
+</table>
+
+<p><code>Charged</code> sets a calmer set of values for the bolt (amplitude, density, strike rate, widths, forks, flicker, strands, gap, fork length and intensity) at template priority. Set any of them yourself to override it.</p>
+<pre><code class="lang-xaml">&lt;fx:Electric Style=&quot;Charged&quot; Color=&quot;#7C5CFF&quot; /&gt;
+</code></pre>
+<h2 id="lightning-between-two-points">Lightning between two points</h2>
+<p>With <code>Style=&quot;Arc&quot;</code>, the bolt runs from <code>From</code> to <code>To</code>, given as fractions of the shape: <code>0,0</code> is the top left, <code>1,1</code> the bottom right. Put the nodes it connects inside the host.</p>
+<pre><code class="lang-xaml">&lt;fx:FXHost&gt;
+    &lt;fx:FXHost.Layers&gt;
+        &lt;fx:Electric Style=&quot;Arc&quot; From=&quot;0.1,0.5&quot; To=&quot;0.9,0.5&quot; Amplitude=&quot;6&quot; /&gt;
+    &lt;/fx:FXHost.Layers&gt;
+    &lt;Grid Width=&quot;230&quot; Height=&quot;34&quot;&gt;
+        &lt;Ellipse Width=&quot;12&quot; Height=&quot;12&quot; Fill=&quot;#4F8DFF&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;17,0,0,0&quot; /&gt;
+        &lt;Ellipse Width=&quot;12&quot; Height=&quot;12&quot; Fill=&quot;#4F8DFF&quot; HorizontalAlignment=&quot;Right&quot; Margin=&quot;0,0,17,0&quot; /&gt;
+    &lt;/Grid&gt;
+&lt;/fx:FXHost&gt;
+</code></pre>
+<h2 id="zap-on-a-press">Zap on a press</h2>
+<p><code>Zap()</code> fires a single strike: a flash, usually a re-strike, then an afterimage that fades. Set <code>ZapOnPress</code> to zap whenever the host is pressed, and turn <code>IsContinuous</code> off so the bolt only shows during a zap. On an arc, a zap at a point strikes from the nearer node to that point.</p>
+<pre><code class="lang-xaml">&lt;fx:FXHost&gt;
+    &lt;fx:FXHost.Layers&gt;
+        &lt;fx:Electric IsContinuous=&quot;False&quot; ZapOnPress=&quot;True&quot; Color=&quot;#A78BFA&quot; CoolColor=&quot;#EC4899&quot; /&gt;
+    &lt;/fx:FXHost.Layers&gt;
+    &lt;Button Content=&quot;Zap me&quot; /&gt;
+&lt;/fx:FXHost&gt;
+</code></pre>
+<p>From code, call <code>Zap()</code> on the named layer for a strike along the style's own path, or pass a point in the host's coordinates:</p>
+<pre><code class="lang-csharp">private void OnArcReleased(object? sender, PointerReleasedEventArgs e)
+{
+    // ArcBolt is the Electric layer, ArcHost its FXHost.
+    ArcBolt.Zap(e.GetPosition(ArcHost));
+}
+</code></pre>
+<h2 id="methods">Methods</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Zap(Point? at = null)</code></td>
+<td>One strike: a flash, usually a re-strike down the same channel, then the afterimage fades (0.5 s). On an arc, <code>at</code> (host coordinates) makes the strike jump from the nearer node to that point instead of between the nodes.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Style</code></td>
+<td><code>ElectricStyle</code></td>
+<td><code>Border</code></td>
+<td>Where the lightning runs: around the border, between two points, or a calm charged hairline. Choosing a style resets the bolt settings to its defaults (local values win). Values: <code>Border</code>, <code>Arc</code>, <code>Charged</code>.</td>
+</tr>
+<tr>
+<td><code>Color</code></td>
+<td><code>Color</code></td>
+<td><code>#4F8DFF</code></td>
+<td>The glow's color around the bolt; forks pass through it as they cool.</td>
+</tr>
+<tr>
+<td><code>CoreColor</code></td>
+<td><code>Color</code></td>
+<td><code>#EAF3FF</code></td>
+<td>The white-hot core of the channel.</td>
+</tr>
+<tr>
+<td><code>CoolColor</code></td>
+<td><code>Color</code></td>
+<td><code>#7A4DFF</code></td>
+<td>The color forks cool to.</td>
+</tr>
+<tr>
+<td><code>Amplitude</code></td>
+<td><code>double</code></td>
+<td><code>5</code></td>
+<td>How far the bolt strays sideways. Range 0–24 DIPs.</td>
+</tr>
+<tr>
+<td><code>JagDensity</code></td>
+<td><code>double</code></td>
+<td><code>2.4</code></td>
+<td>How jagged the bolt is: jags per 100 DIPs. Range 0.5–8.</td>
+</tr>
+<tr>
+<td><code>StrikeRate</code></td>
+<td><code>double</code></td>
+<td><code>3.2</code></td>
+<td>How often it re-strikes: about 0.55 / rate seconds between strikes. Range 0–10 per second.</td>
+</tr>
+<tr>
+<td><code>CoreWidth</code></td>
+<td><code>double</code></td>
+<td><code>0.6</code></td>
+<td>Width of the bolt's bright core, in DIPs. Range 0.2–3.</td>
+</tr>
+<tr>
+<td><code>GlowRadius</code></td>
+<td><code>double</code></td>
+<td><code>5</code></td>
+<td>How far the glow spreads around the bolt, in DIPs. Range 0.5–16.</td>
+</tr>
+<tr>
+<td><code>Forks</code></td>
+<td><code>double</code></td>
+<td><code>0.55</code></td>
+<td>Chance of forks at each strike. Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>Flicker</code></td>
+<td><code>double</code></td>
+<td><code>0.45</code></td>
+<td>How much the bolt's brightness wavers, and how bright its return strokes are (0: steady). Range 0–1 (0–100%). Applies to the <code>Arc</code> and <code>Border</code> styles.</td>
+</tr>
+<tr>
+<td><code>Strands</code></td>
+<td><code>int</code></td>
+<td><code>2</code></td>
+<td>The live strike plus up to two afterimages. Range 1–3. Applies to the <code>Arc</code> and <code>Border</code> styles.</td>
+</tr>
+<tr>
+<td><code>Gap</code></td>
+<td><code>double</code></td>
+<td><code>2</code></td>
+<td>How far outside the edge a border bolt runs. Range -8 to 16 DIPs. Applies to the <code>Border</code> and <code>Charged</code> styles.</td>
+</tr>
+<tr>
+<td><code>ForkLength</code></td>
+<td><code>double</code></td>
+<td><code>20</code></td>
+<td>Length of the forks that shoot off the bolt, in DIPs. Range 0–80. Applies to the <code>Border</code> and <code>Charged</code> styles.</td>
+</tr>
+<tr>
+<td><code>Occlusion</code></td>
+<td><code>double</code></td>
+<td><code>0.12</code></td>
+<td>How much the glow also covers what is behind it. Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>From</code></td>
+<td><code>Point</code></td>
+<td><code>0,0.5</code></td>
+<td>Arc start, as a fraction of the shape's rect (0,0 top left; 1,1 bottom right). Applies to the <code>Arc</code> style.</td>
+</tr>
+<tr>
+<td><code>To</code></td>
+<td><code>Point</code></td>
+<td><code>1,0.5</code></td>
+<td>Arc end, as a fraction of the shape's rect. Applies to the <code>Arc</code> style.</td>
+</tr>
+<tr>
+<td><code>IsContinuous</code></td>
+<td><code>bool</code></td>
+<td><code>true</code></td>
+<td>Strike continuously. Off: draw only during a <code>Zap</code>.</td>
+</tr>
+<tr>
+<td><code>ZapOnPress</code></td>
+<td><code>bool</code></td>
+<td><code>false</code></td>
+<td>Zaps whenever the pointer is pressed on the host.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>:
+<code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>. On lightning, <code>Intensity</code> is the strength of the light, up to 3.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>Light and dark surfaces.</strong> On a dark surface the bolt adds light with a white-hot core. On a light surface its core becomes a crisp line in a deep shade of <code>Color</code> over a pale tint of its glow. See <a href="../concepts/light-and-dark.html#how-light-layers-draw-on-each-surface">Light and dark surfaces</a>.</li>
+<li><strong>Reduced motion.</strong> The continuous bolt holds one shape; a zap still strikes. See <a href="../concepts/reduced-motion.html#the-poses">Reduced motion</a>.</li>
+<li><strong>One-shots.</strong> With <code>IsContinuous</code> off, the layer draws nothing between zaps. Zaps overlap; when too many are live, the oldest fades out. See <a href="../concepts/one-shots-and-pointer.html#one-shots">One-shots</a>.</li>
+<li><strong>Cost.</strong> About 0.08 ms of GPU time a frame on the bench's 340×190 card. Electric builds its bolt paths on the CPU, so it takes more CPU time than most layers: about 0.06 ms a frame on the desktop. In the browser that work takes 0.45–0.6 ms a frame when interpreted and 0.12–0.3 ms when compiled ahead of time; compile ahead of time if the app leans on lightning and must run well on slower machines. See <a href="../concepts/performance.html#what-a-layer-costs">Performance</a>.</li>
+<li><strong>Room around the host.</strong> Bolts, glow and forks reach past the shape. A clipping ancestor cuts them off: leave room around the host. The border styles shade only a ring around the edge, not the interior.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.Electric.html">Electric</a> API reference</li>
+<li><a href="fire.html">Fire</a>, with its <code>Plasma</code> style around the border</li>
+<li><a href="beam.html">Beam</a>, calmer light flowing between two controls</li>
+<li><a href="borderbeam.html">Border beam</a>, streaks running around the border</li>
+<li><a href="../concepts/one-shots-and-pointer.html#one-shots">One-shots and the pointer</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/electric.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

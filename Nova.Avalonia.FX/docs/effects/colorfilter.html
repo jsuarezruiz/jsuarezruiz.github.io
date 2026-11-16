@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Color filter | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Color filter | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="Grayscale, sepia, saturation, hue, brightness, contrast, temperature, tint, duotone and invert: CSS-style color filters, live.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/colorfilter.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="color-filter">Color filter</h1>
+
+<p><code>ColorFilter</code> recolors what is drawn within the host's shape, live: grayscale, sepia, saturation, hue, brightness and contrast with CSS's own formulas, plus temperature, tint, duotone and invert. Use it for a disabled state, a photo that stays gray until hovered, a styled thumbnail or a picture dimmed in a dark theme. It reads what is already drawn rather than a snapshot of the child, so it keeps up with whatever the child does. Where it draws decides what it recolors.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/colorfilter-light.png" alt="Color filter on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/colorfilter-dark.png" alt="Color filter on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-a-color-filter">Add a color filter</h2>
+<p>Wrap the content in a host. The filter starts as grayscale, so it shows something with no settings:</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;fx:FXHost&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:ColorFilter /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Image Source=&quot;/Assets/photo.jpg&quot; Width=&quot;240&quot; Height=&quot;140&quot; Stretch=&quot;UniformToFill&quot; /&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<h2 id="presets">Presets</h2>
+<p>A preset sets several settings at once. It applies at template priority, so a local value on any setting wins over it. <code>None</code> puts every setting at rest, to start from the picture as it is.</p>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Grayscale</code> (default)</td>
+<td>Fully gray: the colors drained, the lightness kept.</td>
+</tr>
+<tr>
+<td><code>Sepia</code></td>
+<td>Toned brown, like an old photograph.</td>
+</tr>
+<tr>
+<td><code>Vivid</code></td>
+<td>More saturated, a little more contrast.</td>
+</tr>
+<tr>
+<td><code>Faded</code></td>
+<td>Washed out and lifted, like an old print.</td>
+</tr>
+<tr>
+<td><code>Warm</code></td>
+<td>A warmer white balance: redder, less blue, a little more saturated.</td>
+</tr>
+<tr>
+<td><code>Cool</code></td>
+<td>A cooler white balance: bluer, less red.</td>
+</tr>
+<tr>
+<td><code>Duotone</code></td>
+<td>Lightness mapped from a deep violet to a warm cream.</td>
+</tr>
+<tr>
+<td><code>Invert</code></td>
+<td>A negative: every color inverted.</td>
+</tr>
+<tr>
+<td><code>None</code></td>
+<td>Every setting at rest: the picture as it is.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="choose-what-it-recolors">Choose what it recolors</h2>
+<p>The layer works on what is drawn within the shape just before it draws (see <a href="../concepts/layers.html#layers-that-read-the-backdrop">Layers that read the backdrop</a>). Its placement decides what that is:</p>
+<table>
+<thead>
+<tr>
+<th>To recolor</th>
+<th>Set</th>
+<th>Like CSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The child and anything that shows through it</td>
+<td>Nothing: by default it draws over the child</td>
+<td><code>filter</code></td>
+</tr>
+<tr>
+<td>Only what is behind the host, with the child unchanged on top</td>
+<td><code>Placement=&quot;Under&quot;</code></td>
+<td><code>backdrop-filter</code></td>
+</tr>
+<tr>
+<td>Only the child's own pixels: an icon, not the card around it</td>
+<td><code>UseMask=&quot;True&quot;</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Under the child, the filter needs something drawn behind the host, such as a picture, a list or the page's background, and the child should be see-through where the filtered backdrop is meant to show. Here a caption bar fades the photo behind it:</p>
+<pre><code class="lang-xaml">&lt;Grid&gt;
+    &lt;Image Source=&quot;/Assets/photo.jpg&quot; Stretch=&quot;UniformToFill&quot; /&gt;
+    &lt;fx:FXHost VerticalAlignment=&quot;Bottom&quot;&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:ColorFilter Placement=&quot;Under&quot; Preset=&quot;Faded&quot; Brightness=&quot;0.7&quot; /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Border Height=&quot;56&quot; Padding=&quot;16,0&quot;&gt;
+            &lt;TextBlock Text=&quot;Lisbon, 2019&quot; Foreground=&quot;White&quot; VerticalAlignment=&quot;Center&quot; /&gt;
+        &lt;/Border&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/Grid&gt;
+</code></pre>
+<p>With <code>UseMask</code>, the host captures the child to learn its pixels (see <a href="../concepts/content-masks.html#layers-that-follow-the-content">Content masks</a>), and only those pixels change:</p>
+<pre><code class="lang-xaml">&lt;fx:FXHost&gt;
+    &lt;fx:FXHost.Layers&gt;
+        &lt;fx:ColorFilter UseMask=&quot;True&quot; Preset=&quot;Duotone&quot; /&gt;
+    &lt;/fx:FXHost.Layers&gt;
+    &lt;Image Source=&quot;/Assets/logo.png&quot; Width=&quot;64&quot; /&gt;
+&lt;/fx:FXHost&gt;
+</code></pre>
+<h2 id="keep-it-gray-until-hover">Keep it gray until hover</h2>
+<p><code>Intensity</code> is how much of the filter shows. Fade it out while the pointer is over a host with <code>Classes=&quot;photo&quot;</code>:</p>
+<pre><code class="lang-xaml">&lt;Style Selector=&quot;fx|FXHost.photo fx|ColorFilter&quot;&gt;
+    &lt;Setter Property=&quot;Transitions&quot;&gt;
+        &lt;Transitions&gt;
+            &lt;DoubleTransition Property=&quot;Intensity&quot; Duration=&quot;0:0:0.3&quot; /&gt;
+        &lt;/Transitions&gt;
+    &lt;/Setter&gt;
+&lt;/Style&gt;
+&lt;Style Selector=&quot;fx|FXHost.photo:pointerover fx|ColorFilter&quot;&gt;
+    &lt;Setter Property=&quot;Intensity&quot; Value=&quot;0&quot; /&gt;
+&lt;/Style&gt;
+</code></pre>
+<h2 id="mix-your-own">Mix your own</h2>
+<p>Start from <code>Preset=&quot;None&quot;</code> and set only what you need. <code>Tint</code> tones the picture toward a color at the same lightness, and its alpha is how much; <code>Duotone</code> maps lightness from <code>ShadowColor</code> to <code>HighlightColor</code>:</p>
+<pre><code class="lang-xaml">&lt;fx:ColorFilter Preset=&quot;None&quot; Saturation=&quot;1.3&quot; Contrast=&quot;1.1&quot; Hue=&quot;-15&quot; Tint=&quot;#40FF8A00&quot; /&gt;
+</code></pre>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Preset</code></td>
+<td><code>ColorFilterPreset</code></td>
+<td><code>Grayscale</code></td>
+<td>A set of the settings below. The default is Grayscale; None puts every setting at rest, to start from the picture as it is (a local value on any setting wins over the preset). Values: <code>Grayscale</code>, <code>Sepia</code>, <code>Vivid</code>, <code>Faded</code>, <code>Warm</code>, <code>Cool</code>, <code>Duotone</code>, <code>Invert</code>, <code>None</code>.</td>
+</tr>
+<tr>
+<td><code>Grayscale</code></td>
+<td><code>double</code></td>
+<td><code>1</code></td>
+<td>How far the colors drain to gray: 0 none, 1 fully gray (CSS grayscale()). Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>Sepia</code></td>
+<td><code>double</code></td>
+<td><code>0</code></td>
+<td>How far the picture tones to brown, like an old photograph: 0 none, 1 full (CSS sepia()). Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>Saturation</code></td>
+<td><code>double</code></td>
+<td><code>1</code></td>
+<td>1: as it is; 0: gray; above 1: more vivid. Range 0–3.</td>
+</tr>
+<tr>
+<td><code>Hue</code></td>
+<td><code>double</code></td>
+<td><code>0</code></td>
+<td>Turns every hue around the color wheel, degrees: 0 leaves them; positive turns red toward yellow and green, as CSS's <code>hue-rotate</code> does. Range -180 to 180.</td>
+</tr>
+<tr>
+<td><code>Brightness</code></td>
+<td><code>double</code></td>
+<td><code>1</code></td>
+<td>1: as it is; 0: black. Range 0–3.</td>
+</tr>
+<tr>
+<td><code>Contrast</code></td>
+<td><code>double</code></td>
+<td><code>1</code></td>
+<td>1: as it is; 0: flat gray. Range 0–3.</td>
+</tr>
+<tr>
+<td><code>Temperature</code></td>
+<td><code>double</code></td>
+<td><code>0</code></td>
+<td>Warmer (positive) or cooler (negative) white balance. Range -1 to 1.</td>
+</tr>
+<tr>
+<td><code>Tint</code></td>
+<td><code>Color</code></td>
+<td><code>#00FFFFFF</code></td>
+<td>A color the picture is toned toward at the same lightness; its alpha is how much.</td>
+</tr>
+<tr>
+<td><code>Duotone</code></td>
+<td><code>double</code></td>
+<td><code>0</code></td>
+<td>How much the picture becomes two colors, its lightness running from <code>ShadowColor</code> to <code>HighlightColor</code>. Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>ShadowColor</code></td>
+<td><code>Color</code></td>
+<td><code>#2B1055</code></td>
+<td>The duotone color for the darkest parts; applies as <code>Duotone</code> rises.</td>
+</tr>
+<tr>
+<td><code>HighlightColor</code></td>
+<td><code>Color</code></td>
+<td><code>#FFD3A0</code></td>
+<td>The duotone color for the lightest parts; applies as <code>Duotone</code> rises.</td>
+</tr>
+<tr>
+<td><code>Invert</code></td>
+<td><code>double</code></td>
+<td><code>0</code></td>
+<td>How far the colors invert: 0 none, 1 a negative; 0.5 is flat gray (CSS invert()). Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>UseMask</code></td>
+<td><code>bool</code></td>
+<td><code>false</code></td>
+<td>Recolors only the child's own pixels (text, an icon, a picture), not the shape around them.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>: <code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>. The filter is still, so <code>Speed</code> and <code>Seed</code> don't apply.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>Light and dark surfaces:</strong> it draws the same on both. To dim pictures in a dark theme only, give <code>Brightness</code> a value per theme with a theme resource, as <a href="../concepts/light-and-dark.html">Light and dark surfaces</a> does for colors.</li>
+<li><strong>Reduced motion:</strong> nothing moves, so nothing changes.</li>
+<li><strong>Cost:</strong> it doesn't animate, so it only redraws when what it reads changes. On the benchmark card it takes about 0.11 ms of GPU time a frame. With every setting at rest it copies nothing and draws nothing. See <a href="../concepts/performance.html#what-a-layer-costs">Performance</a>.</li>
+<li><strong>Keep ancestors opaque.</strong> Inside an offscreen layer (an ancestor with <code>Opacity</code> below 1, an effect, or a clip that needs a layer) the copy can't see that ancestor's content. A disabled style that lowers a parent's <code>Opacity</code> is a common case: dim with the filter's own <code>Brightness</code> instead.</li>
+<li><strong>With <code>UseMask</code></strong>, the host watches only the child itself. After changing something deeper inside it, call <a class="xref" href="../../api/Nova.Avalonia.FX.FXHost.html#Nova_Avalonia_FX_FXHost_RefreshMask">RefreshMask</a>.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.ColorFilter.html">ColorFilter</a> API reference</li>
+<li><a href="oldfilm.html">Old film</a>, <a href="crt.html">CRT</a>, <a href="dither.html">Dither</a> and <a href="halftone.html">Halftone</a>, which also restyle what is behind them</li>
+<li><a href="../concepts/layers.html#layers-that-read-the-backdrop">Layers that read the backdrop</a></li>
+<li><a href="../concepts/content-masks.html#layers-that-follow-the-content">Content masks</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/colorfilter.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

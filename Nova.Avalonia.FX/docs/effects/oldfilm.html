@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Old film | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Old film | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="The content as an old print in a projector: sepia, vignette, grain, gate weave, flicker, scratches and dust.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/oldfilm.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="old-film">Old film</h1>
+
+<p><code>OldFilm</code> shows the content as an old print running through a projector: toned toward sepia, darker at the corners and grained, weaving a little in the gate and flickering at 18 frames a second, with scratches that run down it for a few frames and specks of dust that come and go. Use it for a &quot;memories&quot; card, a throwback hero, a retro photo viewer or a silent-movie title. It draws over the child and works on what is drawn there: the child, and whatever shows through it.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/oldfilm-light.png" alt="Old film on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/oldfilm-dark.png" alt="Old film on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-old-film">Add old film</h2>
+<p>Wrap the content in a host. A photo, with tones from deep shadow to bright highlights, shows it best; a gradient works too:</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;fx:FXHost CornerRadius=&quot;14&quot;&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:OldFilm /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Border Width=&quot;236&quot; Height=&quot;128&quot; CornerRadius=&quot;14&quot;&gt;
+            &lt;Border.Background&gt;
+                &lt;LinearGradientBrush StartPoint=&quot;0%,0%&quot; EndPoint=&quot;100%,100%&quot;&gt;
+                    &lt;GradientStop Color=&quot;#0EA5E9&quot; Offset=&quot;0&quot; /&gt;
+                    &lt;GradientStop Color=&quot;#22C55E&quot; Offset=&quot;0.5&quot; /&gt;
+                    &lt;GradientStop Color=&quot;#FACC15&quot; Offset=&quot;1&quot; /&gt;
+                &lt;/LinearGradientBrush&gt;
+            &lt;/Border.Background&gt;
+            &lt;StackPanel HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot;&gt;
+                &lt;TextBlock Text=&quot;The Lodger&quot; Foreground=&quot;White&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;22&quot; HorizontalAlignment=&quot;Center&quot; /&gt;
+                &lt;TextBlock Text=&quot;1927&quot; Foreground=&quot;White&quot; FontSize=&quot;13&quot; HorizontalAlignment=&quot;Center&quot; /&gt;
+            &lt;/StackPanel&gt;
+        &lt;/Border&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<h2 id="give-it-a-picture">Give it a picture</h2>
+<p>The film copies what is under it just before it draws (see <a href="../concepts/layers.html#layers-that-read-the-backdrop">Layers that read the backdrop</a>): the child, and whatever shows through it. With a see-through child, it shows what is behind the host as film. Either way, something must be drawn there first: controls drawn after the host sit in front of it. Inside an offscreen layer (an ancestor with <code>Opacity</code> below 1, an effect, or a clip that needs a layer) the copy can't see that ancestor's content, so keep such ancestors opaque.</p>
+<h2 id="tone-the-print">Tone the print</h2>
+<p><code>Tint</code> is the color the picture is toned toward, and <code>Sepia</code> how much: at 0 the picture keeps its own colors under the grain, flicker and scratches. A cooler tint gives a cyanotype:</p>
+<pre><code class="lang-xaml">&lt;fx:OldFilm Tint=&quot;#6B8FC9&quot; Sepia=&quot;0.8&quot; /&gt;
+</code></pre>
+<h2 id="wear-and-tear">Wear and tear</h2>
+<p><code>Grain</code>, <code>Flicker</code>, <code>Scratches</code> and <code>Dust</code> run from 0 (none) to 1; <code>Vignette</code> darkens the corners and <code>Weave</code> is how far the picture moves in the gate. A lightly worn print:</p>
+<pre><code class="lang-xaml">&lt;fx:OldFilm Grain=&quot;0.3&quot; Flicker=&quot;0.2&quot; Scratches=&quot;0.15&quot; Dust=&quot;0.2&quot; Weave=&quot;0.5&quot; /&gt;
+</code></pre>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Tint</code></td>
+<td><code>Color</code></td>
+<td><code>#C9A36B</code></td>
+<td>The color the picture is toned toward.</td>
+</tr>
+<tr>
+<td><code>Sepia</code></td>
+<td><code>double</code></td>
+<td><code>1</code></td>
+<td>How far the picture is toned toward <code>Tint</code>, keeping its lightness (0: none). Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>Vignette</code></td>
+<td><code>double</code></td>
+<td><code>0.6</code></td>
+<td>How much the corners darken (0: none). Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>Grain</code></td>
+<td><code>double</code></td>
+<td><code>0.5</code></td>
+<td>How strong the film grain is (0: none). Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>Flicker</code></td>
+<td><code>double</code></td>
+<td><code>0.5</code></td>
+<td>How much each frame's brightness jumps (0: steady). Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>Scratches</code></td>
+<td><code>double</code></td>
+<td><code>0.5</code></td>
+<td>How often scratches run down the picture (0: none). Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>Dust</code></td>
+<td><code>double</code></td>
+<td><code>0.5</code></td>
+<td>How many specks of dust come and go (0: none). Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>Weave</code></td>
+<td><code>double</code></td>
+<td><code>1.2</code></td>
+<td>How far the picture weaves in the gate. Range 0–6 DIPs.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>: <code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>. <code>Seed</code> changes where the scratches and dust fall.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>The projector keeps its own pace.</strong> The weave, flicker, scratches, dust and grain step at 18 frames a second, whatever the display runs at.</li>
+<li><strong>Light and dark surfaces:</strong> it draws the same on both.</li>
+<li><strong>Reduced motion:</strong> it holds one frame.</li>
+<li><strong>Cost:</strong> about 0.17 ms of GPU time a frame on the benchmark card. It animates, so it redraws while it is visible. See <a href="../concepts/performance.html#what-a-layer-costs">Performance</a>.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.OldFilm.html">OldFilm</a> API reference</li>
+<li><a href="colorfilter.html">Color filter</a> with <code>Preset=&quot;Sepia&quot;</code>, for a still sepia tone</li>
+<li><a href="grain.html">Grain</a>, <a href="crt.html">CRT</a> and <a href="lightleaks.html">Light leaks</a></li>
+<li><a href="../concepts/layers.html#layers-that-read-the-backdrop">Layers that read the backdrop</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/oldfilm.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

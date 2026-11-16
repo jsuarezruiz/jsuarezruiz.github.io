@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Grain gradient | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Grain gradient | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="A linear, radial or conic gradient whose colors stipple into each other through film grain.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/graingradient.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="grain-gradient">Grain gradient</h1>
+
+<p>A gradient with a printed, risograph feel: film grain scatters each point along the color ramp, so neighboring colors stipple into each other instead of blending flat, and a little brightness grain rides on top. It runs in a line, outward from a center, or around one (conic). Use it for buttons, avatars, cover art and posters. It is a fill: it paints the host's shape and goes under the child, or paints the child's own pixels with <code>UseMask</code>.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/graingradient-light.png" alt="Grain gradient on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/graingradient-dark.png" alt="Grain gradient on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-a-grain-gradient">Add a grain gradient</h2>
+<p>The fill goes under the child, so leave the child without a background:</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;fx:FXHost&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:GrainGradient Preset=&quot;Ember&quot; /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Border Width=&quot;220&quot; Height=&quot;56&quot; CornerRadius=&quot;14&quot;&gt;
+            &lt;TextBlock Text=&quot;Generate&quot; Foreground=&quot;White&quot; FontWeight=&quot;Bold&quot;
+                       HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot; /&gt;
+        &lt;/Border&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<h2 id="presets-and-kinds">Presets and kinds</h2>
+<p>Each preset brings a palette and sets <code>Kind</code>, <code>Angle</code>, <code>Center</code> and <code>IsMonochrome</code>: <code>Ember</code> is linear, <code>Halo</code> radial and <code>Sweep</code> conic, in color grain. Set any of them yourself to adjust a preset.</p>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<h3 id="preset">Preset</h3>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ember</code> (default)</td>
+<td>A linear glow from deep plum through crimson and orange to pale gold.</td>
+</tr>
+<tr>
+<td><code>Halo</code></td>
+<td>A radial glow, pale blue-white above the middle, darkening through blue to near-black navy.</td>
+</tr>
+<tr>
+<td><code>Sweep</code></td>
+<td>A conic sweep from the top through teal, blue, violet, pink and amber, with color grain.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="kind">Kind</h3>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Linear</code> (default)</td>
+<td>The colors run in a straight line across the shape, along the angle.</td>
+</tr>
+<tr>
+<td><code>Radial</code></td>
+<td>The colors run out from <code>Center</code> in rings.</td>
+</tr>
+<tr>
+<td><code>Conic</code></td>
+<td>Sweeps around <code>Center</code>, starting at the angle; loops.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="pick-the-kind-of-gradient">Pick the kind of gradient</h2>
+<p>The colors in <code>Colors</code> run along the ramp in order, up to six:</p>
+<ul>
+<li><strong><code>Linear</code></strong> runs across the shape along <code>Angle</code>: 0 is left to right, and positive angles turn clockwise.</li>
+<li><strong><code>Radial</code></strong> starts at <code>Center</code> with the first color and runs outward.</li>
+<li><strong><code>Conic</code></strong> sweeps clockwise around <code>Center</code>, starting at <code>Angle</code> (0 points right), and loops back to the first color, so there is no seam.</li>
+</ul>
+<p><code>Center</code> is a point in fractions of the shape, from <code>0,0</code> (top left) to <code>1,1</code>:</p>
+<pre><code class="lang-xaml">&lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;14&quot;&gt;
+    &lt;fx:FXHost CornerRadius=&quot;999&quot;&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:GrainGradient Kind=&quot;Radial&quot; Center=&quot;0.5,0.35&quot; Colors=&quot;#E9F1FF, #7AA2FF, #2A2F7A, #0B0D1F&quot; /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Border Width=&quot;80&quot; Height=&quot;80&quot; /&gt;
+    &lt;/fx:FXHost&gt;
+    &lt;fx:FXHost CornerRadius=&quot;999&quot;&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:GrainGradient Kind=&quot;Conic&quot; Angle=&quot;-90&quot; Colors=&quot;#00C2A8, #3A86FF, #8338EC, #FF006E&quot; /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Border Width=&quot;80&quot; Height=&quot;80&quot; /&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/StackPanel&gt;
+</code></pre>
+<h2 id="tune-the-grain">Tune the grain</h2>
+<p><code>Amount</code> sets how far the grain scatters the colors and their brightness; at 0 the gradient is smooth. <code>GrainSize</code> is the size of one grain in DIPs. <code>IsMonochrome</code> uses one grain value for all channels; turn it off for color grain. <code>Fps</code> is how many times a second the grain re-rolls, 12 by default; at 0 it holds still:</p>
+<pre><code class="lang-xaml">&lt;fx:GrainGradient Preset=&quot;Halo&quot; Amount=&quot;0.7&quot; GrainSize=&quot;1.5&quot; Fps=&quot;0&quot; /&gt;
+</code></pre>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Preset</code></td>
+<td><code>GrainGradientPreset</code></td>
+<td><code>Ember</code></td>
+<td>A ready-made look: the palette used while <code>Colors</code> is unset, with its <code>Kind</code>, <code>Angle</code>, <code>Center</code> and <code>IsMonochrome</code>. Local values win. Values: <code>Ember</code>, <code>Halo</code>, <code>Sweep</code>.</td>
+</tr>
+<tr>
+<td><code>Colors</code></td>
+<td><code>FXColorList</code></td>
+<td>Unset</td>
+<td>The colors (up to six). Unset: the preset's palette.</td>
+</tr>
+<tr>
+<td><code>Kind</code></td>
+<td><code>GradientKind</code></td>
+<td><code>Linear</code></td>
+<td>The gradient's shape: linear, radial from <code>Center</code>, or conic around it. Values: <code>Linear</code>, <code>Radial</code>, <code>Conic</code>.</td>
+</tr>
+<tr>
+<td><code>Angle</code></td>
+<td><code>double</code></td>
+<td><code>69</code></td>
+<td>Linear: the way the colors run (0: left to right). Conic: where the sweep starts (0: to the right); it sweeps clockwise. Degrees; positive turns clockwise. Range -180 to 180. Applies to the <code>Linear</code> and <code>Conic</code> kinds.</td>
+</tr>
+<tr>
+<td><code>Center</code></td>
+<td><code>Point</code></td>
+<td><code>0.5,0.5</code></td>
+<td>Radial and conic center, 0..1 across the rect. Applies to the <code>Radial</code> and <code>Conic</code> kinds.</td>
+</tr>
+<tr>
+<td><code>Amount</code></td>
+<td><code>double</code></td>
+<td><code>0.4</code></td>
+<td>How far grain scatters the gradient and its brightness. Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>GrainSize</code></td>
+<td><code>double</code></td>
+<td><code>0.5</code></td>
+<td>Size of a grain, in DIPs. Range 0.5–8.</td>
+</tr>
+<tr>
+<td><code>IsMonochrome</code></td>
+<td><code>bool</code></td>
+<td><code>true</code></td>
+<td>One grain value for all channels; off gives color grain.</td>
+</tr>
+<tr>
+<td><code>Fps</code></td>
+<td><code>double</code></td>
+<td><code>12</code></td>
+<td>Grain re-rolls per second (0: static). Range 0–30.</td>
+</tr>
+<tr>
+<td><code>BorderWidth</code></td>
+<td><code>double</code></td>
+<td><code>0</code></td>
+<td>Width of a band inside the edge, DIPs. 0: the whole shape. Range 0–48.</td>
+</tr>
+<tr>
+<td><code>UseMask</code></td>
+<td><code>bool</code></td>
+<td><code>false</code></td>
+<td>Paints only the child's own pixels (text, icons, a logo) instead of the shape: gradient text, a liquid-metal logo, holographic icons. It then goes over the child unless <code>Placement</code> says otherwise. The host captures the child to know its pixels: call <code>RefreshMask</code> after changing something deep inside it.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>:
+<code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>Intensity</strong> is the fill's coverage, from 0 to 1. <code>Seed</code> picks a different grain pattern.</li>
+<li><strong>Idle:</strong> with <code>Fps</code> or <code>Amount</code> at 0, the gradient holds still and requests no frames.</li>
+<li><strong>Light and dark surfaces:</strong> the gradient draws the same on both. On gradient text, pick colors that stand out from the background behind the text.</li>
+<li><strong>Reduced motion:</strong> the grain holds still. See <a href="../concepts/reduced-motion.html#the-poses">Reduced motion</a>.</li>
+<li><strong>Cost:</strong> 0.073 ms of GPU time per frame on a 340×190 card in the gallery's bench. Leave <code>RenderScale</code> at 1: it would soften the grain.</li>
+<li>Like every fill, it can paint only the child's own pixels with <code>UseMask</code>, or a band inside the edge with <code>BorderWidth</code>.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.GrainGradient.html">GrainGradient</a> API reference</li>
+<li><a href="meshgradient.html">Mesh gradient</a>, <a href="grain.html">Grain</a> and <a href="dither.html">Dither</a></li>
+<li><a href="../concepts/content-masks.html">Content masks</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/graingradient.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

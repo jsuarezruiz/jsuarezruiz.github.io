@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Pulse | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Pulse | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="Radar rings, a breathing halo, a heartbeat, tap ripples, or a ping that flies to a destination.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/pulse.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="pulse">Pulse</h1>
+
+<p>Pulse sends light out from the host's shape. Radar rings, a breathing halo and a heartbeat run on their own and follow the shape's outline: use them for a live or recording status, an unread dot or a call to action. A ripple spreads from where the shape is tapped, inside it, like a touch response. A ping flies from the shape's edge to a point or another control, to show that something was sent.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/pulse-light.png" alt="Pulse on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/pulse-dark.png" alt="Pulse on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-a-pulse">Add a pulse</h2>
+<p>The default style is <code>Radar</code>. Here it pairs with a <a href="glow.html">glow</a> on a recording dot; <code>CornerRadius=&quot;999&quot;</code> makes the host's shape a circle, so the rings stay round.</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;fx:FXHost CornerRadius=&quot;999&quot;&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:Pulse Style=&quot;Radar&quot; Color=&quot;#F97316&quot; Reach=&quot;16&quot; Width=&quot;1.5&quot; /&gt;
+            &lt;fx:Glow Color=&quot;#F97316&quot; Radius=&quot;9&quot; Hot=&quot;1&quot; /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Ellipse Width=&quot;20&quot; Height=&quot;20&quot; Fill=&quot;#F97316&quot; /&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<p><code>Count</code> sets how many rings are out at once, <code>Period</code> how long each takes, and <code>Reach</code> how far they travel from the edge.</p>
+<h2 id="styles">Styles</h2>
+<p><code>Radar</code>, <code>Breathe</code> and <code>Heartbeat</code> draw under the child and run continuously. <code>Ripple</code> and <code>Ping</code> draw over it and play once each time they are fired.</p>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Radar</code> (default)</td>
+<td>Rings that leave the shape's edge and fade as they spread.</td>
+</tr>
+<tr>
+<td><code>Breathe</code></td>
+<td>A halo that swells and settles.</td>
+</tr>
+<tr>
+<td><code>Heartbeat</code></td>
+<td>Lub-dub beats; each beat's ring keeps spreading under the next.</td>
+</tr>
+<tr>
+<td><code>Ripple</code></td>
+<td>A one-shot ripple from a point, confined to the shape. Overlapping taps overlap.</td>
+</tr>
+<tr>
+<td><code>Ping</code></td>
+<td>A comet that launches from the shape's edge, winds up, flies with a decelerating landing, then blooms and cools at its destination: <code>Ping</code> or <code>PingTo</code>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ripple-on-a-tap">Ripple on a tap</h2>
+<p>With <code>Style=&quot;Ripple&quot;</code>, every press on the host starts a ripple from the press point, because <code>TriggerOnPress</code> is on by default. Ripples overlap, so a quick double tap shows two. The press has to land on the host's content, so give it a background.</p>
+<pre><code class="lang-xaml">&lt;fx:FXHost&gt;
+    &lt;fx:FXHost.Layers&gt;
+        &lt;fx:Pulse Style=&quot;Ripple&quot; Color=&quot;#3B82F6&quot; Width=&quot;2.5&quot; /&gt;
+    &lt;/fx:FXHost.Layers&gt;
+    &lt;Border Width=&quot;240&quot; Height=&quot;96&quot; CornerRadius=&quot;14&quot; Background=&quot;White&quot; Cursor=&quot;Hand&quot;&gt;
+        &lt;TextBlock Text=&quot;Tap anywhere&quot; HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot; /&gt;
+    &lt;/Border&gt;
+&lt;/fx:FXHost&gt;
+</code></pre>
+<p>Unset, <code>Reach</code> lets a ripple spread to the farthest corner. <code>Duration</code> sets how long each ripple lives.</p>
+<h2 id="send-a-ping">Send a ping</h2>
+<p>A ping winds up, flies from the shape's edge with a slowing landing, then blooms and cools where it lands. Call <code>PingTo</code> with the control it should land on, and give the sending host a higher <code>ZIndex</code> so the ping draws on top of the target:</p>
+<pre><code class="lang-xaml">&lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;100&quot;&gt;
+    &lt;fx:FXHost CornerRadius=&quot;999&quot; ZIndex=&quot;1&quot;&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:Pulse x:Name=&quot;Pinger&quot; Style=&quot;Ping&quot; TriggerOnPress=&quot;False&quot; Color=&quot;#60A5FA&quot; /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Button Content=&quot;Send&quot; Click=&quot;OnSend&quot; /&gt;
+    &lt;/fx:FXHost&gt;
+    &lt;Border x:Name=&quot;Inbox&quot; Width=&quot;120&quot; Height=&quot;72&quot; CornerRadius=&quot;12&quot; Background=&quot;White&quot; /&gt;
+&lt;/StackPanel&gt;
+</code></pre>
+<pre><code class="lang-csharp">private void OnSend(object? sender, RoutedEventArgs e) =&gt; Pinger.PingTo(Inbox);
+</code></pre>
+<p>Without a destination, <code>Ping()</code> flies along <code>Direction</code> for <code>Travel</code> DIPs. Set <code>Interval</code> to send one every so many seconds on its own.</p>
+<h2 id="methods">Methods</h2>
+<p>Call these to fire a ripple or a ping from code, for example from a command or a network event. Positions are in the host's coordinates.</p>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Trigger(Point? at = null)</code></td>
+<td>Starts a ripple at <code>at</code> (host coordinates), or at the shape's center.</td>
+</tr>
+<tr>
+<td><code>Ping(Point? to = null)</code></td>
+<td>Fires a ping from the shape's edge to <code>to</code> (host coordinates), or along <code>Direction</code> for <code>Travel</code>. Pings overlap. Style must be Ping.</td>
+</tr>
+<tr>
+<td><code>PingTo(Control target)</code></td>
+<td>Fires a ping from the shape's edge to the center of <code>target</code>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Style</code></td>
+<td><code>PulseStyle</code></td>
+<td><code>Radar</code></td>
+<td>The kind of pulse: radar rings, a breathing halo, a heartbeat, tap ripples, or pings that fly to a destination. Values: <code>Radar</code>, <code>Breathe</code>, <code>Heartbeat</code>, <code>Ripple</code>, <code>Ping</code>.</td>
+</tr>
+<tr>
+<td><code>Color</code></td>
+<td><code>Color</code></td>
+<td><code>#3B82F6</code></td>
+<td>The color of the rings, the halo and the pings.</td>
+</tr>
+<tr>
+<td><code>CoreColor</code></td>
+<td><code>Color</code></td>
+<td><code>#E8F1FF</code></td>
+<td>The white-hot color where the light is brightest: the halo near the edge, a ripple's ring, a ping's head. Applies to the <code>Breathe</code>, <code>Heartbeat</code>, <code>Ripple</code>, and <code>Ping</code> styles.</td>
+</tr>
+<tr>
+<td><code>Count</code></td>
+<td><code>int</code></td>
+<td><code>3</code></td>
+<td>How many radar rings are out at once. Range 1–8. Applies to the <code>Radar</code> style.</td>
+</tr>
+<tr>
+<td><code>Period</code></td>
+<td><code>double</code></td>
+<td><code>2.4</code></td>
+<td>Seconds per cycle: one ring's trip, one breath, or one heartbeat. Range 0.3–8. Applies to the <code>Radar</code>, <code>Breathe</code>, and <code>Heartbeat</code> styles.</td>
+</tr>
+<tr>
+<td><code>Reach</code></td>
+<td><code>double</code></td>
+<td><code>36</code></td>
+<td>How far rings travel from the edge. For ripples, unset means the farthest corner. Range 4–160 DIPs. Applies to the <code>Radar</code>, <code>Breathe</code>, <code>Heartbeat</code>, and <code>Ripple</code> styles.</td>
+</tr>
+<tr>
+<td><code>Width</code></td>
+<td><code>double</code></td>
+<td><code>1.6</code></td>
+<td>Thickness of the rings, in DIPs; they widen as they spread. Range 0.3–8. Applies to the <code>Radar</code>, <code>Heartbeat</code>, and <code>Ripple</code> styles.</td>
+</tr>
+<tr>
+<td><code>Duration</code></td>
+<td><code>double</code></td>
+<td><code>0.75</code></td>
+<td>A ripple's life, or a ping's flight to its destination (it then blooms and cools for a while longer), in seconds. Range 0.1–3. Applies to the <code>Ripple</code> and <code>Ping</code> styles.</td>
+</tr>
+<tr>
+<td><code>Occlusion</code></td>
+<td><code>double</code></td>
+<td><code>0.15</code></td>
+<td>How much the light also covers what is behind it. Range 0–1 (0–100%).</td>
+</tr>
+<tr>
+<td><code>Direction</code></td>
+<td><code>double</code></td>
+<td><code>0</code></td>
+<td>Ping: the direction a ping flies when no destination is given, degrees: 0 to the right, 90 down; positive turns clockwise. Range -180 to 180. Applies to the <code>Ping</code> style.</td>
+</tr>
+<tr>
+<td><code>Travel</code></td>
+<td><code>double</code></td>
+<td><code>160</code></td>
+<td>Ping: how far a ping flies when no destination is given. Range 8–600 DIPs. Applies to the <code>Ping</code> style.</td>
+</tr>
+<tr>
+<td><code>Lag</code></td>
+<td><code>double</code></td>
+<td><code>0.16</code></td>
+<td>Ping: how far the tail trails the head, as a share of the flight. Range 0–0.5 (0–50%). Applies to the <code>Ping</code> style.</td>
+</tr>
+<tr>
+<td><code>HeadRadius</code></td>
+<td><code>double</code></td>
+<td><code>2.6</code></td>
+<td>Ping: radius of the comet's head, in DIPs; it swells as it blooms at the destination. Range 0.5–12. Applies to the <code>Ping</code> style.</td>
+</tr>
+<tr>
+<td><code>Interval</code></td>
+<td><code>double</code></td>
+<td><code>0</code></td>
+<td>Ping: fire one every this many seconds (0: only when asked). Range 0–10. Applies to the <code>Ping</code> style.</td>
+</tr>
+<tr>
+<td><code>TriggerOnPress</code></td>
+<td><code>bool</code></td>
+<td><code>true</code></td>
+<td>Starts a ripple (or fires a ping) whenever the pointer is pressed on the host; on by default. The other styles run on their own and ignore presses. Applies to the <code>Ripple</code> and <code>Ping</code> styles.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>:
+<code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>. On a pulse, <code>Intensity</code> is the strength of the light, up to 3.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>Light and dark surfaces.</strong> On a dark surface the rings add light. On a light surface they draw as tinted haze, and the radar turns down its edge glow and the wash between rings, so the rings carry the effect. See <a href="../concepts/light-and-dark.html#how-light-layers-draw-on-each-surface">Light and dark surfaces</a>.</li>
+<li><strong>Reduced motion.</strong> The rings become a static halo. A ripple is a faint flash over the shape, and a ping glows up and cools at its destination without flying. See <a href="../concepts/reduced-motion.html#the-poses">Reduced motion</a>.</li>
+<li><strong>One-shots.</strong> Ripples and pings draw nothing between shots. When too many are live at once, the oldest fades out. See <a href="../concepts/one-shots-and-pointer.html#one-shots">One-shots</a>.</li>
+<li><strong>Cost.</strong> About 0.1 ms of GPU time a frame on the bench's 340×190 card. See <a href="../concepts/performance.html#what-a-layer-costs">Performance</a>.</li>
+<li><strong>Room around the host.</strong> Radar, breathe and heartbeat rings travel <code>Reach</code> DIPs past the shape, and a ping flies past it. A clipping ancestor, such as a <code>ScrollViewer</code>, cuts them off: leave room around the host.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.Pulse.html">Pulse</a> API reference</li>
+<li><a href="glow.html">Glow</a>, a steady light around the same shape</li>
+<li><a href="sparkles.html">Sparkles</a> and <a href="electric.html">Electric</a>, other one-shots fired on a press</li>
+<li><a href="beam.html">Beam</a>, light flowing along a path between two controls</li>
+<li><a href="../concepts/one-shots-and-pointer.html#one-shots">One-shots and the pointer</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/pulse.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>One-shots and the pointer | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="One-shots and the pointer | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="Fire one-shot effects from code or on a press, show and hide content with transitions, and use the layers that follow the pointer.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/concepts/one-shots-and-pointer.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="one-shots-and-the-pointer">One-shots and the pointer</h1>
+
+<p>Most layers run on their own. Some play a moment when asked (a ripple, a burst, a zap), some show and hide the content with a transition, and some follow the pointer. This page covers all three.</p>
+<h2 id="one-shots">One-shots</h2>
+<p>A one-shot plays once and then draws nothing, so it costs nothing until it fires. Shots overlap: firing again while one is still playing starts another one beside it, so a quick double tap shows two ripples. Each layer keeps a bounded pool of live shots. When it is full, the pulse, the shockwave, the electric zaps and the sparkle bursts fade their oldest shot out; the other layers drop it. Ink and water add each splash to their simulation instead.</p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>From code</th>
+<th>On a press</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="xref" href="../../api/Nova.Avalonia.FX.Pulse.html">Pulse</a>, <code>Ripple</code> style</td>
+<td><code>Trigger(at)</code></td>
+<td><code>TriggerOnPress</code> (on)</td>
+<td>A ripple from a point, confined to the shape.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Nova.Avalonia.FX.Pulse.html">Pulse</a>, <code>Ping</code> style</td>
+<td><code>Ping(to)</code>, <code>PingTo(control)</code></td>
+<td><code>TriggerOnPress</code> (on)</td>
+<td>A ping flies from the shape's edge to a point or a control. <code>Interval</code> sends one every so many seconds.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Nova.Avalonia.FX.Sparkles.html">Sparkles</a></td>
+<td><code>Burst()</code></td>
+<td><code>BurstOnPress</code> (off)</td>
+<td>Pops every star once. With <code>IsContinuous</code> off, stars only show during a burst.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Nova.Avalonia.FX.Electric.html">Electric</a></td>
+<td><code>Zap(at)</code></td>
+<td><code>ZapOnPress</code> (off)</td>
+<td>One strike. On an arc, a zap at a point strikes from the nearer node to it.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Nova.Avalonia.FX.Shockwave.html">Shockwave</a></td>
+<td><code>Trigger(at)</code></td>
+<td><code>TriggerOnPress</code> (on)</td>
+<td>A ring that bends what is behind it.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Nova.Avalonia.FX.Glitch.html">Glitch</a></td>
+<td><code>Trigger()</code></td>
+<td><code>TriggerOnPress</code> (on)</td>
+<td>A short burst over the whole content. With <code>IsContinuous</code> it glitches now and then on its own instead.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Nova.Avalonia.FX.Confetti.html">Confetti</a></td>
+<td><code>Fire(at)</code></td>
+<td><code>FireOnPress</code> (off)</td>
+<td>A burst from a point, or the style's own origin.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Nova.Avalonia.FX.Fireworks.html">Fireworks</a></td>
+<td><code>Fire(at)</code></td>
+<td><code>FireOnPress</code> (off)</td>
+<td>A rocket that bursts at a point. <code>Interval</code> keeps a show going.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Nova.Avalonia.FX.Ink.html">Ink</a></td>
+<td><code>Splash(at)</code></td>
+<td><code>SplashOnPress</code> (on)</td>
+<td>A splash of every color.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Nova.Avalonia.FX.Water.html">Water</a></td>
+<td><code>Splash(at)</code></td>
+<td><code>SplashOnPress</code> (on)</td>
+<td>A splash on the water's surface.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Nova.Avalonia.FX.DotGrid.html">DotGrid</a></td>
+<td><code>Ripple(at)</code></td>
+<td><code>RippleOnPress</code> (on)</td>
+<td>A ring sent out across the grid.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Nova.Avalonia.FX.Jelly.html">Jelly</a></td>
+<td><code>Wobble(at)</code></td>
+<td><code>WobbleOnPress</code> (on)</td>
+<td>The element squashes and wobbles.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Nova.Avalonia.FX.Beam.html">Beam</a></td>
+<td><code>Send()</code></td>
+<td></td>
+<td>Sends one pulse along the path. Pulses also leave every <code>Interval</code> seconds.</td>
+</tr>
+</tbody>
+</table>
+<p>The point is in the host's coordinates. Leave it out (or pass <code>null</code>) to use the center of the shape or the layer's own spot. A press on the host passes the press point, except for a ping, which flies along its <code>Direction</code>.</p>
+<p>To fire at a point from an event, convert the position to the host:</p>
+<pre><code class="lang-csharp">private void OnCardReleased(object? sender, PointerReleasedEventArgs e)
+{
+    CardRipple.Trigger(e.GetPosition(CardHost));
+}
+</code></pre>
+<p>To send a ping from one control to another, give the sending host a higher <code>ZIndex</code> so the ping lands on top of the target:</p>
+<pre><code class="lang-xml">&lt;fx:FXHost ZIndex=&quot;1&quot;&gt;
+    &lt;fx:FXHost.Layers&gt;
+        &lt;fx:Pulse x:Name=&quot;Pinger&quot; Style=&quot;Ping&quot; TriggerOnPress=&quot;False&quot; /&gt;
+    &lt;/fx:FXHost.Layers&gt;
+    &lt;Button Content=&quot;Send&quot; Click=&quot;OnSend&quot; /&gt;
+&lt;/fx:FXHost&gt;
+
+&lt;Button x:Name=&quot;Inbox&quot; Content=&quot;Inbox&quot; /&gt;
+</code></pre>
+<pre><code class="lang-csharp">private void OnSend(object? sender, RoutedEventArgs e)
+{
+    Pinger.PingTo(Inbox);
+}
+</code></pre>
+<h2 id="show-and-hide-transitions">Show and hide transitions</h2>
+<p><a class="xref" href="../../api/Nova.Avalonia.FX.Reveal.html">Reveal</a>, <a class="xref" href="../../api/Nova.Avalonia.FX.Genie.html">Genie</a> and <a class="xref" href="../../api/Nova.Avalonia.FX.Shatter.html">Shatter</a> show and hide the host's content. Set <code>IsShown</code>, which binds both ways by default, or call <code>Show(from)</code> and <code>Hide(toward)</code>.</p>
+<p>When a transition starts, the layer captures the content as it looks, hides the real element and plays the transition on the capture. Once the content is shown again, the element takes over in the same frame as the layer stops drawing. While hidden, the element is invisible but keeps its place in the layout. With nothing to capture (no content, invisible, or not laid out yet), or while the layer isn't active, it switches at once.</p>
+<p><code>Duration</code> sets the pace in seconds; the layer's <code>Speed</code> doesn't apply.</p>
+<pre><code class="lang-xml">&lt;fx:FXHost&gt;
+    &lt;fx:FXHost.Layers&gt;
+        &lt;fx:Reveal x:Name=&quot;DetailsReveal&quot; Style=&quot;Iris&quot; IsShown=&quot;{Binding IsDetailsVisible}&quot; /&gt;
+    &lt;/fx:FXHost.Layers&gt;
+    &lt;Border Width=&quot;260&quot; Height=&quot;140&quot; CornerRadius=&quot;12&quot; Background=&quot;#15171c&quot; /&gt;
+&lt;/fx:FXHost&gt;
+</code></pre>
+<p>The point given to <code>Show</code> or <code>Hide</code> is where the transition comes from or goes: an iris opens there or closes on it, shards break from it and fly back toward it, the genie pours out of it or pulls into it.</p>
+<pre><code class="lang-csharp">private void OnDismiss(object? sender, PointerReleasedEventArgs e)
+{
+    DetailsReveal.Hide(e.GetPosition(DetailsHost));
+}
+</code></pre>
+<p><code>Genie</code> can also pull the content into another control, such as a dock icon or a trash button, with <code>Target</code>:</p>
+<pre><code class="lang-xml">&lt;fx:Genie Target=&quot;{Binding #TrashButton}&quot; Duration=&quot;0.6&quot; /&gt;
+</code></pre>
+<p>Other layers that change state with a short animation:</p>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.Spoiler.html">Spoiler</a> hides content until it is tapped. <code>IsRevealed</code> binds both ways, <code>Reveal(from)</code> and <code>Hide()</code> work from code, and <code>HideAfter</code> covers it again after so many seconds.</li>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.PagePeel.html">PagePeel</a> curls a corner up when hovered; <code>IsPeeled</code> holds it peeled from code.</li>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.LiquidProgress.html">LiquidProgress</a> eases to a new <code>Level</code> with a little overshoot and sloshes its surface.</li>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.Glow.html">Glow</a> cools over <code>Cool</code> seconds when <code>IsLit</code> turns off.</li>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.Frost.html">Frost</a> creeps in as far as <code>Amount</code>; animate it with a transition to freeze or thaw.</li>
+</ul>
+<h2 id="layers-that-follow-the-pointer">Layers that follow the pointer</h2>
+<p>These layers react to the pointer moving over the host:</p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>What follows the pointer</th>
+<th>From code</th>
+<th>Reach</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="xref" href="../../api/Nova.Avalonia.FX.Spotlight.html">Spotlight</a></td>
+<td>A soft light that lights the border near it.</td>
+<td><code>PointAt(at)</code></td>
+<td><code>PointerReach</code>, 48 DIPs past the shape by default</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Nova.Avalonia.FX.HoloFoil.html">HoloFoil</a></td>
+<td>The sheen shifts as if the foil tilted.</td>
+<td><code>PointAt(at)</code></td>
+<td>The shape</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Nova.Avalonia.FX.Magnifier.html">Magnifier</a></td>
+<td>A glass loupe.</td>
+<td><code>PointAt(at)</code></td>
+<td>The shape</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Nova.Avalonia.FX.Trail.html">Trail</a></td>
+<td>A ribbon or sparks behind the pointer.</td>
+<td><code>PointAt(at)</code></td>
+<td><code>PointerReach</code>, 0 by default</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Nova.Avalonia.FX.Ink.html">Ink</a></td>
+<td>The pointer stirs the fluid and leaves ink.</td>
+<td><code>PointAt(at)</code></td>
+<td>The shape</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Nova.Avalonia.FX.Water.html">Water</a></td>
+<td>The pointer drags ripples across the surface.</td>
+<td><code>Splash(at)</code></td>
+<td>The shape</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Nova.Avalonia.FX.Frost.html">Frost</a></td>
+<td>The ice melts around the pointer.</td>
+<td><code>PointAt(at)</code></td>
+<td>The shape, while <code>MeltRadius</code> is above 0</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Nova.Avalonia.FX.DotGrid.html">DotGrid</a></td>
+<td>Dots light up and grow around the pointer.</td>
+<td><code>PointAt(at)</code></td>
+<td><code>HoverRadius</code>, 90 DIPs by default</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Nova.Avalonia.FX.ParticleNetwork.html">ParticleNetwork</a></td>
+<td>The pointer joins in and draws the dots toward it.</td>
+<td><code>PointAt(at)</code></td>
+<td>The shape, while <code>FollowPointer</code> is on</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Nova.Avalonia.FX.Tilt.html">Tilt</a></td>
+<td>The host leans toward the pointer, with a glare.</td>
+<td><code>PointAt(at)</code></td>
+<td><code>PointerReach</code>, 0 by default</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Nova.Avalonia.FX.PointerShadow.html">PointerShadow</a></td>
+<td>The content casts a shadow away from the pointer.</td>
+<td><code>PointAt(at)</code></td>
+<td><code>PointerReach</code>, 800 DIPs by default, while <code>FollowPointer</code> is on</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Nova.Avalonia.FX.PagePeel.html">PagePeel</a></td>
+<td>The corner peels further as the pointer nears it.</td>
+<td><code>IsPeeled</code></td>
+<td>The shape, while <code>FollowPointer</code> is on</td>
+</tr>
+</tbody>
+</table>
+<p>The host listens to the window's pointer only while one of its layers follows it and is active. It passes the pointer's position to a layer while the pointer is within the shape plus the layer's reach, and tells the layer once the pointer leaves. On the render thread, the layer eases toward the pointer and fades in and out; where a layer has <code>FollowTime</code>, that is how long it takes to catch up. Idle, these layers draw nothing.</p>
+<p><code>PointAt(at)</code> aims a layer from code, as if the pointer were there: for keyboard focus, a guided tour or a demo. Pass <code>null</code> to let it go. The pointer takes over again when it moves.</p>
+<p>This lights a card's spotlight on its button when the button gets keyboard focus:</p>
+<pre><code class="lang-csharp">SaveButton.GotFocus += (_, _) =&gt;
+{
+    var center = new Point(SaveButton.Bounds.Width / 2, SaveButton.Bounds.Height / 2);
+    CardSpotlight.PointAt(SaveButton.TranslatePoint(center, CardHost));
+};
+SaveButton.LostFocus += (_, _) =&gt; CardSpotlight.PointAt(null);
+</code></pre>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/concepts/one-shots-and-pointer.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

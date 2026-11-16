@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Getting Started | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Getting Started | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="Install Nova.Avalonia.FX and put your first effect layers on an Avalonia control.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/getting-started.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="getting-started">Getting Started</h1>
+
+<p>Follow these steps to install Nova.Avalonia.FX, wrap a control in an <code>FXHost</code> and give it its first layers.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Avalonia 12.1.5 or later in the Avalonia 12 release line, with the Skia renderer (the default)</li>
+<li>.NET 8 or later</li>
+</ul>
+<p>The layers draw on the desktop and in the browser (WebAssembly, with WebGL). On another rendering backend they draw nothing rather than fail.</p>
+<h2 id="install-the-nuget-package">Install the NuGet package</h2>
+<p>The package is in preview, so include prerelease versions. From your application project:</p>
+<pre><code class="lang-bash">dotnet add package Nova.Avalonia.FX --prerelease
+</code></pre>
+<p>There are no styles to register. The library has no control templates: <code>FXHost</code> is a plain control and the layers are styled elements, so nothing needs to go in <code>Application.Styles</code>.</p>
+<h2 id="declare-the-xaml-namespace">Declare the XAML namespace</h2>
+<p>Every layer, the host and the catalog are in one XAML namespace. Map it to the <code>fx</code> prefix:</p>
+<pre><code class="lang-xml">xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;
+</code></pre>
+<h2 id="wrap-a-control-in-an-fxhost">Wrap a control in an FXHost</h2>
+<p><code>FXHost</code> takes one child and draws its layers around it. Add layers to <code>FXHost.Layers</code>. This puts a neon glow around a card:</p>
+<pre><code class="lang-xml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;fx:FXHost HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot;&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:Glow Style=&quot;Neon&quot; Color=&quot;#22d3ee&quot; /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Border Width=&quot;220&quot; Height=&quot;96&quot; CornerRadius=&quot;14&quot; Background=&quot;#101217&quot; /&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<p>The layers follow the child's bounds and corner radius. The host reads the corner radius from a <code>Border</code> or a templated control; for anything else, or to override it, set <code>FXHost.CornerRadius</code>. <code>CornerRadius=&quot;999&quot;</code> makes a capsule or a circle.</p>
+<p>A glow spills past the child, and it is drawn outside the host's bounds. A clipping ancestor cuts it: a <code>ScrollViewer</code>, a <code>Border</code> with <code>ClipToBounds</code>, or Fluent's <code>ContentControl</code>, which clips by default. Leave room around the host, or set <code>ClipToBounds=&quot;False&quot;</code> where that is safe.</p>
+<h2 id="stack-several-layers">Stack several layers</h2>
+<p>A host can hold any number of layers. Each one draws under the child or over it (its <em>placement</em>), and within each placement they paint in the order you list them. Here a liquid-metal fill goes under the label and sparkles go over it:</p>
+<pre><code class="lang-xml">&lt;fx:FXHost CornerRadius=&quot;26&quot;&gt;
+    &lt;fx:FXHost.Layers&gt;
+        &lt;fx:LiquidMetal Preset=&quot;Gold&quot; /&gt;
+        &lt;fx:Sparkles BurstOnPress=&quot;True&quot; IsContinuous=&quot;False&quot; /&gt;
+    &lt;/fx:FXHost.Layers&gt;
+    &lt;Border Padding=&quot;40,14&quot;&gt;
+        &lt;TextBlock Text=&quot;Upgrade&quot; /&gt;
+    &lt;/Border&gt;
+&lt;/fx:FXHost&gt;
+</code></pre>
+<p>The sparkles only show when the host is pressed, because <code>IsContinuous</code> is off and <code>BurstOnPress</code> is on. <a href="concepts/layers.html">Layers and hosts</a> explains placement, blend modes and the properties every layer shares.</p>
+<h2 id="set-properties">Set properties</h2>
+<p>Layer settings are Avalonia styled properties, so you can set them in XAML, bind them, take them from resources and animate them:</p>
+<pre><code class="lang-xml">&lt;fx:Glow Style=&quot;Neon&quot;
+         Color=&quot;{DynamicResource SystemAccentColor}&quot;
+         IsLit=&quot;{Binding IsOnline}&quot;
+         Cool=&quot;0.8&quot; /&gt;
+</code></pre>
+<p>Switching <code>IsLit</code> off cools the glow over <code>Cool</code> seconds instead of cutting it off.</p>
+<p>Styles reach layers too. This fades a glow up while the pointer is over the host:</p>
+<pre><code class="lang-xml">&lt;Style Selector=&quot;fx|FXHost.hover fx|Glow&quot;&gt;
+    &lt;Setter Property=&quot;Intensity&quot; Value=&quot;0.2&quot; /&gt;
+    &lt;Setter Property=&quot;Transitions&quot;&gt;
+        &lt;Transitions&gt;
+            &lt;DoubleTransition Property=&quot;Intensity&quot; Duration=&quot;0:0:0.3&quot; /&gt;
+        &lt;/Transitions&gt;
+    &lt;/Setter&gt;
+&lt;/Style&gt;
+&lt;Style Selector=&quot;fx|FXHost.hover:pointerover fx|Glow&quot;&gt;
+    &lt;Setter Property=&quot;Intensity&quot; Value=&quot;1.3&quot; /&gt;
+&lt;/Style&gt;
+</code></pre>
+<p>From code, create a host and its layers like any other control:</p>
+<pre><code class="lang-csharp">using Avalonia;
+using Avalonia.Controls;
+using Avalonia.Media;
+using Nova.Avalonia.FX;
+
+var host = new FXHost
+{
+    CornerRadius = new CornerRadius(14),
+    Child = new Button { Content = &quot;Generate&quot; },
+};
+host.Layers.Add(new Glow { Style = GlowStyle.Neon, Color = Color.Parse(&quot;#22d3ee&quot;) });
+</code></pre>
+<p>A layer can be in one host at a time. Adding a layer that is still in another host's <code>Layers</code> throws an <code>InvalidOperationException</code>.</p>
+<h2 id="fire-a-one-shot-from-code">Fire a one-shot from code</h2>
+<p>Some layers play a moment when asked: a ripple, a burst of confetti, a zap. Name the layer and call its method. Points are in the host's coordinates; leave them out to use the layer's own spot.</p>
+<pre><code class="lang-xml">&lt;fx:FXHost&gt;
+    &lt;fx:FXHost.Layers&gt;
+        &lt;fx:Confetti x:Name=&quot;Celebration&quot; /&gt;
+    &lt;/fx:FXHost.Layers&gt;
+    &lt;Button Content=&quot;Save&quot; Click=&quot;OnSave&quot; /&gt;
+&lt;/fx:FXHost&gt;
+</code></pre>
+<pre><code class="lang-csharp">private void OnSave(object? sender, RoutedEventArgs e)
+{
+    Celebration.Fire();
+}
+</code></pre>
+<p>Most one-shot layers can also fire on a press of the host, such as <code>Confetti.FireOnPress</code> or <code>Pulse.TriggerOnPress</code>. <a href="concepts/one-shots-and-pointer.html">One-shots and the pointer</a> lists them all.</p>
+<h2 id="next-steps">Next steps</h2>
+<ul>
+<li>Browse the <strong>Effects</strong> pages to see each layer's settings and examples.</li>
+<li>Read <a href="concepts/light-and-dark.html">Light and dark surfaces</a> if your app has a light theme.</li>
+<li>Run the <a href="gallery.html">gallery</a> to try every layer and copy its XAML.</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/getting-started.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

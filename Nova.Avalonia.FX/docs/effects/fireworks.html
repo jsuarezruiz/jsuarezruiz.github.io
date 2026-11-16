@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Fireworks | Nova.Avalonia.FX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Fireworks | Nova.Avalonia.FX ">
+      
+      <meta name="description" content="Rockets that climb from the bottom edge and burst into streaking, falling, crackling sparks, fired from code, on a press or as a show.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/fireworks.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.png" alt="Nova.Avalonia.FX">
+            Nova.Avalonia.FX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="fireworks">Fireworks</h1>
+
+<p>Fireworks sends rockets up from the host's bottom edge that burst into a sphere of streaking sparks, which slow, fall, crackle and fade. Use it for a launch, a win or a celebration banner, or keep a show going behind a hero section. Shots are fired from code or on a press, or every so many seconds with <code>Interval</code>. They draw over the host and overlap.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_light" role="tab" aria-controls="tabpanel_1_light" data-tab="light" tabindex="0" aria-selected="true">Light</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_dark" role="tab" aria-controls="tabpanel_1_dark" data-tab="dark" tabindex="-1">Dark</a>
+</li>
+</ul>
+<section id="tabpanel_1_light" role="tabpanel" data-tab="light">
+
+<p><img src="../../images/effects/fireworks-light.png" alt="Fireworks on a light surface"></p>
+</section>
+<section id="tabpanel_1_dark" role="tabpanel" data-tab="dark" aria-hidden="true" hidden="hidden">
+
+<p><img src="../../images/effects/fireworks-dark.png" alt="Fireworks on a dark surface"></p>
+</section>
+</div>
+<h2 id="add-fireworks">Add fireworks</h2>
+<p>Here a rocket goes up every 1.3 seconds over a night sky, and a press sends one more to the press point:</p>
+<pre><code class="lang-xaml">&lt;UserControl xmlns=&quot;https://github.com/avaloniaui&quot;
+             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+             xmlns:fx=&quot;https://github.com/jsuarezruiz/Nova.Avalonia.FX&quot;&gt;
+
+    &lt;fx:FXHost CornerRadius=&quot;10&quot; Cursor=&quot;Hand&quot;&gt;
+        &lt;fx:FXHost.Layers&gt;
+            &lt;fx:Starfield Density=&quot;0.5&quot; Twinkle=&quot;0.3&quot; Speed=&quot;0.1&quot; /&gt;
+            &lt;fx:Fireworks Interval=&quot;1.3&quot; FireOnPress=&quot;True&quot; Count=&quot;80&quot; /&gt;
+        &lt;/fx:FXHost.Layers&gt;
+        &lt;Border Width=&quot;360&quot; Height=&quot;220&quot; /&gt;
+    &lt;/fx:FXHost&gt;
+&lt;/UserControl&gt;
+</code></pre>
+<p>The starfield is a fill, drawn under the child as its background, so the child here is an empty <code>Border</code> that only sets the size.</p>
+<h2 id="fire-from-code-or-on-a-press">Fire from code or on a press</h2>
+<p><code>Fire(at)</code> sends a rocket to burst at a point in the host's coordinates. Without a point, each shot picks a spot of its own in the upper half of the shape. With <code>FireOnPress</code>, a press on the host fires at the press point.</p>
+<pre><code class="lang-csharp">private void OnLaunchClick(object? sender, RoutedEventArgs e)
+{
+    // Three rockets across the banner.
+    var w = BannerHost.Bounds.Width;
+    foreach (var x in new[] { 0.25, 0.5, 0.75 })
+        BannerFireworks.Fire(new Point(w * x, 50));
+}
+</code></pre>
+<p>Fired shots overlap: up to six play at once, and one more drops the oldest.</p>
+<h2 id="keep-a-show-going">Keep a show going</h2>
+<p><code>Interval</code> is the time in seconds between shots of a running show. At 0, the default, rockets go up only when fired. A show keeps the layer drawing every frame, so set <code>Interval</code> back to 0, or <code>IsActive</code> to false, when the show is over.</p>
+<pre><code class="lang-xaml">&lt;fx:Fireworks x:Name=&quot;Show&quot; Interval=&quot;0.8&quot; Flight=&quot;0.9&quot; Colors=&quot;#ffd23f, #ff4d6d, #4cc9f0&quot; /&gt;
+</code></pre>
+<h2 id="shape-the-bursts">Shape the bursts</h2>
+<p><code>Count</code> is the number of sparks a burst, <code>Power</code> how fast they leave, <code>Gravity</code> how fast they fall and <code>Size</code> the thickness of their streaks. <code>Duration</code> is how long a burst lasts and <code>Flight</code> how long a rocket climbs (0: the burst appears at once). Each burst takes one or two of the <code>Colors</code>.</p>
+<h2 id="methods">Methods</h2>
+<p>Call <code>Fire</code> to send a rocket from code.</p>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Fire(Point? at = null)</code></td>
+<td>Sends a rocket to burst at <code>at</code> (host coordinates), or at a spot of its own.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="properties">Properties</h2>
+<!-- Generated from the code by the gallery's --docs option. Don't edit by hand. -->
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Colors</code></td>
+<td><code>FXColorList</code></td>
+<td>Unset</td>
+<td>Burst colors; each burst takes one or two. Unset: a bright palette.</td>
+</tr>
+<tr>
+<td><code>Count</code></td>
+<td><code>int</code></td>
+<td><code>90</code></td>
+<td>Sparks per burst. Range 8–240.</td>
+</tr>
+<tr>
+<td><code>Power</code></td>
+<td><code>double</code></td>
+<td><code>1</code></td>
+<td>Burst speed, as a multiple of a lively default. Range 0.2–3.</td>
+</tr>
+<tr>
+<td><code>Gravity</code></td>
+<td><code>double</code></td>
+<td><code>1</code></td>
+<td>How strongly the sparks fall after a burst, a multiple of the default (0: they don't fall). Range 0–3.</td>
+</tr>
+<tr>
+<td><code>Duration</code></td>
+<td><code>double</code></td>
+<td><code>1.6</code></td>
+<td>How long a burst lasts. Range 0.4–4 seconds.</td>
+</tr>
+<tr>
+<td><code>Flight</code></td>
+<td><code>double</code></td>
+<td><code>0.7</code></td>
+<td>How long a rocket climbs. Range 0–2 seconds.</td>
+</tr>
+<tr>
+<td><code>Size</code></td>
+<td><code>double</code></td>
+<td><code>2</code></td>
+<td>Thickness of a spark's streak, DIPs. Range 0.5–6.</td>
+</tr>
+<tr>
+<td><code>Interval</code></td>
+<td><code>double</code></td>
+<td><code>0</code></td>
+<td>Seconds between shots of a running show (0: only when fired). Range 0–10.</td>
+</tr>
+<tr>
+<td><code>FireOnPress</code></td>
+<td><code>bool</code></td>
+<td><code>false</code></td>
+<td>Fires a rocket wherever the pointer is pressed on the host.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Every layer also has the <a href="../concepts/layers.html#properties-every-layer-has">common properties</a>:
+<code>Intensity</code>, <code>Opacity</code>, <code>Speed</code>, <code>Seed</code>, <code>IsActive</code>, <code>Placement</code>, <code>BlendMode</code> and <code>RenderScale</code>. While <code>IsActive</code> is off, presses fire nothing.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>Light and dark.</strong> On a dark surface the sparks add light; on a light one they show as color. A <code>BlendMode</code> other than <code>Normal</code> set on the layer takes over. See <a href="../concepts/light-and-dark.html#how-light-layers-draw-on-each-surface">Light and dark surfaces</a>.</li>
+<li><strong>Reduced motion.</strong> There is no rocket: each burst appears in place and fades, without flying. See <a href="../concepts/reduced-motion.html#the-poses">the poses</a>.</li>
+<li><strong>Cost.</strong> The sparks are drawn on the GPU as one batch of soft strips, 0.04–0.18 ms of CPU time a frame on the desktop. Without a GPU they are drawn as stroked lines. Between shots, with no <code>Interval</code>, the layer draws nothing. <code>RenderScale</code> doesn't apply. See <a href="../concepts/performance.html#what-a-layer-costs">What a layer costs</a>.</li>
+<li><strong>Room to burst.</strong> Bursts happen anywhere in the shape, and their sparks reach past it and fall. A clipping ancestor cuts them, so leave room around the host, or fire at points away from its edges.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../api/Nova.Avalonia.FX.Fireworks.html">Fireworks</a> API reference</li>
+<li><a href="../concepts/one-shots-and-pointer.html#one-shots">One-shots</a></li>
+<li><a href="confetti.html">Confetti</a> and <a href="sparkles.html">Sparkles</a>, for other celebrations</li>
+<li><a href="starfield.html">Starfield</a>, a night sky to fire over</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/jsuarezruiz/Nova.Avalonia.FX/blob/main/docs/docs/effects/fireworks.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
